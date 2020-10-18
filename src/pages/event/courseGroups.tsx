@@ -1,44 +1,42 @@
 import React from 'react';
 
-import { CourseGroup } from '../../state/courses';
+import { CourseGroup } from '../../components/CourseSelection';
 
 export const courseGroups: CourseGroup[] = [
   {
+    name: 'Foundation Courses',
     items: [
+      { code: 'EP', name: 'Event & Wedding Planning' },
+      { code: 'CP', name: 'Corporate Event Planning' },
+      { code: 'CE', name: 'Event Planning' },
+      { code: 'WP', name: 'Wedding Planning' },
+    ],
+  },
+  {
+    name: 'Advanced & Specialty Courses',
+    items: [
+      { code: 'ED', name: 'Event Decor' },
+      { code: 'EB', name: 'Accelerate Your Business Workshop' },
+      { code: 'LW', name: 'Luxury Wedding & Event Planning' },
+      { code: 'DW', name: 'Destination Wedding Planning' },
       {
-        code: 'I2',
-        name: 'Interior Decorating',
-        disabledMessage: (
+        code: 'FL', name: 'Festivals & Live Events', disabledMessage: (
           <p>
-            The <span className="text-primary">Interior Decorating</span> and <span className="text-primary">Home Staging</span>{' '}
-            courses have course materials in common. If you would like training in both subjects, first <em>deselect</em>{' '}
-            Home Staging, then select both <span className="text-primary">Interior Decorating</span> and <span className="text-primary">Staging For Designers</span>.
+            The <span className="text-primary">Festivals &amp; Live Events</span> course requires corporate event
+            training. Please select the <span className="text-primary">Corporate Event Planning</span> course first.
           </p>
         ),
-        selected: false,
-        disabled: false,
-        hidden: false,
       },
-      { code: 'MS', name: 'Staging For Designers', selected: false, disabled: false, hidden: false },
       {
-        code: 'ST',
-        name: 'Home Staging',
-        disabledMessage: (
+        code: 'PE', name: 'Promotional Event Planning', disabledMessage: (
           <p>
-            The <span className="text-primary">Interior Decorating</span> and <span className="text-primary">Home Staging</span>{' '}
-            courses have course materials in common. If you would like training in both subjects, select <span className="text-primary">Staging For Designers</span> instead.
+            The <span className="text-primary">Promotional Event Planning</span> course requires corporate event
+            training. Please select the <span className="text-primary">Corporate Event Planning</span> course first.
           </p>
         ),
-        selected: false,
-        disabled: false,
-        hidden: false,
       },
-      { code: 'PO', name: 'Professional Organizing', selected: false, disabled: false, hidden: false },
-      { code: 'FS', name: 'Feng Shui', selected: false, disabled: false, hidden: false },
-      { code: 'CC', name: 'Color Consultant Course', selected: false, disabled: false, hidden: false },
-      { code: 'AP', name: 'Aging in Place', selected: false, disabled: false, hidden: false },
-      { code: 'DB', name: 'Accelerate Your Design Business', selected: false, disabled: false, hidden: false },
-      { code: 'VD', name: 'Virtual Design Training', selected: false, disabled: false, hidden: false },
+      { code: 'TT', name: 'Travel & Tourism' },
+      { code: 'VE', name: 'Virtual Event Training' },
     ],
   },
 ];

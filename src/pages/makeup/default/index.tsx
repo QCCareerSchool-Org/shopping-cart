@@ -1,15 +1,16 @@
 import React from 'react';
-import { Form } from '../../../components/Form';
-import { DefaultPromo } from './DefaultPromo';
 
+import { Form } from '../../../components/Form';
 import { courseGroups } from '../courseGroups';
+import { Guarantee } from '../Guarantee';
+import { DefaultPromo } from './DefaultPromo';
 
 export const Default: React.FC = () => (
   <>
     <DefaultPromo />
     <Form
-      student={false}
       courseGroups={courseGroups}
+      guarantee={() => <Guarantee />}
     />
   </>
 );

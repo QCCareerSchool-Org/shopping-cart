@@ -5,7 +5,7 @@ import { Default } from './default';
 import { Footer } from './Footer';
 import { Header } from './Header';
 
-export const Event: React.FC = () => (
+const Event: React.FC = () => (
   <>
     <Header />
     <BrowserRouter>
@@ -16,3 +16,5 @@ export const Event: React.FC = () => (
     <Footer />
   </>
 );
+
+export default Event;

@@ -5,12 +5,13 @@ import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
 import { DefaultPromo } from './DefaultPromo';
 
-export const Default: React.FC = () => (
+export const Student: React.FC = () => (
   <>
     <DefaultPromo />
     <Form
       courseGroups={courseGroups}
       guarantee={() => <Guarantee />}
+      student={true}
     />
   </>
 );

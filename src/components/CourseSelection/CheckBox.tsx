@@ -1,13 +1,15 @@
 import React from 'react';
 
 import { useDispatchContext } from '../../hooks/useDispatchContext';
-import { Course } from '../../state/courses';
+import { Course } from '../../components/CourseSelection';
+import { useStateContext } from '../../hooks/useStateContext';
 
 type Props = {
   course: Course;
 }
 
 export const CheckBox: React.FC<Props> = ({ course }) => {
+  const { courses } = useStateContext();
   const dispatch = useDispatchContext();
 
   const courseChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,8 +21,8 @@ export const CheckBox: React.FC<Props> = ({ course }) => {
   };
 
   return (
-    <div className="custom-control custom-checkbox">
-      <input type="checkbox" className="custom-control-input" id={`courses-${course.code}`} checked={course.selected} onChange={courseChange} />
+    <div className="custom-control custom-checkbox mt-2">
+      <input type="checkbox" className="custom-control-input" id={`courses-${course.code}`} checked={courses.selected.includes(course.code)} disabled={courses.disabled.includes(course.code)} onChange={courseChange} />
       <label className="custom-control-label" htmlFor={`courses-${course.code}`}>{course.name}</label>
     </div>
   );

@@ -1,44 +1,53 @@
 import React from 'react';
 
-import { CourseGroup } from '../../state/courses';
+import { CourseGroup } from '../../components/CourseSelection';
+
+import mostPopular from '../../most-pop.svg';
+import specialOffer from './special-offer.svg';
 
 export const courseGroups: CourseGroup[] = [
   {
+    name: 'Foundational Courses',
     items: [
       {
-        code: 'I2',
-        name: 'Interior Decorating',
-        disabledMessage: (
-          <p>
-            The <span className="text-primary">Interior Decorating</span> and <span className="text-primary">Home Staging</span>{' '}
-            courses have course materials in common. If you would like training in both subjects, first <em>deselect</em>{' '}
-            Home Staging, then select both <span className="text-primary">Interior Decorating</span> and <span className="text-primary">Staging For Designers</span>.
-          </p>
-        ),
-        selected: false,
-        disabled: false,
-        hidden: false,
+        code: 'MZ',
+        name: 'Master Makeup Artistry',
+        description: 'Become a Professional',
+        badge: <img src={mostPopular} style={{ height: 32, marginTop: -4, marginLeft: 6 }} alt="Most Popular" />,
       },
-      { code: 'MS', name: 'Staging For Designers', selected: false, disabled: false, hidden: false },
       {
-        code: 'ST',
-        name: 'Home Staging',
-        disabledMessage: (
-          <p>
-            The <span className="text-primary">Interior Decorating</span> and <span className="text-primary">Home Staging</span>{' '}
-            courses have course materials in common. If you would like training in both subjects, select <span className="text-primary">Staging For Designers</span> instead.
-          </p>
-        ),
-        selected: false,
-        disabled: false,
-        hidden: false,
+        code: 'MK',
+        name: 'Makeup Artistry',
+        description: 'Learn to Do Your Own Makeup',
       },
-      { code: 'PO', name: 'Professional Organizing', selected: false, disabled: false, hidden: false },
-      { code: 'FS', name: 'Feng Shui', selected: false, disabled: false, hidden: false },
-      { code: 'CC', name: 'Color Consultant Course', selected: false, disabled: false, hidden: false },
-      { code: 'AP', name: 'Aging in Place', selected: false, disabled: false, hidden: false },
-      { code: 'DB', name: 'Accelerate Your Design Business', selected: false, disabled: false, hidden: false },
-      { code: 'VD', name: 'Virtual Design Training', selected: false, disabled: false, hidden: false },
+      {
+        code: 'SK',
+        name: 'Skincare',
+        description: 'Become a Skincare Consultant',
+
+      },
+    ],
+  },
+  {
+    name: 'Specialty Courses',
+    items: [
+      { code: 'AB', name: 'Airbrush Makeup Workshop' },
+      { code: 'SF', name: 'Special FX Makeup' },
+      { code: 'HS', name: 'Hair Styling Essentials' },
+      { code: 'PF', name: 'Fashion Styling' },
+      { code: 'VM', name: 'Virtual Makeup' },
+    ],
+  },
+  {
+    name: 'Advanced Courses',
+    items: [
+      {
+        code: 'MW',
+        name: 'Pro Makeup Workshop',
+        // badge: <img src={specialOffer} style={{ height: 32, marginTop: -4, marginLeft: 6 }} alt="Sepcial Offer" />,
+      },
+      { code: 'GB', name: 'Global Beauty' },
+      { code: 'PW', name: 'Portfolio Development Workshop' },
     ],
   },
 ];
