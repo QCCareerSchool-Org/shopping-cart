@@ -23,6 +23,13 @@ export const useInitialData = () => {
 
   const loadSavedData = () => {
     if (window.sessionStorage) {
+      // country, province
+      const countryCode = window.sessionStorage.getItem('countryCode');
+      const provinceCode = window.sessionStorage.getItem('provinceCode');
+      if (countryCode) {
+        dispatch({ type: 'SET_COUNTRY_CODE', payload: { countryCode, provinceCode: provinceCode ?? undefined, manual: true } });
+      }
+
       // first name
       const firstName = window.sessionStorage.getItem('firstName');
       if (firstName) {

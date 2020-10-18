@@ -17,8 +17,7 @@ export const CountryCode: React.FC = () => {
   const [ countries, , isLoading ] = useFetchImproved<Country[]>(url, []);
 
   const change = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = e.target.value;
-    dispatch({ type: 'SET_COUNTRY_CODE', payload: { countryCode: value } });
+    dispatch({ type: 'SET_COUNTRY_CODE', payload: { countryCode: e.target.value, manual: true } });
   };
 
   return (
@@ -29,6 +28,7 @@ export const CountryCode: React.FC = () => {
         className="form-control"
         onChange={change}
         value={countryCode}
+        autoComplete="country"
       >
         {isLoading
           ? <option value="">---</option>

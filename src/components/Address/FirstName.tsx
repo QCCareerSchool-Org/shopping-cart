@@ -7,8 +7,7 @@ export const FirstName: React.FC = () => {
   const dispatch = useDispatchContext();
 
   const change = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    dispatch({ type: 'SET_FIRST_NAME', payload: value });
+    dispatch({ type: 'SET_FIRST_NAME', payload: e.target.value });
   };
 
   return (

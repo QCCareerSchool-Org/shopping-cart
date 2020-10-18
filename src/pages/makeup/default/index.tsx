@@ -10,6 +10,7 @@ export const Default: React.FC = () => (
     <DefaultPromo />
     <Form
       courseGroups={courseGroups}
+      school="QC Makeup Academy"
       guarantee={() => <Guarantee />}
     />
   </>

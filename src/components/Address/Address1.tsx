@@ -2,25 +2,25 @@ import React from 'react';
 import { useDispatchContext } from '../../hooks/useDispatchContext';
 import { useStateContext } from '../../hooks/useStateContext';
 
-export const LastName: React.FC = () => {
-  const { address: { lastName } } = useStateContext();
+export const Address1: React.FC = () => {
+  const { address: { address1 } } = useStateContext();
   const dispatch = useDispatchContext();
 
   const change = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch({ type: 'SET_LAST_NAME', payload: e.target.value });
+    dispatch({ type: 'SET_ADDRESS1', payload: e.target.value });
   };
 
   return (
     <div className="form-group">
-      <label htmlFor="address-last-name">Last Name</label>
+      <label htmlFor="address-address1">Address Line 1</label>
       <input
-        id="address-last-name"
+        id="address-address1"
         type="text"
         className="form-control"
         onChange={change}
-        value={lastName}
+        value={address1}
         autoCapitalize="words"
-        autoComplete="family-name"
+        autoComplete="address-line1"
       />
     </div>
   );

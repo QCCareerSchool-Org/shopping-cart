@@ -10,7 +10,9 @@ export const Default: React.FC = () => (
     <DefaultPromo />
     <Form
       courseGroups={courseGroups}
+      school="QC Event School"
       guarantee={() => <Guarantee />}
+      allowNoShipping={true}
     />
   </>
 );

@@ -1,19 +1,32 @@
 import React from 'react';
 
-import { PaymentOptions } from './PaymentOptions';
-import { PaymentPlan } from './PaymentPlan';
+import { useStateContext } from '../../hooks/useStateContext';
+import { School } from '../Form';
 
-export const Payment: React.FC = () => {
+import { NoShipping } from './NoShipping';
+import { PaymentOptions } from './PaymentOptions';
+import { PlanResult } from './PlanResult';
+
+type Props = {
+  school: School;
+  allowNoShipping: boolean;
+  greenDiscount?: string;
+}
+
+export const Payment: React.FC<Props> = ({ school, allowNoShipping, greenDiscount }) => {
+  const { price } = useStateContext();
+  const showNoShipping = price && price.cost > 0 && price.shipping > 0 && price.noShipping !== 'FORBIDDEN' && price?.noShipping !== 'REQUIRED' && allowNoShipping;
   return (
     <section>
       <div className="container">
         <h2>Payment Plan</h2>
         <div className="row">
-          <div className="col col-md-6">
+          <div className="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-0 col-lg-6 mb-4 mb-md-0">
             <PaymentOptions />
+            {showNoShipping && <NoShipping school={school} greenDiscount={greenDiscount} />}
           </div>
-          <div className="col col-md-6">
-            <PaymentPlan />
+          <div className="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-0 col-lg-5 offset-lg-1 col-xl-4 offset-xl-2">
+            <PlanResult />
           </div>
         </div>
       </div>

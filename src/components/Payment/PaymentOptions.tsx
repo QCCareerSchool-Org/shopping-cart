@@ -1,7 +1,17 @@
 import React from 'react';
-import { useStateContext } from '../../hooks/useStateContext';
+
+import { PlanFull } from './PlanFull';
+import { PlanPart } from './PlanPart';
 
 export const PaymentOptions: React.FC = () => {
-  const { payment } = useStateContext();
-  return <p>sdfsdfsdf</p>;
+  return (
+    <>
+      <h3>Payment Options</h3>
+      <div className="form-group">
+        <PlanPart />
+        <div className="mt-2"></div>
+        <PlanFull />
+      </div>
+    </>
+  );
 };

@@ -17,12 +17,14 @@ export const ProvinceCode: React.FC = () => {
 
   const [ fetchedProvinces, refetch, isLoading ] = useFetchImproved<Province[]>(getUrl(countryCode), provinces);
 
+  // fetch a new list of provinces when the country changes
   useEffect(() => {
     if (needsProvince(countryCode)) {
       refetch(getUrl(countryCode));
     }
   }, [ countryCode, refetch ]);
 
+  // update the provinces state when fetch a new list
   useEffect(() => {
     if (needsProvince(countryCode)) {
       setProvinces(fetchedProvinces);
@@ -31,9 +33,15 @@ export const ProvinceCode: React.FC = () => {
     }
   }, [ countryCode, fetchedProvinces ]);
 
+  // if we don't have a valid province, set it to null
+  useEffect(() => {
+    if (provinceCode && !provinces.some(p => p.code === provinceCode)) {
+      dispatch({ type: 'SET_PROVINCE_CODE', payload: null });
+    }
+  }, [ provinceCode, provinces ]);
+
   const change = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = e.target.value || null;
-    dispatch({ type: 'SET_PROVINCE_CODE', payload: value });
+    dispatch({ type: 'SET_PROVINCE_CODE', payload: e.target.value || null });
   };
 
   return (
@@ -45,15 +53,8 @@ export const ProvinceCode: React.FC = () => {
         onChange={change}
         value={provinceCode ?? ''}
       >
-        {isLoading
-          ? <option value="">---</option>
-          : (
-            <>
-              <option value="">---</option>
-              {provinces.map(p => <option key={p.code} value={p.code}>{p.name}</option>)}
-            </>
-          )
-        }
+        <option value="">---</option>
+        {!isLoading && provinces.map(p => <option key={p.code} value={p.code}>{p.name}</option>)}
       </select>
     </div>
   );
