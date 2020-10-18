@@ -3,9 +3,9 @@ import { StateContext } from '../providers/StateProvider';
 import { State } from '../state';
 
 export const useStateContext = (): State => {
-  const context  = useContext(StateContext);
+  const context = useContext(StateContext);
   if (context === undefined) {
-    throw Error('useFormState must be used within a FormProvider');
+    throw Error('useFormState must be used within a StateProvider');
   }
   return context;
 };

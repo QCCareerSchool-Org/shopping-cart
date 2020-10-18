@@ -5,7 +5,7 @@ export type Course = {
   selected: boolean;
   disabled: boolean;
   hidden: boolean;
-  disabledMessage?: JSX.Element;
+  disabledMessage?: string | JSX.Element;
 };
 
 export type CourseGroup = {

@@ -19,9 +19,9 @@ export const CheckBox: React.FC<Props> = ({ course }) => {
   };
 
   return (
-    <div className="form-check">
-      <input id={`courses-${course.code}`} className="form-check-input" type="checkbox" checked={course.selected} onChange={courseChange} />
-      <label htmlFor={`courses-${course.code}`} className="form-check-label" >{course.name}</label>
+    <div className="custom-control custom-checkbox">
+      <input type="checkbox" className="custom-control-input" id={`courses-${course.code}`} checked={course.selected} onChange={courseChange} />
+      <label className="custom-control-label" htmlFor={`courses-${course.code}`}>{course.name}</label>
     </div>
   );
 };

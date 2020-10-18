@@ -8,9 +8,11 @@ import { Address } from './Address';
 import { Summary } from './Summary';
 import { CourseSelection } from './CourseSelection';
 import { Payment } from './Payment';
+import { CourseGroup } from '../state/courses';
 
 export type Props = {
-  student: boolean;
+  courseGroups: CourseGroup[];
+  student?: boolean;
 }
 
 export const Form: React.FC<Props> = props => {
@@ -20,7 +22,7 @@ export const Form: React.FC<Props> = props => {
 
   usePriceUpdater(); // update prices when courses, country, etc. change
 
-  const [ student, setStudent ] = useState(props.student);
+  const [ student, setStudent ] = useState(props.student ?? false);
 
   const submit = (e: React.MouseEvent<HTMLButtonElement>) => {
     //
