@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useFetchImproved } from '../../hooks/useFetchImproved';
-import { useFormDispatch } from '../../hooks/useFormDispatch';
-import { useFormState } from '../../hooks/useFormState';
+import { useDispatchContext } from '../../hooks/useDispatchContext';
+import { useStateContext } from '../../hooks/useStateContext';
 
 type Province = { code: string; name: string }
 
@@ -10,8 +10,8 @@ const getUrl = (countryCode: string) => `https://api.qccareerschool.com/geoLocat
 const needsProvince = (countryCode: string) => [ 'CA', 'US', 'AU' ].includes(countryCode);
 
 export const ProvinceCode: React.FC = () => {
-  const { address: { countryCode, provinceCode } } = useFormState();
-  const dispatch = useFormDispatch();
+  const { address: { countryCode, provinceCode } } = useStateContext();
+  const dispatch = useDispatchContext();
 
   const [ provinces, setProvinces ] = useState<Province[]>([]);
 
@@ -46,7 +46,7 @@ export const ProvinceCode: React.FC = () => {
         value={provinceCode ?? ''}
       >
         {isLoading
-          ? <option value="">Loading...</option>
+          ? <option value="">---</option>
           : (
             <>
               <option value="">---</option>

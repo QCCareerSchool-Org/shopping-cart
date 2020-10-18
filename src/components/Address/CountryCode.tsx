@@ -1,7 +1,7 @@
 import React from 'react';
 import { useFetchImproved } from '../../hooks/useFetchImproved';
-import { useFormDispatch } from '../../hooks/useFormDispatch';
-import { useFormState } from '../../hooks/useFormState';
+import { useDispatchContext } from '../../hooks/useDispatchContext';
+import { useStateContext } from '../../hooks/useStateContext';
 
 type Country = {
   code: string;
@@ -11,8 +11,8 @@ type Country = {
 const url = 'https://api.qccareerschool.com/geoLocation/countries';
 
 export const CountryCode: React.FC = () => {
-  const { address: { countryCode } } = useFormState();
-  const dispatch = useFormDispatch();
+  const { address: { countryCode } } = useStateContext();
+  const dispatch = useDispatchContext();
 
   const [ countries, , isLoading ] = useFetchImproved<Country[]>(url, []);
 
@@ -31,7 +31,7 @@ export const CountryCode: React.FC = () => {
         value={countryCode}
       >
         {isLoading
-          ? <option value="">Loading...</option>
+          ? <option value="">---</option>
           : countries.map(c => <option key={c.code} value={c.code}>{c.name}</option>)
         }
       </select>

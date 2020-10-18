@@ -1,33 +1,39 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 
-import { useFormState } from '../hooks/useFormState';
-import { useFormDispatch } from '../hooks/useFormDispatch';
-import { useFetchImproved } from '../hooks/useFetchImproved';
-import { AddressForm } from './AddressForm';
+import { useStateContext } from '../hooks/useStateContext';
+import { useGeoLocation } from '../hooks/useGeoLocation';
+import { usePriceUpdater } from '../hooks/usePriceUpdater';
+
+import { Address } from './Address';
 import { Summary } from './Summary';
 import { CourseSelection } from './CourseSelection';
+import { Payment } from './Payment';
 
-type GeoLocation = {
-  countryCode: string;
-  provinceCode: string | null;
+export type Props = {
+  student: boolean;
 }
 
-export const Form: React.FC = () => {
-  const { address: { countryCode, provinceCode } } = useFormState();
-  const dispatch = useFormDispatch();
+export const Form: React.FC<Props> = props => {
+  const state = useStateContext();
 
-  const geoLocationUrl = 'https://api.qccareerschool.com/geoLocation/ip';
-  const [ geoLocation ] = useFetchImproved<GeoLocation>(geoLocationUrl, { countryCode, provinceCode });
+  useGeoLocation(); // set initial country and province based on ip
 
-  useEffect(() => {
-    dispatch({ type: 'SET_COUNTRY_CODE', payload: { countryCode: geoLocation.countryCode, provinceCode: geoLocation.provinceCode ?? undefined } });
-  }, [ dispatch, geoLocation.countryCode, geoLocation.provinceCode ]);
+  usePriceUpdater(); // update prices when courses, country, etc. change
+
+  const [ student, setStudent ] = useState(props.student);
+
+  const submit = (e: React.MouseEvent<HTMLButtonElement>) => {
+    //
+  };
 
   return (
     <>
       <CourseSelection />
-      <AddressForm />
+      <Address />
+      <Payment />
       <Summary />
+      <button onClick={submit}>Enroll</button>
+      <pre>{JSON.stringify(state, null, ' ')}</pre>
     </>
   );
 };

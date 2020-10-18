@@ -1,10 +1,10 @@
 import React from 'react';
-import { useFormDispatch } from '../../hooks/useFormDispatch';
-import { useFormState } from '../../hooks/useFormState';
+import { useDispatchContext } from '../../hooks/useDispatchContext';
+import { useStateContext } from '../../hooks/useStateContext';
 
 export const LastName: React.FC = () => {
-  const { address: { lastName } } = useFormState();
-  const dispatch = useFormDispatch();
+  const { address: { lastName } } = useStateContext();
+  const dispatch = useDispatchContext();
 
   const change = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
