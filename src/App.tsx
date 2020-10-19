@@ -3,9 +3,9 @@ import React from 'react';
 import { StateProvider } from './providers/StateProvider';
 import { ScreenWidthProvider } from './providers/ScreenWidthProvider';
 
-const isMakeup = (domain: string) => [ 'makeup.localhost', 'enroll.qcmakeupacademy.com' ].includes(domain);
-const isEvent = (domain: string) => [ 'event.localhost', 'enroll.qceventplanning.com' ].includes(domain);
-const isDesign = (domain: string) => [ 'design.localhost', 'enroll.qcdesignschool.com' ].includes(domain);
+const isMakeup = (domain: string) => [ 'makeup.localhost', 'enroll.qcmakeupacademy.com', 'makeup.enrolltest.qccareerschool.com' ].includes(domain);
+const isEvent = (domain: string) => [ 'event.localhost', 'enroll.qceventplanning.com', 'event.enrolltest.qccareerschool.com' ].includes(domain);
+const isDesign = (domain: string) => [ 'design.localhost', 'enroll.qcdesignschool.com', 'design.enrolltest.qccareerschool.com' ].includes(domain);
 
 type Site = 'makeup' | 'event' | 'design' | 'pet';
 const getSite = (domain: string): Site => {
