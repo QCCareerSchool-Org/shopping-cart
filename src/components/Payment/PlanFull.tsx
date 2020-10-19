@@ -7,11 +7,11 @@ export const PlanFull: React.FC = () => {
   const { payment, price } = useStateContext();
   const dispatch = useDispatchContext();
 
-  const fullPlanChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const change = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value !== 'on') {
       return;
     }
-    dispatch({ type: 'SET_PLAN', payload: 'full' });
+    dispatch({ type: 'SET_PAYMENT_PLAN', payload: 'full' });
   };
 
   return (
@@ -21,7 +21,7 @@ export const PlanFull: React.FC = () => {
         id="plan-full"
         className="custom-control-input payment-plan"
         checked={payment.plan === 'full'}
-        onChange={fullPlanChange}
+        onChange={change}
       />
       <label htmlFor="plan-full" className="custom-control-label">
         Pay in Full{price?.plans.full.discount ? <span>—<span className="text-primary">Save {price?.currency.symbol + formatCurrency(price.plans.full.discount)}</span></span> : null}

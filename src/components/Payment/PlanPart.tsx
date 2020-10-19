@@ -6,12 +6,13 @@ export const PlanPart: React.FC = () => {
   const { payment } = useStateContext();
   const dispatch = useDispatchContext();
 
-  const partPlanChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const change = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value !== 'on') {
       return;
     }
-    dispatch({ type: 'SET_PLAN', payload: 'part' });
+    dispatch({ type: 'SET_PAYMENT_PLAN', payload: 'part' });
   };
+
   return (
     <div className="custom-control custom-radio">
       <input
@@ -20,7 +21,7 @@ export const PlanPart: React.FC = () => {
         className="custom-control-input payment-plan"
         name="paymentPlan"
         checked={payment.plan === 'part'}
-        onChange={partPlanChange}
+        onChange={change}
       />
       <label htmlFor="planPart" className="custom-control-label">
         Installment Plan<span id="savings-part" style={{ display: 'none' }}>—<span className="text-primary" id="savings-amount-part"></span></span>

@@ -42,5 +42,5 @@ export const usePriceUpdater = () => {
     fetchData();
 
     return () => cancelTokenSource.cancel();
-  }, [ state.courses, state.address.countryCode, state.address.provinceCode, state.meta.student ]);
+  }, [ dispatch, state.courses, state.address.countryCode, state.address.provinceCode, state.meta.student ]);
 };

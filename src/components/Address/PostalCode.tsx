@@ -1,16 +1,9 @@
 import React from 'react';
+import { postalZip } from '@qccareerschool/helper-functions';
+
 import { useDispatchContext } from '../../hooks/useDispatchContext';
 import { useStateContext } from '../../hooks/useStateContext';
-
-const postalCodeName = (countryCode: string) => {
-  if (countryCode === 'US') {
-    return 'Zip Code';
-  } else if (countryCode === 'GB') {
-    return 'Postcode';
-  } else {
-    return 'Postal Code';
-  }
-};
+import { ucWords } from '../../lib/ucWords';
 
 export const PostalCode: React.FC = () => {
   const { address: { postalCode, countryCode } } = useStateContext();
@@ -22,7 +15,7 @@ export const PostalCode: React.FC = () => {
 
   return (
     <div className="form-group">
-      <label htmlFor="address-postal-code">{postalCodeName(countryCode)}</label>
+      <label htmlFor="address-postal-code">{ucWords(postalZip(countryCode))}</label>
       <input
         id="postal-code"
         type="text"

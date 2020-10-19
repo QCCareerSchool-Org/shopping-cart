@@ -1,4 +1,5 @@
 import React from 'react';
+import { needsPostal, needsProvince } from '@qccareerschool/helper-functions';
 
 import { Title } from './Title';
 import { FirstName } from './FirstName';
@@ -13,7 +14,7 @@ import { useStateContext } from '../../hooks/useStateContext';
 import { PostalCode } from './PostalCode';
 import { City } from './City';
 
-const needsPostalCode = (countryCode: string) => true;
+// const needsPostalCode = (countryCode: string) => true;
 
 export const Address: React.FC = () => {
   const { address: { countryCode } } = useStateContext();
@@ -34,9 +35,12 @@ export const Address: React.FC = () => {
             <Address1 />
             <Address2 />
             <City />
-            {needsPostalCode(countryCode)
-             ? <div className="row"><div className="col"><ProvinceCode /></div><div className="col"><PostalCode /></div></div>
-             : <ProvinceCode />}
+            {needsPostal(countryCode)
+              ? needsProvince(countryCode)
+                ? <div className="row"><div className="col"><ProvinceCode /></div><div className="col"><PostalCode /></div></div>
+                : <PostalCode />
+              : needsProvince(countryCode) && <ProvinceCode />
+            }
           </div>
         </div>
       </div>

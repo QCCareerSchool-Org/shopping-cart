@@ -10,6 +10,14 @@ type Country = {
 
 const url = 'https://api.qccareerschool.com/geoLocation/countries';
 
+const defaultCountries: Country[] = [
+  { code: 'AU', name: 'Australia' },
+  { code: 'CA', name: 'Canada' },
+  { code: 'NZ', name: 'New Zealand' },
+  { code: 'GB', name: 'United Kingdom' },
+  { code: 'US', name: 'United States' },
+];
+
 export const CountryCode: React.FC = () => {
   const { address: { countryCode } } = useStateContext();
   const dispatch = useDispatchContext();
@@ -32,7 +40,13 @@ export const CountryCode: React.FC = () => {
       >
         {isLoading
           ? <option value="">---</option>
-          : countries.map(c => <option key={c.code} value={c.code}>{c.name}</option>)
+          : (
+            <>
+              {defaultCountries.map(c => <option key={c.code} value={c.code}>{c.name}</option>)}
+              <option value="">---</option>
+              {countries.map(c => <option key={c.code} value={c.code}>{c.name}</option>)}
+            </>
+          )
         }
       </select>
     </div>

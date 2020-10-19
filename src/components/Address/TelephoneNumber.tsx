@@ -15,7 +15,7 @@ export const TelephoneNumber: React.FC = () => {
       <label htmlFor="address-telephone">Telephone Number</label>
       <input
         id="address-telephone"
-        type="telephone"
+        type="tel"
         className="form-control"
         onChange={change}
         value={telephoneNumber}
