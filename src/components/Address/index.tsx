@@ -11,6 +11,7 @@ import { EmailAddress } from './EmailAddress';
 import { TelephoneNumber } from './TelephoneNumber';
 import { useStateContext } from '../../hooks/useStateContext';
 import { PostalCode } from './PostalCode';
+import { City } from './City';
 
 const needsPostalCode = (countryCode: string) => true;
 
@@ -32,8 +33,10 @@ export const Address: React.FC = () => {
             <CountryCode />
             <Address1 />
             <Address2 />
-            <ProvinceCode />
-            {needsPostalCode(countryCode) && <PostalCode />}
+            <City />
+            {needsPostalCode(countryCode)
+             ? <div className="row"><div className="col"><ProvinceCode /></div><div className="col"><PostalCode /></div></div>
+             : <ProvinceCode />}
           </div>
         </div>
       </div>

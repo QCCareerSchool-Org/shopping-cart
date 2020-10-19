@@ -8,6 +8,7 @@ export type AddressState = {
   telephoneNumber: string;
   address1: string;
   address2: string;
+  city: string;
   provinceCode: string | null;
   postalCode: string;
   countryCode: string;
@@ -22,6 +23,7 @@ export type AddressAction =
   | { type: 'SET_LAST_NAME'; payload: string }
   | { type: 'SET_EMAIL_ADDRESS'; payload: string }
   | { type: 'SET_TELEPHONE_NUMBER'; payload: string }
+  | { type: 'SET_CITY'; payload: string }
   | { type: 'SET_ADDRESS1'; payload: string }
   | { type: 'SET_ADDRESS2'; payload: string }
   | { type: 'SET_POSTAL_CODE'; payload: string };
@@ -34,6 +36,7 @@ export const initialAddressState: AddressState = {
   telephoneNumber: '',
   address1: '',
   address2: '',
+  city: '',
   provinceCode: 'MD',
   postalCode: '',
   countryCode: 'US',
@@ -89,7 +92,11 @@ export function addressReducer(state: AddressState, action: AddressAction): Addr
         ...state,
         address2: action.payload,
       };
-    case 'SET_POSTAL_CODE':
+    case 'SET_CITY':
+      return {
+        ...state,
+        city: action.payload,
+      }; case 'SET_POSTAL_CODE':
       return {
         ...state,
         postalCode: action.payload,
