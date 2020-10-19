@@ -1,18 +1,19 @@
 import React, { useEffect } from 'react';
 
-import { useStateContext } from '../hooks/useStateContext';
 import { useGeoLocation } from '../hooks/useGeoLocation';
 import { usePriceUpdater } from '../hooks/usePriceUpdater';
+import { useInitialData } from '../hooks/useInitialData';
+import { useDispatchContext } from '../hooks/useDispatchContext';
+import { useGoogleAnalyticsBehaviour } from '../hooks/useGoogleAnalyticsBehaviour';
+
+import { CourseGroup } from '../state/courses';
 
 import { Address } from './Address';
 import { Summary } from './Summary';
-import { CourseGroup, CourseSelection } from './CourseSelection';
 import { Payment } from './Payment';
-import { useGoogleAnalyticsBehaviour } from '../hooks/useGoogleAnalyticsBehaviour';
-import { useInitialData } from '../hooks/useInitialData';
 import { Internal } from './Internal';
-import { useDispatchContext } from '../hooks/useDispatchContext';
 import { Overrides } from './Overrides';
+import { CourseSelection } from './CourseSelection';
 
 export type School = 'QC Makeup Academy' | 'QC Event School' | 'QC Design School' | 'QC Pet Studies';
 
@@ -21,6 +22,10 @@ export type Props = {
   school: School;
   /** the guarantee component to display in the summary section */
   guarantee: () => JSX.Element;
+  /** a component to display below the courses title */
+  coursesSubtitle?: () => JSX.Element;
+  /** an array of components to display below the course selection checkboxes */
+  dynamicCourseMessages?: Array<() => JSX.Element>;
   /** whether this is an internal shopping cart (allows toggling student status) */
   internal?: boolean;
   /** whether the person enrolling is an existing student or not */
@@ -34,7 +39,6 @@ export type Props = {
 }
 
 export const Form: React.FC<Props> = props => {
-  const state = useStateContext();
   const dispatch = useDispatchContext();
 
   useGeoLocation(); // set initial country and province based on ip
@@ -43,26 +47,36 @@ export const Form: React.FC<Props> = props => {
 
   useGoogleAnalyticsBehaviour();
 
-  useInitialData(); // load initial data from sessionStorage and query string
+  useEffect(() => {
+    dispatch({ type: 'SET_COURSE_GROUPS', payload: props.courseGroups });
+  }, [ props.courseGroups ]);
+
+  useEffect(() => {
+    dispatch({ type: 'CLEAR_COURSES', payload: { internal: !!props.internal } });
+  }, []);
+
+  useInitialData(!!props.internal); // load initial data from sessionStorage and query string
 
   useEffect(() => {
     dispatch({ type: 'SET_STUDENT', payload: !!props.student });
   }, [ props.student ]);
 
-  const submit = (e: React.MouseEvent<HTMLButtonElement>) => {
-    //
-  };
-
   return (
     <>
       {props.internal && <Internal />}
-      <CourseSelection courseGroups={props.courseGroups} />
+      <CourseSelection
+        internal={!!props.internal}
+        coursesSubtitle={props.coursesSubtitle}
+        dynamicCourseMessages={props.dynamicCourseMessages}
+      />
       <Address />
-      <Payment school={props.school} allowNoShipping={!!props.allowNoShipping} greenDiscount={props.greenDiscount} />
+      <Payment
+        school={props.school}
+        allowNoShipping={!!props.allowNoShipping}
+        greenDiscount={props.greenDiscount}
+      />
       {props.allowOverrides && <Overrides />}
       <Summary guarantee={props.guarantee} />
-      <button onClick={submit}>Enroll</button>
-      <pre>{JSON.stringify(state, null, ' ')}</pre>
     </>
   );
 };

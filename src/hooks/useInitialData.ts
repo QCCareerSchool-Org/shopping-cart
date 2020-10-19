@@ -3,25 +3,25 @@ import qs from 'qs';
 
 import { useDispatchContext } from './useDispatchContext';
 
-export const useInitialData = () => {
+export const useInitialData = (internal: boolean) => {
   const dispatch = useDispatchContext();
 
-  const loadCourses = () => {
+  const loadQueryStringData = () => {
     const parsed = qs.parse(window.location.search.slice(1));
     if (parsed.c) {
       if (Array.isArray(parsed.c)) {
         parsed.c.forEach((c: string | qs.ParsedQs) => {
           if (typeof c === 'string') {
-            dispatch({ type: 'ADD_COURSE', payload: c });
+            dispatch({ type: 'ADD_COURSE', payload: { courseCode: c, internal } });
           }
         });
       } else if (typeof parsed.c === 'string') {
-        dispatch({ type: 'ADD_COURSE', payload: parsed.c });
+        dispatch({ type: 'ADD_COURSE', payload: { courseCode: parsed.c, internal } });
       }
     }
   };
 
-  const loadSavedData = () => {
+  const loadSessionStorageData = () => {
     if (window.sessionStorage) {
       // country, province
       const countryCode = window.sessionStorage.getItem('countryCode');
@@ -51,7 +51,7 @@ export const useInitialData = () => {
   };
 
   useEffect(() => {
-    loadCourses();
-    loadSavedData();
+    loadSessionStorageData();
+    loadQueryStringData();
   }, []);
 };

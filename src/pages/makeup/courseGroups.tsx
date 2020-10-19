@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { CourseGroup } from '../../components/CourseSelection';
+import { CourseGroup } from '../../state/courses';
 
 import mostPopular from '../../most-pop.svg';
 import specialOffer from './special-offer.svg';

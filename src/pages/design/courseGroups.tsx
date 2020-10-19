@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { CourseGroup } from '../../components/CourseSelection';
+import { CourseGroup } from '../../state/courses';
 
 export const courseGroups: CourseGroup[] = [
   {

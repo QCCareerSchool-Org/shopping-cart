@@ -3,6 +3,6 @@ $theme-colors: (
   black: #000
 );
 
-@import "../../common.scss";
-
 @import "~bootstrap/scss/bootstrap";
+
+@import "../../common.scss";
