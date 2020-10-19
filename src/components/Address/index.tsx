@@ -19,9 +19,9 @@ import { City } from './City';
 export const Address: React.FC = () => {
   const { address: { countryCode } } = useStateContext();
   return (
-    <section>
+    <section id="address-section">
       <div className="container">
-        <h2>Shipping Information</h2>
+        <h2 className="h1">Shipping Information</h2>
         <div className="row">
           <div className="col-12 col-md-6 col-lg-4 offset-lg-2">
             <Title />

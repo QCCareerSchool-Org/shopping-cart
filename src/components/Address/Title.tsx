@@ -4,7 +4,7 @@ import { useDispatchContext } from '../../hooks/useDispatchContext';
 import { useStateContext } from '../../hooks/useStateContext';
 
 export const Title: React.FC = () => {
-  const { address: { title } } = useStateContext();
+  const { address: { title }, enrollmentErrors } = useStateContext();
   const dispatch = useDispatchContext();
 
   const change = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -19,7 +19,7 @@ export const Title: React.FC = () => {
       <label htmlFor="address-title">Title</label>
       <select
         id="address-title"
-        className="form-control"
+        className={'form-control' + (enrollmentErrors.title ? ' is-invalid' : '')}
         onChange={change}
         value={title}
         autoComplete="honorific-prefix"

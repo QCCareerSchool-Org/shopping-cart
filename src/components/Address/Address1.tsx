@@ -3,7 +3,7 @@ import { useDispatchContext } from '../../hooks/useDispatchContext';
 import { useStateContext } from '../../hooks/useStateContext';
 
 export const Address1: React.FC = () => {
-  const { address: { address1 } } = useStateContext();
+  const { address: { address1 }, enrollmentErrors } = useStateContext();
   const dispatch = useDispatchContext();
 
   const change = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -16,7 +16,7 @@ export const Address1: React.FC = () => {
       <input
         id="address-address1"
         type="text"
-        className="form-control"
+        className={'form-control' + (enrollmentErrors.address1 ? ' is-invalid' : '')}
         onChange={change}
         value={address1}
         autoCapitalize="words"

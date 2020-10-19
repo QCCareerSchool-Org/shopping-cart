@@ -7,16 +7,18 @@ import { PriceQuery, PriceResult } from '../state/price';
 import { useDispatchContext } from './useDispatchContext';
 import { useStateContext } from './useStateContext';
 
-export const getParams = (state: State): PriceQuery => ({
+export const getPriceParams = (state: State, additionalOptions: any): PriceQuery => ({
   courses: state.courses.selected,
   countryCode: state.address.countryCode,
   provinceCode: state.address.provinceCode ?? undefined,
   options: {
     discountAll: state.meta.student,
+    noShipping: state.payment.noShipping,
+    ...additionalOptions,
   },
 });
 
-export const usePriceUpdater = () => {
+export const usePriceUpdater = (additionalOptions?: any) => {
   const state = useStateContext();
   const dispatch = useDispatchContext();
 
@@ -29,7 +31,7 @@ export const usePriceUpdater = () => {
         const url = 'https://api.qccareerschool.com/prices';
         const response = await axios.get<PriceResult>(url, {
           headers: { 'X-API-Version': 2 },
-          params: getParams(state),
+          params: getPriceParams(state, additionalOptions),
           paramsSerializer: qs.stringify,
           cancelToken: cancelTokenSource.token,
         });
@@ -42,5 +44,5 @@ export const usePriceUpdater = () => {
     fetchData();
 
     return () => cancelTokenSource.cancel();
-  }, [ dispatch, state.courses, state.address.countryCode, state.address.provinceCode, state.meta.student ]);
+  }, [ dispatch, state.courses, state.address.countryCode, state.address.provinceCode, state.meta.student, state.meta.studentDiscount, state.payment.noShipping ]);
 };

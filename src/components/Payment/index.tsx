@@ -18,9 +18,9 @@ export const Payment: React.FC<Props> = ({ school, allowNoShipping, greenDiscoun
   const { payment, price } = useStateContext();
   const showNoShipping = price && price.cost > 0 && price.shipping > 0 && price.noShipping !== 'FORBIDDEN' && price?.noShipping !== 'REQUIRED' && allowNoShipping;
   return (
-    <section>
+    <section id="payment-section">
       <div className="container">
-        <h2>Payment Plan</h2>
+        <h2 className="h1">Payment Plan</h2>
         <div className="row">
           <div className="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-0 col-lg-6 mb-4 mb-md-0">
             <PaymentOptions />

@@ -17,7 +17,7 @@ export type AddressState = {
 
 export type AddressAction =
   | { type: 'SET_COUNTRY_CODE'; payload: { countryCode: string; provinceCode?: string; manual: boolean } }
-  | { type: 'SET_PROVINCE_CODE'; payload: string | null }
+  | { type: 'SET_PROVINCE_CODE'; payload: { provinceCode: string | null; manual: boolean } }
   | { type: 'SET_TITLE'; payload: Title }
   | { type: 'SET_FIRST_NAME'; payload: string }
   | { type: 'SET_LAST_NAME'; payload: string }
@@ -55,7 +55,8 @@ export function addressReducer(state: AddressState, action: AddressAction): Addr
     case 'SET_PROVINCE_CODE':
       return {
         ...state,
-        provinceCode: action.payload,
+        provinceCode: action.payload.provinceCode,
+        locationModified: action.payload.manual ? true : state.locationModified,
       };
     case 'SET_TITLE':
       return {

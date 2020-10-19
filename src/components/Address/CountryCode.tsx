@@ -19,7 +19,7 @@ const defaultCountries: Country[] = [
 ];
 
 export const CountryCode: React.FC = () => {
-  const { address: { countryCode } } = useStateContext();
+  const { address: { countryCode }, enrollmentErrors } = useStateContext();
   const dispatch = useDispatchContext();
 
   const [ countries, , isLoading ] = useFetchImproved<Country[]>(url, []);
@@ -33,7 +33,7 @@ export const CountryCode: React.FC = () => {
       <label htmlFor="address-country-code">Country</label>
       <select
         id="address-country-code"
-        className="form-control"
+        className={'form-control' + (enrollmentErrors.countryCode ? ' is-invalid' : '')}
         onChange={change}
         value={countryCode}
         autoComplete="country"

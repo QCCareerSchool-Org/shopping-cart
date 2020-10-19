@@ -12,6 +12,9 @@ export const Default: React.FC = () => (
       courseGroups={courseGroups}
       school="QC Makeup Academy"
       guarantee={() => <Guarantee />}
+      agreementLink="https://www.qcmakeupacademy.com/enrollment-agreement.html"
+      agreementLinkGB="https://www.qcmakeupacademy.com/enrollment-agreement-gb.html"
+      successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
     />
   </>
 );

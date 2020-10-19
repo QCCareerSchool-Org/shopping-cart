@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { needsProvince, provinceState } from '@qccareerschool/helper-functions';
 
 import { useFetchImproved } from '../../hooks/useFetchImproved';
@@ -11,7 +11,7 @@ type Province = { code: string; name: string }
 const getUrl = (countryCode: string) => `https://api.qccareerschool.com/geoLocation/provinces/?countryCode=${encodeURIComponent(countryCode)}`;
 
 export const ProvinceCode: React.FC = () => {
-  const { address: { countryCode, provinceCode } } = useStateContext();
+  const { address: { countryCode, provinceCode }, enrollmentErrors } = useStateContext();
   const dispatch = useDispatchContext();
 
   const [ provinces, setProvinces ] = useState<Province[]>([]);
@@ -20,29 +20,38 @@ export const ProvinceCode: React.FC = () => {
 
   // fetch a new list of provinces when the country changes
   useEffect(() => {
+    console.log('A', countryCode); // eslint-disable-line
     if (needsProvince(countryCode)) {
       refetch(getUrl(countryCode));
     }
   }, [ refetch, countryCode ]);
 
   // update the provinces state when fetch a new list
-  useEffect(() => {
+  useLayoutEffect(() => {
+    console.log('B', countryCode, fetchedProvinces); // eslint-disable-line
     if (needsProvince(countryCode)) {
       setProvinces(fetchedProvinces);
     } else {
       setProvinces([]);
     }
-  }, [ countryCode, fetchedProvinces ]);
+  }, [ dispatch, countryCode, fetchedProvinces ]);
 
-  // if we don't have a valid province, set it to null
-  useEffect(() => {
-    if (provinceCode && !provinces.some(p => p.code === provinceCode)) {
-      dispatch({ type: 'SET_PROVINCE_CODE', payload: null });
+  // if we don't have a valid province, set it to an acceptable value
+  useLayoutEffect(() => {
+    console.log('C', provinceCode, provinces); // eslint-disable-line
+    if (provinceCode !== null || provinces.length) {
+      if (!provinces.some(p => p.code === provinceCode)) {
+        if (provinces.length) {
+          dispatch({ type: 'SET_PROVINCE_CODE', payload: { provinceCode: provinces[0].code, manual: false } });
+        } else {
+          dispatch({ type: 'SET_PROVINCE_CODE', payload: { provinceCode: null, manual: false } });
+        }
+      }
     }
   }, [ dispatch, provinceCode, provinces ]);
 
   const change = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    dispatch({ type: 'SET_PROVINCE_CODE', payload: e.target.value || null });
+    dispatch({ type: 'SET_PROVINCE_CODE', payload: { provinceCode: e.target.value || null, manual: true } });
   };
 
   return (
@@ -50,9 +59,10 @@ export const ProvinceCode: React.FC = () => {
       <label htmlFor="address-province-code">{ucWords(provinceState(countryCode))}</label>
       <select
         id="address-province-code"
-        className="form-control"
+        className={'form-control' + (enrollmentErrors.provinceCode ? ' is-invalid' : '')}
         onChange={change}
         value={provinceCode ?? ''}
+        autoComplete="address-level1"
       >
         <option value="">---</option>
         {!isLoading && provinces.map(p => <option key={p.code} value={p.code}>{p.name}</option>)}

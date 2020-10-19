@@ -10,9 +10,12 @@ export const Student: React.FC = () => (
     <DefaultPromo />
     <Form
       courseGroups={courseGroups}
-      school="QC Makeup Academy"
+      school="QC Design School"
       guarantee={() => <Guarantee />}
       student={true}
+      agreementLink="https://www.qcdesignschool.com/enrollment-agreement.html"
+      agreementLinkGB="https://www.qcdesignschool.com/enrollment-agreement-gb.html"
+      successLink="https://www.qcdesignschool.com/welcome-to-the-school/"
     />
   </>
 );
