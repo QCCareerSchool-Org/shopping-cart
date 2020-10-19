@@ -17,10 +17,9 @@ import { Overrides } from './Overrides';
 import { CourseSelection } from './CourseSelection';
 import { addEnrollment, chargeEnrollment, EnrollmentPayload, updateEnrollment } from '../lib/enrollment';
 import { PaysafeCompany } from './Summary/PaymentModal';
-import { EnrollmentError, EnrollmentErrors } from '../lib/enrollmentError';
+import { EnrollmentError } from '../lib/enrollmentError';
 import { useStateContext } from '../hooks/useStateContext';
 import { ErrorModal } from './ErrorModal';
-import { telephoneNumber } from '@qccareerschool/helper-functions';
 
 type EnrollmentData = {
   id: number;
