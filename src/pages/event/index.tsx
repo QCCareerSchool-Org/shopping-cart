@@ -24,7 +24,7 @@ const Event: React.FC = () => {
     /^\/tuition-discount(\/.*)?$/,
   ]);
 
-  console.log('event rerender', countryCode, currencyCode, courses); // eslint-disable-line
+  console.log('event render', countryCode, currencyCode, courses); // eslint-disable-line
 
   return (
     <>
