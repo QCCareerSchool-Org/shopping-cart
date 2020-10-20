@@ -47,11 +47,15 @@ const courseGroups: CourseGroup[] = [
   },
 ];
 
-export const Personal: React.FC = () => {
-  const { courses, address, price } = useStateContext();
+type Props = {
+  countryCode: string;
+  currencyCode: string;
+  courses: string[];
+}
 
-  return <>
-    <DefaultPromo countryCode={address.countryCode} currencyCode={price?.currency.code ?? 'USD'} />
+export const Personal: React.FC<Props> = ({ countryCode, currencyCode, courses }) => (
+  <>
+    <DefaultPromo countryCode={countryCode} currencyCode={currencyCode} />
     <Form
       courseGroups={courseGroups}
       school="QC Makeup Academy"
@@ -59,7 +63,7 @@ export const Personal: React.FC = () => {
       agreementLink="https://www.qcmakeupacademy.com/enrollment-agreement.html"
       agreementLinkGB="https://www.qcmakeupacademy.com/enrollment-agreement-gb.html"
       successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
-      dynamicCourseMessages={[ props => <DynamicMessage {...props} courses={courses.selected} /> ]}
+      dynamicCourseMessages={[ props => <DynamicMessage {...props} courses={courses} /> ]}
     />
-  </>;
-};
+  </>
+);

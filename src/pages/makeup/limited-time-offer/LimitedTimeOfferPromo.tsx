@@ -7,12 +7,7 @@ import desktop from './desktop.jpg';
 import mobile from './mobile.jpg';
 import popupImg from './popup.jpg';
 
-export interface Props {
-  countryCode: string;
-  currencyCode: string;
-}
-
-export const LimitedTimeOfferPromo: React.FC<Props> = ({ countryCode, currencyCode }) => {
+export const LimitedTimeOfferPromo: React.FC = () => {
   const [ popup, togglePopup ] = usePopup(false);
 
   return (

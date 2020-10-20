@@ -14,6 +14,7 @@ import mobileNZ from './mobile-nz.jpg';
 import mobileGB from './mobile-uk.jpg';
 import mobileEnds from './mobile-ends.jpg';
 import popupImg from './popup-makeup-kit.jpg';
+import { dateOverride } from '../../../lib/dateOverride';
 
 export interface Props {
   countryCode: string;
@@ -21,37 +22,30 @@ export interface Props {
 }
 
 export const DefaultPromo: React.FC<Props> = ({ countryCode, currencyCode }) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const date = useDate();
+  const serverDate = useDate();
   const [ popup, togglePopup ] = usePopup(false);
 
-  let dateOverride: Date | null = null;
-  if (window.location.hostname.includes('localhost')) {
-    const parsed = qs.parse(window.location.search.slice(1));
-    if (typeof parsed.date === 'string') { // override props.date
-      dateOverride = new Date(parsed.date);
-    }
-  }
+  const date = dateOverride() || serverDate;
 
   let desktopImage;
   let mobileImage;
-  const bgColor = '#b8a4f4';
-  if ((dateOverride || date) >= new Date('2020-10-29T00:00:00-04:00')) {
+  if (date >= new Date('2020-10-29T00:00:00-04:00')) {
     desktopImage = desktopEnds;
     mobileImage = mobileEnds;
   } else {
     desktopImage = [ 'US', 'CA', 'AU' ].includes(countryCode) ? desktop : currencyCode === 'GBP' ? desktopGB : desktopNZ;
     mobileImage = [ 'US', 'CA', 'AU' ].includes(countryCode) ? mobile : currencyCode === 'GBP' ? mobileGB : mobileNZ;
   }
+  const backgroundColor = '#b8a4f4';
 
   return (
-    <section id="promoSection" style={{ backgroundColor: bgColor, padding: 0 }}>
+    <section id="promoSection" style={{ backgroundColor, padding: 0 }}>
       <div className="container">
         <div className="d-none d-sm-block text-center">
-          <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={handlePromoClick}><img src={desktopImage} className="img-fluid d-block mx-auto" alt="Special Offer" /></button>
+          <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={togglePopup}><img src={desktopImage} className="img-fluid d-block mx-auto" alt="Special Offer" /></button>
         </div>
         <div className="row d-block d-sm-none text-center">
-          <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={handlePromoClick}><img src={mobileImage} className="img-fluid d-block mx-auto" alt="Special Offer" /></button>
+          <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={togglePopup}><img src={mobileImage} className="img-fluid d-block mx-auto" alt="Special Offer" /></button>
         </div>
       </div>
       <Modal size="lg" isOpen={popup} toggle={togglePopup}>
@@ -65,9 +59,4 @@ export const DefaultPromo: React.FC<Props> = ({ countryCode, currencyCode }) => 
       </Modal>
     </section>
   );
-
-  function handlePromoClick(event: React.MouseEvent) {
-    event.preventDefault();
-    togglePopup();
-  }
 };

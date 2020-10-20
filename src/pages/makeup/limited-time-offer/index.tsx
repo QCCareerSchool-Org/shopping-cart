@@ -1,17 +1,13 @@
 import React from 'react';
 
-import { useStateContext } from '../../../hooks/useStateContext';
-
 import { Form } from '../../../components/Form';
 import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
 import { LimitedTimeOfferPromo } from './LimitedTimeOfferPromo';
 
-export const LimitedTimeOffer: React.FC = () => {
-  const { address, price } = useStateContext();
-
-  return <>
-    <LimitedTimeOfferPromo countryCode={address.countryCode} currencyCode={price?.currency.code ?? 'USD'} />
+export const LimitedTimeOffer: React.FC = () => (
+  <>
+    <LimitedTimeOfferPromo />
     <Form
       courseGroups={courseGroups}
       school="QC Makeup Academy"
@@ -21,5 +17,5 @@ export const LimitedTimeOffer: React.FC = () => {
       successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
       additionalOptions={{ MMFreeMW: true }}
     />
-  </>;
-};
+  </>
+);

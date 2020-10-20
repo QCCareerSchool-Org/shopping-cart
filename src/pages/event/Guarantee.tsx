@@ -8,6 +8,7 @@ import guaranteeSVG from '../../21-day.svg';
 export const Guarantee: React.FC = () => {
   const [ popup, togglePopup ] = usePopup(false);
 
+  console.log('guarantee rerender'); // eslint-disable-line
   return (
     <div className="row d-flex align-items-center">
       <div className="col-12 col-md-6 text-center text-md-right mb-3 mb-md-0">

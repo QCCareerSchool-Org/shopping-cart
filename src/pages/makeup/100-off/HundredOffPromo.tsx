@@ -1,26 +1,17 @@
 import React from 'react';
 
-// images
 import desktopGB from './desktop-gb.jpg';
 import desktop from './desktop.jpg';
 import mobileGB from './mobile-gb.jpg';
 import mobile from './mobile.jpg';
 
 export interface Props {
-  countryCode: string;
   currencyCode: string;
 }
 
-export const HundredOffPromo: React.FC<Props> = ({ countryCode, currencyCode }) => {
-  let desktopImage;
-  let mobileImage;
-  if (currencyCode === 'GBP') {
-    desktopImage = desktopGB;
-    mobileImage = mobileGB;
-  } else {
-    desktopImage = desktop;
-    mobileImage = mobile;
-  }
+export const HundredOffPromo: React.FC<Props> = ({ currencyCode }) => {
+  const desktopImage = currencyCode === 'GBP' ? desktopGB : desktop;
+  const mobileImage = currencyCode === 'GBP' ? mobileGB : mobile;
 
   return (
     <section id="promoSection" style={{ padding: 0 }}>

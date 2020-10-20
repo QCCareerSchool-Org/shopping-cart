@@ -44,5 +44,5 @@ export const usePriceUpdater = (additionalOptions?: any) => {
     fetchData();
 
     return () => cancelTokenSource.cancel();
-  }, [ dispatch, state.courses, state.address.countryCode, state.address.provinceCode, state.meta.student, state.meta.studentDiscount, state.payment.noShipping ]);
+  }, [ dispatch, state.courses, state.address.countryCode, state.address.provinceCode, state.meta.student, state.meta.studentDiscount, state.payment.noShipping, additionalOptions ]);
 };

@@ -20,7 +20,6 @@ export const ProvinceCode: React.FC = () => {
 
   // fetch a new list of provinces when the country changes
   useEffect(() => {
-    console.log('A', countryCode); // eslint-disable-line
     if (needsProvince(countryCode)) {
       refetch(getUrl(countryCode));
     }
@@ -28,7 +27,6 @@ export const ProvinceCode: React.FC = () => {
 
   // update the provinces state when fetch a new list
   useLayoutEffect(() => {
-    console.log('B', countryCode, fetchedProvinces); // eslint-disable-line
     if (needsProvince(countryCode)) {
       setProvinces(fetchedProvinces);
     } else {
@@ -38,7 +36,6 @@ export const ProvinceCode: React.FC = () => {
 
   // if we don't have a valid province, set it to an acceptable value
   useLayoutEffect(() => {
-    console.log('C', provinceCode, provinces); // eslint-disable-line
     if (provinceCode !== null || provinces.length) {
       if (!provinces.some(p => p.code === provinceCode)) {
         if (provinces.length) {

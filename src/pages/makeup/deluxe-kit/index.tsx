@@ -1,17 +1,13 @@
 import React from 'react';
 
-import { useStateContext } from '../../../hooks/useStateContext';
-
 import { Form } from '../../../components/Form';
 import { Guarantee } from '../Guarantee';
 import { courseGroups } from '../courseGroups';
 import { DeluxeKitPromo } from './DeluxeKitPromo';
 
-export const DeluxeKit: React.FC = () => {
-  const { address, price } = useStateContext();
-
-  return <>
-    <DeluxeKitPromo countryCode={address.countryCode} currencyCode={price?.currency.code ?? 'USD'} />
+export const DeluxeKit: React.FC = () => (
+  <>
+    <DeluxeKitPromo />
     <Form
       courseGroups={courseGroups}
       school="QC Makeup Academy"
@@ -21,5 +17,5 @@ export const DeluxeKit: React.FC = () => {
       successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
       additionalOptions={{ deluxeKit: true }}
     />
-  </>;
-};
+  </>
+);

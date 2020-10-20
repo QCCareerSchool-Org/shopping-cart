@@ -1,14 +1,17 @@
+import { telephoneNumber } from '@qccareerschool/helper-functions';
 import React from 'react';
 
 import { useScreenWidthContext } from '../../hooks/useScreenWidthContext';
-import { useStateContext } from '../../hooks/useStateContext';
 
 import logo from './logo.svg';
 
-export const Header: React.FC = () => {
-  const { address: { countryCode } } = useStateContext();
-  const telephoneNumber = '1-732-345-345345'; // Helpers.telephoneNumber(countryCode);
+type Props = {
+  countryCode: string;
+}
+
+export const Header: React.FC<Props> = ({ countryCode }) => {
   const screenWidth = useScreenWidthContext();
+  const tel = telephoneNumber(countryCode);
 
   return (
     <header id="header">

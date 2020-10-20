@@ -32,6 +32,7 @@ export const initialCoursesState: CoursesState = {
 };
 
 export function coursesReducer(state: CoursesState, action: CoursesAction): CoursesState {
+  console.log('coursesReducer', state, action); // eslint-disable-line
   switch (action.type) {
     case 'CLEAR_COURSES': {
       return {

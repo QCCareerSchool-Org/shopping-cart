@@ -7,12 +7,7 @@ import popupImg from './deluxe-kit-popup.jpg';
 import desktop from './desktop.jpg';
 import mobile from './mobile.jpg';
 
-export interface Props {
-  countryCode: string;
-  currencyCode: string;
-}
-
-export const DeluxeKitPromo: React.FC<Props> = ({ countryCode, currencyCode }) => {
+export const DeluxeKitPromo: React.FC = () => {
   const [ popup, togglePopup ] = usePopup(false);
 
   return (

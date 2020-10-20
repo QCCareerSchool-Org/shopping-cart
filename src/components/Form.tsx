@@ -38,7 +38,7 @@ export type Props = {
   courseGroups: CourseGroup[];
   school: School;
   /** the guarantee component to display in the summary section */
-  guarantee: () => JSX.Element;
+  guarantee: (() => JSX.Element);
   /** a component to display below the courses title */
   coursesSubtitle?: () => JSX.Element;
   /** an array of components to display below the course selection checkboxes */
@@ -109,6 +109,8 @@ export const Form: React.FC<Props> = props => {
 
   const [ enrollment, setEnrollment ] = useState<EnrollmentData | null>(null);
   const [ errorModal, setErrorModal ] = useState<ErrorModalData>({ open: false, title: '', message: '' });
+
+  console.log('Form render', courses, address, payment, meta); // eslint-disable-line
 
   const toggleErrorModal = () => {
     setErrorModal(prevState => ({ ...prevState, open: !prevState.open }));
