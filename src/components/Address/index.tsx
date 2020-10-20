@@ -15,8 +15,6 @@ import { PostalCode } from './PostalCode';
 import { City } from './City';
 import { NoShippingAlert } from '../NoShippingAlert';
 
-// const needsPostalCode = (countryCode: string) => true;
-
 export const Address: React.FC = () => {
   const { address: { countryCode } } = useStateContext();
   return (

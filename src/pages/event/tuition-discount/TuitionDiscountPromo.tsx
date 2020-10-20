@@ -9,7 +9,7 @@ export interface Props {
   currencyCode: string;
 }
 
-export const TuitionDiscountPromo: React.FC<Props> = ({ currencyCode }) => {
+const TuitionDiscountPromo_: React.FC<Props> = ({ currencyCode }) => {
   const desktopImage = currencyCode === 'GBP' ? desktopGB : desktop;
   const mobileImage = currencyCode === 'GBP' ? mobileGB : mobile;
 
@@ -26,3 +26,5 @@ export const TuitionDiscountPromo: React.FC<Props> = ({ currencyCode }) => {
     </section>
   );
 };
+
+export const TuitionDiscountPromo = React.memo(TuitionDiscountPromo_);

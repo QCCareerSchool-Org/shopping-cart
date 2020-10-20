@@ -4,7 +4,7 @@ import { Form } from '../../../components/Form';
 import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
 
-export const Student: React.FC = () => (
+const Student: React.FC = () => (
   <>
     <Form
       courseGroups={courseGroups}
@@ -18,3 +18,5 @@ export const Student: React.FC = () => (
     />
   </>
 );
+
+export default Student;

@@ -3,7 +3,7 @@ import React from 'react';
 import desktop from './desktop.jpg';
 import mobile from './mobile.jpg';
 
-export const FreePortfolioPromo: React.FC = () => {
+const FreePortfolioPromo_: React.FC = () => {
   return (
     <section id="promoSection" style={{ padding: 0 }}>
       <div className="container">
@@ -17,3 +17,5 @@ export const FreePortfolioPromo: React.FC = () => {
     </section>
   );
 };
+
+export const FreePortfolioPromo = React.memo(FreePortfolioPromo_);

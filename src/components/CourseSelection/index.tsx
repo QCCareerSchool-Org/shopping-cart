@@ -31,7 +31,9 @@ export const CourseSelection: React.FC<Props> = ({ internal, coursesSubtitle, dy
                 {g.items.filter(c => !courses.hidden.includes(c.code)).map(c => <CheckBox key={c.code} course={c} internal={internal} />)}
               </React.Fragment>
             ))}
-            {dynamicCourseMessages && dynamicCourseMessages.map(d => d())}
+            {dynamicCourseMessages && dynamicCourseMessages.map((DynamicCourseMessage, i) => (
+              <DynamicCourseMessage key={i} />
+            ))}
           </div>
           <div className="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-0">
             {!!price && <CourseTable price={price} showBuyOneGetOne={false} />}

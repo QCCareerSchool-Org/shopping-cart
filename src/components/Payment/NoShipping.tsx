@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvira } from '@fortawesome/free-brands-svg-icons';
+import { faEnvira } from '@fortawesome/free-brands-svg-icons/faEnvira';
 
 import { useDispatchContext } from '../../hooks/useDispatchContext';
 import { useStateContext } from '../../hooks/useStateContext';

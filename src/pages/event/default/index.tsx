@@ -10,7 +10,7 @@ type Props = {
   courses: string[];
 }
 
-export const Default: React.FC<Props> = ({ courses }) => {
+const Default: React.FC<Props> = ({ courses }) => {
   return (
     <>
       <DefaultPromo />
@@ -27,3 +27,5 @@ export const Default: React.FC<Props> = ({ courses }) => {
     </>
   );
 };
+
+export default Default;

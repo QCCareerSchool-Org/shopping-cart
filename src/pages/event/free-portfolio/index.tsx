@@ -5,7 +5,7 @@ import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
 import { FreePortfolioPromo } from './FreePortfolioPromo';
 
-export const FreePortfolio: React.FC = () => (
+const FreePortfolio: React.FC = () => (
   <>
     <FreePortfolioPromo />
     <Form
@@ -20,3 +20,5 @@ export const FreePortfolio: React.FC = () => (
     />
   </>
 );
+
+export default FreePortfolio;
