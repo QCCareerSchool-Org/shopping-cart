@@ -1,4 +1,4 @@
-import { faLock } from '@fortawesome/free-solid-svg-icons';
+import { faLock } from '@fortawesome/free-solid-svg-icons/faLock';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import React from 'react';

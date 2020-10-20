@@ -10,7 +10,7 @@ import desktop from './desktop.jpg';
 import mobileEnds from './mobile-ends.jpg';
 import mobile from './mobile.jpg';
 
-export const DefaultPromo: React.FC = () => {
+const DefaultPromo_: React.FC = () => {
   const serverDate = useDate();
   const [ popup, togglePopup ] = usePopup(false);
 
@@ -41,3 +41,5 @@ export const DefaultPromo: React.FC = () => {
     </section>
   );
 };
+
+export const DefaultPromo = React.memo(DefaultPromo_);

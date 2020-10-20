@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { SelectorContext, Selector, Callback } from '../providers/StateProvider';
+import { SelectorContext, Callback } from '../providers/StateProvider';
 
 export function useSelectorContext<T>(callback: Callback<T>): T {
   const context = useContext(SelectorContext);

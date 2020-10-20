@@ -16,7 +16,7 @@ const additionalOptions = {
   discountSignature: 'LKTNPGVwJkHceRBl87wnV1vUPqHAr8qAytj8TB5Bm/1BarnbhY26SDmCYIt6Kdkevcf7o3GR9lgLOXkGwuee9Y9c0MUA96lsQmALrj0h2QimxDTjI1Lx8zJScN1Rm8asg8CjOagOb1y6dSWyY2p6Ql2PvF/BSYrVA9IRi/nE2QPGqHIbqSlBCPhCDu+rJBSKHRBkCWO4ivNictHKDcuVl42PChTlQd/TYwyPfHONrxwCdF1CX9UZZ6yjJH+Aj1F19It3FprN4FISxmzrijTDVMCJcwLAmxf4fPAEc1wuJLo2yLat9xKLgfw85sFj8qha9J4h9nnUCizQ23NbSX2vdQ==',
 };
 
-export const HundredOff: React.FC<Props> = ({ currencyCode }) => (
+const HundredOff: React.FC<Props> = ({ currencyCode }) => (
   <>
     <HundredOffPromo currencyCode={currencyCode} />
     <Form
@@ -30,3 +30,5 @@ export const HundredOff: React.FC<Props> = ({ currencyCode }) => (
     />
   </>
 );
+
+export default HundredOff;

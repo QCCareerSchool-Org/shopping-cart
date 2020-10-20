@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Helmet } from 'react-helmet';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { LiveChat } from '../../components/LiveChat';
 
 import { useSaveablePaths } from '../../hooks/useSaveablePaths';
 import { useStateContext } from '../../hooks/useStateContext';
@@ -8,12 +9,12 @@ import { useStateContext } from '../../hooks/useStateContext';
 import { Footer } from './Footer';
 import { Header } from './Header';
 
-import { Default } from './default';
-import { Student } from './student';
-import { HundredOff } from './100-off';
-import { LimitedTimeOffer } from './limited-time-offer';
-import { DeluxeKit } from './deluxe-kit';
-import { Personal } from './personal';
+const Default = React.lazy(() => import('./default'));
+const Student = React.lazy(() => import('./student'));
+const HundredOff = React.lazy(() => import('./100-off'));
+const LimitedTimeOffer = React.lazy(() => import('./limited-time-offer'));
+const DeluxeKit = React.lazy(() => import('./deluxe-kit'));
+const Personal = React.lazy(() => import('./personal'));
 
 const Makeup: React.FC = () => {
   const { courses, address, price } = useStateContext();
@@ -43,15 +44,18 @@ const Makeup: React.FC = () => {
       </Helmet>
       <Header countryCode={address.countryCode} />
       <BrowserRouter>
-        <Switch>
-          <Route path="/student/" component={Student} />
-          <Route path="/100-off/" render={props => <HundredOff {...props} currencyCode={currencyCode} />} />
-          <Route path="/deluxe-kit/" component={DeluxeKit} />
-          <Route path="/limited-time-offer/" component={LimitedTimeOffer} />
-          <Route path="/personal/" render={props => <Personal {...props} countryCode={address.countryCode} currencyCode={currencyCode} courses={courses.selected} />} />
-          <Route render={props => <Default {...props} countryCode={address.countryCode} currencyCode={currencyCode} courses={courses.selected} />} />
-        </Switch>
+        <Suspense fallback={<></>}>
+          <Switch>
+            <Route path="/student/" component={Student} />
+            <Route path="/100-off/" render={props => <HundredOff {...props} currencyCode={currencyCode} />} />
+            <Route path="/deluxe-kit/" component={DeluxeKit} />
+            <Route path="/limited-time-offer/" component={LimitedTimeOffer} />
+            <Route path="/personal/" render={props => <Personal {...props} countryCode={address.countryCode} currencyCode={currencyCode} courses={courses.selected} />} />
+            <Route render={props => <Default {...props} countryCode={address.countryCode} currencyCode={currencyCode} courses={courses.selected} />} />
+          </Switch>
+        </Suspense>
       </BrowserRouter>
+      <LiveChat license={1056788} group={14} gaVersion="gtag" />
       <Footer countryCode={address.countryCode} />
     </>
   );

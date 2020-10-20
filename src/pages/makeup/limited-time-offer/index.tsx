@@ -5,7 +5,7 @@ import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
 import { LimitedTimeOfferPromo } from './LimitedTimeOfferPromo';
 
-export const LimitedTimeOffer: React.FC = () => (
+const LimitedTimeOffer: React.FC = () => (
   <>
     <LimitedTimeOfferPromo />
     <Form
@@ -19,3 +19,5 @@ export const LimitedTimeOffer: React.FC = () => (
     />
   </>
 );
+
+export default LimitedTimeOffer;

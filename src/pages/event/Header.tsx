@@ -15,8 +15,6 @@ export const Header: React.FC<Props> = ({ countryCode }) => {
   const screenWidth = useScreenWidthContext();
   const tel = telephoneNumber(countryCode);
 
-  console.log('event header') // eslint-disable-line
-
   return (
     <header id="header">
       <div className="container my-3 my-sm-4">

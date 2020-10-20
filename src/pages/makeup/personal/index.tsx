@@ -53,7 +53,7 @@ type Props = {
   courses: string[];
 }
 
-export const Personal: React.FC<Props> = ({ countryCode, currencyCode, courses }) => (
+const Personal: React.FC<Props> = ({ countryCode, currencyCode, courses }) => (
   <>
     <DefaultPromo countryCode={countryCode} currencyCode={currencyCode} />
     <Form
@@ -67,3 +67,5 @@ export const Personal: React.FC<Props> = ({ countryCode, currencyCode, courses }
     />
   </>
 );
+
+export default Personal;

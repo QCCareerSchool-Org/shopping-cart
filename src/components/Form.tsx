@@ -106,8 +106,6 @@ export const Form: React.FC<Props> = props => {
   const [ enrollment, setEnrollment ] = useState<EnrollmentData | null>(null);
   const [ errorModal, setErrorModal ] = useState<ErrorModalData>({ open: false, title: '', message: '' });
 
-  console.log('Form render', courses, address, payment, meta); // eslint-disable-line
-
   const toggleErrorModal = () => {
     setErrorModal(prevState => ({ ...prevState, open: !prevState.open }));
   };

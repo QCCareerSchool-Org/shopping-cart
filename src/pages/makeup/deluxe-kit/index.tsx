@@ -5,7 +5,7 @@ import { Guarantee } from '../Guarantee';
 import { courseGroups } from '../courseGroups';
 import { DeluxeKitPromo } from './DeluxeKitPromo';
 
-export const DeluxeKit: React.FC = () => (
+const DeluxeKit: React.FC = () => (
   <>
     <DeluxeKitPromo />
     <Form
@@ -19,3 +19,5 @@ export const DeluxeKit: React.FC = () => (
     />
   </>
 );
+
+export default DeluxeKit;

@@ -4,7 +4,7 @@ import { Form } from '../../../components/Form';
 import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
 
-export const Student: React.FC = () => (
+const Student: React.FC = () => (
   <Form
     courseGroups={courseGroups}
     school="QC Makeup Academy"
@@ -15,3 +15,5 @@ export const Student: React.FC = () => (
     successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
   />
 );
+
+export default Student;
