@@ -25,7 +25,8 @@ export const CountryCode: React.FC = () => {
   const [ countries, , isLoading ] = useFetchImproved<Country[]>(url, []);
 
   const change = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    dispatch({ type: 'SET_COUNTRY_CODE', payload: { countryCode: e.target.value, manual: true } });
+    const value = e.target.value.length === 3 ? e.target.value.slice(1) : e.target.value;
+    dispatch({ type: 'SET_COUNTRY_CODE', payload: { countryCode: value, manual: true } });
   };
 
   return (
@@ -42,7 +43,7 @@ export const CountryCode: React.FC = () => {
           ? <option value="">---</option>
           : (
             <>
-              {defaultCountries.map(c => <option key={c.code} value={c.code}>{c.name}</option>)}
+              {defaultCountries.map(c => <option key={c.code} value={`_${c.code}`}>{c.name}</option>)}
               <option value="">---</option>
               {countries.map(c => <option key={c.code} value={c.code}>{c.name}</option>)}
             </>

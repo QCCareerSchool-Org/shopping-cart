@@ -13,6 +13,7 @@ import { TelephoneNumber } from './TelephoneNumber';
 import { useStateContext } from '../../hooks/useStateContext';
 import { PostalCode } from './PostalCode';
 import { City } from './City';
+import { NoShippingAlert } from '../NoShippingAlert';
 
 // const needsPostalCode = (countryCode: string) => true;
 
@@ -41,6 +42,9 @@ export const Address: React.FC = () => {
                 : <PostalCode />
               : needsProvince(countryCode) && <ProvinceCode />
             }
+          </div>
+          <div className="col-12 col-lg-8 offset-lg-2">
+            <NoShippingAlert />
           </div>
         </div>
       </div>

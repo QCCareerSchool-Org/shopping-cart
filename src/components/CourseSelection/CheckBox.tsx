@@ -55,6 +55,7 @@ export const CheckBox: React.FC<Props> = ({ course, internal }) => {
           </button>
         )}
       </label>
+      {screenWidth >= 576 && course.badge}
       {course.disabledMessage && <DisabledCourseModal course={course.code} name={course.name} message={course.disabledMessage} isOpen={modal} toggle={toggleModal} />}
     </div>
   );

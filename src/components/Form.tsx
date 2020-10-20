@@ -61,6 +61,12 @@ export type Props = {
   agreementLinkGB: string;
   /** Additional options to send to the back end when looking up prices or enrolling */
   additionalOptions?: any;
+  /** a function that determines whether we should show a confirmation message before proceeding to payment */
+  showSubmitMessage?: () => boolean;
+  /** a component for the confirmation message (will appear in a popup)  */
+  submitMessage?: () => JSX.Element;
+  /** the title of the confirmation popup */
+  submitTitle?: string;
 }
 
 export const scrollToPosition = (section: 'courses' | 'shipping' | 'plan'): void => {
@@ -231,8 +237,18 @@ export const Form: React.FC<Props> = props => {
         allowNoShipping={!!props.allowNoShipping}
         greenDiscount={props.greenDiscount}
       />
-      {props.allowOverrides && <Overrides />}
-      <Summary guarantee={props.guarantee} addToDatabase={addToDatabase} charge={charge} />
+      {props.allowOverrides && payment.plan === 'part' && <Overrides />}
+      <Summary
+        guarantee={props.guarantee}
+        addToDatabase={addToDatabase}
+        charge={charge}
+        scrollToPosition={scrollToPosition}
+        agreementLink={props.agreementLink}
+        agreementLinkGB={props.agreementLinkGB}
+        showSubmitMessage={props.showSubmitMessage}
+        submitMessage={props.submitMessage}
+        submitTitle={props.submitTitle}
+      />
       <ErrorModal toggle={toggleErrorModal} isOpen={errorModal.open} title={errorModal.title} message={errorModal.message} />
     </>
   );
