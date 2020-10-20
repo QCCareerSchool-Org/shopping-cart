@@ -12,17 +12,19 @@ import { Default } from './default';
 import { Student } from './student';
 import { FreePortfolio } from './free-portfolio';
 import { TuitionDiscount } from './tuition-discount';
+import { useSelectorContext } from '../../hooks/useSelectorContext';
 
 const Event: React.FC = () => {
-  const { courses, address, price } = useStateContext();
-  const currencyCode = price?.currency.code ?? 'USD';
+  const countryCode = useSelectorContext(s => s.address.countryCode);
+  const currencyCode = useSelectorContext(s => s.price?.currency.code ?? 'USD');
+  const courses = useSelectorContext(s => s.courses.selected);
 
   useSaveablePaths([
     /^\/free-portfolio(\/.*)?$/,
     /^\/tuition-discount(\/.*)?$/,
   ]);
 
-  console.log('event rerender', courses, address, price); // eslint-disable-line
+  console.log('event rerender', countryCode, currencyCode, courses); // eslint-disable-line
 
   return (
     <>
@@ -39,16 +41,16 @@ const Event: React.FC = () => {
         <link rel="shortcut icon" href="/event/favicon.ico?v=QEMKdlwA73" />
         <meta name="msapplication-TileColor" content="#000000" />
       </Helmet>
-      <Header countryCode={address.countryCode} />
+      <Header countryCode={countryCode} />
       <BrowserRouter>
         <Switch>
           <Route path="/student/" component={Student} />
           <Route path="/free-portfolio/" component={FreePortfolio} />
           <Route path="/tuition-discount/" render={props => <TuitionDiscount {...props} currencyCode={currencyCode} />} />
-          <Route render={props => <Default {...props} courses={courses.selected} />} />
+          <Route render={props => <Default {...props} courses={courses} />} />
         </Switch>
       </BrowserRouter>
-      <Footer countryCode={address.countryCode} />
+      <Footer countryCode={countryCode} />
     </>
   );
 };

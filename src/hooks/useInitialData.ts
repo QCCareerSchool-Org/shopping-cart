@@ -10,7 +10,6 @@ export const useInitialData = (internal: boolean) => {
     const loadQueryStringData = () => {
       const parsed = qs.parse(window.location.search.slice(1));
       if (parsed.c) {
-        dispatch({ type: 'CLEAR_COURSES', payload: { internal } });
         if (Array.isArray(parsed.c)) {
           parsed.c.forEach((c: string | qs.ParsedQs) => {
             if (typeof c === 'string') {
@@ -97,6 +96,7 @@ export const useInitialData = (internal: boolean) => {
       }
     };
 
+    dispatch({ type: 'CLEAR_COURSES', payload: { internal } });
     loadSessionStorageData();
     loadQueryStringData();
   }, [ dispatch, internal ]);

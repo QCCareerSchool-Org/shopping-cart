@@ -97,10 +97,6 @@ export const Form: React.FC<Props> = props => {
     dispatch({ type: 'SET_COURSE_GROUPS', payload: props.courseGroups });
   }, [ dispatch, props.courseGroups ]);
 
-  useEffect(() => {
-    dispatch({ type: 'CLEAR_COURSES', payload: { internal: !!props.internal } });
-  }, [ dispatch, props.internal ]);
-
   useInitialData(!!props.internal); // load initial data from sessionStorage and query string
 
   useEffect(() => {
