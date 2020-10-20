@@ -13,11 +13,16 @@ import { Student } from './student';
 import { FreePortfolio } from './free-portfolio';
 import { TuitionDiscount } from './tuition-discount';
 import { useSelectorContext } from '../../hooks/useSelectorContext';
+import { State } from '../../state';
+
+const getCountryCode = (s: State) => s.address.countryCode;
+const getCurrencyCode = (s: State) => s.price?.currency.code ?? 'USD';
+const getCourses = (s: State) => s.courses.selected;
 
 const Event: React.FC = () => {
-  const countryCode = useSelectorContext(s => s.address.countryCode);
-  const currencyCode = useSelectorContext(s => s.price?.currency.code ?? 'USD');
-  const courses = useSelectorContext(s => s.courses.selected);
+  const countryCode = useSelectorContext(getCountryCode);
+  const currencyCode = useSelectorContext(getCurrencyCode);
+  const courses = useSelectorContext(getCourses);
 
   useSaveablePaths([
     /^\/free-portfolio(\/.*)?$/,
