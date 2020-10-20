@@ -11,7 +11,7 @@ export const Header: React.FC = () => {
   const screenWidth = useScreenWidthContext();
 
   return (
-    <header className="bg-dark">
+    <header id="header">
       <div className="container py-3 py-sm-4">
         <div className="row">
           <div className="col-9 col-sm-12 text-left text-sm-center"><a href="https://www.qcmakeupacademy.com/"><img id="logo" src={logo} alt="QC Makeup Academy" /></a></div>

@@ -2,6 +2,7 @@ import React from 'react';
 
 import { StateProvider } from './providers/StateProvider';
 import { ScreenWidthProvider } from './providers/ScreenWidthProvider';
+import { DateProvider } from './providers/DateProvider';
 
 const isMakeup = (domain: string) => [ 'makeup.localhost', 'enroll.qcmakeupacademy.com', 'makeup.enrolltest.qccareerschool.com' ].includes(domain);
 const isEvent = (domain: string) => [ 'event.localhost', 'enroll.qceventplanning.com', 'event.enrolltest.qccareerschool.com' ].includes(domain);
@@ -34,13 +35,15 @@ export const App: React.FC = () => {
   return (
     <StateProvider>
       <ScreenWidthProvider>
-        <ThemeSelector site={site}>
-          <React.Suspense fallback={<>LOADING</>}>
-            {site === 'makeup' && <Makeup />}
-            {site === 'event' && <Event />}
-            {site === 'design' && <Design />}
-          </React.Suspense>
-        </ThemeSelector>
+        <DateProvider>
+          <ThemeSelector site={site}>
+            <React.Suspense fallback={<></>}>
+              {site === 'makeup' && <Makeup />}
+              {site === 'event' && <Event />}
+              {site === 'design' && <Design />}
+            </React.Suspense>
+          </ThemeSelector>
+        </DateProvider>
       </ScreenWidthProvider>
     </StateProvider>
   );

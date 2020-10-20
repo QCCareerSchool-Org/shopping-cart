@@ -2,8 +2,8 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 
-import { useDispatchContext } from '../../hooks/useDispatchContext';
 import { Course } from '../../state/courses';
+import { useDispatchContext } from '../../hooks/useDispatchContext';
 import { useStateContext } from '../../hooks/useStateContext';
 import { usePopup } from '../../hooks/usePopup';
 import { useScreenWidthContext } from '../../hooks/useScreenWidthContext';
