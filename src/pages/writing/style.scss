@@ -1,0 +1,21 @@
+$theme-colors: (
+  primary: #f74b4b,
+  black: #000
+);
+
+@import "../../commonBefore.scss";
+
+@import "~bootstrap/scss/bootstrap";
+
+@import "../../commonAfter.scss";
+
+#header {
+  background-color: #071f39;
+  padding: 13px 1px;
+}
+
+#logo {
+  height: 38px;
+  max-height: none;
+}
+

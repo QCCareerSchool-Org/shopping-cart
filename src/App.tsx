@@ -10,6 +10,7 @@ const Makeup = React.lazy(() => import('./pages/makeup'));
 const Event = React.lazy(() => import('./pages/event'));
 const Design = React.lazy(() => import('./pages/design'));
 const Wellness = React.lazy(() => import('./pages/wellness'));
+const Writing = React.lazy(() => import('./pages/writing'));
 
 export const App: React.FC = () => {
   const site = useSite();
@@ -25,6 +26,7 @@ export const App: React.FC = () => {
             {site === 'event' && <Event />}
             {site === 'design' && <Design />}
             {site === 'wellness' && <Wellness />}
+            {site === 'writing' && <Writing />}
           </React.Suspense>
         </DateProvider>
       </ScreenWidthProvider>
