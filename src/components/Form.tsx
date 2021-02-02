@@ -159,8 +159,16 @@ export const Form: React.FC<Props> = props => {
     }
   };
 
+  const logCheckout = () => {
+    if (typeof window.gtag !== 'undefined') {
+      const items = courses.selected.map(c => ({ id: c, quantity: 1 }));
+      window.gtag('event', 'begin_checkout', { items });
+    }
+  };
+
   const addToDatabase = async (): Promise<boolean> => {
     saveForm();
+    logCheckout();
     dispatch({ type: 'CLEAR_ENROLLMENT_ERRORS' });
     try {
       if (enrollment) {
