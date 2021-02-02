@@ -2,21 +2,9 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import qs from 'qs';
 
-import { State } from '../state';
 import { PriceQuery, PriceResult } from '../state/price';
 import { useDispatchContext } from './useDispatchContext';
 import { useStateContext } from './useStateContext';
-
-export const getPriceParams = (state: State, additionalOptions: any): PriceQuery => ({
-  courses: state.courses.selected,
-  countryCode: state.address.countryCode,
-  provinceCode: state.address.provinceCode ?? undefined,
-  options: {
-    discountAll: state.meta.student,
-    noShipping: state.payment.noShipping,
-    ...additionalOptions,
-  },
-});
 
 export const usePriceUpdater = (additionalOptions?: any) => {
   const state = useStateContext();
@@ -27,11 +15,21 @@ export const usePriceUpdater = (additionalOptions?: any) => {
     const cancelTokenSource = axios.CancelToken.source();
 
     const fetchData = async () => {
+      const params: PriceQuery = {
+        courses: state.courses.selected,
+        countryCode: state.address.countryCode,
+        provinceCode: state.address.provinceCode ?? undefined,
+        options: {
+          discountAll: state.meta.student,
+          noShipping: state.payment.noShipping,
+          ...additionalOptions,
+        },
+      };
       try {
         const url = 'https://api.qccareerschool.com/prices';
         const response = await axios.get<PriceResult>(url, {
           headers: { 'X-API-Version': 2 },
-          params: getPriceParams(state, additionalOptions),
+          params,
           paramsSerializer: qs.stringify,
           cancelToken: cancelTokenSource.token,
         });

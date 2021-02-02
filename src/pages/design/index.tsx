@@ -7,6 +7,8 @@ import { Student } from './student';
 import { Footer } from './Footer';
 import { Header } from './Header';
 
+import './style.scss';
+
 const Design: React.FC = () => (
   <>
     <Helmet>

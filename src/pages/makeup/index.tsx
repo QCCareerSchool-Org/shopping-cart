@@ -9,6 +9,8 @@ import { useStateContext } from '../../hooks/useStateContext';
 import { Footer } from './Footer';
 import { Header } from './Header';
 
+import './style.scss';
+
 const Default = React.lazy(() => import('./default'));
 const Student = React.lazy(() => import('./student'));
 const HundredOff = React.lazy(() => import('./100-off'));

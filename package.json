@@ -13,7 +13,6 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "@types/big.js": "^6.0.0",
-    "@types/jest": "^24.9.1",
     "@types/node": "^12.12.68",
     "@types/qs": "^6.9.5",
     "@types/react": "^16.9.53",
@@ -59,5 +58,9 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/faker": "^5.1.6",
+    "@types/jest": "^26.0.20",
+    "faker": "^5.2.0"
+  }
 }

@@ -32,7 +32,7 @@ type ErrorModalData = {
   message: string | JSX.Element;
 }
 
-export type School = 'QC Makeup Academy' | 'QC Event School' | 'QC Design School' | 'QC Pet Studies';
+export type School = 'QC Makeup Academy' | 'QC Event School' | 'QC Design School' | 'QC Pet Studies' | 'QC Wellness Studies' | 'Winghill Writing School';
 
 export type Props = {
   courseGroups: CourseGroup[];
@@ -221,7 +221,6 @@ export const Form: React.FC<Props> = props => {
   return (
     <>
       {props.internal && <Internal />}
-      <a id="courses-section"></a>
       <CourseSelection
         internal={!!props.internal}
         coursesSubtitle={props.coursesSubtitle}

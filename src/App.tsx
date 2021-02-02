@@ -4,58 +4,30 @@ import { StateProvider } from './providers/StateProvider';
 import { ScreenWidthProvider } from './providers/ScreenWidthProvider';
 import { DateProvider } from './providers/DateProvider';
 
-const isMakeup = (domain: string) => [ 'makeup.localhost', 'enroll.qcmakeupacademy.com', 'makeup.enrolltest.qccareerschool.com' ].includes(domain);
-const isEvent = (domain: string) => [ 'event.localhost', 'enroll.qceventplanning.com', 'event.enrolltest.qccareerschool.com' ].includes(domain);
-const isDesign = (domain: string) => [ 'design.localhost', 'enroll.qcdesignschool.com', 'design.enrolltest.qccareerschool.com' ].includes(domain);
-
-type Site = 'makeup' | 'event' | 'design' | 'pet';
-const getSite = (domain: string): Site => {
-  if (isMakeup(domain)) {
-    return 'makeup';
-  }
-  if (isEvent(domain)) {
-    return 'event';
-  }
-  if (isDesign(domain)) {
-    return 'design';
-  }
-  throw Error(`invalid domain name: ${domain}`);
-};
-
-const MakeupTheme = React.lazy(() => import('./pages/makeup/Theme'));
-const EventTheme = React.lazy(() => import('./pages/event/Theme'));
-const DesignTheme = React.lazy(() => import('./pages/design/Theme'));
+import { useSite } from './hooks/useSite';
 
 const Makeup = React.lazy(() => import('./pages/makeup'));
 const Event = React.lazy(() => import('./pages/event'));
 const Design = React.lazy(() => import('./pages/design'));
+const Wellness = React.lazy(() => import('./pages/wellness'));
 
 export const App: React.FC = () => {
-  const site = getSite(window.location.hostname);
+  const site = useSite();
+  if (!site) {
+    return null;
+  }
   return (
     <StateProvider>
       <ScreenWidthProvider>
         <DateProvider>
-          <ThemeSelector site={site}>
-            <React.Suspense fallback={<></>}>
-              {site === 'makeup' && <Makeup />}
-              {site === 'event' && <Event />}
-              {site === 'design' && <Design />}
-            </React.Suspense>
-          </ThemeSelector>
+          <React.Suspense fallback={<></>}>
+            {site === 'makeup' && <Makeup />}
+            {site === 'event' && <Event />}
+            {site === 'design' && <Design />}
+            {site === 'wellness' && <Wellness />}
+          </React.Suspense>
         </DateProvider>
       </ScreenWidthProvider>
     </StateProvider>
-  );
-};
-
-const ThemeSelector: React.FC<{ site: Site }> = ({ children, site }) => {
-  return (
-    <React.Suspense fallback={<></>}>
-      {site === 'makeup' && <MakeupTheme />}
-      {site === 'event' && <EventTheme />}
-      {site === 'design' && <DesignTheme />}
-      {children}
-    </React.Suspense>
   );
 };

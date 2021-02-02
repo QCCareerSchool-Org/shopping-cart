@@ -1,5 +1,10 @@
 import { useEffect } from 'react';
 
+/**
+ * Saves the current window.location.pathname in localStorage if the current pathname is one of the designated pathnames
+ * to save. Redirects the visitor to the saved pathname if the visitor has a pathname saved is the visitor's current pathname is /
+ * @param saveablePaths the pathnames that should be saved
+ */
 export const useSaveablePaths = (saveablePaths: RegExp[]) => {
 
   useEffect(() => {

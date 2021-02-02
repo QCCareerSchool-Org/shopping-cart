@@ -9,6 +9,8 @@ import { useStateContext } from '../../hooks/useStateContext';
 import { Footer } from './Footer';
 import { Header } from './Header';
 
+import './style.scss';
+
 // import Default from './default';
 // import Student from './student';
 // import FreePortfolio from './free-portfolio';

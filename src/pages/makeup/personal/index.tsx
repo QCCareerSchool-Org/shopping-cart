@@ -4,7 +4,6 @@ import { Guarantee } from '../Guarantee';
 import { DefaultPromo } from '../default/DefaultPromo';
 import { DynamicMessage } from '../default/DynamicMessage';
 import { CourseGroup } from '../../../state/courses';
-import { useStateContext } from '../../../hooks/useStateContext';
 import { Form } from '../../../components/Form';
 
 const courseGroups: CourseGroup[] = [

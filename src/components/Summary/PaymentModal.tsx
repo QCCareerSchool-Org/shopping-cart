@@ -165,7 +165,7 @@ export const PaymentModal: React.FC<Props> = ({ company, isOpen, toggle, charge 
     <Modal size="sm" isOpen={isOpen} toggle={toggle} unmountOnClose={false}>
       <ModalHeader toggle={toggle}>Payment Details</ModalHeader>
       <ModalBody>
-        <form role="form" id="payment-form" method="POST" onSubmit={submit}>
+        <form id="payment-form" method="POST" onSubmit={submit}>
           <div className="row">
             <div className="col-12">
               <div className="form-group">

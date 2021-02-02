@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import { usePopup } from '../../hooks/usePopup';
 import { useStateContext } from '../../hooks/useStateContext';

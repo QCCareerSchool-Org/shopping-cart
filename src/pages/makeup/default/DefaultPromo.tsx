@@ -1,9 +1,10 @@
 import React from 'react';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
-import qs from 'qs';
 
 import { usePopup } from '../../../hooks/usePopup';
 import { useDate } from '../../../hooks/useDateContext';
+
+import { dateOverride } from '../../../lib/dateOverride';
 
 import desktop from './desktop.jpg';
 import desktopNZ from './desktop-nz.jpg';
@@ -14,7 +15,6 @@ import mobileNZ from './mobile-nz.jpg';
 import mobileGB from './mobile-uk.jpg';
 import mobileEnds from './mobile-ends.jpg';
 import popupImg from './popup-makeup-kit.jpg';
-import { dateOverride } from '../../../lib/dateOverride';
 
 export interface Props {
   countryCode: string;
