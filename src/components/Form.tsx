@@ -91,7 +91,7 @@ export const Form: React.FC<Props> = props => {
 
   usePriceUpdater(props.additionalOptions); // update prices when courses, country, etc. change
 
-  useGoogleAnalyticsBehaviour();
+  const [ logCheckout ] = useGoogleAnalyticsBehaviour();
 
   useEffect(() => {
     dispatch({ type: 'SET_COURSE_GROUPS', payload: props.courseGroups });
@@ -156,13 +156,6 @@ export const Form: React.FC<Props> = props => {
         paymentDay: payment.day,
         paymentPlan: payment.plan,
       }));
-    }
-  };
-
-  const logCheckout = () => {
-    if (typeof window.gtag !== 'undefined') {
-      const items = courses.selected.map(c => ({ id: c, quantity: 1 }));
-      window.gtag('event', 'begin_checkout', { items });
     }
   };
 

@@ -31,4 +31,13 @@ export const useGoogleAnalyticsBehaviour = () => {
       }
     }
   });
+
+  const logCheckout = () => {
+    if (typeof window.gtag !== 'undefined') {
+      const items = state.courses.selected.map(c => ({ id: c, quantity: 1 }));
+      window.gtag('event', 'begin_checkout', { items });
+    }
+  };
+
+  return [ logCheckout ];
 };
