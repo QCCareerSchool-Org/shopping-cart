@@ -31,16 +31,18 @@ export type EnrollmentPayload = {
   options?: any;
 }
 
-const baseUrl = 'https://api.qccareerschool.com/enrollments' as const;
+const baseUrl = 'https://api.qccareerschool.com/enrollments';
+
+type AddEnrollmentResponse = { id: number; code: number };
 
 /**
  * Adds an enrollment
  * @param {EnrollmentPayload} data the request payload
  * @throws AxiosError
  */
-export const addEnrollment = async (data: EnrollmentPayload): Promise<{ id: number; code: number }> => {
+export const addEnrollment = async (data: EnrollmentPayload): Promise<AddEnrollmentResponse> => {
   try {
-    const response = await axios.post(baseUrl, data, {
+    const response = await axios.post<AddEnrollmentResponse>(baseUrl, data, {
       headers: { 'X-API-Version': 2 },
     });
     return response.data;
