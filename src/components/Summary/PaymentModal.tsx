@@ -115,6 +115,7 @@ export const PaymentModal: React.FC<Props> = ({ company, isOpen, toggle, charge 
   }
 
   const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
     if (submitting) {
       return;
     }
