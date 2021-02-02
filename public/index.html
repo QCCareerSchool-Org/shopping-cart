@@ -1,43 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#000000" />
+  <title>Enroll Online</title>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600|Playfair+Display:400,400i,700,700i&display=swap">
+  <script src="/js/trackjs.js"></script>
+  <script>
+    if (window.location.hostname.indexOf("localhost") === -1) {
+      window.TrackJS && TrackJS.install({
+        token: "0377457a8a0c41c2a11da5e34f786bba",
+        application: "react-shopping-cart",
+        onError: function (payload) {
+          if (payload.entry === 'ajax') {
+            if (Array.isArray(payload.network)) {
+              var latestRequest = payload.network[payload.network.length - 1];
+              return !(latestRequest && latestRequest.statusCode < 500);
+            } else {
+              return true;
+            }
+          } else if (payload.message.startsWith('Failed to register a ServiceWorker')) {
+            return false;
+          }
+          console.log(payload);
+          return true;
+        }
+      });
+    }
+  </script>
+  <script src="https://hosted.paysafe.com/js/v1/latest/paysafe.min.js"></script>
+  <!-- ActiveCampaign -->
+  <script type="text/javascript">
+    (function (e, t, o, n, p, r, i) { e.visitorGlobalObjectAlias = n; e[e.visitorGlobalObjectAlias] = e[e.visitorGlobalObjectAlias] || function () { (e[e.visitorGlobalObjectAlias].q = e[e.visitorGlobalObjectAlias].q || []).push(arguments) }; e[e.visitorGlobalObjectAlias].l = (new Date).getTime(); r = t.createElement("script"); r.src = o; r.async = true; i = t.getElementsByTagName("script")[0]; i.parentNode.insertBefore(r, i) })(window, document, "https://diffuser-cdn.app-us1.com/diffuser/diffuser.js", "vgo");
+    vgo('setAccount', '25481980');
+    vgo('setTrackByDefault', true);
+    vgo('process');
+  </script>
+</head>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+</body>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
 </html>

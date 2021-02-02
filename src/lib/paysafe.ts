@@ -1,0 +1,110 @@
+declare const paysafe: any;
+
+if (typeof paysafe === 'undefined') {
+  if (window.confirm('There was an error loading required resources. Do you want to retry?')) {
+    window.location.reload();
+  } else {
+    throw Error('Paysafe.js is not loaded');
+  }
+}
+
+type PaysafeFieldsCallback = (eventInstance: any, event: any) => void;
+type PaysafeEvents = 'Focus' | 'Blur' | 'Valid' | 'Invalid' | 'FieldValueChange' | 'InvalidCharacter';
+
+interface PaysafeThreeDSOptions {
+  amount: number;
+  currency: string;
+  accountId: number;
+  useThreeDSecureVersion2?: boolean;
+  authenticationPurpose?: 'PAYMENT_TRANSACTION' | 'INSTALMENT_TRANSACTION';
+  maxAuthorizationsForInstalmentPayment?: number;
+  billingCycle?: {
+    endDate: string;
+    frequency: number;
+  };
+}
+
+interface PaysafeVaultOptions {
+  holderName?: string;
+  billingAddress?: {
+    country: string;
+    zip: string;
+    state?: string;
+    city?: string;
+    street?: string;
+    street2?: string;
+  };
+  shippingAddress?: {
+    recipientName?: string;
+    street?: string;
+    street2?: string;
+    city?: string;
+    country: string;
+    zip: string;
+    state?: string;
+    shipMethod?: 'N' | 'T' | 'C' | 'O' | 'S';
+  };
+}
+
+export interface TokenizeOptions {
+  threeDS?: PaysafeThreeDSOptions;
+  vault?: PaysafeVaultOptions;
+}
+
+export interface PaysafeInstance {
+  tokenize: (options: TokenizeOptions | undefined, callback: (tokenInstance: any, err: any, result: { token: string }) => void) => void;
+  fields: (selector: string) => {
+    valid: (callback: PaysafeFieldsCallback) => void;
+    invalid: (callback: PaysafeFieldsCallback) => void;
+    on: (event: PaysafeEvents, callback: PaysafeFieldsCallback) => void;
+  };
+}
+
+/**
+ * Creates a new paysafe instance
+ * @param apiKey the single-use (public) API key to use
+ * @param options the options
+ */
+export function createInstance(apiKey: string, options: any): Promise<PaysafeInstance> {
+  return new Promise<PaysafeInstance>((resolve, reject) => {
+    paysafe.fields.setup(apiKey, options, (instance: PaysafeInstance, err: Error | null) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve(instance);
+    });
+  });
+}
+
+/**
+ * Submits the hosted form to Paysafe and returns a single-use token
+ * @param instance the Paysafe instance to use
+ */
+export function tokenize(instance: PaysafeInstance, options?: TokenizeOptions): Promise<string> {
+  return new Promise((resolve, reject) => {
+    instance.tokenize(options, (tokenInstance, err, result) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve(result.token);
+    });
+  });
+}
+
+export function threeDSecureStart(apiKey: string, accountId: number, paymentToken: string): Promise<string> {
+  return new Promise<string>((resolve, reject) => {
+    const data = {
+      environment: 'LIVE',
+      accountId,
+      card: {
+        paymentToken,
+      },
+    };
+    paysafe.threedsecure.start(apiKey, data, (deviceFingerprintingId: string, err: any) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve(deviceFingerprintingId);
+    });
+  });
+}

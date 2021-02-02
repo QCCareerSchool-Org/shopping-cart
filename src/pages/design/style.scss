@@ -1,0 +1,10 @@
+$theme-colors: (
+  primary: #2840e0,
+  black: #000
+);
+
+@import "../../commonBefore.scss";
+
+@import "~bootstrap/scss/bootstrap";
+
+@import "../../commonAfter.scss";

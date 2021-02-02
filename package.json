@@ -1,20 +1,40 @@
 {
-  "name": "hooks",
-  "version": "0.1.0",
+  "name": "shopping-cart",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/free-regular-svg-icons": "^5.15.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "@qccareerschool/helper-functions": "^1.4.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "@types/jest": "^24.9.1",
+    "@types/big.js": "^6.0.0",
     "@types/node": "^12.12.68",
+    "@types/qs": "^6.9.5",
     "@types/react": "^16.9.53",
+    "@types/react-combine-reducers": "^1.0.0",
     "@types/react-dom": "^16.9.8",
+    "@types/react-helmet": "^6.1.0",
+    "@types/react-router-dom": "^5.1.6",
+    "@types/react-scroll": "^1.8.2",
+    "@types/reactstrap": "^8.5.1",
     "axios": "^0.20.0",
+    "big.js": "^6.0.1",
     "bootstrap": "^4.5.3",
+    "node-sass": "^4.14.1",
+    "qs": "^6.9.4",
     "react": "^16.14.0",
+    "react-combine-reducers": "^1.0.4",
     "react-dom": "^16.14.0",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
+    "react-scroll": "^1.8.1",
+    "reactstrap": "^8.6.0",
     "typescript": "^3.7.5"
   },
   "scripts": {
@@ -38,5 +58,9 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/faker": "^5.1.6",
+    "@types/jest": "^26.0.20",
+    "faker": "^5.2.0"
+  }
 }

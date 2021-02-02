@@ -74,9 +74,7 @@ export function useFetchImproved<T>(initialUrl: string, initialData: T): ReturnT
 
     fetchData();
 
-    return () => {
-      cancelTokenSource.cancel();
-    };
+    return () => cancelTokenSource.cancel();
   }, [ url ]);
 
   const { data, isLoading, isError } = state;
