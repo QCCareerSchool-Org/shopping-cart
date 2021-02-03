@@ -193,7 +193,7 @@ export const Form: React.FC<Props> = props => {
     }
   };
 
-  const charge = async (token: string, company: PaysafeCompany) => {
+  const charge = async (token: string, company: PaysafeCompany): Promise<boolean> => {
     try {
       if (!enrollment) {
         throw Error('enrollment is undefined');
@@ -201,6 +201,7 @@ export const Form: React.FC<Props> = props => {
       await chargeEnrollment(enrollment.id, token, company);
       window.sessionStorage.removeItem('form');
       window.location.href = `${props.successLink}?enrollmentId=${enrollment.id}&code=${enrollment.code}`;
+      return true;
     } catch (err) {
       setEnrollment(null); // we'll start over with a new enrollment record if the user tries again
       let errorMessage: JSX.Element;
@@ -223,6 +224,7 @@ export const Form: React.FC<Props> = props => {
           errorMessage = <div><p>There was an error processing your card. Please double check your card details.</p><p>If your card details are correct, please call the telephone number on the back of your card to authorize the transaction.</p></div>;
       }
       setErrorModal({ open: true, title: errorTitle, message: errorMessage });
+      return false;
     }
   };
 
