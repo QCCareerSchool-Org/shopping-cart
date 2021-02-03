@@ -1,35 +1,16 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import { StateProvider } from './providers/StateProvider';
-import { ScreenWidthProvider } from './providers/ScreenWidthProvider';
-import { DateProvider } from './providers/DateProvider';
+import { Resume } from './components/Resume';
+import { Cart } from './components/Cart';
 
-import { useSite } from './hooks/useSite';
-
-const Makeup = React.lazy(() => import('./pages/makeup'));
-const Event = React.lazy(() => import('./pages/event'));
-const Design = React.lazy(() => import('./pages/design'));
-const Wellness = React.lazy(() => import('./pages/wellness'));
-const Writing = React.lazy(() => import('./pages/writing'));
-
-export const App: React.FC = () => {
-  const site = useSite();
-  if (!site) {
-    return null;
-  }
-  return (
-    <StateProvider>
-      <ScreenWidthProvider>
-        <DateProvider>
-          <React.Suspense fallback={<></>}>
-            {site === 'makeup' && <Makeup />}
-            {site === 'event' && <Event />}
-            {site === 'design' && <Design />}
-            {site === 'wellness' && <Wellness />}
-            {site === 'writing' && <Writing />}
-          </React.Suspense>
-        </DateProvider>
-      </ScreenWidthProvider>
-    </StateProvider>
-  );
-};
+export const App: React.FC = () => (
+  <BrowserRouter>
+    <Suspense fallback={<></>}>
+      <Switch>
+        <Route path="/resume.html" component={Resume} />
+        <Route component={Cart} />
+      </Switch>
+    </Suspense>
+  </BrowserRouter>
+);
