@@ -1,5 +1,5 @@
 $theme-colors: (
-  primary: #f74b4b,
+  primary: #8c0a1e,
   black: #000
 );
 
@@ -9,13 +9,8 @@ $theme-colors: (
 
 @import "../../commonAfter.scss";
 
-#header {
-  background-color: #071f39;
-  padding: 13px 1px;
-}
-
 #logo {
-  height: 38px;
+  height: 20px;
   max-height: none;
 }
 
