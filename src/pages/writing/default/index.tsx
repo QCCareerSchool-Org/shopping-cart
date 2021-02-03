@@ -18,9 +18,9 @@ const Default: React.FC<Props> = ({ countryCode, currencyCode, courses }) => (
       courseGroups={courseGroups}
       school="Winghill Writing School"
       guarantee={() => <Guarantee />}
-      agreementLink="https://www.qcwellnessstudies.com/enrollment-agreement"
-      agreementLinkGB="https://www.qcwellnessstudies.com/enrollment-agreement-gb"
-      successLink="https://www.qcwellnessstudies.com/welcome-to-the-school/"
+      agreementLink="https://www.winghill.com/enrollment-agreement.html"
+      agreementLinkGB="https://www.winghill.com/enrollment-agreement-gb.html"
+      successLink="https://www.winghill.com/welcome-to-the-school/"
       coursesSubtitle={() => <div style={{ textAlign: 'center', marginBottom: 24 }}><img className="img-fluid" src={require('../../../50-off.svg')} /></div>}
     />
   </>
