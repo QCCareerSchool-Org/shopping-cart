@@ -16,7 +16,7 @@ type Props = {
   company: PaysafeCompany;
   isOpen: boolean;
   toggle: () => void;
-  charge: (token: string, compay: PaysafeCompany) => Promise<void>;
+  charge: (token: string, compay: PaysafeCompany) => Promise<boolean>;
 }
 
 type Status = {
@@ -154,7 +154,10 @@ export const PaymentModal: React.FC<Props> = ({ company, isOpen, toggle, charge 
       }
       setStatus(s => ({ ...s, submitted: true }));
       const token = await tokenize(status.instance, options);
-      await charge(token, company);
+      const chargeResult = await charge(token, company);
+      if (chargeResult === false) {
+        toggle();
+      }
     } catch (err) {
       setStatus(s => ({ ...s, errors: err }));
     } finally {

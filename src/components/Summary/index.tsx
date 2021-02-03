@@ -12,7 +12,7 @@ import { DetailedBreakdown } from './DetailedBreakdown';
 
 type Props = {
   addToDatabase: () => Promise<boolean>;
-  charge: (token: string, company: PaysafeCompany) => Promise<void>;
+  charge: (token: string, company: PaysafeCompany) => Promise<boolean>;
   guarantee: () => JSX.Element;
   scrollToPosition: (section: 'courses' | 'shipping' | 'plan') => void;
   agreementLink: string;
