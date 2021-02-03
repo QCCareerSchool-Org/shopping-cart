@@ -21,6 +21,7 @@ const Default: React.FC<Props> = ({ countryCode, currencyCode, courses }) => (
       agreementLink="https://www.qcwellnessstudies.com/enrollment-agreement"
       agreementLinkGB="https://www.qcwellnessstudies.com/enrollment-agreement-gb"
       successLink="https://www.qcwellnessstudies.com/welcome-to-the-school/"
+      coursesSubtitle={() => <div style={{ textAlign: 'center', marginBottom: 24 }}><img className="img-fluid" src={require('../../../50-off.svg')} /></div>}
     />
   </>
 );
