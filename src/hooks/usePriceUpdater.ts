@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { useEffect } from 'react';
 import qs from 'qs';
+import { useEffect } from 'react';
 
 import { PriceQuery, PriceResult } from '../state/price';
 import { useDispatchContext } from './useDispatchContext';
