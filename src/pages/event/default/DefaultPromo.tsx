@@ -26,11 +26,23 @@ const DefaultPromo_: React.FC<Props> = ({ currencyCode }) => {
     } else {
       image = currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
     }
-  } else if (date >= new Date('2021-02-15T09:00:00-05:00')) {
+  } else if (date >= new Date('2021-02-16T08:00:00-05:00')) {
     if (desktop) {
       image = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
     } else {
       image = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
+    }
+  } else if (date >= new Date('2021-02-15T00:00:00-05:00')) {
+    if (desktop) {
+      image = require('./valentines/desktop-ends.jpg');
+    } else {
+      image = require('./valentines/mobile-ends.jpg');
+    }
+  } else if (date >= new Date('2021-02-13T09:00:00-05:00')) {
+    if (desktop) {
+      image = require('./valentines/desktop.jpg');
+    } else {
+      image = require('./valentines/mobile.jpg');
     }
   } else if (date >= new Date('2021-02-10T12:00:00-05:00')) {
     if (desktop) {
