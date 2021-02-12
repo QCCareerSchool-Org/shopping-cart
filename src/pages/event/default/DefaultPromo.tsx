@@ -59,7 +59,7 @@ const DefaultPromo_: React.FC<Props> = ({ currencyCode }) => {
   }
 
   const popupTitle = 'Special Offer';
-  const backgroundColor = '#8ef0c0';
+  const backgroundColor = (date >= new Date('2021-02-13T08:00:00-05:00') && date < new Date('2021-02-16T08:00:00-05:00')) ? '#2b0b12' : '#8ef0c0';
 
   return (
     <section id="promoSection" style={{ backgroundColor, padding: 0 }}>
