@@ -142,6 +142,7 @@ export const Form: React.FC<Props> = props => {
       noShipping: payment.noShipping,
       discountAll: meta.student,
       studentDiscount: meta.studentDiscount,
+      school: props.school,
       ...props.additionalOptions,
     },
   });
