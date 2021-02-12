@@ -19,26 +19,34 @@ const DefaultPromo_: React.FC<Props> = ({ currencyCode }) => {
 
   const desktop = screenWidth >= 576;
 
+  console.log(dateOverride, 'dateOverride');
+  console.log(serverDate, 'serverDate');
+  console.log(date, 'date');
+
   let image: string;
   if (date >= new Date('2021-02-24T12:00:00-05:00')) {
+    console.log('A');
     if (desktop) {
       image = currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg');
     } else {
       image = currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
     }
   } else if (date >= new Date('2021-02-15T09:00:00-05:00')) {
+    console.log('B');
     if (desktop) {
       image = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
     } else {
       image = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
     }
   } else if (date >= new Date('2021-02-10T12:00:00-05:00')) {
+    console.log('C');
     if (desktop) {
       image = currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg');
     } else {
       image = currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
     }
   } else {
+    console.log('D');
     if (desktop) {
       image = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
     } else {
