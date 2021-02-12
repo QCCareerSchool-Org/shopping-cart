@@ -90,7 +90,7 @@ export const Form: React.FC<Props> = props => {
 
   useGeoLocation(); // set initial country and province based on ip
 
-  usePriceUpdater(props.additionalOptions); // update prices when courses, country, etc. change
+  usePriceUpdater(props.school, props.additionalOptions); // update prices when courses, country, etc. change
 
   useGoogleAnalyticsBehaviour();
 

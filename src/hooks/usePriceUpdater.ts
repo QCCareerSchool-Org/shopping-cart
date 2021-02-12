@@ -5,8 +5,9 @@ import { useEffect } from 'react';
 import { PriceQuery, PriceResult } from '../state/price';
 import { useDispatchContext } from './useDispatchContext';
 import { useStateContext } from './useStateContext';
+import { School } from '../components/Form';
 
-export const usePriceUpdater = (additionalOptions?: any) => {
+export const usePriceUpdater = (school: School, additionalOptions?: any) => {
   const { courses, address, payment, meta } = useStateContext();
   const dispatch = useDispatchContext();
 
@@ -22,6 +23,7 @@ export const usePriceUpdater = (additionalOptions?: any) => {
         options: {
           discountAll: meta.student,
           noShipping: payment.noShipping,
+          school,
           ...additionalOptions,
         },
       };
@@ -42,5 +44,5 @@ export const usePriceUpdater = (additionalOptions?: any) => {
     fetchData();
 
     return () => cancelTokenSource.cancel();
-  }, [ dispatch, courses, address.countryCode, address.provinceCode, meta.student, meta.studentDiscount, payment.noShipping, additionalOptions ]);
+  }, [ dispatch, courses, address.countryCode, address.provinceCode, meta.student, meta.studentDiscount, payment.noShipping, school, additionalOptions ]);
 };
