@@ -1,13 +1,13 @@
 import axios from 'axios';
-import { useEffect } from 'react';
 import qs from 'qs';
+import { useEffect } from 'react';
 
 import { PriceQuery, PriceResult } from '../state/price';
 import { useDispatchContext } from './useDispatchContext';
 import { useStateContext } from './useStateContext';
 
 export const usePriceUpdater = (additionalOptions?: any) => {
-  const state = useStateContext();
+  const { courses, address, payment, meta } = useStateContext();
   const dispatch = useDispatchContext();
 
   // update the prices when the country, province, or courses change
@@ -16,12 +16,12 @@ export const usePriceUpdater = (additionalOptions?: any) => {
 
     const fetchData = async () => {
       const params: PriceQuery = {
-        courses: state.courses.selected,
-        countryCode: state.address.countryCode,
-        provinceCode: state.address.provinceCode ?? undefined,
+        courses: courses.selected,
+        countryCode: address.countryCode,
+        provinceCode: address.provinceCode ?? undefined,
         options: {
-          discountAll: state.meta.student,
-          noShipping: state.payment.noShipping,
+          discountAll: meta.student,
+          noShipping: payment.noShipping,
           ...additionalOptions,
         },
       };
@@ -42,5 +42,5 @@ export const usePriceUpdater = (additionalOptions?: any) => {
     fetchData();
 
     return () => cancelTokenSource.cancel();
-  }, [ dispatch, state.courses, state.address.countryCode, state.address.provinceCode, state.meta.student, state.meta.studentDiscount, state.payment.noShipping, additionalOptions ]);
+  }, [ dispatch, courses, address.countryCode, address.provinceCode, meta.student, meta.studentDiscount, payment.noShipping, additionalOptions ]);
 };

@@ -1,5 +1,5 @@
-import { useEffect, useReducer, useState } from 'react';
 import axios from 'axios';
+import { useEffect, useReducer, useState } from 'react';
 
 type State<T> = {
   data: T;

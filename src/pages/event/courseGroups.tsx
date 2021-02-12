@@ -10,10 +10,11 @@ export const courseGroups: CourseGroup[] = [
       { code: 'CP', name: 'Corporate Event Planning' },
       { code: 'CE', name: 'Event Planning' },
       { code: 'WP', name: 'Wedding Planning' },
+      { code: 'FD', name: 'Floral Design ' },
     ],
   },
   {
-    name: 'Advanced & Specialty Courses',
+    name: 'Specialty Courses',
     items: [
       { code: 'ED', name: 'Event Decor' },
       { code: 'EB', name: 'Accelerate Your Business Workshop' },

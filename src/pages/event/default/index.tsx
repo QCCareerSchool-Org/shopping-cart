@@ -8,12 +8,13 @@ import { DefaultPromo } from './DefaultPromo';
 
 type Props = {
   courses: string[];
+  currencyCode: string;
 }
 
-const Default: React.FC<Props> = ({ courses }) => {
+const Default: React.FC<Props> = ({ courses, currencyCode }) => {
   return (
     <>
-      <DefaultPromo />
+      <DefaultPromo currencyCode={currencyCode} />
       <Form
         courseGroups={courseGroups}
         school="QC Event School"

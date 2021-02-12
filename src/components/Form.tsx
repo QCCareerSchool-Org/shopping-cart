@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { scroller } from 'react-scroll';
 
 import { useGeoLocation } from '../hooks/useGeoLocation';
@@ -37,6 +37,7 @@ export type School = 'QC Makeup Academy' | 'QC Event School' | 'QC Design School
 export type Props = {
   courseGroups: CourseGroup[];
   school: School;
+  courseOverride?: string[];
   /** the guarantee component to display in the summary section */
   guarantee: (() => JSX.Element);
   /** a component to display below the courses title */
@@ -102,6 +103,13 @@ export const Form: React.FC<Props> = props => {
   useEffect(() => {
     dispatch({ type: 'SET_STUDENT', payload: !!props.student });
   }, [ dispatch, props.student ]);
+
+  useEffect(() => {
+    if (props.courseOverride) {
+      dispatch({ type: 'CLEAR_COURSES', payload: { internal: !!props.internal } });
+      props.courseOverride.forEach(c => dispatch({ type: 'ADD_COURSE', payload: { courseCode: c, internal: !!props.internal } }));
+    }
+  }, [ ]);
 
   const [ enrollment, setEnrollment ] = useState<EnrollmentData | null>(null);
   const [ errorModal, setErrorModal ] = useState<ErrorModalData>({ open: false, title: '', message: '' });
@@ -231,11 +239,11 @@ export const Form: React.FC<Props> = props => {
   return (
     <>
       {props.internal && <Internal />}
-      <CourseSelection
+      {!props.courseOverride && <CourseSelection
         internal={!!props.internal}
         coursesSubtitle={props.coursesSubtitle}
         dynamicCourseMessages={props.dynamicCourseMessages}
-      />
+      />}
       <Address />
       <Payment
         school={props.school}

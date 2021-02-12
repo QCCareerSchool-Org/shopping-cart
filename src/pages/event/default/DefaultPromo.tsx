@@ -3,33 +3,57 @@ import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
 import { useDate } from '../../../hooks/useDateContext';
 import { usePopup } from '../../../hooks/usePopup';
+import { useScreenWidthContext } from '../../../hooks/useScreenWidthContext';
 import { dateOverride } from '../../../lib/dateOverride';
 
-import desktopEnds from './desktop-ends.jpg';
-import desktop from './desktop.jpg';
-import mobileEnds from './mobile-ends.jpg';
-import mobile from './mobile.jpg';
+interface Props {
+  currencyCode: string;
+}
 
-const DefaultPromo_: React.FC = () => {
+const DefaultPromo_: React.FC<Props> = ({ currencyCode }) => {
+  const screenWidth = useScreenWidthContext();
   const serverDate = useDate();
   const [ popup, togglePopup ] = usePopup(false);
 
   const date = dateOverride() || serverDate;
 
-  const endsNow = date >= new Date('2020-10-29T00:00:00-04:00');
-  const desktopImage = endsNow ? desktopEnds : desktop;
-  const mobileImage = endsNow ? mobileEnds : mobile;
+  const desktop = screenWidth >= 576;
+
+  let image: string;
+  if (date >= new Date('2021-02-24T12:00:00-05:00')) {
+    if (desktop) {
+      image = currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg');
+    } else {
+      image = currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
+    }
+  } else if (date >= new Date('2021-02-15T09:00:00-05:00')) {
+    if (desktop) {
+      image = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
+    } else {
+      image = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
+    }
+  } else if (date >= new Date('2021-02-10T12:00:00-05:00')) {
+    if (desktop) {
+      image = currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg');
+    } else {
+      image = currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
+    }
+  } else {
+    if (desktop) {
+      image = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
+    } else {
+      image = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
+    }
+  }
+
   const popupTitle = 'Special Offer';
-  const backgroundColor = '#ffaa08';
+  const backgroundColor = '#8ef0c0';
 
   return (
     <section id="promoSection" style={{ backgroundColor, padding: 0 }}>
-      <div className="container">
-        <div className="d-none d-lg-block text-center">
-          <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={togglePopup}><img src={desktopImage} className="img-fluid d-block mx-auto" alt="Special Offer" /></button>
-        </div>
-        <div className="d-block d-lg-none text-center">
-          <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={togglePopup}><img src={mobileImage} className="img-fluid d-block mx-auto" alt="Special Offer" /></button>
+      <div className="container px-0">
+        <div className="text-center">
+          <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={togglePopup}><img src={image} className="img-fluid d-block mx-auto" alt="Special Offer" /></button>
         </div>
       </div>
       <Modal size="lg" isOpen={popup} toggle={togglePopup}>
