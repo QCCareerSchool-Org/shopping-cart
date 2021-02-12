@@ -24,7 +24,7 @@ export const DefaultPromo: React.FC<Props> = ({ countryCode, currencyCode }) => 
   if (date >= new Date('2021-02-24T12:00:00-05:00')) {
     desktopImage = desktopEnds;
     mobileImage = mobileEnds;
-  } else if (date >= new Date('2021-02-15T09:00:00-05:00')) {
+  } else if (date >= new Date('2021-02-16T08:00:00-05:00')) {
     desktopImage = desktop;
     mobileImage = mobile;
   } else if (date >= new Date('2021-02-10T12:00:00-05:00')) {
