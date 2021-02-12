@@ -15,7 +15,7 @@ const DefaultPromo_: React.FC<Props> = ({ currencyCode }) => {
   const serverDate = useDate();
   const [ popup, togglePopup ] = usePopup(false);
 
-  const date = dateOverride() || serverDate;
+  const date = dateOverride() ?? serverDate;
 
   const desktop = screenWidth >= 576;
 
