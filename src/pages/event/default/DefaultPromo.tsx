@@ -54,6 +54,10 @@ const DefaultPromo_: React.FC<Props> = ({ currencyCode }) => {
     }
   }
 
+  console.log(date, 'date');
+  console.log(new Date('2021-02-10T12:00:00-05:00'), 'test');
+  console.log(date >= new Date('2021-02-10T12:00:00-05:00'), 'date >= test');
+
   const popupTitle = 'Special Offer';
   const backgroundColor = '#8ef0c0';
 
