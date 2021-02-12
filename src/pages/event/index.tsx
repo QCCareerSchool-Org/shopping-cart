@@ -20,6 +20,7 @@ const Default = React.lazy(() => import('./default'));
 const Student = React.lazy(() => import('./student'));
 const FreePortfolio = React.lazy(() => import('./free-portfolio'));
 const TuitionDiscount = React.lazy(() => import('./tuition-discount'));
+const Floral = React.lazy(() => import('./floral'));
 
 const Event: React.FC = () => {
   const { courses, address, price } = useStateContext();
@@ -28,6 +29,7 @@ const Event: React.FC = () => {
   useSaveablePaths([
     /^\/free-portfolio(\/.*)?$/,
     /^\/tuition-discount(\/.*)?$/,
+    /^\/floral(\/.*)?$/,
   ]);
 
   return (
@@ -52,7 +54,8 @@ const Event: React.FC = () => {
             <Route path="/student/" component={Student} />
             <Route path="/free-portfolio/" component={FreePortfolio} />
             <Route path="/tuition-discount/" render={props => <TuitionDiscount {...props} currencyCode={currencyCode} />} />
-            <Route render={props => <Default {...props} courses={courses.selected} />} />
+            <Route path="/floral/" render={props => <Floral {...props} currencyCode={currencyCode} />} />
+            <Route render={props => <Default {...props} courses={courses.selected} currencyCode={currencyCode} />} />
           </Switch>
         </Suspense>
       </BrowserRouter>
