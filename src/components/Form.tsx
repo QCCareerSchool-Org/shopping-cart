@@ -239,10 +239,11 @@ export const Form: React.FC<Props> = props => {
   return (
     <>
       {props.internal && <Internal />}
-      {!props.courseOverride && <CourseSelection
+      {<CourseSelection
         internal={!!props.internal}
         coursesSubtitle={props.coursesSubtitle}
         dynamicCourseMessages={props.dynamicCourseMessages}
+        courseOverride={!!props.courseOverride}
       />}
       <Address />
       <Payment
