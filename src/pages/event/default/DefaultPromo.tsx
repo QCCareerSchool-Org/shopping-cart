@@ -58,8 +58,23 @@ const DefaultPromo_: React.FC<Props> = ({ currencyCode }) => {
     }
   }
 
-  const popupTitle = 'Special Offer';
-  const backgroundColor = (date >= new Date('2021-02-13T08:00:00-05:00') && date < new Date('2021-02-16T08:00:00-05:00')) ? '#2b0b12' : '#8ef0c0';
+  let popupTitle;
+  let backgroundColor;
+  let modalContent;
+  if (date >= new Date('2021-02-13T08:00:00-05:00') && date < new Date('2021-02-16T08:00:00-05:00')) {
+    popupTitle = 'Limited Time Offer';
+    backgroundColor = '#2b0b12';
+    modalContent = (
+      <>
+        <p>Until February 15th, receive a FREE leather portfolio when you enroll in any course.</p>
+        <p>Plus, when you enroll in one of QC’s foundation courses&mdash;at our lowest deposit ever&mdash;you&apos;ll get a specialty course for free (of equal or lesser value).</p>
+      </>
+    );
+  } else {
+    popupTitle = 'Special Offer';
+    backgroundColor = '#8ef0c0';
+    modalContent = <p className="my-5">Enroll in one foundation course&mdash;with our lowest deposit ever&mdash;and get a FREE Advanced or Specialty Course. Plus, receive a FREE Virtual Events Training.</p>;
+  }
 
   return (
     <section id="promoSection" style={{ backgroundColor, padding: 0 }}>
@@ -71,7 +86,7 @@ const DefaultPromo_: React.FC<Props> = ({ currencyCode }) => {
       <Modal size="lg" isOpen={popup} toggle={togglePopup}>
         <ModalHeader toggle={togglePopup}>{popupTitle}</ModalHeader>
         <ModalBody className="text-center">
-          <p className="my-5">Enroll in one foundation course&mdash;with our lowest deposit ever&mdash;and get a FREE Advanced or Specialty Course. Plus, receive a FREE Virtual Events Training.</p>
+          {modalContent}
         </ModalBody>
       </Modal>
     </section>
