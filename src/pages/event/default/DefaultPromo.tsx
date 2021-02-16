@@ -73,7 +73,7 @@ const DefaultPromo_: React.FC<Props> = ({ currencyCode }) => {
   } else {
     popupTitle = 'Special Offer';
     backgroundColor = '#8ef0c0';
-    modalContent = <p className="my-5">Enroll in one foundation course&mdash;with our lowest deposit ever&mdash;and get a FREE Advanced or Specialty Course. Plus, receive a FREE Virtual Events Training.</p>;
+    modalContent = <p className="my-5">Enroll in one foundation course&mdash;with our lowest deposit ever&mdash;and get a FREE Advanced or Specialty Course.</p>;
   }
 
   return (
