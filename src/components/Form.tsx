@@ -50,10 +50,14 @@ export type Props = {
   student?: boolean;
   /** whether we allow overriding the deposit and installments */
   allowOverrides?: boolean;
-  /** allow students to choose the no-shiping discount */
-  allowNoShipping?: boolean;
-  /** the name for the no-shipping discount */
-  greenDiscount?: string;
+  /** allow students to chose whether to have materials shipped or not */
+  shippingOption?: boolean;
+  /** reverse the shipping option from opt in to online only to opt in to shipping, requires shippingOption to be true */
+  shippingOptionReversed?: boolean;
+  /** the default setting for shipping */
+  noShipping?: boolean;
+  /** the title for the no-shipping discount */
+  noShippingTitle?: string;
   /** where to send the visitor after a sucessfull enrollment */
   successLink: string;
   /** url of enrollment agreement */
@@ -103,6 +107,10 @@ export const Form: React.FC<Props> = props => {
   useEffect(() => {
     dispatch({ type: 'SET_STUDENT', payload: !!props.student });
   }, [ dispatch, props.student ]);
+
+  useEffect(() => {
+    dispatch({ type: 'SET_NO_SHIPPING', payload: !!props.noShipping });
+  }, [ dispatch, props.noShipping ]);
 
   useEffect(() => {
     if (props.courseOverride) {
@@ -245,12 +253,14 @@ export const Form: React.FC<Props> = props => {
         coursesSubtitle={props.coursesSubtitle}
         dynamicCourseMessages={props.dynamicCourseMessages}
         courseOverride={!!props.courseOverride}
+        shippingOptionReversed={!!props.shippingOptionReversed}
       />}
       <Address />
       <Payment
         school={props.school}
-        allowNoShipping={!!props.allowNoShipping}
-        greenDiscount={props.greenDiscount}
+        shippingOption={!!props.shippingOption}
+        shippingOptionReversed={!!props.shippingOptionReversed}
+        noShippingTitle={props.noShippingTitle}
       />
       {props.allowOverrides && payment.plan === 'part' && <Overrides />}
       <Summary

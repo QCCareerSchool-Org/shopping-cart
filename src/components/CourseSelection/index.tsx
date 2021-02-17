@@ -9,9 +9,10 @@ type Props = {
   coursesSubtitle?: () => JSX.Element;
   dynamicCourseMessages?: Array<() => JSX.Element>;
   courseOverride: boolean;
+  shippingOptionReversed: boolean;
 }
 
-export const CourseSelection: React.FC<Props> = ({ internal, coursesSubtitle, dynamicCourseMessages, courseOverride }) => {
+export const CourseSelection: React.FC<Props> = ({ internal, coursesSubtitle, dynamicCourseMessages, courseOverride, shippingOptionReversed }) => {
   const { courses, price, enrollmentErrors } = useStateContext();
   return (
     <section id="courses-section">
@@ -40,7 +41,7 @@ export const CourseSelection: React.FC<Props> = ({ internal, coursesSubtitle, dy
                   ))}
                 </div>
                 <div className="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-0">
-                  {!!price && <CourseTable price={price} showBuyOneGetOne={false} />}
+                  {!!price && <CourseTable price={price} showBuyOneGetOne={false} shippingOptionReversed={shippingOptionReversed} />}
                 </div>
               </div>
             </>
@@ -49,7 +50,7 @@ export const CourseSelection: React.FC<Props> = ({ internal, coursesSubtitle, dy
             <>
             <div className="row">
               <div className="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3">
-                {!!price && <CourseTable price={price} showBuyOneGetOne={false} />}
+                {!!price && <CourseTable price={price} showBuyOneGetOne={false} shippingOptionReversed={shippingOptionReversed} />}
               </div>
             </div>
             </>
