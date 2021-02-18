@@ -5,9 +5,10 @@ import { DateProvider } from '../providers/DateProvider';
 import { ScreenWidthProvider } from '../providers/ScreenWidthProvider';
 import { StateProvider } from '../providers/StateProvider';
 
-const Makeup = React.lazy(() => import('../pages/makeup'));
-const Event = React.lazy(() => import('../pages/event'));
 const Design = React.lazy(() => import('../pages/design'));
+const Event = React.lazy(() => import('../pages/event'));
+const Makeup = React.lazy(() => import('../pages/makeup'));
+const Pet = React.lazy(() => import('../pages/pet'));
 const Wellness = React.lazy(() => import('../pages/wellness'));
 const Writing = React.lazy(() => import('../pages/writing'));
 const Internal = React.lazy(() => import('../pages/internal'));
@@ -22,9 +23,10 @@ export const Cart: React.FC = () => {
       <ScreenWidthProvider>
         <DateProvider>
           <React.Suspense fallback={<></>}>
-            {site === 'makeup' && <Makeup />}
-            {site === 'event' && <Event />}
             {site === 'design' && <Design />}
+            {site === 'event' && <Event />}
+            {site === 'makeup' && <Makeup />}
+            {site === 'pet' && <Pet />}
             {site === 'wellness' && <Wellness />}
             {site === 'writing' && <Writing />}
             {site === 'internal' && <Internal />}

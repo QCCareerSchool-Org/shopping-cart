@@ -1,6 +1,6 @@
 {
   "short_name": "Shopping Cart",
-  "name": "QC Career School Shopping Cart",
+  "name": "QC Wellness Studies Shopping Cart",
   "icons": [
     {
         "src": "/android-chrome-192x192.png",
@@ -16,5 +16,5 @@
   "start_url": ".",
   "display": "browser",
   "theme_color": "#061f3a",
-  "background_color": "#061f3a"
+  "background_color": "#ffffff"
 }
