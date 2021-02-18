@@ -15,7 +15,7 @@ import { Payment } from './Payment';
 import { Internal } from './Internal';
 import { Overrides } from './Overrides';
 import { CourseSelection } from './CourseSelection';
-import { addEnrollment, chargeEnrollment, EnrollmentPayload, updateEnrollment } from '../lib/enrollment';
+import { addEnrollment, chargeEnrollment, EnrollmentPayload, School, updateEnrollment } from '../lib/enrollment';
 import { PaysafeCompany } from './Summary/PaymentModal';
 import { EnrollmentError } from '../lib/enrollmentError';
 import { useStateContext } from '../hooks/useStateContext';
@@ -31,8 +31,6 @@ type ErrorModalData = {
   title: string;
   message: string | JSX.Element;
 }
-
-export type School = 'QC Makeup Academy' | 'QC Event School' | 'QC Design School' | 'QC Pet Studies' | 'QC Wellness Studies' | 'Winghill Writing School';
 
 type Props = {
   courseGroups: CourseGroup[];

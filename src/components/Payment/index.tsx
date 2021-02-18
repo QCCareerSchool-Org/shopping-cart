@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useStateContext } from '../../hooks/useStateContext';
-import { School } from '../Form';
+import { School } from '../../lib/enrollment';
 
 import { NoShipping } from './NoShipping';
 import { PaymentOptions } from './PaymentOptions';

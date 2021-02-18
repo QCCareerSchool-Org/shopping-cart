@@ -4,7 +4,7 @@ import { faEnvira } from '@fortawesome/free-brands-svg-icons/faEnvira';
 
 import { useDispatchContext } from '../../hooks/useDispatchContext';
 import { useStateContext } from '../../hooks/useStateContext';
-import { School } from '../Form';
+import { School } from '../../lib/enrollment';
 
 type Props = {
   school: School;
