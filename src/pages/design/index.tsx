@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { LiveChat } from '../../components/LiveChat';
 
 import { useSaveablePaths } from '../../hooks/useSaveablePaths';
 import { useStateContext } from '../../hooks/useStateContext';
@@ -51,6 +52,7 @@ const Design: React.FC = () => {
           <Route render={props => <Default {...props} courses={courses.selected} />} />
         </Switch>
       </BrowserRouter>
+      <LiveChat license={1056788} group={3} gaVersion="gtag" />
       <Footer countryCode={address.countryCode} />
     </>
   );
