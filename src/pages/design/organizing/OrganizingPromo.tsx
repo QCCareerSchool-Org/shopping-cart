@@ -14,7 +14,7 @@ export const OrganizingPromo: React.FC<Props> = ({ currencyCode }) => {
 
   const date = dateOverride() ?? serverDate;
 
-  const desktop = screenWidth >= 514;
+  const desktop = screenWidth > 514;
 
   let desktopImage;
   let mobileImage;

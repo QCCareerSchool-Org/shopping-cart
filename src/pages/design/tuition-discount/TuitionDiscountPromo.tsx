@@ -9,7 +9,7 @@ type Props = {
 export const TuitionDiscountPromo: React.FC<Props> = ({ currencyCode }) => {
   const screenWidth = useScreenWidthContext();
 
-  const desktop = screenWidth >= 480;
+  const desktop = screenWidth > 480;
 
   const desktopImage = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
   const mobileImage = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');

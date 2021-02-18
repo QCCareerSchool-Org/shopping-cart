@@ -13,7 +13,7 @@ export const FloralPromo: React.FC<Props> = ({ currencyCode }) => {
 
   const date = dateOverride() ?? serverDate;
 
-  const desktop = screenWidth >= 576;
+  const desktop = screenWidth > 576;
 
   let image: string;
   if (date >= new Date('2021-02-18T12:00:00-05:00')) {

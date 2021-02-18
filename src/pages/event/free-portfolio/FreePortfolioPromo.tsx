@@ -8,7 +8,7 @@ import mobileImage from './mobile.jpg';
 export const FreePortfolioPromo: React.FC = () => {
   const screenWidth = useScreenWidthContext();
 
-  const desktop = screenWidth >= 410;
+  const desktop = screenWidth > 410;
 
   return (
     <section id="promoSection" style={{ padding: 0 }}>
