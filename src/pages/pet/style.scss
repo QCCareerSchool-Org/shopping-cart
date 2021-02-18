@@ -1,0 +1,16 @@
+$theme-colors: (
+  primary: rgb(20, 171, 199),
+  black: #000
+);
+
+@import "../../commonBefore.scss";
+
+@import "~bootstrap/scss/bootstrap";
+
+@import "../../commonAfter.scss";
+
+#header {
+  background-color: white;
+  color: black;
+  padding: 1px 0;
+}
