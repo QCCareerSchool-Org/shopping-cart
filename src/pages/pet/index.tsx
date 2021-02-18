@@ -41,7 +41,7 @@ const Pet: React.FC = () => {
           </Switch>
         </Suspense>
       </BrowserRouter>
-      <LiveChat license={1056788} group={14} gaVersion="gtag" />
+      <LiveChat license={1056788} group={18} gaVersion="gtag" />
       <Footer countryCode={address.countryCode} />
     </>
   );
