@@ -54,7 +54,7 @@ const Event: React.FC = () => {
           </Switch>
         </Suspense>
       </BrowserRouter>
-      <LiveChat license={1056788} group={3} gaVersion="gtag" />
+      <LiveChat license={1056788} group={1} gaVersion="gtag" />
       <Footer countryCode={address.countryCode} />
     </>
   );
