@@ -9,7 +9,7 @@ import mobile from './mobile.jpg';
 import desktopEnds from './desktop-ends.jpg';
 import mobileEnds from './mobile-ends.jpg';
 
-export interface Props {
+type Props = {
   countryCode: string;
   currencyCode: string;
 }

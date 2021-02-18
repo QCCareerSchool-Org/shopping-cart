@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
-export interface Props {
+type Props = {
   isOpen: boolean;
   toggle: () => void;
   title: string;

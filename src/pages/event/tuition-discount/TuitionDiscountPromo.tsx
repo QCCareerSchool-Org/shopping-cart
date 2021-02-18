@@ -5,11 +5,11 @@ import desktop from './desktop.jpg';
 import mobileGB from './mobile-gb.jpg';
 import mobile from './mobile.jpg';
 
-export interface Props {
+type Props = {
   currencyCode: string;
 }
 
-const TuitionDiscountPromo_: React.FC<Props> = ({ currencyCode }) => {
+export const TuitionDiscountPromo: React.FC<Props> = ({ currencyCode }) => {
   const desktopImage = currencyCode === 'GBP' ? desktopGB : desktop;
   const mobileImage = currencyCode === 'GBP' ? mobileGB : mobile;
 
@@ -26,5 +26,3 @@ const TuitionDiscountPromo_: React.FC<Props> = ({ currencyCode }) => {
     </section>
   );
 };
-
-export const TuitionDiscountPromo = React.memo(TuitionDiscountPromo_);

@@ -10,6 +10,7 @@ const Event = React.lazy(() => import('../pages/event'));
 const Design = React.lazy(() => import('../pages/design'));
 const Wellness = React.lazy(() => import('../pages/wellness'));
 const Writing = React.lazy(() => import('../pages/writing'));
+const Internal = React.lazy(() => import('../pages/internal'));
 
 export const Cart: React.FC = () => {
   const site = useSite();
@@ -26,6 +27,7 @@ export const Cart: React.FC = () => {
             {site === 'design' && <Design />}
             {site === 'wellness' && <Wellness />}
             {site === 'writing' && <Writing />}
+            {site === 'internal' && <Internal />}
           </React.Suspense>
         </DateProvider>
       </ScreenWidthProvider>

@@ -3,17 +3,17 @@ import { useDate } from '../../../hooks/useDateContext';
 import { useScreenWidthContext } from '../../../hooks/useScreenWidthContext';
 import { dateOverride } from '../../../lib/dateOverride';
 
-export interface Props {
+type Props = {
   currencyCode: string;
 }
 
-const FloralPromo_: React.FC<Props> = ({ currencyCode }) => {
+export const FloralPromo: React.FC<Props> = ({ currencyCode }) => {
   const screenWidth = useScreenWidthContext();
   const serverDate = useDate();
 
   const date = dateOverride() ?? serverDate;
 
-  const desktop = screenWidth >= 576;
+  const desktop = screenWidth > 576;
 
   let image: string;
   if (date >= new Date('2021-02-18T12:00:00-05:00')) {
@@ -40,5 +40,3 @@ const FloralPromo_: React.FC<Props> = ({ currencyCode }) => {
     </section>
   );
 };
-
-export const FloralPromo = React.memo(FloralPromo_);

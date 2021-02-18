@@ -2,10 +2,10 @@ import axios from 'axios';
 import qs from 'qs';
 import { useEffect } from 'react';
 
+import { School } from '../lib/enrollment';
 import { PriceQuery, PriceResult } from '../state/price';
 import { useDispatchContext } from './useDispatchContext';
 import { useStateContext } from './useStateContext';
-import { School } from '../components/Form';
 
 export const usePriceUpdater = (school: School, additionalOptions?: any) => {
   const { courses, address, payment, meta } = useStateContext();

@@ -33,7 +33,7 @@ const Floral: React.FC<Props> = ({ currencyCode }) => (
       school="QC Event School"
       courseOverride={[ 'FD' ]}
       guarantee={() => <Guarantee />}
-      allowNoShipping={true}
+      shippingOption={true}
       agreementLink="https://www.qceventplanning.com/enrollment-agreement.html"
       agreementLinkGB="https://www.qceventplanning.com/enrollment-agreement-gb.html"
       successLink="https://www.qceventplanning.com/welcome-to-the-school/"
@@ -42,4 +42,4 @@ const Floral: React.FC<Props> = ({ currencyCode }) => (
   </>
 );
 
-export default React.memo(Floral);
+export default Floral;

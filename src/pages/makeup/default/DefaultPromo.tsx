@@ -16,7 +16,7 @@ import mobileGB from './mobile-uk.jpg';
 import mobileEnds from './mobile-ends.jpg';
 import popupImg from './popup-makeup-kit.jpg';
 
-export interface Props {
+type Props = {
   countryCode: string;
   currencyCode: string;
 }

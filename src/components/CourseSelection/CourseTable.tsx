@@ -1,14 +1,16 @@
+import Big from 'big.js';
 import React from 'react';
 
 import { useScreenWidthContext } from '../../hooks/useScreenWidthContext';
 import { PriceResult } from '../../state/price';
 
-interface Props {
+type Props = {
   price: PriceResult;
   showBuyOneGetOne?: boolean;
+  shippingOptionReversed: boolean;
 }
 
-export const CourseTable: React.FC<Props> = ({ price, showBuyOneGetOne }) => {
+export const CourseTable: React.FC<Props> = ({ price, showBuyOneGetOne, shippingOptionReversed }) => {
   const screenWidth = useScreenWidthContext();
   return (
     <>
@@ -26,7 +28,7 @@ export const CourseTable: React.FC<Props> = ({ price, showBuyOneGetOne }) => {
                 <React.Fragment key={course.code}>
                   <tr key={course.code}>
                     <td>{course.name}{course.free && <>{' '}<strong className="text-primary">FREE!</strong></>}</td>
-                    <td className="text-right text-nowrap align-bottom">{price.currency.symbol}{(course.free ? 0 : course.cost).toFixed(2)}</td>
+                    <td className="text-right text-nowrap align-bottom">{price.currency.symbol}{Big(course.free ? 0 : course.cost).minus(shippingOptionReversed ? course.shipping : 0).toFixed(2)}</td>
                   </tr>
                   {!course.free && course.multiCourseDiscount > 0 && (
                     <tr key={course.code + '_discount'} className="text-primary">

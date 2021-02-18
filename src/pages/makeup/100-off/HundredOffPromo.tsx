@@ -1,26 +1,24 @@
 import React from 'react';
 
-import desktopGB from './desktop-gb.jpg';
-import desktop from './desktop.jpg';
-import mobileGB from './mobile-gb.jpg';
-import mobile from './mobile.jpg';
+import { useScreenWidthContext } from '../../../hooks/useScreenWidthContext';
 
-export interface Props {
+type Props = {
   currencyCode: string;
 }
 
 export const HundredOffPromo: React.FC<Props> = ({ currencyCode }) => {
-  const desktopImage = currencyCode === 'GBP' ? desktopGB : desktop;
-  const mobileImage = currencyCode === 'GBP' ? mobileGB : mobile;
+  const screenWidth = useScreenWidthContext();
+
+  const desktop = screenWidth > 500;
+
+  const desktopImage = currencyCode === 'GBP' ? require('./desktop-gb.jpg') : require('./desktop.jpg');
+  const mobileImage = currencyCode === 'GBP' ? require('./mobile-gb.jpg') : require('./mobile.jpg');
 
   return (
-    <section id="promoSection" style={{ padding: 0 }}>
-      <div className="container">
-        <div className="d-none d-lg-block text-center">
-          <img src={desktopImage} className="img-fluid d-block mx-auto" alt="Special Offer" />
-        </div>
-        <div className="d-block d-lg-none text-center">
-          <img src={mobileImage} className="img-fluid d-block mx-auto" alt="Special Offer" />
+    <section id="promoSection">
+      <div className="container px-0">
+        <div className="text-center">
+          <img src={desktop ? desktopImage : mobileImage} className="img-fluid d-block mx-auto" alt="Special Offer" />
         </div>
       </div>
     </section>
