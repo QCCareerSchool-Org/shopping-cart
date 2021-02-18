@@ -5,7 +5,7 @@ import desktop from './desktop.jpg';
 import mobileGB from './mobile-gb.jpg';
 import mobile from './mobile.jpg';
 
-export interface Props {
+type Props = {
   currencyCode: string;
 }
 

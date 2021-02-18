@@ -4,7 +4,7 @@ import React from 'react';
 import { useScreenWidthContext } from '../../hooks/useScreenWidthContext';
 import { PriceResult } from '../../state/price';
 
-interface Props {
+type Props = {
   price: PriceResult;
   showBuyOneGetOne?: boolean;
   shippingOptionReversed: boolean;

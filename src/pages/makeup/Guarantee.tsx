@@ -5,7 +5,7 @@ import { usePopup } from '../../hooks/usePopup';
 
 import guaranteeSVG from '../../21-day.svg';
 
-const Guarantee_: React.FC = () => {
+export const Guarantee: React.FC = () => {
   const [ popup, togglePopup ] = usePopup(false);
 
   return (
@@ -21,5 +21,3 @@ const Guarantee_: React.FC = () => {
     </div>
   );
 };
-
-export const Guarantee = React.memo(Guarantee_);

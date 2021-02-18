@@ -4,7 +4,7 @@ import Big from 'big.js';
 import { useStateContext } from '../../hooks/useStateContext';
 import { PriceResult } from '../../state/price';
 
-interface Props {
+type Props = {
   shippingOptionReversed: boolean;
 }
 

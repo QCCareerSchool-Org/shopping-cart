@@ -1,6 +1,6 @@
 import React from 'react';
 
-export interface Props {
+type Props = {
   courses: string[];
 }
 

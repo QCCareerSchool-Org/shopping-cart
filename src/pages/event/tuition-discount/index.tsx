@@ -33,4 +33,4 @@ const TuitionDiscount: React.FC<Props> = ({ currencyCode }) => (
   </>
 );
 
-export default React.memo(TuitionDiscount);
+export default TuitionDiscount;

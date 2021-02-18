@@ -42,4 +42,4 @@ const Floral: React.FC<Props> = ({ currencyCode }) => (
   </>
 );
 
-export default React.memo(Floral);
+export default Floral;

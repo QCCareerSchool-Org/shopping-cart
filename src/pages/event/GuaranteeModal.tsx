@@ -3,7 +3,7 @@ import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
 import guarantee from '../../21-day.svg';
 
-export interface Props {
+type Props = {
   isOpen: boolean;
   toggle: () => void;
 }

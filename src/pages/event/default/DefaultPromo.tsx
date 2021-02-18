@@ -6,11 +6,11 @@ import { usePopup } from '../../../hooks/usePopup';
 import { useScreenWidthContext } from '../../../hooks/useScreenWidthContext';
 import { dateOverride } from '../../../lib/dateOverride';
 
-interface Props {
+type Props = {
   currencyCode: string;
 }
 
-const DefaultPromo_: React.FC<Props> = ({ currencyCode }) => {
+export const DefaultPromo: React.FC<Props> = ({ currencyCode }) => {
   const screenWidth = useScreenWidthContext();
   const serverDate = useDate();
   const [ popup, togglePopup ] = usePopup(false);
@@ -92,5 +92,3 @@ const DefaultPromo_: React.FC<Props> = ({ currencyCode }) => {
     </section>
   );
 };
-
-export const DefaultPromo = React.memo(DefaultPromo_);

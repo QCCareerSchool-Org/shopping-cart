@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { scroller } from 'react-scroll';
 
 import { useGeoLocation } from '../hooks/useGeoLocation';
@@ -34,7 +34,7 @@ type ErrorModalData = {
 
 export type School = 'QC Makeup Academy' | 'QC Event School' | 'QC Design School' | 'QC Pet Studies' | 'QC Wellness Studies' | 'Winghill Writing School';
 
-export type Props = {
+type Props = {
   courseGroups: CourseGroup[];
   school: School;
   courseOverride?: string[];

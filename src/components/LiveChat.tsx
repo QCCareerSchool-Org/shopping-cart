@@ -32,7 +32,7 @@ declare global {
   }
 }
 
-export interface Props {
+type Props = {
   license: number;
   group: number;
   onChatLoaded?: (...args: any[]) => any;

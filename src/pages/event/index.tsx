@@ -11,11 +11,6 @@ import { Header } from './Header';
 
 import './style.scss';
 
-// import Default from './default';
-// import Student from './student';
-// import FreePortfolio from './free-portfolio';
-// import TuitionDiscount from './tuition-discount';
-
 const Default = React.lazy(() => import('./default'));
 const Student = React.lazy(() => import('./student'));
 const FreePortfolio = React.lazy(() => import('./free-portfolio'));

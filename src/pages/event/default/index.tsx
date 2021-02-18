@@ -17,7 +17,6 @@ const portfolioAdditionalOptions = { portfolio: true };
 
 const Default: React.FC<Props> = ({ courses, currencyCode }) => {
   const serverDate = useDate();
-  const override = dateOverride();
 
   const date = dateOverride() ?? serverDate;
 
