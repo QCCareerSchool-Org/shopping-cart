@@ -13,13 +13,16 @@ export const Header: React.FC<Props> = ({ countryCode }) => {
   const screenWidth = useScreenWidthContext();
   const tel = telephoneNumber(countryCode);
 
-  const logo = screenWidth >= 576 ? require('./logo-lg.svg') : require('./logo-sm.svg');
+  const desktop = screenWidth >= 576;
+  const logo =  desktop ? require('./logo-lg.svg') : require('./logo-sm.svg');
+  const width = desktop ? 212 : 34;
+  const height = 32;
 
   return (
     <header id="header">
       <div className="container-fluid">
         <div className="row">
-          <div className="col-9 col-sm-12 text-left"><a href="https://www.qcwellnessstudies.com/"><img id="logo" src={logo} alt="QC Wellness Studies" /></a></div>
+          <div className="col-9 col-sm-12 text-left"><a href="https://www.qcwellnessstudies.com/"><img id="logo" src={logo} width={width} height={height} alt="QC Wellness Studies" /></a></div>
           <div className="col-3 d-block d-sm-none text-right"><a title="Click to Call" href={'tel:' + tel}><FontAwesomeIcon style={{ fontSize: screenWidth < 360 ? 24 : 30 }} icon={faPhone} /></a></div>
         </div>
       </div>
