@@ -48,6 +48,10 @@ export const DefaultPromo: React.FC<Props> = ({ countryCode, currencyCode }) => 
       <Modal size="lg" isOpen={popup} toggle={togglePopup}>
         <ModalHeader toggle={togglePopup}>Your Dog Grooming Kit</ModalHeader>
         <ModalBody className="text-center p-0">
+          <div className="p-3">
+            <p>Enroll today and receive a toolkit with the essential items you need to get started, including professional-grade grooming scissors, brushes, combs, and nail clippers.</p>
+            <p>After you submit your Unit B, we&apos;ll also ship you a WAHL ARCO 5-in-1 Cordless Clipper AND stainless steel attachment guide comb kit!</p>
+          </div>
           <img src={require('./pop-up.jpg')} className="img-fluid" alt="promotion details" />
         </ModalBody>
       </Modal>
