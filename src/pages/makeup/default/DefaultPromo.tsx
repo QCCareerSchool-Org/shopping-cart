@@ -6,15 +6,7 @@ import { useDate } from '../../../hooks/useDateContext';
 
 import { dateOverride } from '../../../lib/dateOverride';
 
-import desktop from './desktop.jpg';
-import desktopNZ from './desktop-nz.jpg';
-import desktopGB from './desktop-uk.jpg';
-import desktopEnds from './desktop-ends.jpg';
-import mobile from './mobile.jpg';
-import mobileNZ from './mobile-nz.jpg';
-import mobileGB from './mobile-uk.jpg';
-import mobileEnds from './mobile-ends.jpg';
-import popupImg from './popup-makeup-kit.jpg';
+import { useScreenWidthContext } from '../../../hooks/useScreenWidthContext';
 
 type Props = {
   countryCode: string;
@@ -24,34 +16,44 @@ type Props = {
 export const DefaultPromo: React.FC<Props> = ({ countryCode, currencyCode }) => {
   const serverDate = useDate();
   const [ popup, togglePopup ] = usePopup(false);
+  const screenWidth = useScreenWidthContext();
 
   const date = dateOverride() || serverDate;
 
-  let desktopImage;
-  let mobileImage;
+  const desktop = screenWidth >= 576;
+
+  let image;
   if (date >= new Date('2020-10-29T00:00:00-04:00')) {
-    desktopImage = desktopEnds;
-    mobileImage = mobileEnds;
+    image = desktop ? require('./desktop-ends.jpg') : require('./mobile-ends.jpg');
   } else {
-    desktopImage = [ 'US', 'CA', 'AU' ].includes(countryCode) ? desktop : currencyCode === 'GBP' ? desktopGB : desktopNZ;
-    mobileImage = [ 'US', 'CA', 'AU' ].includes(countryCode) ? mobile : currencyCode === 'GBP' ? mobileGB : mobileNZ;
+    image = desktop
+      ? [ 'US', 'CA', 'AU' ].includes(countryCode) ? require('./desktop.jpg') : currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop-nz.jpg')
+      : [ 'US', 'CA', 'AU' ].includes(countryCode) ? require('./mobile.jpg') : currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile-nz.jpg');
   }
+
+  let width: number;
+  let height: number;
+  if (desktop) {
+    width = 976;
+    height = 502;
+  } else {
+    width = 600;
+    height = 762;
+  }
+
   const backgroundColor = '#b8a4f4';
 
   return (
     <section id="promoSection" style={{ backgroundColor, padding: 0 }}>
-      <div className="container">
-        <div className="d-none d-sm-block text-center">
-          <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={togglePopup}><img src={desktopImage} className="img-fluid d-block mx-auto" alt="Special Offer" /></button>
-        </div>
-        <div className="row d-block d-sm-none text-center">
-          <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={togglePopup}><img src={mobileImage} className="img-fluid d-block mx-auto" alt="Special Offer" /></button>
+      <div className="container px-0">
+        <div className="text-center">
+          <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={togglePopup}><img src={image} width={width} height={height} className="img-fluid d-block mx-auto" alt="Special Offer" /></button>
         </div>
       </div>
       <Modal size="lg" isOpen={popup} toggle={togglePopup}>
         <ModalHeader toggle={togglePopup}>Free Virtual Makeup Training and Makeup Kit</ModalHeader>
         <ModalBody className="text-center p-0">
-          <img src={popupImg} className="img-fluid" alt="Makeup Kit" />
+          <img src={require('./popup-makeup-kit.jpg')} className="img-fluid" alt="Makeup Kit" />
         </ModalBody>
         <ModalFooter>
           Enroll in the Master Makeup Artistry Course—with our lowest deposit ever—and receive QC&apos;s new Virtual Makeup Training Course for free. Plus, receive a free makeup starter kit.

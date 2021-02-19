@@ -15,27 +15,29 @@ export const DefaultPromo: React.FC = () => {
 
   const desktop = screenWidth > 514;
 
-  let desktopImage;
-  let mobileImage;
-
+  let image;
   if (date >= new Date('2021-02-24T12:00:00-05:00')) {
-    desktopImage = require('./desktop-ends.jpg');
-    mobileImage = require('./mobile-ends.jpg');
+    image = desktop ? require('./desktop-ends.jpg') : require('./mobile-ends.jpg');
   } else if (date >= new Date('2021-02-16T08:00:00-05:00')) {
-    desktopImage = require('./desktop.jpg');
-    mobileImage = require('./mobile.jpg');
+    image = desktop ? require('./desktop.jpg') : require('./mobile.jpg');
   } else if (date >= new Date('2021-02-15T00:00:00-05:00')) {
-    desktopImage = require('./valentines/desktop-ends.jpg');
-    mobileImage = require('./valentines/mobile-ends.jpg');
+    image = desktop ? require('./valentines/desktop-ends.jpg') : require('./valentines/mobile-ends.jpg');
   } else if (date >= new Date('2021-02-13T09:00:00-05:00')) {
-    desktopImage = require('./valentines/desktop.jpg');
-    mobileImage = require('./valentines/mobile.jpg');
+    image = desktop ? require('./valentines/desktop.jpg') : require('./valentines/mobile.jpg');
   } else if (date >= new Date('2021-02-10T12:00:00-05:00')) {
-    desktopImage = require('./desktop-ends.jpg');
-    mobileImage = require('./mobile-ends.jpg');
+    image = desktop ? require('./desktop-ends.jpg') : require('./mobile-ends.jpg');
   } else {
-    desktopImage = require('./desktop.jpg');
-    mobileImage = require('./mobile.jpg');
+    image = desktop ? require('./desktop.jpg') : require('./mobile.jpg');
+  }
+
+  let width: number;
+  let height: number;
+  if (desktop) {
+    width = 1257;
+    height = 532;
+  } else {
+    width = 514;
+    height = 416;
   }
 
   let bgColor;
@@ -55,7 +57,7 @@ export const DefaultPromo: React.FC = () => {
     <section id="promoSection" style={{ backgroundColor: bgColor, padding: 0 }}>
       <div className="container px-0">
         <div className="text-center">
-          <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={handlePromoClick}><img src={desktop ? desktopImage : mobileImage} className="img-fluid d-block mx-auto" alt="Special Offer" /></button>
+          <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={handlePromoClick}><img src={image} width={width} height={height} className="img-fluid d-block mx-auto" alt="Special Offer" /></button>
         </div>
       </div>
       <Modal size="lg" isOpen={popup} toggle={togglePopup}>
