@@ -5,6 +5,8 @@ import { DateProvider } from '../providers/DateProvider';
 import { ScreenWidthProvider } from '../providers/ScreenWidthProvider';
 import { StateProvider } from '../providers/StateProvider';
 
+// lazily load the different schools because we're only ever going to need one of them
+// note: because these components use global styles, we must load them lazily
 const Design = React.lazy(() => import('../pages/design'));
 const Event = React.lazy(() => import('../pages/event'));
 const Makeup = React.lazy(() => import('../pages/makeup'));

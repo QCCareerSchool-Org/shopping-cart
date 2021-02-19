@@ -4,10 +4,10 @@ import { useFetchImproved } from '../hooks/useFetchImproved';
 export const DateContext = React.createContext<Date | undefined>(undefined);
 
 export const DateProvider: React.FC = ({ children }) => {
-  const [ date, setDate ] = useState<Date>();
+  const [ date, setDate ] = useState<Date>(new Date());
 
   const url = 'https://api.qccareerschool.com/hoursOfOperation/now';
-  const [ fetchedDate ] = useFetchImproved(url, new Date());
+  const [ fetchedDate ] = useFetchImproved(url, date);
 
   useEffect(() => {
     setDate(new Date(fetchedDate));

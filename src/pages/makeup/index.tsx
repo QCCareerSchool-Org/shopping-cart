@@ -9,9 +9,12 @@ import { useStateContext } from '../../hooks/useStateContext';
 import { Footer } from './Footer';
 import { Header } from './Header';
 
+// don't lazily load the default cart to reduce CLS for most visitors
+import Default from './default';
+
 import './style.scss';
 
-const Default = React.lazy(() => import('./default'));
+// lazily load the other carts because they're used less often
 const Student = React.lazy(() => import('./student'));
 const HundredOff = React.lazy(() => import('./100-off'));
 const LimitedTimeOffer = React.lazy(() => import('./limited-time-offer'));
