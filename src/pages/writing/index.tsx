@@ -14,8 +14,7 @@ import Default from './default';
 import './style.scss';
 
 const Writing: React.FC = () => {
-  const { courses, address, price } = useStateContext();
-  const currencyCode = price?.currency.code ?? 'USD';
+  const { address } = useStateContext();
 
   return (
     <>
@@ -36,7 +35,7 @@ const Writing: React.FC = () => {
       <BrowserRouter>
         <Suspense fallback={<></>}>
           <Switch>
-            <Route render={props => <Default {...props} countryCode={address.countryCode} currencyCode={currencyCode} courses={courses.selected} />} />
+            <Route component={Default} />
           </Switch>
         </Suspense>
       </BrowserRouter>
