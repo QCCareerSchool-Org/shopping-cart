@@ -21,28 +21,32 @@ export const DefaultPromo: React.FC<Props> = ({ countryCode, currencyCode }) => 
 
   const desktop = screenWidth > 518;
 
-  let desktopImage;
-  let mobileImage;
-
+  let image;
   if (date >= new Date('2021-02-24T12:00:00-05:00')) {
-    desktopImage = currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg');
-    mobileImage = currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
-  } else if (date >= new Date('2021-02-16T08:00:00-05:00')) {
-    desktopImage = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
-    mobileImage = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
-  } else if (date >= new Date('2021-02-10T12:00:00-05:00')) {
-    desktopImage = currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg');
-    mobileImage = currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
+    image = desktop
+      ? currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg')
+      : currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
   } else {
-    desktopImage = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
-    mobileImage = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
+    image = desktop
+      ? currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg')
+      : currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
+  }
+
+  let width: number;
+  let height: number;
+  if (desktop) {
+    width = 1202;
+    height = 522;
+  } else {
+    width = 518;
+    height = 418;
   }
 
   return (
     <section id="promoSection" style={{ backgroundColor: '#12222b', padding: 0 }}>
       <div className="container px-0">
         <div className="text-center">
-          <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={handlePromoClick}><img src={desktop ? desktopImage : mobileImage} className="img-fluid d-block mx-auto" alt="Special Offer" /></button>
+          <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={handlePromoClick}><img src={image} width={width} height={height} className="img-fluid d-block mx-auto" alt="Special Offer" /></button>
         </div>
       </div>
       <Modal size="lg" isOpen={popup} toggle={togglePopup}>
