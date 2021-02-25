@@ -44,6 +44,7 @@ const Event: React.FC = () => {
         <link rel="mask-icon" href="/event/safari-pinned-tab.svg?v=QEMKdlwA73" color="#5bbad5" />
         <link rel="shortcut icon" href="/event/favicon.ico?v=QEMKdlwA73" />
         <meta name="msapplication-TileColor" content="#000000" />
+        <script src="/event/perfect-audience.js"></script>
       </Helmet>
       <Header countryCode={address.countryCode} />
       <BrowserRouter>
