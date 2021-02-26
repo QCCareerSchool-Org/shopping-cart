@@ -17,24 +17,56 @@ export const DefaultPromo: React.FC<Props> = ({ countryCode, currencyCode }) => 
 
   const desktop = screenWidth > 371;
 
-  let image;
-  if (date >= new Date('2021-02-24T12:00:00-05:00')) {
-    image = desktop ? require('./desktop-ends.jpg') : require('./mobile-ends.jpg');
-  } else {
-    image = desktop ? require('./desktop.jpg') : require('./mobile.jpg');
-  }
-
+  let image: string;
   let width: number;
   let height: number;
-  if (desktop) {
-    width = 960;
-    height = 469;
-  } else {
-    width = 532;
-    height = 371;
-  }
+  let backgroundColor: string;
 
-  const backgroundColor = '#5cb4ae';
+  if (date >= new Date('2021-03-10T12:00:00-05:00')) {
+    backgroundColor = '#b0b0ad';
+    if (desktop) {
+      image = currencyCode === 'GBP' ? require('./2021/03/desktop-uk-ends.jpg') : require('./2021/03/desktop-ends.jpg');
+      width = 960;
+      height = 469;
+    } else {
+      image = currencyCode === 'GBP' ? require('./2021/03/mobile-uk-ends.jpg') : require('./2021/03/mobile-ends.jpg');
+      width = 532;
+      height = 374;
+    }
+  } else if (date >= new Date('2021-03-02T08:00:00-05:00')) {
+    backgroundColor = '#b0b0ad';
+    if (desktop) {
+      image = currencyCode === 'GBP' ? require('./2021/03/desktop-uk.jpg') : require('./2021/03/desktop.jpg');
+      width = 960;
+      height = 469;
+    } else {
+      image = currencyCode === 'GBP' ? require('./2021/03/mobile-uk.jpg') : require('./2021/03/mobile.jpg');
+      width = 532;
+      height = 374;
+    }
+  } else if (date >= new Date('2021-02-24T12:00:00-05:00')) {
+    backgroundColor = '#5cb4ae';
+    if (desktop) {
+      image = require('./2021/02/desktop-ends.jpg');
+      width = 960;
+      height = 469;
+    } else {
+      image = require('./2021/02/mobile-ends.jpg');
+      width = 532;
+      height = 371;
+    }
+  } else {
+    backgroundColor = '#5cb4ae';
+    if (desktop) {
+      image = require('./2021/02/desktop.jpg');
+      width = 960;
+      height = 469;
+    } else {
+      image = require('./2021/02/mobile.jpg');
+      width = 532;
+      height = 371;
+    }
+  }
 
   return (
     <section id="promoSection" style={{ backgroundColor, padding: 0 }}>

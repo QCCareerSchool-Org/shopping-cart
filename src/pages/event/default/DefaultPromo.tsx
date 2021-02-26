@@ -17,36 +17,94 @@ export const DefaultPromo: React.FC<Props> = ({ currencyCode }) => {
 
   const date = dateOverride() ?? serverDate;
 
-  const desktop = screenWidth >= 576;
+  const desktop = screenWidth > 440;
 
   let image: string;
-  if (date >= new Date('2021-02-24T12:00:00-05:00')) {
-    if (desktop) {
-      image = currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg');
-    } else {
-      image = currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
-    }
-  } else {
-    if (desktop) {
-      image = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
-    } else {
-      image = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
-    }
-  }
-
   let width: number;
   let height: number;
-  if (desktop) {
-    width = 976;
-    height = 500;
-  } else {
-    width = 440;
-    height = 500;
-  }
+  let backgroundColor: string;
+  let popupTitle: string;
+  let popupContent: React.ReactNode;
 
-  const popupTitle = 'Special Offer';
-  const backgroundColor = '#8ef0c0';
-  const modalContent = <p className="my-5">Enroll in one foundation course&mdash;with our lowest deposit ever&mdash;and get a FREE Advanced or Specialty Course.</p>;
+  if (date >= new Date('2021-03-10T12:00:00-05:00')) { // march promotion ending
+    backgroundColor = '#041f28';
+    popupTitle = 'Special Offer';
+    popupContent = <p className="my-5">Enroll in one foundation course&mdash;with our lowest deposit ever&mdash;and get a FREE Specialty Course.</p>;
+    if (desktop) {
+      image = currencyCode === 'GBP' ? require('./2021/03/desktop-uk-ends.jpg') : require('./2021/03/desktop-ends.jpg');
+      width = 976;
+      height = 500;
+    } else {
+      image = currencyCode === 'GBP' ? require('./2021/03/mobile-uk-ends.jpg') : require('./2021/03/mobile-ends.jpg');
+      width = 440;
+      height = 500;
+    }
+  } else if (date >= new Date('2021-03-02T08:00:00-05:00')) { // march promotion
+    backgroundColor = '#041f28';
+    popupTitle = 'Special Offer';
+    popupContent = <p className="my-5">Enroll in one foundation course&mdash;with our lowest deposit ever&mdash;and get a FREE Specialty Course.</p>;
+    if (desktop) {
+      image = currencyCode === 'GBP' ? require('./2021/03/desktop-uk.jpg') : require('./2021/03/desktop.jpg');
+      width = 976;
+      height = 500;
+    } else {
+      image = currencyCode === 'GBP' ? require('./2021/03/mobile-uk.jpg') : require('./2021/03/mobile.jpg');
+      width = 440;
+      height = 500;
+    }
+  } else if (date >= new Date('2021-02-28T08:00:00-05:00')) { // weekend popup offer ending
+    backgroundColor = '#2b0a11';
+    popupTitle = 'Limited Time Offer';
+    popupContent = <p className="my-5">Until March 1st, receive a FREE leather portfolio when you enroll in any course. Plus, when you enroll in one of QC’s foundation courses&mdash;at our lowest deposit ever&mdash;you&apos;ll get a specialty course for free (of equal or lesser value).</p>;
+    if (desktop) {
+      image = require('./2021/02/weekend-popup/desktop-ends.jpg');
+      width = 976;
+      height = 500;
+    } else {
+      image = require('./2021/02/weekend-popup/mobile-ends.jpg');
+      width = 440;
+      height = 414;
+    }
+  } else if (date >= new Date('2021-02-27T08:00:00-05:00')) { // weekend popup offer
+    backgroundColor = '#2b0a11';
+    popupTitle = 'Limited Time Offer';
+    popupContent = <p className="my-5">Until March 1st, receive a FREE leather portfolio when you enroll in any course. Plus, when you enroll in one of QC’s foundation courses&mdash;at our lowest deposit ever&mdash;you&apos;ll get a specialty course for free (of equal or lesser value).</p>;
+    if (desktop) {
+      image = require('./2021/02/weekend-popup/desktop.jpg');
+      width = 976;
+      height = 500;
+    } else {
+      image = require('./2021/02/weekend-popup/mobile.jpg');
+      width = 440;
+      height = 414;
+    }
+  } else if (date >= new Date('2021-02-24T12:00:00-05:00')) {
+    backgroundColor = '#8ef0c0';
+    popupTitle = 'Special Offer';
+    popupContent = <p className="my-5">Enroll in one foundation course&mdash;with our lowest deposit ever&mdash;and get a FREE Advanced or Specialty Course.</p>;
+    if (desktop) {
+      image = currencyCode === 'GBP' ? require('./2021/02/desktop-uk-ends.jpg') : require('./2021/02/desktop-ends.jpg');
+      width = 976;
+      height = 500;
+    } else {
+      image = currencyCode === 'GBP' ? require('./2021/02/mobile-uk-ends.jpg') : require('./2021/02/mobile-ends.jpg');
+      width = 440;
+      height = 500;
+    }
+  } else {
+    backgroundColor = '#8ef0c0';
+    popupTitle = 'Special Offer';
+    popupContent = <p className="my-5">Enroll in one foundation course&mdash;with our lowest deposit ever&mdash;and get a FREE Advanced or Specialty Course.</p>;
+    if (desktop) {
+      image = currencyCode === 'GBP' ? require('./2021/02/desktop-uk.jpg') : require('./2021/02/desktop.jpg');
+      width = 976;
+      height = 500;
+    } else {
+      image = currencyCode === 'GBP' ? require('./2021/02/mobile-uk.jpg') : require('./2021/02/mobile.jpg');
+      width = 440;
+      height = 500;
+    }
+  }
 
   return (
     <section id="promoSection" style={{ backgroundColor, padding: 0 }}>
@@ -58,7 +116,7 @@ export const DefaultPromo: React.FC<Props> = ({ currencyCode }) => {
       <Modal size="lg" isOpen={popup} toggle={togglePopup}>
         <ModalHeader toggle={togglePopup}>{popupTitle}</ModalHeader>
         <ModalBody className="text-center">
-          {modalContent}
+          {popupContent}
         </ModalBody>
       </Modal>
     </section>
