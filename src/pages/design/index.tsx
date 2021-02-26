@@ -53,7 +53,7 @@ const Design: React.FC = () => {
           <Route path="/organizing/" render={props => <Organizing {...props} currencyCode={currencyCode} />} />
           <Route path="/student/" component={Student} />
           <Route path="/tuition-discount/" render={props => <TuitionDiscount {...props} currencyCode={currencyCode} />} />
-          <Route render={props => <Default {...props} courses={courses.selected} />} />
+          <Route render={props => <Default {...props} courses={courses.selected} currencyCode={currencyCode} />} />
         </Switch>
       </BrowserRouter>
       <LiveChat license={1056788} group={3} gaVersion="gtag" />

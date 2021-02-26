@@ -52,7 +52,7 @@ export const DefaultPromo: React.FC<Props> = ({ currencyCode }) => {
       width = 440;
       height = 500;
     }
-  } else if (date >= new Date('2021-03-01T08:00:00-05:00')) { // weekend popup offer ending
+  } else if (date >= new Date('2021-02-28T08:00:00-05:00')) { // weekend popup offer ending
     backgroundColor = '#2b0a11';
     popupTitle = 'Limited Time Offer';
     popupContent = <p className="my-5">Until March 1st, receive a FREE leather portfolio when you enroll in any course. Plus, when you enroll in one of QC’s foundation courses&mdash;at our lowest deposit ever&mdash;you&apos;ll get a specialty course for free (of equal or lesser value).</p>;
