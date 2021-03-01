@@ -55,8 +55,8 @@ const Makeup: React.FC = () => {
             <Route path="/100-off/" render={props => <HundredOff {...props} currencyCode={currencyCode} />} />
             <Route path="/deluxe-kit/" component={DeluxeKit} />
             <Route path="/limited-time-offer/" component={LimitedTimeOffer} />
-            <Route path="/personal/" render={props => <Personal {...props} countryCode={address.countryCode} currencyCode={currencyCode} courses={courses.selected} />} />
-            <Route render={props => <Default {...props} countryCode={address.countryCode} currencyCode={currencyCode} courses={courses.selected} />} />
+            <Route path="/personal/" render={props => <Personal {...props} currencyCode={currencyCode} courses={courses.selected} />} />
+            <Route render={props => <Default {...props} currencyCode={currencyCode} courses={courses.selected} />} />
           </Switch>
         </Suspense>
       </BrowserRouter>

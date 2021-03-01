@@ -1,7 +1,13 @@
 import qs from 'qs';
 
+const internalDomains = [
+  /^(?:.+\.)*localhost$/,
+  /^(?:.+\.)*enrolltest.qccareerschool.com$/,
+  /^(?:.+\.)*vercel.app$/,
+];
+
 export const dateOverride = (): Date | null => {
-  if (window.location.hostname.includes('localhost')) {
+  if (internalDomains.some(regExp => regExp.test(window.location.hostname))) {
     const parsed = qs.parse(window.location.search.slice(1));
     if (typeof parsed.date === 'string') {
       return new Date(parsed.date);

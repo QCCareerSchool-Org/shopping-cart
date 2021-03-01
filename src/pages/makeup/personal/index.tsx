@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import { Guarantee } from '../Guarantee';
 import { DefaultPromo } from '../default/DefaultPromo';
 import { DynamicMessage } from '../default/DynamicMessage';
 import { CourseGroup } from '../../../state/courses';
 import { Form } from '../../../components/Form';
+import { useDate } from '../../../hooks/useDateContext';
+import { dateOverride } from '../../../lib/dateOverride';
 
 const courseGroups: CourseGroup[] = [
   {
@@ -47,24 +49,45 @@ const courseGroups: CourseGroup[] = [
 ];
 
 type Props = {
-  countryCode: string;
   currencyCode: string;
   courses: string[];
 }
 
-const Personal: React.FC<Props> = ({ countryCode, currencyCode, courses }) => (
-  <>
-    <DefaultPromo countryCode={countryCode} currencyCode={currencyCode} />
-    <Form
-      courseGroups={courseGroups}
-      school="QC Makeup Academy"
-      guarantee={() => <Guarantee />}
-      agreementLink="https://www.qcmakeupacademy.com/enrollment-agreement.html"
-      agreementLinkGB="https://www.qcmakeupacademy.com/enrollment-agreement-gb.html"
-      successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
-      dynamicCourseMessages={[ props => <DynamicMessage {...props} courses={courses} /> ]}
-    />
-  </>
-);
+const Personal: React.FC<Props> = ({ currencyCode, courses }) => {
+  const serverDate = useDate();
+  const date = dateOverride() || serverDate;
+
+  const dynamicCourseMessages = useMemo(() => {
+    if (date >= new Date('2021-03-02T08:00:00-05:00')) {
+      return [];
+    } else {
+      return [ () => <DynamicMessage courses={courses} /> ];
+    }
+  }, [ date, courses ]);
+
+  const additionalOptions = useMemo(() => {
+    if (date >= new Date('2021-03-02T08:00:00-05:00')) {
+      return { deluxeKit: true };
+    } else {
+      return {};
+    }
+  }, [ date ]);
+
+  return (
+    <>
+      <DefaultPromo date={date} currencyCode={currencyCode} />
+      <Form
+        courseGroups={courseGroups}
+        school="QC Makeup Academy"
+        guarantee={() => <Guarantee />}
+        agreementLink="https://www.qcmakeupacademy.com/enrollment-agreement.html"
+        agreementLinkGB="https://www.qcmakeupacademy.com/enrollment-agreement-gb.html"
+        successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
+        dynamicCourseMessages={dynamicCourseMessages}
+        additionalOptions={additionalOptions}
+      />
+    </>
+  );
+};
 
 export default Personal;
