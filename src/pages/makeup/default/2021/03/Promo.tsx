@@ -55,7 +55,7 @@ export const Promo20210302: React.FC<Props> = ({ date, currencyCode }) => {
           <img className="img-fluid" src={require('./popup-makeup-kit.jpg')} alt="Makeup Kit" />
         </ModalBody>
         <ModalFooter>
-          The kit pictured above is included only when you enroll in the <strong>Master Makeup Artistry</strong> course. You will receive a different, course-specific makeup starter kit with all other QC Makeup Academy courses instead of the one shown.
+          <div>The kit pictured above is included only when you enroll in the <strong>Master Makeup Artistry</strong> course. You will receive a different, course-specific makeup starter kit with all other QC Makeup Academy courses instead of the one shown.</div>
         </ModalFooter>
       </Modal>
     </section>
