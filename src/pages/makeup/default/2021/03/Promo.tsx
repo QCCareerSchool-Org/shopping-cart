@@ -55,7 +55,7 @@ export const Promo20210302: React.FC<Props> = ({ date, currencyCode }) => {
           <img className="img-fluid" src={require('./popup-makeup-kit.jpg')} alt="Makeup Kit" />
         </ModalBody>
         <ModalFooter>
-          Enroll in the Master Makeup Artistry Course—with our lowest deposit ever—and receive QC&apos;s new Virtual Makeup Training Course for free. Plus, receive a free makeup starter kit.
+          The kit pictured above is included only when you enroll in the <strong>Master Makeup Artistry</strong> course. You will receive a different, course-specific makeup starter kit with all other QC Makeup Academy courses instead of the one shown.
         </ModalFooter>
       </Modal>
     </section>
