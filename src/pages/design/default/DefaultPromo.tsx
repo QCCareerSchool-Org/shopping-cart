@@ -27,7 +27,7 @@ export const DefaultPromo: React.FC<Props> = ({ currencyCode }) => {
   let popupTitle: string;
 
   if (date >= new Date('2021-03-10T12:00:00-05:00')) { // March promotion ending
-    backgroundColor = '#ededed';
+    backgroundColor = 'white';
     popupTitle = 'Special Offer';
     popupContent = <p>Enroll in one of QC’s design courses and receive ANY second course for free!</p>;
     if (desktop) {
@@ -40,7 +40,7 @@ export const DefaultPromo: React.FC<Props> = ({ currencyCode }) => {
       height = 416;
     }
   } else if (date >= new Date('2021-03-02T08:00:00-05:00')) { // March promotion
-    backgroundColor = '#ededed';
+    backgroundColor = 'white';
     popupTitle = 'Special Offer';
     popupContent = <p>Enroll in one of QC’s design courses and receive ANY second course for free!</p>;
     if (desktop) {
