@@ -16,7 +16,7 @@ export const FloralPromo: React.FC<Props> = ({ currencyCode }) => {
   const desktop = screenWidth > 576;
 
   let image: string;
-  if (date >= new Date('2021-02-18T12:00:00-05:00')) {
+  if (date >= new Date('2021-03-10T12:00:00-05:00')) {
     if (desktop) {
       image = currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg');
     } else {

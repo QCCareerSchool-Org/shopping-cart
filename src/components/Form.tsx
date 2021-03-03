@@ -115,7 +115,7 @@ export const Form: React.FC<Props> = props => {
       dispatch({ type: 'CLEAR_COURSES', payload: { internal: !!props.internal } });
       props.courseOverride.forEach(c => dispatch({ type: 'ADD_COURSE', payload: { courseCode: c, internal: !!props.internal } }));
     }
-  }, [ ]);
+  }, [ dispatch, props.courseOverride, props.internal ]);
 
   const [ enrollment, setEnrollment ] = useState<EnrollmentData | null>(null);
   const [ errorModal, setErrorModal ] = useState<ErrorModalData>({ open: false, title: '', message: '' });
