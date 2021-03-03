@@ -25,13 +25,15 @@ const courseGroups: CourseGroup[] = [
   },
 ];
 
+const courseOverride = [ 'FD' ];
+
 const Floral: React.FC<Props> = ({ currencyCode }) => (
   <>
     <FloralPromo currencyCode={currencyCode} />
     <Form
       courseGroups={courseGroups}
       school="QC Event School"
-      courseOverride={[ 'FD' ]}
+      courseOverride={courseOverride}
       guarantee={() => <Guarantee />}
       shippingOption={true}
       agreementLink="https://www.qceventplanning.com/enrollment-agreement.html"
