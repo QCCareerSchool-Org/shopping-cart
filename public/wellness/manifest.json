@@ -3,12 +3,12 @@
   "name": "QC Wellness Studies Shopping Cart",
   "icons": [
     {
-        "src": "/android-chrome-192x192.png",
+        "src": "/wellness/android-chrome-192x192.png",
         "sizes": "192x192",
         "type": "image/png"
     },
     {
-        "src": "/android-chrome-512x512.png",
+        "src": "/wellness/android-chrome-512x512.png",
         "sizes": "512x512",
         "type": "image/png"
     }
