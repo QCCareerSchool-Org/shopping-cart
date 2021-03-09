@@ -8,9 +8,10 @@ import { useStateContext } from '../../hooks/useStateContext';
 import { Footer } from './Footer';
 import { Header } from './Header';
 
-import './style.scss';
+// don't lazily load the default cart to reduce CLS for most visitors
+import Default from './default';
 
-const Default = React.lazy(() => import('./default'));
+import './style.scss';
 
 const Wellness: React.FC = () => {
   const { courses, address, price } = useStateContext();

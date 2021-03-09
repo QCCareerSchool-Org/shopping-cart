@@ -8,13 +8,13 @@ import { useStateContext } from '../../hooks/useStateContext';
 import { Footer } from './Footer';
 import { Header } from './Header';
 
+// don't lazily load the default cart to reduce CLS for most visitors
+import Default from './default';
+
 import './style.scss';
 
-const Default = React.lazy(() => import('./default'));
-
 const Writing: React.FC = () => {
-  const { courses, address, price } = useStateContext();
-  const currencyCode = price?.currency.code ?? 'USD';
+  const { address } = useStateContext();
 
   return (
     <>
@@ -35,7 +35,7 @@ const Writing: React.FC = () => {
       <BrowserRouter>
         <Suspense fallback={<></>}>
           <Switch>
-            <Route render={props => <Default {...props} countryCode={address.countryCode} currencyCode={currencyCode} courses={courses.selected} />} />
+            <Route component={Default} />
           </Switch>
         </Suspense>
       </BrowserRouter>

@@ -25,10 +25,12 @@ export const CountryCode: React.FC = () => {
   const [ countries, , isLoading ] = useFetchImproved<Country[]>(url, []);
 
   const change = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    // we have to strip the leading "_" on values that are three characters long
     const value = e.target.value.length === 3 ? e.target.value.slice(1) : e.target.value;
     dispatch({ type: 'SET_COUNTRY_CODE', payload: { countryCode: value, manual: true } });
   };
 
+  // the value attribute of the "default country" options is prefixed with "_" so that we don't end up with the same value more than once
   return (
     <div className="form-group">
       <label htmlFor="address-country-code">Country</label>

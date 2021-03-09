@@ -6,7 +6,7 @@ import { formatCurrency } from '../../lib/formatCurrency';
 import { ordinal } from '../../lib/ordinal';
 import { PriceResult } from '../../state/price';
 
-export interface Props {
+type Props = {
   agreementLink: string;
   agreementLinkGB: string;
 }

@@ -6,7 +6,7 @@ export type Title = 'Mrs.' | 'Miss' | 'Ms.' | 'Mr.';
 
 export type PaymentPlan = 'full' | 'part';
 
-export type School = 'QC Makeup Academy' | 'QC Design School' | 'QC Event School' | 'QC Pet Studies' | 'QC Style Academy' | 'QC Travel School' | 'QC Wellness Studies' | 'Winghill Writing School';
+export type School = 'QC Career School' | 'QC Makeup Academy' | 'QC Design School' | 'QC Event School' | 'QC Pet Studies' | 'QC Style Academy' | 'QC Travel School' | 'QC Wellness Studies' | 'Winghill Writing School';
 
 export type EnrollmentPayload = {
   courses: string[];

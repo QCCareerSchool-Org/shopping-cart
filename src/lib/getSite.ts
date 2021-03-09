@@ -1,6 +1,6 @@
-import { isDesign, isEvent, isMakeup, isPet, isWellness, isWriting } from '../lib/domains';
+import { isDesign, isEvent, isInternal, isMakeup, isPet, isWellness, isWriting } from '../lib/domains';
 
-export type Site = 'makeup' | 'event' | 'design' | 'pet' | 'wellness' | 'writing';
+export type Site = 'internal' | 'makeup' | 'event' | 'design' | 'pet' | 'wellness' | 'writing';
 
 export const getSite = (domain: string): Site | null => {
   if (isMakeup(domain)) {
@@ -15,6 +15,8 @@ export const getSite = (domain: string): Site | null => {
     return 'wellness';
   } else if (isWriting(domain)) {
     return 'writing';
+  } else if (isInternal(domain)) {
+    return 'internal';
   } else {
     return null;
   }

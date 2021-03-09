@@ -1,36 +1,23 @@
+/*
+ * Styles to apply after Bootstrap is loaded
+ */
+
 .btn-no-hover-shadow {
   box-shadow: none !important;
 }
 
 h2,.h2 { text-align: center; margin-bottom: 2rem; }
 
-section {
-  padding: 2rem 0;
-}
-
-@media screen and (min-width: 992px) {
-  section {
-    padding: 3rem 0;
-  }
-}
-
 section:nth-of-type(2n) {
   background-color: #eee;
 }
-
-
-
-
-
-
-
-
 section {
   padding: 2em 0;
 }
 @media screen and (min-width: 768px) {
   section { padding: 3em 0; }
 }
+
 #logo {
   max-height: 25px;
   max-width: 100%;
@@ -40,11 +27,14 @@ section {
     max-height: 32px;
   }
 }
+
 #header {
   background-color: #252525;
   color: white;
   padding: 1px 0;
 }
+
+// large padding-bottom on the footer for mobile so that the footer doesn't get covered by the live chat widget
 #footer {
   background-color: #252525;
   color: #999;
@@ -63,6 +53,7 @@ section {
     padding-bottom: 100px;
   }
 }
+// reduce the padding-bottom on the footer on larger screens
 @media screen and (min-width: 768px) {
   #footer {
     padding-bottom: 20px;

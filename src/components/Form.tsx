@@ -15,7 +15,7 @@ import { Payment } from './Payment';
 import { Internal } from './Internal';
 import { Overrides } from './Overrides';
 import { CourseSelection } from './CourseSelection';
-import { addEnrollment, chargeEnrollment, EnrollmentPayload, updateEnrollment } from '../lib/enrollment';
+import { addEnrollment, chargeEnrollment, EnrollmentPayload, School, updateEnrollment } from '../lib/enrollment';
 import { PaysafeCompany } from './Summary/PaymentModal';
 import { EnrollmentError } from '../lib/enrollmentError';
 import { useStateContext } from '../hooks/useStateContext';
@@ -32,11 +32,10 @@ type ErrorModalData = {
   message: string | JSX.Element;
 }
 
-export type School = 'QC Makeup Academy' | 'QC Event School' | 'QC Design School' | 'QC Pet Studies' | 'QC Wellness Studies' | 'Winghill Writing School';
-
-export type Props = {
+type Props = {
   courseGroups: CourseGroup[];
   school: School;
+  courseOverride?: string[];
   /** the guarantee component to display in the summary section */
   guarantee: (() => JSX.Element);
   /** a component to display below the courses title */
@@ -49,10 +48,14 @@ export type Props = {
   student?: boolean;
   /** whether we allow overriding the deposit and installments */
   allowOverrides?: boolean;
-  /** allow students to choose the no-shiping discount */
-  allowNoShipping?: boolean;
-  /** the name for the no-shipping discount */
-  greenDiscount?: string;
+  /** allow students to chose whether to have materials shipped or not */
+  shippingOption?: boolean;
+  /** reverse the shipping option from opt in to online only to opt in to shipping, requires shippingOption to be true */
+  shippingOptionReversed?: boolean;
+  /** the default setting for shipping */
+  noShipping?: boolean;
+  /** the title for the no-shipping discount */
+  noShippingTitle?: string;
   /** where to send the visitor after a sucessfull enrollment */
   successLink: string;
   /** url of enrollment agreement */
@@ -89,7 +92,7 @@ export const Form: React.FC<Props> = props => {
 
   useGeoLocation(); // set initial country and province based on ip
 
-  usePriceUpdater(props.additionalOptions); // update prices when courses, country, etc. change
+  usePriceUpdater(props.school, props.additionalOptions); // update prices when courses, country, etc. change
 
   const [ logCheckout ] = useGoogleAnalyticsBehaviour();
 
@@ -102,6 +105,17 @@ export const Form: React.FC<Props> = props => {
   useEffect(() => {
     dispatch({ type: 'SET_STUDENT', payload: !!props.student });
   }, [ dispatch, props.student ]);
+
+  useEffect(() => {
+    dispatch({ type: 'SET_NO_SHIPPING', payload: !!props.noShipping });
+  }, [ dispatch, props.noShipping ]);
+
+  useEffect(() => {
+    if (props.courseOverride) {
+      dispatch({ type: 'CLEAR_COURSES', payload: { internal: !!props.internal } });
+      props.courseOverride.forEach(c => dispatch({ type: 'ADD_COURSE', payload: { courseCode: c, internal: !!props.internal } }));
+    }
+  }, [ dispatch, props.courseOverride, props.internal ]);
 
   const [ enrollment, setEnrollment ] = useState<EnrollmentData | null>(null);
   const [ errorModal, setErrorModal ] = useState<ErrorModalData>({ open: false, title: '', message: '' });
@@ -134,6 +148,7 @@ export const Form: React.FC<Props> = props => {
       noShipping: payment.noShipping,
       discountAll: meta.student,
       studentDiscount: meta.studentDiscount,
+      school: props.school,
       ...props.additionalOptions,
     },
   });
@@ -186,7 +201,7 @@ export const Form: React.FC<Props> = props => {
     }
   };
 
-  const charge = async (token: string, company: PaysafeCompany) => {
+  const charge = async (token: string, company: PaysafeCompany): Promise<boolean> => {
     try {
       if (!enrollment) {
         throw Error('enrollment is undefined');
@@ -194,6 +209,7 @@ export const Form: React.FC<Props> = props => {
       await chargeEnrollment(enrollment.id, token, company);
       window.sessionStorage.removeItem('form');
       window.location.href = `${props.successLink}?enrollmentId=${enrollment.id}&code=${enrollment.code}`;
+      return true;
     } catch (err) {
       setEnrollment(null); // we'll start over with a new enrollment record if the user tries again
       let errorMessage: JSX.Element;
@@ -216,22 +232,26 @@ export const Form: React.FC<Props> = props => {
           errorMessage = <div><p>There was an error processing your card. Please double check your card details.</p><p>If your card details are correct, please call the telephone number on the back of your card to authorize the transaction.</p></div>;
       }
       setErrorModal({ open: true, title: errorTitle, message: errorMessage });
+      return false;
     }
   };
 
   return (
     <>
       {props.internal && <Internal />}
-      <CourseSelection
+      {<CourseSelection
         internal={!!props.internal}
         coursesSubtitle={props.coursesSubtitle}
         dynamicCourseMessages={props.dynamicCourseMessages}
-      />
+        courseOverride={!!props.courseOverride}
+        shippingOptionReversed={!!props.shippingOptionReversed}
+      />}
       <Address />
       <Payment
         school={props.school}
-        allowNoShipping={!!props.allowNoShipping}
-        greenDiscount={props.greenDiscount}
+        shippingOption={!!props.shippingOption}
+        shippingOptionReversed={!!props.shippingOptionReversed}
+        noShippingTitle={props.noShippingTitle}
       />
       {props.allowOverrides && payment.plan === 'part' && <Overrides />}
       <Summary

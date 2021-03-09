@@ -4,3 +4,4 @@ export const isEvent = (domain: string) => [ 'event.localhost', 'enroll.qceventp
 export const isPet = (domain: string) => [ 'pet.localhost', 'enroll.doggroomingcourse.com', 'pet.enrolltest.qccareerschool.com' ].includes(domain);
 export const isWellness = (domain: string) => [ 'wellness.localhost', 'enroll.qcwellnessstudies.com', 'wellness.enrolltest.qccareerschool.com' ].includes(domain);
 export const isWriting = (domain: string) => [ 'writing.localhost', 'enroll.winghill.com', 'writing.enrolltest.qccareerschool.com' ].includes(domain);
+export const isInternal = (domain: string) => [ 'internal.localhost', 'secure.qccareerschool.com', 'internal.enrolltest.qccareerschool.com' ].includes(domain);

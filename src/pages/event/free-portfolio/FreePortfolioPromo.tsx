@@ -1,21 +1,22 @@
 import React from 'react';
 
-import desktop from './desktop.jpg';
-import mobile from './mobile.jpg';
+import { useScreenWidthContext } from '../../../hooks/useScreenWidthContext';
 
-const FreePortfolioPromo_: React.FC = () => {
+import desktopImage from './desktop.jpg';
+import mobileImage from './mobile.jpg';
+
+export const FreePortfolioPromo: React.FC = () => {
+  const screenWidth = useScreenWidthContext();
+
+  const desktop = screenWidth > 410;
+
   return (
     <section id="promoSection" style={{ padding: 0 }}>
-      <div className="container">
-        <div className="d-none d-lg-block text-center">
-          <img src={desktop} className="img-fluid d-block mx-auto" alt="Special Offer" />
-        </div>
-        <div className="d-block d-lg-none text-center">
-          <img src={mobile} className="img-fluid d-block mx-auto" alt="Special Offer" />
+      <div className="container px-0">
+        <div className="text-center">
+          <img src={desktop ? desktopImage : mobileImage} width="976" height="400" className="img-fluid d-block mx-auto" alt="Special Offer" />
         </div>
       </div>
     </section>
   );
 };
-
-export const FreePortfolioPromo = React.memo(FreePortfolioPromo_);

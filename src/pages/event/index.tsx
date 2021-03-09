@@ -9,17 +9,16 @@ import { useStateContext } from '../../hooks/useStateContext';
 import { Footer } from './Footer';
 import { Header } from './Header';
 
+// don't lazily load the default cart to reduce CLS for most visitors
+import Default from './default';
+
 import './style.scss';
 
-// import Default from './default';
-// import Student from './student';
-// import FreePortfolio from './free-portfolio';
-// import TuitionDiscount from './tuition-discount';
-
-const Default = React.lazy(() => import('./default'));
+// lazily load the other carts because they're used less often
 const Student = React.lazy(() => import('./student'));
 const FreePortfolio = React.lazy(() => import('./free-portfolio'));
 const TuitionDiscount = React.lazy(() => import('./tuition-discount'));
+const Floral = React.lazy(() => import('./floral'));
 
 const Event: React.FC = () => {
   const { courses, address, price } = useStateContext();
@@ -28,6 +27,7 @@ const Event: React.FC = () => {
   useSaveablePaths([
     /^\/free-portfolio(\/.*)?$/,
     /^\/tuition-discount(\/.*)?$/,
+    /^\/floral(\/.*)?$/,
   ]);
 
   return (
@@ -44,6 +44,7 @@ const Event: React.FC = () => {
         <link rel="mask-icon" href="/event/safari-pinned-tab.svg?v=QEMKdlwA73" color="#5bbad5" />
         <link rel="shortcut icon" href="/event/favicon.ico?v=QEMKdlwA73" />
         <meta name="msapplication-TileColor" content="#000000" />
+        <script src="/event/perfect-audience.js"></script>
       </Helmet>
       <Header countryCode={address.countryCode} />
       <BrowserRouter>
@@ -52,11 +53,12 @@ const Event: React.FC = () => {
             <Route path="/student/" component={Student} />
             <Route path="/free-portfolio/" component={FreePortfolio} />
             <Route path="/tuition-discount/" render={props => <TuitionDiscount {...props} currencyCode={currencyCode} />} />
-            <Route render={props => <Default {...props} courses={courses.selected} />} />
+            <Route path="/floral/" render={props => <Floral {...props} currencyCode={currencyCode} />} />
+            <Route render={props => <Default {...props} courses={courses.selected} currencyCode={currencyCode} />} />
           </Switch>
         </Suspense>
       </BrowserRouter>
-      <LiveChat license={1056788} group={3} gaVersion="gtag" />
+      <LiveChat license={1056788} group={1} gaVersion="gtag" />
       <Footer countryCode={address.countryCode} />
     </>
   );

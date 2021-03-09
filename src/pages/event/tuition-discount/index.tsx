@@ -24,7 +24,7 @@ const TuitionDiscount: React.FC<Props> = ({ currencyCode }) => (
       courseGroups={courseGroups}
       school="QC Event School"
       guarantee={() => <Guarantee />}
-      allowNoShipping={true}
+      shippingOption={true}
       agreementLink="https://www.qceventplanning.com/enrollment-agreement.html"
       agreementLinkGB="https://www.qceventplanning.com/enrollment-agreement-gb.html"
       successLink="https://www.qceventplanning.com/welcome-to-the-school/"
@@ -33,4 +33,4 @@ const TuitionDiscount: React.FC<Props> = ({ currencyCode }) => (
   </>
 );
 
-export default React.memo(TuitionDiscount);
+export default TuitionDiscount;
