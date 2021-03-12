@@ -1,23 +1,15 @@
 import React from 'react';
+import { DynamicMessage20210313 } from './2021/03/13/DynamicMessage';
+import { DynamicMessage20210315 } from './2021/03/15/DynamicMessage';
 
 export interface Props {
+  date: Date;
   courses: string[];
 }
 
-const makeupAdvancedCourse = (course: string): boolean => {
-  return [ 'MW', 'PW', 'GB', 'VM' ].includes(course);
-};
-
-export const DynamicMessage: React.FC<Props> = ({ courses }) => {
-  const advancedCount = courses.filter(makeupAdvancedCourse).length;
-  if (courses.includes('MZ') && advancedCount === 0) {
-    return <p className="mt-4 alert alert-danger">Don&apos;t forget to select your free advanced course</p>;
-  }
-  if (!courses.includes('MZ') && advancedCount >= 1) {
-    return <p className="mt-4 alert alert-danger">Get an advanced course free when you enroll in <strong>Master Makeup Artistry</strong></p>;
-  }
-  if (courses.includes('MZ') && courses.length >= 1) {
-    return <p className="mt-4 alert alert-success">Get an advanced course free when you enroll in <strong>Master Makeup Artistry</strong></p>;
-  }
-  return null;
-};
+export const DynamicMessage: React.FC<Props> = ({ date, courses }) =>
+  date >= new Date('2021-03-15T09:00:00-04:00')
+    ? <DynamicMessage20210315 courses={courses} />
+    : date >= new Date('2021-03-13T08:00:00-05:00')
+      ? <DynamicMessage20210313 courses={courses} />
+      : null;

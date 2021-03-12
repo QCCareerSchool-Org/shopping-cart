@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 
 import { Guarantee } from '../Guarantee';
 import { DefaultPromo } from '../default/DefaultPromo';
@@ -53,25 +53,12 @@ type Props = {
   courses: string[];
 }
 
+const additionalOptionsDeluxeKit = { deluxeKit: true };
+const additionalOptionsNone = {};
+
 const Personal: React.FC<Props> = ({ currencyCode, courses }) => {
   const serverDate = useDate();
   const date = dateOverride() || serverDate;
-
-  const dynamicCourseMessages = useMemo(() => {
-    if (date >= new Date('2021-03-02T08:00:00-05:00')) {
-      return [];
-    } else {
-      return [ () => <DynamicMessage courses={courses} /> ];
-    }
-  }, [ date, courses ]);
-
-  const additionalOptions = useMemo(() => {
-    if (date >= new Date('2021-03-02T08:00:00-05:00')) {
-      return { deluxeKit: true };
-    } else {
-      return {};
-    }
-  }, [ date ]);
 
   return (
     <>
@@ -83,8 +70,8 @@ const Personal: React.FC<Props> = ({ currencyCode, courses }) => {
         agreementLink="https://www.qcmakeupacademy.com/enrollment-agreement.html"
         agreementLinkGB="https://www.qcmakeupacademy.com/enrollment-agreement-gb.html"
         successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
-        dynamicCourseMessages={dynamicCourseMessages}
-        additionalOptions={additionalOptions}
+        dynamicCourseMessages={[ () => <DynamicMessage date={date} courses={courses} /> ]}
+        additionalOptions={date >= new Date('2021-03-02T08:00:00-05:00') ? additionalOptionsNone : additionalOptionsDeluxeKit}
       />
     </>
   );
