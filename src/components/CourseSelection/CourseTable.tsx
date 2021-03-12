@@ -32,7 +32,7 @@ export const CourseTable: React.FC<Props> = ({ price, showBuyOneGetOne, shipping
                   </tr>
                   {!course.free && course.multiCourseDiscount > 0 && (
                     <tr key={course.code + '_discount'} className="text-primary">
-                      <td>{Math.round(course.multiCourseDiscount / course.cost * 100)}% Discount</td>
+                      <td>{course.discountMessage ? course.discountMessage : <>{Math.round(course.multiCourseDiscount / course.cost * 100)}% Discount</>}</td>
                       <td className="text-right text-nowrap align-bottom">&minus; {price.currency.symbol}{course.multiCourseDiscount.toFixed(2)}</td>
                     </tr>
                   )}

@@ -6,34 +6,23 @@ import { dateOverride } from '../../../lib/dateOverride';
 import { Form } from '../../../components/Form';
 import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
-import { DynamicMessage } from '../default/DynamicMessage';
 import { DefaultPromo } from '../default/DefaultPromo';
-import { BuyOneGetOne } from '../../../components/BuyOneGetOne';
 
 type Props = {
   currencyCode: string;
   courses: string[];
 }
 
+const additionalOptions = {
+  discount: {
+    default: 100,
+  },
+  discountSignature: 'LKTNPGVwJkHceRBl87wnV1vUPqHAr8qAytj8TB5Bm/1BarnbhY26SDmCYIt6Kdkevcf7o3GR9lgLOXkGwuee9Y9c0MUA96lsQmALrj0h2QimxDTjI1Lx8zJScN1Rm8asg8CjOagOb1y6dSWyY2p6Ql2PvF/BSYrVA9IRi/nE2QPGqHIbqSlBCPhCDu+rJBSKHRBkCWO4ivNictHKDcuVl42PChTlQd/TYwyPfHONrxwCdF1CX9UZZ6yjJH+Aj1F19It3FprN4FISxmzrijTDVMCJcwLAmxf4fPAEc1wuJLo2yLat9xKLgfw85sFj8qha9J4h9nnUCizQ23NbSX2vdQ==',
+};
+
 const PromoTest: React.FC<Props> = ({ currencyCode, courses }) => {
   const serverDate = useDate();
   const date = dateOverride() || serverDate;
-
-  const dynamicCourseMessages = useMemo(() => {
-    if (date >= new Date('2021-03-02T08:00:00-05:00')) {
-      return [];
-    } else {
-      return [ () => <DynamicMessage courses={courses} /> ];
-    }
-  }, [ date, courses ]);
-
-  const additionalOptions = useMemo(() => {
-    if (date >= new Date('2021-03-02T08:00:00-05:00')) {
-      return { deluxeKit: true };
-    } else {
-      return {};
-    }
-  }, [ date ]);
 
   return (
     <>
@@ -45,10 +34,9 @@ const PromoTest: React.FC<Props> = ({ currencyCode, courses }) => {
         agreementLink="https://www.qcmakeupacademy.com/enrollment-agreement.html"
         agreementLinkGB="https://www.qcmakeupacademy.com/enrollment-agreement-gb.html"
         successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
-        coursesSubtitle={() => <BuyOneGetOne />}
-        dynamicCourseMessages={dynamicCourseMessages}
         additionalOptions={additionalOptions}
         promoCode={true}
+        shippingOption={true}
       />
     </>
   );
