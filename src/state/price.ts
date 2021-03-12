@@ -74,6 +74,7 @@ export type CourseResult = {
   name: string;
   primary: boolean;
   free: boolean;
+  discountMessage: string | null;
 } & Price;
 
 export interface Currency {
