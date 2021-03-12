@@ -70,6 +70,10 @@ type Props = {
   submitMessage?: () => JSX.Element;
   /** the title of the confirmation popup */
   submitTitle?: string;
+  /** whether to show the promo code input or not */
+  promoCode?: boolean;
+  /** a default promo code */
+  promoCodeDefault?: string;
 }
 
 export const scrollToPosition = (section: 'courses' | 'shipping' | 'plan'): void => {
@@ -92,7 +96,7 @@ export const Form: React.FC<Props> = props => {
 
   useGeoLocation(); // set initial country and province based on ip
 
-  usePriceUpdater(props.school, props.additionalOptions); // update prices when courses, country, etc. change
+  usePriceUpdater(props.school, props.promoCodeDefault, props.additionalOptions); // update prices when courses, country, etc. change
 
   const [ logCheckout ] = useGoogleAnalyticsBehaviour();
 
@@ -252,6 +256,7 @@ export const Form: React.FC<Props> = props => {
         shippingOption={!!props.shippingOption}
         shippingOptionReversed={!!props.shippingOptionReversed}
         noShippingTitle={props.noShippingTitle}
+        promoCode={!!props.promoCode}
       />
       {props.allowOverrides && payment.plan === 'part' && <Overrides />}
       <Summary
