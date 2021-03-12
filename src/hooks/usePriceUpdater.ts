@@ -29,7 +29,7 @@ export const usePriceUpdater = (school: School, promoCodeDefault?: string, addit
         },
       };
       try {
-        const url = 'https://api.qccareerschool.com/prices';
+        const url = process.env.REACT_APP_PRICES_ENDPOINT ?? 'https://api.qccareerschool.com/prices';
         const response = await axios.get<PriceResult>(url, {
           headers: { 'X-API-Version': 2 },
           params,
