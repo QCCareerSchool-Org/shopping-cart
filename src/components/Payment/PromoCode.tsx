@@ -17,7 +17,7 @@ export const PromoCode: React.FC = () => {
   };
 
   const apply = (e: React.MouseEvent<HTMLButtonElement>) => {
-    dispatch({ type: 'SET_PROMO_CODE', payload: localValue });
+    dispatch({ type: 'SET_PROMO_CODE', payload: localValue.toLocaleUpperCase() });
   };
 
   const popupApply = (code: string) => {
