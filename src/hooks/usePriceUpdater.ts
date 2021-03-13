@@ -7,7 +7,7 @@ import { PriceQuery, PriceResult } from '../state/price';
 import { useDispatchContext } from './useDispatchContext';
 import { useStateContext } from './useStateContext';
 
-export const usePriceUpdater = (school: School, additionalOptions?: any) => {
+export const usePriceUpdater = (school: School, promoCodeDefault?: string, additionalOptions?: any) => {
   const { courses, address, payment, meta } = useStateContext();
   const dispatch = useDispatchContext();
 
@@ -24,11 +24,12 @@ export const usePriceUpdater = (school: School, additionalOptions?: any) => {
           discountAll: meta.student,
           noShipping: payment.noShipping,
           school,
+          promoCode: promoCodeDefault ?? meta.promoCode,
           ...additionalOptions,
         },
       };
       try {
-        const url = 'https://api.qccareerschool.com/prices';
+        const url = process.env.REACT_APP_PRICES_ENDPOINT ?? 'https://api.qccareerschool.com/prices';
         const response = await axios.get<PriceResult>(url, {
           headers: { 'X-API-Version': 2 },
           params,
@@ -44,5 +45,5 @@ export const usePriceUpdater = (school: School, additionalOptions?: any) => {
     fetchData();
 
     return () => cancelTokenSource.cancel();
-  }, [ dispatch, courses, address.countryCode, address.provinceCode, meta.student, meta.studentDiscount, payment.noShipping, school, additionalOptions ]);
+  }, [ dispatch, courses, address.countryCode, address.provinceCode, meta.student, meta.studentDiscount, meta.promoCode, payment.noShipping, school, additionalOptions ]);
 };

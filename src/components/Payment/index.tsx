@@ -6,6 +6,7 @@ import { School } from '../../lib/enrollment';
 import { NoShipping } from './NoShipping';
 import { PaymentOptions } from './PaymentOptions';
 import { PlanResult } from './PlanResult';
+import { PromoCode } from './PromoCode';
 import { Schedule } from './Schedule';
 import { Shipping } from './Shipping';
 
@@ -14,9 +15,10 @@ type Props = {
   shippingOption: boolean;
   shippingOptionReversed: boolean;
   noShippingTitle?: string;
+  promoCode: boolean;
 }
 
-export const Payment: React.FC<Props> = ({ school, shippingOption, shippingOptionReversed, noShippingTitle }) => {
+export const Payment: React.FC<Props> = ({ school, shippingOption, shippingOptionReversed, noShippingTitle, promoCode }) => {
   const { payment, price } = useStateContext();
   const showNoShipping = price && price.cost > 0 && price.shipping > 0 && price.noShipping !== 'FORBIDDEN' && price?.noShipping !== 'REQUIRED' && shippingOption;
   return (
@@ -31,6 +33,7 @@ export const Payment: React.FC<Props> = ({ school, shippingOption, shippingOptio
           </div>
           <div className="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-0 col-lg-5 offset-lg-1 col-xl-4 offset-xl-2">
             <PlanResult shippingOptionReversed={shippingOptionReversed} />
+            {price && price.courses.length > 0 && promoCode && <PromoCode />}
           </div>
         </div>
       </div>

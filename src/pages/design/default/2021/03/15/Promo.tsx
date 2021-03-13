@@ -1,0 +1,68 @@
+import React from 'react';
+import { Modal, ModalBody, ModalHeader } from 'reactstrap';
+
+import { useDate } from '../../../../../../hooks/useDateContext';
+import { usePopup } from '../../../../../../hooks/usePopup';
+import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
+import { dateOverride } from '../../../../../../lib/dateOverride';
+
+type Props = {
+  currencyCode: string;
+}
+
+export const Promo20210315: React.FC<Props> = ({ currencyCode }) => {
+  const screenWidth = useScreenWidthContext();
+  const serverDate = useDate();
+  const [ popup, togglePopup ] = usePopup(false);
+
+  const date = dateOverride() ?? serverDate;
+
+  const desktop = screenWidth > 514;
+
+  let image: string;
+  let width: number;
+  let height: number;
+
+  if (date >= new Date('2021-03-24T12:00:00-04:00')) {
+    if (desktop) {
+      image = currencyCode === 'GBP' ? require('./desktop-ends-uk.jpg') : require('./desktop-ends.jpg');
+    } else {
+      image = currencyCode === 'GBP' ? require('./mobile-ends-uk.jpg') : require('./mobile-ends.jpg');
+    }
+  } else {
+    if (desktop) {
+      image = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
+    } else {
+      image = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('.//mobile.jpg');
+    }
+  }
+
+  if (desktop) {
+    width = 1257;
+    height = 532;
+  } else {
+    width = 514;
+    height = 416;
+  }
+
+  return (
+    <section id="promoSection" style={{ backgroundColor: 'white', padding: 0 }}>
+      <div className="container px-0">
+        <div className="text-center">
+          <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={handlePromoClick}><img src={image} width={width} height={height} className="img-fluid d-block mx-auto" alt="Special Offer" /></button>
+        </div>
+      </div>
+      <Modal size="lg" isOpen={popup} toggle={togglePopup}>
+        <ModalHeader toggle={togglePopup}>Special Offer</ModalHeader>
+        <ModalBody className="text-center">
+        <p>Enroll in one of QC’s design courses and receive <strong>ANY second course for FREE</strong>! Plus, get a <strong>FREE leather portfolio</strong>.</p>
+        </ModalBody>
+      </Modal>
+    </section>
+  );
+
+  function handlePromoClick(event: React.MouseEvent) {
+    event.preventDefault();
+    togglePopup();
+  }
+};

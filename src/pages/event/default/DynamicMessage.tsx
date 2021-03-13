@@ -1,20 +1,13 @@
 import React from 'react';
+import { DynamicMessage20210315 } from './2021/03/15/DynamicMessage';
+import { DynamicMessage20210302 } from './2021/03/02/DynamicMessage';
 
 type Props = {
+  date: Date;
   courses: string[];
 }
 
-export const DynamicMessage: React.FC<Props> = ({ courses }) => {
-  const numFoundationSelected = courses.filter(c => [ 'EP', 'CP', 'CE', 'WP', 'FD' ].includes(c)).length;
-  const numSpecialtySelected = courses.filter(c => [ 'ED', 'EB', 'LW', 'DW', 'FL', 'PE', 'TT', 'VE' ].includes(c)).length;
-  if (numSpecialtySelected >= 1 && numFoundationSelected === 0) {
-    return <p className="mt-4 alert alert-danger">Get a FREE specialty course when you enroll in a foundation course</p>;
-  }
-  if (numSpecialtySelected >= 1 && numFoundationSelected >= 1) {
-    return <p className="mt-4 alert alert-success">Get a FREE specialty course when you enroll in a foundation course</p>;
-  }
-  if (numSpecialtySelected === 0 && numFoundationSelected >= 1) {
-    return <p className="mt-4 alert alert-danger">Don&apos;t forget to select your FREE specialty course</p>;
-  }
-  return null;
-};
+export const DynamicMessage: React.FC<Props> = ({ date, courses }) =>
+  date > new Date('2021-03-15T09:00:00-04:00')
+    ? <DynamicMessage20210315 courses={courses} />
+    : <DynamicMessage20210302 courses={courses} />;
