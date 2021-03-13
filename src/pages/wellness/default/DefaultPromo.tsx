@@ -22,7 +22,29 @@ export const DefaultPromo: React.FC<Props> = ({ countryCode, currencyCode }) => 
   let height: number;
   let backgroundColor: string;
 
-  if (date >= new Date('2021-03-10T12:00:00-05:00')) {
+  if (date >= new Date('2021-03-24T12:00:00-04:00')) {
+    backgroundColor = '#b0b0ad';
+    if (desktop) {
+      image = currencyCode === 'GBP' ? require('./2021/03/desktop-uk-ends.jpg') : require('./2021/03/desktop-ends.jpg');
+      width = 960;
+      height = 469;
+    } else {
+      image = currencyCode === 'GBP' ? require('./2021/03/mobile-uk-ends.jpg') : require('./2021/03/mobile-ends.jpg');
+      width = 532;
+      height = 374;
+    }
+  } else if (date >= new Date('2021-03-15T09:00:00-04:00')) {
+    backgroundColor = '#b0b0ad';
+    if (desktop) {
+      image = currencyCode === 'GBP' ? require('./2021/03/desktop-uk.jpg') : require('./2021/03/desktop.jpg');
+      width = 960;
+      height = 469;
+    } else {
+      image = currencyCode === 'GBP' ? require('./2021/03/mobile-uk.jpg') : require('./2021/03/mobile.jpg');
+      width = 532;
+      height = 374;
+    }
+  } else if (date >= new Date('2021-03-10T12:00:00-05:00')) {
     backgroundColor = '#b0b0ad';
     if (desktop) {
       image = currencyCode === 'GBP' ? require('./2021/03/desktop-uk-ends.jpg') : require('./2021/03/desktop-ends.jpg');

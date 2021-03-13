@@ -24,7 +24,17 @@ export const DefaultPromo: React.FC<Props> = ({ countryCode, currencyCode }) => 
   let image: string;
   let backgroundColor: string;
 
-  if (date >= new Date('2021-03-10T12:00:00-05:00')) { // March promotion ending
+  if (date >= new Date('2021-03-24T12:00:00-04:00')) { // March promotion ending
+    backgroundColor = '#eb98b6';
+    image = desktop
+      ? currencyCode === 'GBP' ? require('./2021/03/desktop-uk-ends.jpg') : require('./2021/03/desktop-ends.jpg')
+      : currencyCode === 'GBP' ? require('./2021/03/mobile-uk-ends.jpg') : require('./2021/03/mobile-ends.jpg');
+  } else if (date >= new Date('2021-03-15T09:00:00-04:00')) { // March promotion
+    backgroundColor = '#eb98b6';
+    image = desktop
+      ? currencyCode === 'GBP' ? require('./2021/03/desktop-uk.jpg') : require('./2021/03/desktop.jpg')
+      : currencyCode === 'GBP' ? require('./2021/03/mobile-uk.jpg') : require('./2021/03/mobile.jpg');
+  } else if (date >= new Date('2021-03-10T12:00:00-05:00')) { // March promotion ending
     backgroundColor = '#eb98b6';
     image = desktop
       ? currencyCode === 'GBP' ? require('./2021/03/desktop-uk-ends.jpg') : require('./2021/03/desktop-ends.jpg')
