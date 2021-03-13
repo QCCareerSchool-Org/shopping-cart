@@ -1,17 +1,16 @@
 import React from 'react';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
-import { useDate } from '../../../../../../hooks/useDateContext';
 import { usePopup } from '../../../../../../hooks/usePopup';
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
-import { dateOverride } from '../../../../../../lib/dateOverride';
 
-export const Promo20210313: React.FC = () => {
+type Props = {
+  date: Date;
+}
+
+export const Promo20210313: React.FC<Props> = ({ date }) => {
   const screenWidth = useScreenWidthContext();
-  const serverDate = useDate();
   const [ popup, togglePopup ] = usePopup(false);
-
-  const date = dateOverride() ?? serverDate;
 
   const desktop = screenWidth > 440;
 
@@ -27,9 +26,9 @@ export const Promo20210313: React.FC = () => {
     }
   } else {
     if (desktop) {
-      image = require('./2021/03/desktop.jpg');
+      image = require('./desktop.jpg');
     } else {
-      image = require('./2021/03/mobile.jpg');
+      image = require('./mobile.jpg');
     }
   }
 
@@ -42,7 +41,7 @@ export const Promo20210313: React.FC = () => {
   }
 
   return (
-    <section id="promoSection" style={{ backgroundColor: '#041f28', padding: 0 }}>
+    <section id="promoSection" style={{ backgroundColor: '#2b0a11', padding: 0 }}>
       <div className="container px-0">
         <div className="text-center">
           <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={togglePopup}><img src={image} width={width} height={height} className="img-fluid d-block mx-auto" alt="Special Offer" /></button>

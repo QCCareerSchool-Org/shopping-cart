@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Promo20210302 } from '../../makeup/default/2021/03/02/Promo';
-import { Promo20210313 } from '../../makeup/default/2021/03/13/Promo';
-import { Promo20210315 } from '../../makeup/default/2021/03/15/Promo';
+import { Promo20210302 } from './2021/03/02/Promo';
+import { Promo20210313 } from './2021/03/13/Promo';
+import { Promo20210315 } from './2021/03/15/Promo';
 
 type Props = {
   date: Date;

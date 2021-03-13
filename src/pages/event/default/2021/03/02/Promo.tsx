@@ -1,21 +1,17 @@
 import React from 'react';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
-import { useDate } from '../../../../../../hooks/useDateContext';
 import { usePopup } from '../../../../../../hooks/usePopup';
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
-import { dateOverride } from '../../../../../../lib/dateOverride';
 
 type Props = {
+  date: Date;
   currencyCode: string;
 }
 
-export const Promo20210302: React.FC<Props> = ({ currencyCode }) => {
+export const Promo20210302: React.FC<Props> = ({ date, currencyCode }) => {
   const screenWidth = useScreenWidthContext();
-  const serverDate = useDate();
   const [ popup, togglePopup ] = usePopup(false);
-
-  const date = dateOverride() ?? serverDate;
 
   const desktop = screenWidth > 440;
 
@@ -31,9 +27,9 @@ export const Promo20210302: React.FC<Props> = ({ currencyCode }) => {
     }
   } else {
     if (desktop) {
-      image = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./2021/03/desktop.jpg');
+      image = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
     } else {
-      image = currencyCode === 'GBP' ? require('./2021/03/mobile-uk.jpg') : require('./2021/03/mobile.jpg');
+      image = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
     }
   }
 
