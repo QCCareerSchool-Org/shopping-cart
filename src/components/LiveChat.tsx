@@ -131,7 +131,6 @@ export class LiveChat extends React.PureComponent<Props> {
 
   public loadLiveChatApi() {
     if (!window.LC_API) {
-      console.log('livechat loading', this.props.group); //eslint-disable-line
       window.__lc = window.__lc || {};
       window.__lc.license = this.props.license;
       window.__lc.group = this.props.group;
@@ -153,7 +152,6 @@ export class LiveChat extends React.PureComponent<Props> {
   }
 
   public render() {
-    console.log('livechat', this.props.group); //eslint-disable-line
     return null;
   }
 

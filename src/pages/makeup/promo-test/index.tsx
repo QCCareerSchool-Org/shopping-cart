@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 
 import { useDate } from '../../../hooks/useDateContext';
 import { dateOverride } from '../../../lib/dateOverride';

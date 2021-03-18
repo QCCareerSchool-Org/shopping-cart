@@ -79,7 +79,7 @@ export const Summary: React.FC<Props> = props => {
         <h2 className="h1">Complete Your Enrollment</h2>
         <div className="row">
           <div className="col-12 col-md-6 col-lg-8 mb-4 mb-md-0">
-            <Notes agreementLink={agreementLink} agreementLinkGB={agreementLinkGB} />
+            <Notes />
             {price.courses.length >= 2 && <p><button type="button" className="btn btn-link p-0 btn-no-hover-shadow" onClick={detailsToggle}>Detailed Payment Breakdown</button></p>}
             {price.disclaimers.length > 0 && <Disclaimers price={price} />}
             <p>By clicking &quot;Proceed to Payment&quot; below, you agree to the terms of the <a rel="noopener noreferrer" target="_blank" href={enrollmentAgreementUrl}>Enrollment Agreement</a>.</p>
