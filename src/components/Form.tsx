@@ -71,7 +71,7 @@ type Props = {
   /** the title of the confirmation popup */
   submitTitle?: string;
   /** whether to show the promo code input or not */
-  promoCode?: boolean;
+  showPromoCodeInput?: boolean;
   /** a default promo code */
   promoCodeDefault?: string;
 }
@@ -256,7 +256,7 @@ export const Form: React.FC<Props> = props => {
         shippingOption={!!props.shippingOption}
         shippingOptionReversed={!!props.shippingOptionReversed}
         noShippingTitle={props.noShippingTitle}
-        promoCode={!!props.promoCode}
+        showPromoCodeInput={!!props.showPromoCodeInput && !props.promoCodeDefault}
       />
       {props.allowOverrides && payment.plan === 'part' && <Overrides />}
       <Summary

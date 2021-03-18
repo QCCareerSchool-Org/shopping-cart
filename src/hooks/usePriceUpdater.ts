@@ -45,5 +45,5 @@ export const usePriceUpdater = (school: School, promoCodeDefault?: string, addit
     fetchData();
 
     return () => cancelTokenSource.cancel();
-  }, [ dispatch, courses, address.countryCode, address.provinceCode, meta.student, meta.studentDiscount, meta.promoCode, payment.noShipping, school, additionalOptions ]);
+  }, [ dispatch, courses, address.countryCode, address.provinceCode, meta.student, meta.studentDiscount, meta.promoCode, payment.noShipping, school, promoCodeDefault, additionalOptions ]);
 };

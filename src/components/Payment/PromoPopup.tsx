@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardBody, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
-import { useDispatchContext } from '../../hooks/useDispatchContext';
+
 import { useStateContext } from '../../hooks/useStateContext';
 
 type Props = {
@@ -15,13 +15,7 @@ type Promo = {
 }
 
 export const PromoPopup: React.FC<Props> = ({ popup, togglePopup, apply }) => {
-  const dispatch = useDispatchContext();
   const { price } = useStateContext();
-
-  // const apply = (code: string) => {
-  //   dispatch({ type: 'SET_PROMO_CODE', payload: code });
-  //   togglePopup();
-  // };
 
   const promos: Promo[] = [
     { code: 'BOGO', description: 'Get 50% off each additional course' },

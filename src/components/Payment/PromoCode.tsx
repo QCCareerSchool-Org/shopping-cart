@@ -7,7 +7,7 @@ import { PromoPopup } from './PromoPopup';
 
 export const PromoCode: React.FC = () => {
   const [ popup, togglePopup ] = usePopup(false);
-  const { meta: { promoCode } } = useStateContext();
+  const { price, meta: { promoCode } } = useStateContext();
   const dispatch = useDispatchContext();
 
   const [ localValue, setLocalValue ] = useState(promoCode);
@@ -16,7 +16,8 @@ export const PromoCode: React.FC = () => {
     setLocalValue(e.target.value);
   };
 
-  const apply = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault();
     dispatch({ type: 'SET_PROMO_CODE', payload: localValue.toLocaleUpperCase() });
   };
 
@@ -25,19 +26,33 @@ export const PromoCode: React.FC = () => {
     dispatch({ type: 'SET_PROMO_CODE', payload: code });
   };
 
-  return (
-    <div className="mt-4 ml-md-auto" style={{ maxWidth: 301 }}>
-      <h3 className="text-md-right">Promo Code</h3>
-        <div className="form-row">
-          <div className="col-7 offset-md-2">
-            <input onChange={change} type="text" className="form-control text-center text-uppercase font-weight-bold" style={{ letterSpacing: '0.75px' }} value={localValue} aria-describedby="promoHelp" />
+  return promoCode && price?.promoCodeRecognized === true
+    ? (
+      <div className="mt-4 alert alert-success alert-dismissible" role="alert">
+        Promo code applied: <strong>{promoCode}</strong>
+        <button onClick={e => { dispatch({ type: 'SET_PROMO_CODE', payload: '' }); }} type="button" className="close" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    )
+    : (
+      <div className="mt-4" style={{ maxWidth: 301 }}>
+        <h3>Promo Code</h3>
+        <form onSubmit={submit}>
+          <div className="form-row">
+            <div className="col-7">
+              <input onChange={change} type="text" className="form-control text-center text-uppercase font-weight-bold" style={{ letterSpacing: '0.75px' }} value={localValue} aria-describedby="promoHelp" />
+            </div>
+            <div className="col-3">
+              <button type="submit" className="btn btn-secondary">Apply</button>
+            </div>
           </div>
-          <div className="col-3">
-            <button onClick={apply} className="btn btn-secondary">Apply</button>
+          <div id="promoHelp" className="form-text" style={{ lineHeight: '1rem' }}>
+            <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" style={{ lineHeight: 'inherit' }} onClick={e => { e.preventDefault(); togglePopup(); }}><small>Need a code? Get one here</small></button>
           </div>
-        </div>
-        <small id="promoHelp" className="form-text text-muted text-md-right"><a href="#" onClick={e => { e.preventDefault(); togglePopup(); }}>Need a code? Get one here</a></small>
-      <PromoPopup popup={popup} togglePopup={togglePopup} apply={popupApply} />
-    </div>
-  );
+        </form>
+        {price?.promoCodeRecognized === false && (<div className="alert alert-danger mt-3">Unrecognized code</div>)}
+        <PromoPopup popup={popup} togglePopup={togglePopup} apply={popupApply} />
+      </div>
+    );
 };
