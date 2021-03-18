@@ -47,6 +47,7 @@ const Makeup: React.FC = () => {
         <link rel="mask-icon" href="/makeup/safari-pinned-tab.svg?v=QEMKdlwA73" color="#5bbad5" />
         <link rel="shortcut icon" href="/makeup/favicon.ico?v=QEMKdlwA73" />
         <meta name="msapplication-TileColor" content="#000000" />
+        <script src="/makeup/perfect-audience.js"></script>
       </Helmet>
       <Header countryCode={address.countryCode} />
       <BrowserRouter>
