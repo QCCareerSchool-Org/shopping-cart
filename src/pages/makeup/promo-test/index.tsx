@@ -38,7 +38,7 @@ const PromoTest: React.FC<Props> = ({ currencyCode, courses }) => {
         dynamicCourseMessages={[ () => <DynamicMessage date={date} courses={courses} /> ]}
         showPromoCodeInput={true}
         shippingOption={true}
-        additionalOptions={additionalOptions}
+        // additionalOptions={additionalOptions}
         // promoCodeDefault="BOGO"
       />
     </>
