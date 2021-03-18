@@ -13,9 +13,13 @@ export type AddressState = {
   postalCode: string;
   countryCode: string;
   locationModified: boolean;
+  provinces: Province[];
 };
 
+export type Province = { code: string; name: string }
+
 export type AddressAction =
+  | { type: 'SET_COUNTRY_CODE_AND_PROVINCES'; payload: { countryCode: string; provinces: Province[]; provinceCode?: string; manual: boolean } }
   | { type: 'SET_COUNTRY_CODE'; payload: { countryCode: string; provinceCode?: string; manual: boolean } }
   | { type: 'SET_PROVINCE_CODE'; payload: { provinceCode: string | null; manual: boolean } }
   | { type: 'SET_TITLE'; payload: Title }
@@ -41,10 +45,19 @@ export const initialAddressState: AddressState = {
   postalCode: '',
   countryCode: 'US',
   locationModified: false,
+  provinces: [ { code: 'MD', name: 'Maryland' } ],
 };
 
 export function addressReducer(state: AddressState, action: AddressAction): AddressState {
   switch (action.type) {
+    case 'SET_COUNTRY_CODE_AND_PROVINCES':
+      return {
+        ...state,
+        countryCode: action.payload.countryCode,
+        provinces: action.payload.provinces,
+        provinceCode: action.payload.provinceCode ?? null,
+        locationModified: action.payload.manual ? true : state.locationModified,
+      };
     case 'SET_COUNTRY_CODE':
       return {
         ...state,

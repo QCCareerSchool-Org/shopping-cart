@@ -1,19 +1,12 @@
 import React from 'react';
 
-import { usePopup } from '../../hooks/usePopup';
 import { useStateContext } from '../../hooks/useStateContext';
 import { formatCurrency } from '../../lib/formatCurrency';
 import { ordinal } from '../../lib/ordinal';
 import { PriceResult } from '../../state/price';
 
-type Props = {
-  agreementLink: string;
-  agreementLinkGB: string;
-}
-
-export const Notes: React.FC<Props> = ({ agreementLink, agreementLinkGB }) => {
+export const Notes: React.FC = () => {
   const { price, payment } = useStateContext();
-  const [ popup, toggle ] = usePopup(false);
 
   if (!price) {
     return null;
