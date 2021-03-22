@@ -6,7 +6,7 @@ import { School } from '../../lib/enrollment';
 import { NoShipping } from './NoShipping';
 import { PaymentOptions } from './PaymentOptions';
 import { PlanResult } from './PlanResult';
-import { PromoCode } from './PromoCode';
+import { PromoCodeInput } from './PromoCodeInput';
 import { Schedule } from './Schedule';
 import { Shipping } from './Shipping';
 
@@ -30,7 +30,7 @@ export const Payment: React.FC<Props> = ({ school, shippingOption, shippingOptio
             <PaymentOptions />
             {payment.plan === 'part' && <Schedule />}
             {showNoShipping && (shippingOptionReversed ? <Shipping school={school} /> : <NoShipping school={school} title={noShippingTitle} />)}
-            {price && price.courses.length > 0 && showPromoCodeInput && <PromoCode />}
+            {price && price.courses.length > 0 && showPromoCodeInput && <PromoCodeInput />}
           </div>
           <div className="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-0 col-lg-6">
             <PlanResult shippingOptionReversed={shippingOptionReversed} />
