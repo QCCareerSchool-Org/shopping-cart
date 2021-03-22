@@ -2,7 +2,10 @@ import { isDesign, isEvent, isInternal, isMakeup, isPet, isWellness, isWriting }
 
 export type Site = 'internal' | 'makeup' | 'event' | 'design' | 'pet' | 'wellness' | 'writing';
 
-export const getSite = (domain: string): Site | null => {
+export const getSite = (domain?: string): Site | null => {
+  if (!domain) {
+    return null;
+  }
   if (isMakeup(domain)) {
     return 'makeup';
   } else if (isDesign(domain)) {

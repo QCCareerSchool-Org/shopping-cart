@@ -1,3 +1,4 @@
+import { useReducer } from 'react';
 import { EnrollmentErrors } from '../lib/enrollmentError';
 
 export type EnrollmentErrorsState = EnrollmentErrors;

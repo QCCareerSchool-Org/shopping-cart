@@ -1,6 +1,7 @@
+import { useLocation } from '@qccareerschool/hooks';
 import React from 'react';
 
-import { useSite } from '../hooks/useSite';
+import { getSite } from '../lib/getSite';
 import { DateProvider } from '../providers/DateProvider';
 import { ScreenWidthProvider } from '../providers/ScreenWidthProvider';
 import { StateProvider } from '../providers/StateProvider';
@@ -16,7 +17,8 @@ const Writing = React.lazy(() => import('../pages/writing'));
 const Internal = React.lazy(() => import('../pages/internal'));
 
 export const Cart: React.FC = () => {
-  const site = useSite();
+  const { hostname } = useLocation();
+  const site = getSite(hostname);
   if (!site) {
     return null;
   }
