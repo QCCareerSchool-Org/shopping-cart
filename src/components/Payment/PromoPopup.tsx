@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardBody, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
+import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
 import { useStateContext } from '../../hooks/useStateContext';
 import { PromoCode } from './PromoCode';
@@ -52,7 +52,7 @@ export const PromoPopup: React.FC<Props> = ({ popup, togglePopup, apply }) => {
             description={p.description}
             desktopImageSrc={p.desktopImageSrc}
             mobileImageSrc={p.mobileImageSrc}
-            onClick={() => apply(p.code)}
+            onClick={() => { apply(p.code); togglePopup(); }}
           />
         ))}
       </ModalBody>

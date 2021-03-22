@@ -40,6 +40,7 @@ const PromoTest: React.FC<Props> = ({ currencyCode, courses }) => {
         shippingOption={true}
         // additionalOptions={additionalOptions}
         // promoCodeDefault="BOGO"
+        showDynamicCourseDescriptions={true}
       />
     </>
   );

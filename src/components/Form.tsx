@@ -74,6 +74,8 @@ type Props = {
   showPromoCodeInput?: boolean;
   /** a default promo code */
   promoCodeDefault?: string;
+  /** whether to show the dynamic course descriptions */
+  showDynamicCourseDescriptions?: boolean;
 }
 
 export const scrollToPosition = (section: 'courses' | 'shipping' | 'plan'): void => {
@@ -249,6 +251,7 @@ export const Form: React.FC<Props> = props => {
         dynamicCourseMessages={props.dynamicCourseMessages}
         courseOverride={!!props.courseOverride}
         shippingOptionReversed={!!props.shippingOptionReversed}
+        showDynamicCourseDescriptions={!!props.showDynamicCourseDescriptions}
       />}
       <Address />
       <Payment

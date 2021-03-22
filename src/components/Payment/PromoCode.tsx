@@ -1,3 +1,5 @@
+import { faTag } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Card, CardBody } from 'reactstrap';
 import { useScreenWidthContext } from '../../hooks/useScreenWidthContext';
@@ -30,7 +32,7 @@ export const PromoCode: React.FC<Props> = ({ code, description, desktopImageSrc,
               }
             </div>
             <div className={`text-center ${desktop ? '' : 'my-2'}`}>
-              <button className="btn btn-secondary" onClick={onClick}>Apply {desktop && 'Code'}</button>
+              <button className="btn btn-secondary" onClick={onClick}><FontAwesomeIcon icon={faTag} /> Apply {desktop && 'Code'}</button>
             </div>
           </div>
         </div>
