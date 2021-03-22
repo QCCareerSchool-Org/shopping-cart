@@ -66,6 +66,7 @@ export type PriceResult = {
   notes: string[];
   noShipping: NoShipping;
   noShippingMessage?: string;
+  promoCodeRecognized?: boolean;
   courses: CourseResult[];
 } & Price;
 

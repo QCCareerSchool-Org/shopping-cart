@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
+import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
 import { usePopup } from '../../../hooks/usePopup';
 import { useDate } from '../../../hooks/useDateContext';

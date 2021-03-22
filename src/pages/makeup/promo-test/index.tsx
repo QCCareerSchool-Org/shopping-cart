@@ -7,6 +7,7 @@ import { Form } from '../../../components/Form';
 import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
 import { DefaultPromo } from '../default/DefaultPromo';
+import { DynamicMessage } from '../default/DynamicMessage';
 
 type Props = {
   currencyCode: string;
@@ -15,9 +16,9 @@ type Props = {
 
 const additionalOptions = {
   discount: {
-    default: 100,
+    default: 3000,
   },
-  discountSignature: 'LKTNPGVwJkHceRBl87wnV1vUPqHAr8qAytj8TB5Bm/1BarnbhY26SDmCYIt6Kdkevcf7o3GR9lgLOXkGwuee9Y9c0MUA96lsQmALrj0h2QimxDTjI1Lx8zJScN1Rm8asg8CjOagOb1y6dSWyY2p6Ql2PvF/BSYrVA9IRi/nE2QPGqHIbqSlBCPhCDu+rJBSKHRBkCWO4ivNictHKDcuVl42PChTlQd/TYwyPfHONrxwCdF1CX9UZZ6yjJH+Aj1F19It3FprN4FISxmzrijTDVMCJcwLAmxf4fPAEc1wuJLo2yLat9xKLgfw85sFj8qha9J4h9nnUCizQ23NbSX2vdQ==',
+  discountSignture: 'tBFv7o30ebuC4+ijdqWSzQ7l49eGW01U99ZPhHIGbjbgl7pbt5Yzd+zfyync1N84Byd81LyWYNKDbvfWmQWcvi2kw0DEWhY0QVE0CfRanIlGLuB/UZk7D1ij6ut5ilMT48ao9WlW1XhT804eO9m1WDS9/LalMXvbAb29N87MvyRPJxMCYlMm0ICRqzq3pStE8MQYOWQU3fkU3fVqb6Fhm6AlZkGFPvgo1Ei9Vax/65DrwUtf4CE34HjKPMt2l1UHS54MCL2sxpJI2Lj92yf4JVcg+p4xyq1SPccynHfOJDwndItOJexfrbLnNGQZ8ccQVFYcZITFxlf5zaMzuVMSNQ==',
 };
 
 const PromoTest: React.FC<Props> = ({ currencyCode, courses }) => {
@@ -34,9 +35,12 @@ const PromoTest: React.FC<Props> = ({ currencyCode, courses }) => {
         agreementLink="https://www.qcmakeupacademy.com/enrollment-agreement.html"
         agreementLinkGB="https://www.qcmakeupacademy.com/enrollment-agreement-gb.html"
         successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
-        additionalOptions={additionalOptions}
-        promoCode={true}
+        dynamicCourseMessages={[ () => <DynamicMessage date={date} courses={courses} /> ]}
+        showPromoCodeInput={true}
         shippingOption={true}
+        // additionalOptions={additionalOptions}
+        // promoCodeDefault="BOGO"
+        showDynamicCourseDescriptions={true}
       />
     </>
   );

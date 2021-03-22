@@ -1,43 +1,42 @@
-import React, { useState } from 'react';
+import { faTag } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
+import { Card, CardBody } from 'reactstrap';
+import { useScreenWidthContext } from '../../hooks/useScreenWidthContext';
 
-import { useDispatchContext } from '../../hooks/useDispatchContext';
-import { usePopup } from '../../hooks/usePopup';
-import { useStateContext } from '../../hooks/useStateContext';
-import { PromoPopup } from './PromoPopup';
+type Props = {
+  code: string;
+  description: string;
+  desktopImageSrc: string;
+  mobileImageSrc: string;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
 
-export const PromoCode: React.FC = () => {
-  const [ popup, togglePopup ] = usePopup(false);
-  const { meta: { promoCode } } = useStateContext();
-  const dispatch = useDispatchContext();
+export const PromoCode: React.FC<Props> = ({ code, description, desktopImageSrc, mobileImageSrc, onClick }) => {
+  const width = useScreenWidthContext();
 
-  const [ localValue, setLocalValue ] = useState(promoCode);
-
-  const change = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setLocalValue(e.target.value);
-  };
-
-  const apply = (e: React.MouseEvent<HTMLButtonElement>) => {
-    dispatch({ type: 'SET_PROMO_CODE', payload: localValue.toLocaleUpperCase() });
-  };
-
-  const popupApply = (code: string) => {
-    setLocalValue(code);
-    dispatch({ type: 'SET_PROMO_CODE', payload: code });
-  };
+  const desktop = width >= 450;
 
   return (
-    <div className="mt-4 ml-md-auto" style={{ maxWidth: 301 }}>
-      <h3 className="text-md-right">Promo Code</h3>
-        <div className="form-row">
-          <div className="col-7 offset-md-2">
-            <input onChange={change} type="text" className="form-control text-center text-uppercase font-weight-bold" style={{ letterSpacing: '0.75px' }} value={localValue} aria-describedby="promoHelp" />
+    <Card className="mt-3">
+      <CardBody className="p-0">
+        <div className="d-flex align-items-stretch justify-content-between">
+          <div className="w-50">
+            <img src={desktop ? desktopImageSrc : mobileImageSrc} alt={description} className="img-fluid" />
           </div>
-          <div className="col-3">
-            <button onClick={apply} className="btn btn-secondary">Apply</button>
+          <div className="w-50 d-flex flex-column align-items-center justify-content-around px-2">
+            <div className={`text-center ${desktop ? '' : 'my-2'}`}>
+              {desktop
+                ? <h5 className="m-0"><strong style={{ letterSpacing: '0.75px' }}>{code}</strong></h5>
+                : <small className="m-0"><strong style={{ letterSpacing: '0.75px' }}>{code}</strong></small>
+              }
+            </div>
+            <div className={`text-center ${desktop ? '' : 'my-2'}`}>
+              <button className="btn btn-secondary" onClick={onClick}><FontAwesomeIcon icon={faTag} /> Apply {desktop && 'Code'}</button>
+            </div>
           </div>
         </div>
-        <small id="promoHelp" className="form-text text-muted text-md-right"><a href="#" onClick={e => { e.preventDefault(); togglePopup(); }}>Need a code? Get one here</a></small>
-      <PromoPopup popup={popup} togglePopup={togglePopup} apply={popupApply} />
-    </div>
+      </CardBody>
+    </Card>
   );
 };

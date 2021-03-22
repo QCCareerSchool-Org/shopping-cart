@@ -71,9 +71,11 @@ type Props = {
   /** the title of the confirmation popup */
   submitTitle?: string;
   /** whether to show the promo code input or not */
-  promoCode?: boolean;
+  showPromoCodeInput?: boolean;
   /** a default promo code */
   promoCodeDefault?: string;
+  /** whether to show the dynamic course descriptions */
+  showDynamicCourseDescriptions?: boolean;
 }
 
 export const scrollToPosition = (section: 'courses' | 'shipping' | 'plan'): void => {
@@ -249,6 +251,7 @@ export const Form: React.FC<Props> = props => {
         dynamicCourseMessages={props.dynamicCourseMessages}
         courseOverride={!!props.courseOverride}
         shippingOptionReversed={!!props.shippingOptionReversed}
+        showDynamicCourseDescriptions={!!props.showDynamicCourseDescriptions}
       />}
       <Address />
       <Payment
@@ -256,7 +259,7 @@ export const Form: React.FC<Props> = props => {
         shippingOption={!!props.shippingOption}
         shippingOptionReversed={!!props.shippingOptionReversed}
         noShippingTitle={props.noShippingTitle}
-        promoCode={!!props.promoCode}
+        showPromoCodeInput={!!props.showPromoCodeInput && !props.promoCodeDefault}
       />
       {props.allowOverrides && payment.plan === 'part' && <Overrides />}
       <Summary
