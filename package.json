@@ -28,6 +28,7 @@
     "bootstrap": "^4.5.3",
     "node-sass": "^4.14.1",
     "qs": "^6.9.4",
+    "rc-slider": "^9.7.1",
     "react": "^16.14.0",
     "react-combine-reducers": "^1.0.4",
     "react-dom": "^16.14.0",
