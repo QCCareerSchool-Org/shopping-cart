@@ -57,7 +57,7 @@ export const usePriceUpdater = (school: School, promoCodeDefault?: string, allow
     preFetchData();
 
     return () => cancelTokenSource.cancel();
-  }, [ dispatch, courses, address.countryCode, address.provinceCode, meta.student, meta.studentDiscount, meta.promoCode, payment.noShipping, school, promoCodeDefault, additionalOptions ]);
+  }, [ dispatch, courses, address.countryCode, address.provinceCode, meta.student, meta.studentDiscount, meta.promoCode, payment.noShipping, school, promoCodeDefault, allowOverrides, additionalOptions ]);
 
   // update the prices when the country, province, or courses change
   useEffect(() => {
@@ -107,5 +107,5 @@ export const usePriceUpdater = (school: School, promoCodeDefault?: string, allow
     fetchData();
 
     return () => cancelTokenSource.cancel();
-  }, [ dispatch, courses, address.countryCode, address.provinceCode, meta.student, meta.studentDiscount, meta.promoCode, payment.noShipping, overrides.installments, overrides.value, school, promoCodeDefault, additionalOptions ]);
+  }, [ dispatch, courses, address.countryCode, address.provinceCode, meta.student, meta.studentDiscount, meta.promoCode, payment.noShipping, overrides.courses, overrides.installments, overrides.value, school, promoCodeDefault, allowOverrides, additionalOptions ]);
 };

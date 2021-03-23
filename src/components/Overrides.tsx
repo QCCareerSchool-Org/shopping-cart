@@ -6,7 +6,7 @@ import { useStateContext } from '../hooks/useStateContext';
 import { useDispatchContext } from '../hooks/useDispatchContext';
 
 export const Overrides: React.FC = () => {
-  const { price, overrides } = useStateContext();
+  const { overrides } = useStateContext();
   const dispatch = useDispatchContext();
 
   const handleCourseChange = (value: number, code: string) => {

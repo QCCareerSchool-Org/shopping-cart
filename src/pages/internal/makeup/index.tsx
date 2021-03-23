@@ -13,6 +13,7 @@ const Makeup: React.FC = () => <Form
   successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
   internal={true}
   allowOverrides={true}
+  showPromoCodeInput={true}
 />;
 
 export default Makeup;
