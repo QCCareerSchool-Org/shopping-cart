@@ -124,8 +124,9 @@ const Disclaimers: React.FC<{ price: PriceResult }> = ({ price }) => (
     <h6 className={price.disclaimers.length > 1 ? 'mb-3' : ''}>Please Note</h6>
     {price.disclaimers.map((d, i) => <p
       key={i}
-      className={i === price.disclaimers.length - 1 ? 'mb-0' : ''}
+      className="mt-3 mb-0"
       dangerouslySetInnerHTML={{ __html: d }}
     ></p>)}
+    {price.noShippingMessage && <p className="mt-3 mb-0" dangerouslySetInnerHTML={{ __html: price.noShippingMessage }}></p>}
   </div>
 );
