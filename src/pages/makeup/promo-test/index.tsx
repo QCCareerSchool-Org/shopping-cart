@@ -32,7 +32,7 @@ const PromoTest: React.FC<Props> = ({ currencyCode, courses }) => {
         showPromoCodeInput={true}
         shippingOption={true}
         // additionalOptions={additionalOptions}
-        // promoCodeDefault="BOGO"
+        // promoCodeDefault="FOUNDIT"
         showDynamicCourseDescriptions={true}
       />
     </>

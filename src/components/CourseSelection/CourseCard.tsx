@@ -52,7 +52,7 @@ export const CourseCard: React.FC<Props> = ({ courseCode }) => {
             <h4 className="m-0">{courseCard.name}</h4>
           </div>
           <div dangerouslySetInnerHTML={{ __html: courseCard.description }} />
-          {/* {courseCode && [ 'AB', 'HS', 'SF' ].includes(courseCode) && <img className="img-fluid" src={require(`./kits/${courseCode.toLocaleLowerCase()}.jpg`)} alt="kit" />} */}
+          {courseCode && [ 'AB', 'HS', 'SF' ].includes(courseCode) && <img className="img-fluid" src={require(`./kits/${courseCode.toLocaleLowerCase()}.jpg`)} alt="kit" />}
           <hr />
           <p className="card-text">Price before discounts: <strong>{courseCard.currency.symbol}{courseCard.cost.toFixed(2)}</strong></p>
         </CardBody>
