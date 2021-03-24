@@ -64,6 +64,7 @@ export type PriceResult = {
   currency: Currency;
   disclaimers: string[];
   notes: string[];
+  promoWarnings: string[];
   noShipping: NoShipping;
   noShippingMessage?: string;
   promoCodeRecognized?: boolean;

@@ -33,8 +33,11 @@ export const PromoCodeInput: React.FC = () => {
       <h3>Promo Code</h3>
       {promoCode && price?.promoCodeRecognized === true
         ? (
-          <div className="alert alert-success alert-dismissible" role="alert">
-            Promo code applied: <strong>{promoCode}</strong>
+          <div className={`alert ${price?.promoWarnings.length > 0 ? 'alert-danger' : 'alert-success'} alert-dismissible`} role="alert">
+            {price.promoWarnings.length > 0
+              ? price.promoWarnings.map((p, i) => <p key={i} dangerouslySetInnerHTML={{ __html: p }} className={`mb-0 ${i > 0 ? 'mt-2' : ''}`}></p>)
+              : <>Promo code applied: <strong>{promoCode}</strong></>
+            }
             <button onClick={e => { dispatch({ type: 'SET_PROMO_CODE', payload: '' }); }} type="button" className="close" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
