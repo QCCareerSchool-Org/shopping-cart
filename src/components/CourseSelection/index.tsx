@@ -37,7 +37,7 @@ export const CourseSelection: React.FC<Props> = ({ internal, coursesSubtitle, dy
                   {courses.courseGroups.map((g, i) => (
                     <React.Fragment key={i}>
                       {g.name && <h5 className={i > 0 ? 'mt-2' : ''}>{g.name}</h5>}
-                      {g.items.filter(c => !courses.hidden.includes(c.code)).map(c => <div onMouseOver={() => { setCourseCode(c.code); }} key={c.code}><CheckBox course={c} internal={internal} /></div>)}
+                      {g.items.filter(c => !courses.hidden.includes(c.code)).map(c => <CheckBox key={c.code} course={c} internal={internal} mouseOver={() => { setCourseCode(c.code); }} />)}
                     </React.Fragment>
                   ))}
                   {dynamicCourseMessages && dynamicCourseMessages.map((DynamicCourseMessage, i) => (

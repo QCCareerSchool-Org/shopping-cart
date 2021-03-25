@@ -12,9 +12,10 @@ import { DisabledCourseModal } from './DisabledCourseModal';
 type Props = {
   course: Course;
   internal: boolean;
+  mouseOver?: () => void;
 }
 
-export const CheckBox: React.FC<Props> = ({ course, internal }) => {
+export const CheckBox: React.FC<Props> = ({ course, internal, mouseOver }) => {
   const { courses } = useStateContext();
   const dispatch = useDispatchContext();
   const screenWidth = useScreenWidthContext();
@@ -43,8 +44,9 @@ export const CheckBox: React.FC<Props> = ({ course, internal }) => {
         checked={courses.selected.includes(course.code)}
         disabled={disabled}
         onChange={courseChange}
+        onMouseOver={mouseOver}
       />
-      <label className={'custom-control-label' + (disabled ? ' text-medium' : '')} htmlFor={`courses-${course.code}`}>
+      <label className={'custom-control-label' + (disabled ? ' text-medium' : '')} htmlFor={`courses-${course.code}`} onMouseOver={mouseOver}>
         {course.description
           ? <><strong>{course.description}:</strong><br />{course.name}</>
           : course.name
