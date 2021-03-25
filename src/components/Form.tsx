@@ -41,7 +41,7 @@ type Props = {
   /** a component to display below the courses title */
   coursesSubtitle?: () => JSX.Element;
   /** an array of components to display below the course selection checkboxes */
-  dynamicCourseMessages?: Array<(...args: any[]) => JSX.Element>;
+  dynamicCourseMessages?: Array<(...args: any[]) => JSX.Element | null>;
   /** whether this is an internal shopping cart (allows toggling student status) */
   internal?: boolean;
   /** whether the person enrolling is an existing student or not */

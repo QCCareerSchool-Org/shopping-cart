@@ -1,58 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
-import { useStateContext } from '../../hooks/useStateContext';
+import { Promo } from './PromoCodeInput';
 import { PromoCodeTicket } from './PromoCodeTicket';
 
 type Props = {
   popup: boolean;
   togglePopup: () => void;
   apply: (code: string) => void;
+  promos: Promo[];
 }
 
-type Promo = {
-  code: string;
-  description: string;
-  desktopImageSrc: any;
-  mobileImageSrc: any;
-}
+export const PromoPopup: React.FC<Props> = ({ popup, togglePopup, apply, promos }) => {
+  const [ allExpanded, setAllExpanded ] = useState(Array(promos.length).fill(undefined).map(() => false));
 
-export const PromoPopup: React.FC<Props> = ({ popup, togglePopup, apply }) => {
-  const { price } = useStateContext();
-
-  const promos: Promo[] = [
-    {
-      code: 'SAVE50',
-      description: 'Get 50% off additional courses of equal or lesser value',
-      desktopImageSrc: require('./images/coupon-SAVE50.jpg'),
-      mobileImageSrc: require('./images/coupon-mobile-SAVE50.jpg'),
-    },
-    {
-      code: 'ADVANCED100',
-      description: `Get ${price?.currency.code === 'GBP' ? '£100' : '$100'} off any advanced course`,
-      desktopImageSrc: require('./images/coupon-ADVANCED100.jpg'),
-      mobileImageSrc: require('./images/coupon-mobile-ADVANCED100.jpg'),
-    },
-    {
-      code: 'ELITE',
-      description: 'Get an elite makeup kit upgrade',
-      desktopImageSrc: require('./images/coupon-ELITE.jpg'),
-      mobileImageSrc: require('./images/coupon-mobile-ELITE.jpg'),
-    },
-  ];
+  const setIndexExpanded = (index: number, value: boolean) => {
+    setAllExpanded(expanded => expanded.map((e, i) => i === index ? value : false));
+  };
 
   return (
     <Modal isOpen={popup} toggle={togglePopup}>
       <ModalHeader toggle={togglePopup}>Current Promo Codes</ModalHeader>
       <ModalBody className="pt-0">
-        {promos.map(p => (
+        {promos.map((p, i) => (
           <PromoCodeTicket
             key={p.code}
             code={p.code}
             description={p.description}
             desktopImageSrc={p.desktopImageSrc}
             mobileImageSrc={p.mobileImageSrc}
+            altText={p.altText}
             onClick={() => { apply(p.code); togglePopup(); }}
+            expanded={allExpanded[i]}
+            setExpanded={(value: boolean) => setIndexExpanded(i, value)}
           />
         ))}
       </ModalBody>

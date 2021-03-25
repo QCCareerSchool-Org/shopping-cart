@@ -35,7 +35,7 @@ const Default: React.FC<Props> = ({ currencyCode, courses }) => {
         agreementLinkGB="https://www.qcmakeupacademy.com/enrollment-agreement-gb.html"
         successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
         coursesSubtitle={() => <BuyOneGetOne />}
-        dynamicCourseMessages={[ () => <DynamicMessage date={date} courses={courses} /> ]}
+        dynamicCourseMessages={[ () => date >= new Date('2021-03-27T08:00:00-0400') ? null : <DynamicMessage date={date} courses={courses} /> ]}
         showPromoCodeInput={promoCodeStart}
         showDynamicCourseDescriptions={promoCodeStart}
         additionalOptions={date >= new Date('2021-03-27T08:00:00-04:00') && !promoCodeStart ? additionalOptionsDeluxeKit : additionalOptionsNone}

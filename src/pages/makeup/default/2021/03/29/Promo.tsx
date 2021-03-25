@@ -9,9 +9,10 @@ import { useStateContext } from '../../../../../../hooks/useStateContext';
 
 type Props = {
   date: Date;
+  currencyCode: string;
 }
 
-export const Promo20210329: React.FC<Props> = ({ date }) => {
+export const Promo20210329: React.FC<Props> = ({ date, currencyCode }) => {
   const [ popup, togglePopup ] = usePopup(false);
   const screenWidth = useScreenWidthContext();
   const { meta: { promoCode } } = useStateContext();
@@ -31,15 +32,15 @@ export const Promo20210329: React.FC<Props> = ({ date }) => {
 
   if (date >= new Date('2021-04-04T12:00:00-04:00')) {
     if (desktop) {
-      image = require('./desktop-ends.jpg');
+      image = currencyCode === 'GBP' ? require('./desktop-ends-uk.jpg') : require('./desktop-ends.jpg');
     } else {
-      image = require('./mobile-ends.jpg');
+      image = currencyCode === 'GBP' ? require('./mobile-ends-uk.jpg') : require('./mobile-ends.jpg');
     }
   } else {
     if (desktop) {
-      image = require('./desktop.jpg');
+      image = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
     } else {
-      image = require('./mobile.jpg');
+      image = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
     }
   }
 
@@ -53,7 +54,7 @@ export const Promo20210329: React.FC<Props> = ({ date }) => {
 
   return (
     <>
-      <section id="promoSection" style={{ backgroundColor: '#480003', padding: 0 }}>
+      <section id="promoSection" style={{ backgroundColor: '#d394fc', padding: 0 }}>
         <div className="container px-0">
           <div className="text-center">
             <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={togglePopup}><img src={image} width={width} height={height} className="img-fluid d-block mx-auto" alt="Special Offer" /></button>

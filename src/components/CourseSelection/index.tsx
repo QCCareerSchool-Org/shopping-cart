@@ -8,7 +8,7 @@ import { CourseTable } from './CourseTable';
 type Props = {
   internal: boolean;
   coursesSubtitle?: () => JSX.Element;
-  dynamicCourseMessages?: Array<() => JSX.Element>;
+  dynamicCourseMessages?: Array<() => JSX.Element | null>;
   courseOverride: boolean;
   shippingOptionReversed: boolean;
   showDynamicCourseDescriptions: boolean;
