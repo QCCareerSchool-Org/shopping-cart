@@ -9,22 +9,19 @@ import { PromoPopup } from './PromoPopup';
 
 export const PromoCodeInput: React.FC = () => {
   const [ popup, togglePopup ] = usePopup(false);
-  const { price, meta: { promoCode } } = useStateContext();
+  const { price, meta: { promoCode, promoCodeInputValue } } = useStateContext();
   const dispatch = useDispatchContext();
 
-  const [ localValue, setLocalValue ] = useState(promoCode);
-
   const change = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setLocalValue(e.target.value);
+    dispatch({ type: 'SET_PROMO_CODE_INPUT_VALUE', payload: e.target.value });
   };
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    dispatch({ type: 'SET_PROMO_CODE', payload: localValue.toLocaleUpperCase() });
+    dispatch({ type: 'SET_PROMO_CODE', payload: promoCodeInputValue });
   };
 
   const popupApply = (code: string) => {
-    setLocalValue(code);
     dispatch({ type: 'SET_PROMO_CODE', payload: code });
   };
 
@@ -38,7 +35,7 @@ export const PromoCodeInput: React.FC = () => {
               ? price.promoWarnings.map((p, i) => <p key={i} dangerouslySetInnerHTML={{ __html: p }} className={`mb-0 ${i > 0 ? 'mt-2' : ''}`}></p>)
               : <>Promo code applied: <strong>{promoCode}</strong></>
             }
-            <button onClick={e => { dispatch({ type: 'SET_PROMO_CODE', payload: '' }); }} type="button" className="close" aria-label="Close">
+            <button onClick={() => { dispatch({ type: 'CLEAR_PROMO_CODE' }); }} type="button" className="close" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -48,7 +45,7 @@ export const PromoCodeInput: React.FC = () => {
             <form onSubmit={submit}>
               <div className="form-row">
                 <div className="col-7">
-                  <input onChange={change} type="text" className="form-control text-center text-uppercase font-weight-bold" style={{ letterSpacing: '0.75px' }} value={localValue} aria-describedby="promoHelp" />
+                  <input onChange={change} type="text" className="form-control text-center text-uppercase font-weight-bold" style={{ letterSpacing: '0.75px' }} value={promoCodeInputValue} aria-describedby="promoHelp" />
                 </div>
                 <div className="col-4">
                   <button type="submit" className="btn btn-secondary"><FontAwesomeIcon icon={faTag} /> Apply</button>
