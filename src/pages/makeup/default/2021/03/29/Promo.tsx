@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
+import { PromoCode } from '../../../../../../components/PromoCode';
 
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
 import { usePopup } from '../../../../../../hooks/usePopup';
@@ -15,6 +16,12 @@ export const Promo20210329: React.FC<Props> = ({ date }) => {
   const screenWidth = useScreenWidthContext();
   const { meta: { promoCode } } = useStateContext();
   const dispatch = useDispatchContext();
+
+  useEffect(() => {
+    //preloading image
+    const img = new Image();
+    img.src = require('./coupon-btn-foundit-over.svg');
+  }, []);
 
   const desktop = screenWidth >= 576;
 
@@ -57,7 +64,7 @@ export const Promo20210329: React.FC<Props> = ({ date }) => {
           <ModalBody className="text-center p-0">
             <div className="p-2">
               <p>Get started today with our <strong>lowest deposit ever</strong>, followed by low monthly payments.</p>
-              <p>Enter promo code <strong>FOUNDIT</strong> to get the <strong>Pro Makeup Workshop</strong> free when you also enroll in the <strong>Master Makeup Artistry Course</strong>.</p>
+              <p>Enter promo code <PromoCode>FOUNDIT</PromoCode> to get the <strong>Pro Makeup Workshop</strong> free when you also enroll in the <strong>Master Makeup Artistry Course</strong>.</p>
             </div>
             <img className="img-fluid" src={require('./popup-makeup-kit.jpg')} alt="Makeup Kit" />
           </ModalBody>
@@ -69,8 +76,8 @@ export const Promo20210329: React.FC<Props> = ({ date }) => {
       <div className="text-white" style={{ backgroundColor: 'black' }}>
         <div className="container py-3 d-flex justify-content-center">
           {promoCode === 'FOUNDIT'
-            ? <img src={require('./found-it-over.png')} className="img-fluid" alt="Promo Code" />
-            : <button onClick={() => { dispatch({ type: 'SET_PROMO_CODE', payload: 'FOUNDIT' }); }} className="btn btn-link p-0 border-0 btn-no-hover-shadow"><img src={require('./found-it.png')} className="img-fluid" alt="Promo Code" /></button>
+            ? <img src={require('./coupon-btn-foundit-over.svg')} width="396" height="48" className="img-fluid" alt="Promo Code" />
+            : <button onClick={() => { dispatch({ type: 'SET_PROMO_CODE', payload: 'FOUNDIT' }); }} className="btn btn-link p-0 border-0 btn-no-hover-shadow"><img src={require('./coupon-btn-foundit.svg')} width="396" height="48" className="img-fluid" alt="Promo Code" /></button>
           }
         </div>
       </div>

@@ -12,7 +12,7 @@ type Props = {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export const PromoCode: React.FC<Props> = ({ code, description, desktopImageSrc, mobileImageSrc, onClick }) => {
+export const PromoCodeTicket: React.FC<Props> = ({ code, description, desktopImageSrc, mobileImageSrc, onClick }) => {
   const width = useScreenWidthContext();
 
   const desktop = width >= 450;

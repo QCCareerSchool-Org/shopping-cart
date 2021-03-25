@@ -2,7 +2,7 @@ import React from 'react';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
 import { useStateContext } from '../../hooks/useStateContext';
-import { PromoCode } from './PromoCode';
+import { PromoCodeTicket } from './PromoCodeTicket';
 
 type Props = {
   popup: boolean;
@@ -46,7 +46,7 @@ export const PromoPopup: React.FC<Props> = ({ popup, togglePopup, apply }) => {
       <ModalHeader toggle={togglePopup}>Current Promo Codes</ModalHeader>
       <ModalBody className="pt-0">
         {promos.map(p => (
-          <PromoCode
+          <PromoCodeTicket
             key={p.code}
             code={p.code}
             description={p.description}
