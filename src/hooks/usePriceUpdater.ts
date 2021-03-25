@@ -1,6 +1,7 @@
 import axios from 'axios';
 import qs from 'qs';
 import { useEffect } from 'react';
+import { dateOverride } from '../lib/dateOverride';
 
 import { School } from '../lib/enrollment';
 import { PriceQuery, PriceResult } from '../state/price';
@@ -31,6 +32,13 @@ export const usePriceUpdater = (school: School, promoCodeDefault?: string, allow
           ...additionalOptions,
         },
       };
+      const date = dateOverride();
+      if (process.env.REACT_APP_PRICES_ENDPOINT && date)  {
+        const options = params.options;
+        if (options) {
+          options.dateOverride = date;
+        }
+      }
       const url = process.env.REACT_APP_PRICES_ENDPOINT ?? 'https://api.qccareerschool.com/prices';
       const response = await axios.get<PriceResult>(url, {
         headers: { 'X-API-Version': 2 },
@@ -77,6 +85,13 @@ export const usePriceUpdater = (school: School, promoCodeDefault?: string, allow
           ...additionalOptions,
         },
       };
+      const date = dateOverride();
+      if (process.env.REACT_APP_PRICES_ENDPOINT && date)  {
+        const options = params.options;
+        if (options) {
+          options.dateOverride = date;
+        }
+      }
 
       if (allowOverrides) {
         params.options = {

@@ -22,6 +22,8 @@ const Default: React.FC<Props> = ({ currencyCode, courses }) => {
   const serverDate = useDate();
   const date = dateOverride() || serverDate;
 
+  const promoCodeStart = date >= new Date('2021-03-29T09:00:00-04:00');
+
   return (
     <>
       <DefaultPromo date={date} currencyCode={currencyCode} />
@@ -34,7 +36,9 @@ const Default: React.FC<Props> = ({ currencyCode, courses }) => {
         successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
         coursesSubtitle={() => <BuyOneGetOne />}
         dynamicCourseMessages={[ () => <DynamicMessage date={date} courses={courses} /> ]}
-        additionalOptions={date >= new Date('2021-03-15T09:00:00-04:00') ? additionalOptionsNone : additionalOptionsDeluxeKit}
+        showPromoCodeInput={promoCodeStart}
+        showDynamicCourseDescriptions={promoCodeStart}
+        additionalOptions={date >= new Date('2021-03-27T08:00:00-04:00') && !promoCodeStart ? additionalOptionsDeluxeKit : additionalOptionsNone}
       />
     </>
   );
