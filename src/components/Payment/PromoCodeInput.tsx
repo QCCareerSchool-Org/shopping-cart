@@ -14,6 +14,8 @@ export type Promo = {
   desktopImageSrc: any;
   mobileImageSrc: any;
   altText: string;
+  startDate?: Date;
+  endDate?: Date;
 }
 
 type Props = {

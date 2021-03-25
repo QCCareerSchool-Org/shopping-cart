@@ -30,6 +30,7 @@ export const PromoPopup: React.FC<Props> = ({ popup, togglePopup, apply, promos 
             desktopImageSrc={p.desktopImageSrc}
             mobileImageSrc={p.mobileImageSrc}
             altText={p.altText}
+            expiryDate={p.endDate}
             onClick={() => { apply(p.code); togglePopup(); }}
             expanded={allExpanded[i]}
             setExpanded={(value: boolean) => setIndexExpanded(i, value)}
