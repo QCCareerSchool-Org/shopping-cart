@@ -66,7 +66,7 @@ export const Promo20210329: React.FC<Props> = ({ date }) => {
           </ModalFooter>
         </Modal>
       </section>
-      <div className="bg-black text-white">
+      <div className="text-white" style={{ backgroundColor: 'black' }}>
         <div className="container py-3 d-flex justify-content-center">
           {promoCode === 'FOUNDIT'
             ? <img src={require('./found-it-over.png')} className="img-fluid" alt="Promo Code" />
