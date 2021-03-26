@@ -20,6 +20,16 @@ export const useInitialData = (internal: boolean) => {
           dispatch({ type: 'ADD_COURSE', payload: { courseCode: parsed.c, internal } });
         }
       }
+      if (parsed.promoCode) {
+        if (Array.isArray(parsed.promoCode)) {
+          const promoCode = parsed.promoCode[0];
+          if (typeof promoCode === 'string') {
+            dispatch({ type: 'SET_PROMO_CODE', payload: promoCode });
+          }
+        } else if (typeof parsed.promoCode === 'string') {
+          dispatch({ type: 'SET_PROMO_CODE', payload: parsed.promoCode });
+        }
+      }
     };
 
     const loadSessionStorageData = () => {
