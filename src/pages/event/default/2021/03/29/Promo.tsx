@@ -19,7 +19,7 @@ export const Promo20210329: React.FC<Props> = ({ date, currencyCode }) => {
   let width: number;
   let height: number;
 
-  if (date >= new Date('2021-04-05T09:00:00-04:00')) {
+  if (date >= new Date('2021-04-05T08:00:00-04:00')) {
     if (desktop) {
       image = currencyCode === 'GBP' ? require('./desktop-ends-uk.jpg') : require('./desktop-ends.jpg');
     } else {
@@ -51,7 +51,8 @@ export const Promo20210329: React.FC<Props> = ({ date, currencyCode }) => {
       <Modal size="lg" isOpen={popup} toggle={togglePopup}>
         <ModalHeader toggle={togglePopup}>Easter Offer</ModalHeader>
         <ModalBody className="text-center">
-          <p className="my-5">Enroll in QC&apos;s <strong>Event &amp; Wedding Planning course</strong>&mdash;with our lowest deposit ever&mdash;and get both the <strong>Destination Wedding Planning</strong> and the <strong>Luxury Wedding Planning</strong> courses for FREE</p>
+          <p>Receive a <strong>free leather portfolio</strong> when you enroll in any course.</p>
+          <p>Also, enroll in QC&apos;s <strong>Event &amp; Wedding Planning course</strong>&mdash;with our lowest deposit ever&mdash;and get both the <strong>Destination Wedding Planning</strong> and the <strong>Luxury Wedding Planning</strong> courses for FREE</p>
         </ModalBody>
       </Modal>
     </section>

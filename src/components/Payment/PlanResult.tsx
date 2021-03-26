@@ -53,8 +53,8 @@ const Full: React.FC<{ price: PriceResult; shippingOptionReversed: boolean }> = 
             {price.courses.map(course => (
               <React.Fragment key={course.code}>
                 <tr>
-                  <td className="text-md-right">{course.name}{course.free && <>{' '}<strong className="text-primary">FREE!</strong></>}</td>
-                  <td className="text-right text-nowrap align-bottom">{price.currency.symbol}{Big(course.free ? 0 : course.cost).minus(shippingOptionReversed ? course.shipping : 0).toFixed(2)}</td>
+                  <td className="text-md-right">{course.name}</td>
+                  <td className="text-right text-nowrap align-bottom">{course.free ? <strong className="text-primary">FREE!</strong> : <>{price.currency.symbol}{Big(course.free ? 0 : course.cost).minus(shippingOptionReversed ? course.shipping : 0).toFixed(2)}</>}</td>
                 </tr>
                 {!course.free && course.multiCourseDiscount > 0 && (
                   <tr className="text-primary">
