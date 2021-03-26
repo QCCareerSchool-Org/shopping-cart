@@ -19,18 +19,12 @@ export const OrganizingPromo: React.FC<Props> = ({ currencyCode }) => {
   let desktopImage;
   let mobileImage;
 
-  if (date >= new Date('2021-03-24T12:00:00-04:00')) {
-    desktopImage = currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg');
-    mobileImage = currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
-  } else if (date >= new Date('2021-03-15T09:00:00-04:00')) {
+  if (date >= new Date('2021-03-29T09:00:00-0400')) {
     desktopImage = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
     mobileImage = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
-  } else if (date >= new Date('2021-03-10T12:00:00-05:00')) {
-    desktopImage = currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg');
-    mobileImage = currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
   } else {
-    desktopImage = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
-    mobileImage = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
+    desktopImage = currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg');
+    mobileImage = currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
   }
 
   return (

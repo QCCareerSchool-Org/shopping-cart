@@ -26,10 +26,10 @@ const getPromos = (now: Date, price: PriceState, school: School): Promo[] => {
     const promos: Promo[] = [
       {
         code: 'FOUNDIT',
-        description: <>Get the <strong>Virtual Makeup</strong> course free when you enroll in <strong>Master Makeup Aristry</strong></>,
+        description: <>Get the <strong>Virtual Makeup</strong> course free when you enroll in <strong>Master Makeup Artistry</strong></>,
         desktopImageSrc: require('./images/coupon-FOUNDIT.jpg'),
         mobileImageSrc: require('./images/coupon-mobile-FOUNDIT.jpg'),
-        altText: 'Get the Virtual Makeup course free when you enroll in Master Makeup Aristry',
+        altText: 'Get the Virtual Makeup course free when you enroll in Master Makeup Artistry',
         startDate: new Date('2021-03-29T09:00:00-0400'),
         endDate: new Date('2021-04-06T00:00:00-0400'),
       },
