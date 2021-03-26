@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
-import { usePopup } from '../../../../../../hooks/usePopup';
 import { usePreloadImage } from '../../../../../../hooks/usePreloadImage';
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../../../../hooks/useStateContext';
