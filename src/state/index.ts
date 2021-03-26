@@ -6,6 +6,7 @@ import { AddressState, AddressAction, addressReducer, initialAddressState, Provi
 import { CoursesState, CoursesAction, coursesReducer, initialCoursesState } from './courses';
 import { EnrollmentErrorsState, EnrollmentErrorsAction, enrollmentErrorsReducer, initialEnrollmentErrorsState } from './enrollmentErrors';
 import { MetaState, MetaAction, metaReducer, initialMetaState } from './meta';
+import { initialOverridesState, OverridesAction, overridesReducer, OverridesState } from './overrides';
 import { PaymentState, PaymentAction, paymentReducer, initialPaymentState } from './payment';
 import { PriceAction, priceReducer, PriceState, initialPriceState } from './price';
 import { ProvincesAction, ProvincesState, provincesReducer, initialProvincesState } from './provinces';
@@ -16,11 +17,12 @@ export type State = {
   provinces: ProvincesState;
   payment: PaymentState;
   price: PriceState;
+  overrides: OverridesState;
   meta: MetaState;
   enrollmentErrors: EnrollmentErrorsState;
 };
 
-export type Action = AddressAction | CoursesAction | ProvincesAction | PaymentAction | PriceAction | MetaAction | EnrollmentErrorsAction;
+export type Action = AddressAction | CoursesAction | ProvincesAction | PaymentAction | PriceAction | OverridesAction | MetaAction | EnrollmentErrorsAction;
 
 export type Reducer = (state: State, action: Action) => State;
 
@@ -30,6 +32,7 @@ export const [ reducer, initialState ] = combineReducers<Reducer>({
   provinces: [ provincesReducer, initialProvincesState ],
   payment: [ paymentReducer, initialPaymentState ],
   price: [ priceReducer, initialPriceState ],
+  overrides: [ overridesReducer, initialOverridesState ],
   meta: [ metaReducer, initialMetaState ],
   enrollmentErrors: [ enrollmentErrorsReducer, initialEnrollmentErrorsState ],
 });

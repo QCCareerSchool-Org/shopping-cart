@@ -13,6 +13,8 @@ export type PriceQueryOptions = {
   depositOverrides?: { [code: string]: number };
   installmentsOverride?: number;
   studentDiscount?: boolean;
+  promoCode?: string;
+  dateOverride?: Date;
 }
 
 export interface PriceQuery {
@@ -64,8 +66,11 @@ export type PriceResult = {
   currency: Currency;
   disclaimers: string[];
   notes: string[];
+  promoWarnings: string[];
   noShipping: NoShipping;
   noShippingMessage?: string;
+  promoCodeRecognized?: boolean;
+  promoCode?: string;
   courses: CourseResult[];
 } & Price;
 

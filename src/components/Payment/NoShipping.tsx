@@ -20,7 +20,8 @@ export const NoShipping: React.FC<Props> = ({ school, title = 'Green Discount' }
   };
 
   return (
-    <div className="alert alert-success mt-4">
+    // <div className="alert alert-success mt-4">
+    <div className="mt-4">
       <h3>{title} <FontAwesomeIcon icon={faEnvira} /></h3>
       <div className="custom-control custom-checkbox my-2">
         <input type="checkbox" id="noShippingOption" className="custom-control-input" checked={noShipping} onChange={noShippingChange} />

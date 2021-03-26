@@ -165,6 +165,8 @@ export const PaymentModal: React.FC<Props> = ({ company, isOpen, toggle, charge 
     }
   };
 
+  const buttonDisabled = submitting || !status.panValid || !status.expValid || !status.cvvValid;
+
   return (
     <Modal size="sm" isOpen={isOpen} toggle={toggle} unmountOnClose={false}>
       <ModalHeader toggle={toggle}>Payment Details</ModalHeader>
@@ -209,7 +211,7 @@ export const PaymentModal: React.FC<Props> = ({ company, isOpen, toggle, charge 
           </div>
           <div className="row">
             <div className="col-12">
-              <button className="btn btn-success btn-lg btn-block" disabled={submitting || !status.panValid || !status.expValid || !status.cvvValid}>Enroll Now</button>
+              <button className={`btn ${buttonDisabled ? 'btn-secondary' : 'btn-success'} btn-lg btn-block`} disabled={buttonDisabled}>Enroll Now</button>
               <div className="d-flex align-items-center mt-3">
                 <FontAwesomeIcon size="2x" icon={faCcVisa} className="mr-2 text-dark" />
                 <FontAwesomeIcon size="2x" icon={faCcMastercard} className="mr-2 text-dark" />

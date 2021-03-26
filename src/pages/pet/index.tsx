@@ -17,7 +17,7 @@ import './style.scss';
 const Student = React.lazy(() => import('./student'));
 
 const Pet: React.FC = () => {
-  const { courses, address, price } = useStateContext();
+  const { address, price } = useStateContext();
   const currencyCode = price?.currency.code ?? 'USD';
 
   return (
@@ -40,7 +40,7 @@ const Pet: React.FC = () => {
         <Suspense fallback={<></>}>
           <Switch>
             <Route path="/student/" component={Student} />
-            <Route render={props => <Default {...props} countryCode={address.countryCode} currencyCode={currencyCode} courses={courses.selected} />} />
+            <Route render={props => <Default {...props} currencyCode={currencyCode} />} />
           </Switch>
         </Suspense>
       </BrowserRouter>

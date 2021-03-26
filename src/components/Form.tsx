@@ -41,7 +41,7 @@ type Props = {
   /** a component to display below the courses title */
   coursesSubtitle?: () => JSX.Element;
   /** an array of components to display below the course selection checkboxes */
-  dynamicCourseMessages?: Array<(...args: any[]) => JSX.Element>;
+  dynamicCourseMessages?: Array<(...args: any[]) => JSX.Element | null>;
   /** whether this is an internal shopping cart (allows toggling student status) */
   internal?: boolean;
   /** whether the person enrolling is an existing student or not */
@@ -71,9 +71,11 @@ type Props = {
   /** the title of the confirmation popup */
   submitTitle?: string;
   /** whether to show the promo code input or not */
-  promoCode?: boolean;
+  showPromoCodeInput?: boolean;
   /** a default promo code */
   promoCodeDefault?: string;
+  /** whether to show the dynamic course descriptions */
+  showDynamicCourseDescriptions?: boolean;
 }
 
 export const scrollToPosition = (section: 'courses' | 'shipping' | 'plan'): void => {
@@ -96,7 +98,7 @@ export const Form: React.FC<Props> = props => {
 
   useGeoLocation(); // set initial country and province based on ip
 
-  usePriceUpdater(props.school, props.promoCodeDefault, props.additionalOptions); // update prices when courses, country, etc. change
+  usePriceUpdater(props.school, props.promoCodeDefault, props.allowOverrides, props.additionalOptions); // update prices when courses, country, etc. change
 
   const [ logCheckout ] = useGoogleAnalyticsBehaviour();
 
@@ -153,6 +155,7 @@ export const Form: React.FC<Props> = props => {
       discountAll: meta.student,
       studentDiscount: meta.studentDiscount,
       school: props.school,
+      promoCode: meta.promoCode,
       ...props.additionalOptions,
     },
   });
@@ -249,6 +252,7 @@ export const Form: React.FC<Props> = props => {
         dynamicCourseMessages={props.dynamicCourseMessages}
         courseOverride={!!props.courseOverride}
         shippingOptionReversed={!!props.shippingOptionReversed}
+        showDynamicCourseDescriptions={!!props.showDynamicCourseDescriptions}
       />}
       <Address />
       <Payment
@@ -256,7 +260,7 @@ export const Form: React.FC<Props> = props => {
         shippingOption={!!props.shippingOption}
         shippingOptionReversed={!!props.shippingOptionReversed}
         noShippingTitle={props.noShippingTitle}
-        promoCode={!!props.promoCode}
+        showPromoCodeInput={!!props.showPromoCodeInput && !props.promoCodeDefault}
       />
       {props.allowOverrides && payment.plan === 'part' && <Overrides />}
       <Summary

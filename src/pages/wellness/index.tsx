@@ -14,7 +14,7 @@ import Default from './default';
 import './style.scss';
 
 const Wellness: React.FC = () => {
-  const { courses, address, price } = useStateContext();
+  const { address, price } = useStateContext();
   const currencyCode = price?.currency.code ?? 'USD';
 
   return (
@@ -36,7 +36,7 @@ const Wellness: React.FC = () => {
       <BrowserRouter>
         <Suspense fallback={<></>}>
           <Switch>
-            <Route render={props => <Default {...props} countryCode={address.countryCode} currencyCode={currencyCode} courses={courses.selected} />} />
+            <Route render={props => <Default {...props} currencyCode={currencyCode} />} />
           </Switch>
         </Suspense>
       </BrowserRouter>

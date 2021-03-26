@@ -31,8 +31,8 @@ const Default: React.FC<Props> = ({ courses, currencyCode }) => {
         agreementLink="https://www.qcdesignschool.com/enrollment-agreement.html"
         agreementLinkGB="https://www.qcdesignschool.com/enrollment-agreement-gb.html"
         successLink="https://www.qcdesignschool.com/welcome-to-the-school/"
-        dynamicCourseMessages={[ () => <DynamicMessage courses={courses} /> ]}
-        additionalOptions={date < new Date('2021-03-13T08:00:00-05:00') || date >= new Date('2021-03-15T09:00:00-04:00') ? additionalOptionsPortfolio : additionalOptionsNone}
+        dynamicCourseMessages={[ () => <DynamicMessage date={date} courses={courses} /> ]}
+        additionalOptions={date >= new Date('2021-03-27T08:00:00-0400') ? additionalOptionsNone : additionalOptionsPortfolio}
       />
     </>
   );

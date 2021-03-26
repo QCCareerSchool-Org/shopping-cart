@@ -34,7 +34,7 @@ const Internal: React.FC = () => {
       <Header />
       <BrowserRouter>
         <Switch>
-        <Route path="/enroll2/design/" component={Design} />
+          <Route path="/enroll2/design/" component={Design} />
           <Route path="/enroll2/event/" component={Event} />
           <Route path="/enroll2/makeup/" component={Makeup} />
           <Route path="/enroll2/pet/" component={Pet} />

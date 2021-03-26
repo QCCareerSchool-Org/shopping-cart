@@ -49,7 +49,7 @@ const PartBreakdown: React.FC<{ price: PriceResult }> = ({ price }) => (
       </tbody>
     </table>
     <h6>Monthly Installments</h6>
-    <p>Each month your card will automatically be charged as follows:</p>
+    <p>Each month, for <strong>{price.plans.part.installments} months</strong>, your card will automatically be charged as follows:</p>
     <table className="w-100">
       <tbody>
         <InstallmentRows price={price} plan="part" />

@@ -2,17 +2,21 @@ export type MetaState = {
   student: boolean;
   studentDiscount: boolean;
   promoCode: string;
+  promoCodeInputValue: string;
 };
 
 export type MetaAction =
   | { type: 'SET_STUDENT'; payload: boolean }
   | { type: 'SET_STUDENT_DISCOUNT'; payload: boolean }
-  | { type: 'SET_PROMO_CODE'; payload: string };
+  | { type: 'SET_PROMO_CODE'; payload: string }
+  | { type: 'CLEAR_PROMO_CODE' }
+  | { type: 'SET_PROMO_CODE_INPUT_VALUE'; payload: string };
 
 export const initialMetaState: MetaState = {
   student: false,
   studentDiscount: false,
   promoCode: '',
+  promoCodeInputValue: '',
 };
 
 export function metaReducer(state: MetaState, action: MetaAction): MetaState {
@@ -27,10 +31,23 @@ export function metaReducer(state: MetaState, action: MetaAction): MetaState {
         ...state,
         studentDiscount: action.payload,
       };
-    case 'SET_PROMO_CODE':
+    case 'SET_PROMO_CODE': {
+      const promoCode = action.payload.toLocaleUpperCase();
       return {
         ...state,
-        promoCode: action.payload,
+        promoCodeInputValue: promoCode,
+        promoCode,
+      };
+    }
+    case 'CLEAR_PROMO_CODE':
+      return {
+        ...state,
+        promoCode: '',
+      };
+    case 'SET_PROMO_CODE_INPUT_VALUE':
+      return {
+        ...state,
+        promoCodeInputValue: action.payload.toLocaleUpperCase(),
       };
     default:
       return state;
