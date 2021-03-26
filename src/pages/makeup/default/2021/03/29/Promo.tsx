@@ -74,11 +74,11 @@ export const Promo20210329: React.FC<Props> = ({ date, currencyCode }) => {
           </ModalFooter>
         </Modal>
       </section>
-      <div className="text-white" style={{ backgroundColor: 'black' }}>
+      <div className="text-white" style={{ backgroundColor: '#d394fc' }}>
         <div className="container pb-3 d-flex justify-content-center">
           {promoCode === 'FOUNDIT'
-            ? <img src={couponButtonAppliedSrc} width="396" height="48" className="img-fluid" alt="Promo Code" />
-            : <button onClick={() => { dispatch({ type: 'SET_PROMO_CODE', payload: 'FOUNDIT' }); }} className="btn btn-link p-0 border-0 btn-no-hover-shadow"><img src={couponButtonSrc} width="396" height="48" className="img-fluid" alt="Promo Code" /></button>
+            ? <img src={couponButtonAppliedSrc} width="399" height="62" className="img-fluid" alt="Promo Code" />
+            : <button onClick={() => { dispatch({ type: 'SET_PROMO_CODE', payload: 'FOUNDIT' }); }} className="btn btn-link p-0 border-0 btn-no-hover-shadow"><img src={couponButtonSrc} width="399" height="62" className="img-fluid" alt="Promo Code" /></button>
           }
         </div>
       </div>

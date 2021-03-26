@@ -72,13 +72,13 @@ export const Payment: React.FC<Props> = ({ school, shippingOption, shippingOptio
       <div className="container">
         <h2 className="h1">Payment Plan</h2>
         <div className="row">
-          <div className="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-0 col-lg-6 mb-4 mb-md-0">
+          <div className="col-12 col-sm-10 offset-sm-1 col-md-5 offset-md-0 mb-4 mb-md-0">
             <PaymentOptions />
             {payment.plan === 'part' && <Schedule />}
             {showNoShipping && (shippingOptionReversed ? <Shipping school={school} /> : <NoShipping school={school} title={noShippingTitle} />)}
             {showPromoCodeInput && <PromoCodeInput promos={promos} />}
           </div>
-          <div className="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-0 col-lg-6">
+          <div className="col-12 col-sm-10 offset-sm-1 col-md-7 offset-md-0">
             <PlanResult shippingOptionReversed={shippingOptionReversed} />
           </div>
         </div>

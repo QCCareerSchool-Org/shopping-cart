@@ -27,8 +27,8 @@ export const CourseTable: React.FC<Props> = ({ price, showBuyOneGetOne, shipping
               {price.courses.map(course => (
                 <React.Fragment key={course.code}>
                   <tr key={course.code}>
-                    <td>{course.name}{course.free && <>{' '}<strong className="text-primary">FREE!</strong></>}</td>
-                    <td className="text-right text-nowrap align-bottom">{price.currency.symbol}{Big(course.free ? 0 : course.cost).minus(shippingOptionReversed ? course.shipping : 0).toFixed(2)}</td>
+                    <td>{course.name}</td>
+                    <td className="text-right text-nowrap align-bottom">{course.free ? <strong className="text-primary">FREE!</strong> : <>{price.currency.symbol}{Big(course.free ? 0 : course.cost).minus(shippingOptionReversed ? course.shipping : 0).toFixed(2)}</>}</td>
                   </tr>
                   {!course.free && course.multiCourseDiscount > 0 && (
                     <tr key={course.code + '_discount'} className="text-primary">

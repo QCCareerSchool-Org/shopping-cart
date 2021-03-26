@@ -27,7 +27,7 @@ export const CourseSelection: React.FC<Props> = ({ internal, coursesSubtitle, dy
               <h2 className="h1">Choose Your Courses</h2>
               {coursesSubtitle && coursesSubtitle()}
               <div className="row">
-                <div className="col-12 col-md-6">
+                <div className="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-0">
                   {enrollmentErrors.courses && (
                     <div className="alert alert-danger">
                       <h6>Incomplete Form</h6>
@@ -44,14 +44,18 @@ export const CourseSelection: React.FC<Props> = ({ internal, coursesSubtitle, dy
                     <DynamicCourseMessage key={i} />
                   ))}
                 </div>
-                <div className="d-none d-md-block col-12 col-md-6">
-                  {showDynamicCourseDescriptions
-                    ? <CourseCard courseCode={courseCode} />
-                    : <>
+                {showDynamicCourseDescriptions
+                  ? (
+                    <div className="d-none d-md-block col-12 col-md-6">
+                      <CourseCard courseCode={courseCode} />
+                    </div>
+                  )
+                  : (
+                    <div className="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-0 mt-4 mt-md-0">
                       {!!price && <CourseTable price={price} showBuyOneGetOne={false} shippingOptionReversed={shippingOptionReversed} />}
-                    </>
-                  }
-                </div>
+                    </div>
+                  )
+                }
               </div>
             </>
           )
