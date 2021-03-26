@@ -70,6 +70,7 @@ export type PriceResult = {
   noShipping: NoShipping;
   noShippingMessage?: string;
   promoCodeRecognized?: boolean;
+  promoCode?: string;
   courses: CourseResult[];
 } & Price;
 
