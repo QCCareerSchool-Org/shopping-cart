@@ -34,14 +34,14 @@ export const Promo20210327: React.FC<Props> = ({ date }) => {
 
   if (desktop) {
     width = 976;
-    height = 604;
+    height = 562;
   } else {
     width = 600;
     height = 830;
   }
 
   return (
-    <section id="promoSection" style={{ backgroundColor: '#480003', padding: 0 }}>
+    <section id="promoSection" style={{ backgroundColor: '#ffb2e4', padding: 0 }}>
       <div className="container px-0">
         <div className="text-center">
           <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={togglePopup}><img src={image} width={width} height={height} className="img-fluid d-block mx-auto" alt="Special Offer" /></button>

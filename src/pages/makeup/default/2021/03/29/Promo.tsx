@@ -1,11 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
-import { PromoCode } from '../../../../../../components/PromoCode';
 
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
 import { usePopup } from '../../../../../../hooks/usePopup';
+import { usePreloadImage } from '../../../../../../hooks/usePreloadImage';
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../../../../hooks/useStateContext';
+import { PromoCode } from '../../../../../../components/PromoCode';
+
+import couponButtonSrc from './coupon-btn-foundit.svg';
+import couponButtonAppliedSrc from './coupon-btn-foundit-over.svg';
 
 type Props = {
   date: Date;
@@ -18,11 +22,7 @@ export const Promo20210329: React.FC<Props> = ({ date, currencyCode }) => {
   const { meta: { promoCode } } = useStateContext();
   const dispatch = useDispatchContext();
 
-  useEffect(() => {
-    //preloading image
-    const img = new Image();
-    img.src = require('./coupon-btn-foundit-over.svg');
-  }, []);
+  usePreloadImage(couponButtonAppliedSrc);
 
   const desktop = screenWidth >= 576;
 
@@ -46,10 +46,10 @@ export const Promo20210329: React.FC<Props> = ({ date, currencyCode }) => {
 
   if (desktop) {
     width = 976;
-    height = 604;
+    height = 534;
   } else {
     width = 600;
-    height = 830;
+    height = 746;
   }
 
   return (
@@ -75,10 +75,10 @@ export const Promo20210329: React.FC<Props> = ({ date, currencyCode }) => {
         </Modal>
       </section>
       <div className="text-white" style={{ backgroundColor: 'black' }}>
-        <div className="container py-3 d-flex justify-content-center">
+        <div className="container pb-3 d-flex justify-content-center">
           {promoCode === 'FOUNDIT'
-            ? <img src={require('./coupon-btn-foundit-over.svg')} width="396" height="48" className="img-fluid" alt="Promo Code" />
-            : <button onClick={() => { dispatch({ type: 'SET_PROMO_CODE', payload: 'FOUNDIT' }); }} className="btn btn-link p-0 border-0 btn-no-hover-shadow"><img src={require('./coupon-btn-foundit.svg')} width="396" height="48" className="img-fluid" alt="Promo Code" /></button>
+            ? <img src={couponButtonAppliedSrc} width="396" height="48" className="img-fluid" alt="Promo Code" />
+            : <button onClick={() => { dispatch({ type: 'SET_PROMO_CODE', payload: 'FOUNDIT' }); }} className="btn btn-link p-0 border-0 btn-no-hover-shadow"><img src={couponButtonSrc} width="396" height="48" className="img-fluid" alt="Promo Code" /></button>
           }
         </div>
       </div>

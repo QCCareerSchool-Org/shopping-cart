@@ -21,8 +21,8 @@ export const PlanResult: React.FC<Props> = ({ shippingOptionReversed }) => {
   }
 
   return (
-    <div className="d-flex flex-row-reverse">
-      <Card className="d-inline-block">
+    <div className="d-flex justify-content-center justify-content-md-end">
+      <Card className="d-inline-block w-auto w-sm-100 w-md-auto">
         <CardBody className="pb-0">
           {payment.plan === 'full' && (
             <>
@@ -46,7 +46,7 @@ export const PlanResult: React.FC<Props> = ({ shippingOptionReversed }) => {
 const Full: React.FC<{ price: PriceResult; shippingOptionReversed: boolean }> = ({ price, shippingOptionReversed }) => {
   const symbol = price.currency.symbol;
   return (
-    <table className="table table-borderless table-sm w-md-auto ml-md-auto">
+    <table className="table table-borderless table-sm">
       <tbody>
         {price.courses.length > 1 && (
           <>
@@ -122,7 +122,7 @@ const Full: React.FC<{ price: PriceResult; shippingOptionReversed: boolean }> = 
 const Part: React.FC<{ price: PriceResult; shippingOptionReversed: boolean }> = ({ price, shippingOptionReversed }) => {
   const symbol = price.currency.symbol;
   return (
-    <table className="table table-borderless table-sm w-md-auto ml-md-auto">
+    <table className="table table-borderless table-sm">
       <tbody>
         {price.courses.length > 1 && (
           <>

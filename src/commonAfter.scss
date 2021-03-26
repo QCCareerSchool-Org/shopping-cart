@@ -110,13 +110,17 @@ h3, .h3 { font-size: 1.25rem; }
 
 @media (min-width: 576px) {
   .w-sm-auto { width: auto !important; }
+  .w-sm-100 { width: 100% !important; }
 }
 @media (min-width: 768px) {
   .w-md-auto { width: auto !important; }
+  .w-md-100 { width: 100% !important; }
 }
 @media (min-width: 992px) {
   .w-lg-auto { width: auto !important; }
+  .w-lg-100 { width: 100% !important; }
 }
 @media (min-width: 1200px) { 
   .w-xl-auto { width: auto !important; }
+  .w-lg-100 { width: 100% !important; }
 }
