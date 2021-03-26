@@ -15,7 +15,7 @@ type Props = {
 
 export const Promo20210329: React.FC<Props> = ({ date, currencyCode }) => {
   const screenWidth = useScreenWidthContext();
-  const { price, meta: { promoCode } } = useStateContext();
+  const { price } = useStateContext();
   const dispatch = useDispatchContext();
 
   usePreloadImage(couponButtonAppliedSrc);
