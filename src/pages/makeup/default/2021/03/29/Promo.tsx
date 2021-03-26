@@ -42,10 +42,10 @@ export const Promo20210329: React.FC<Props> = ({ date, currencyCode }) => {
 
   if (desktop) {
     width = 976;
-    height = 534;
+    height = 418;
   } else {
     width = 600;
-    height = 746;
+    height = 418;
   }
 
   return (
@@ -59,7 +59,7 @@ export const Promo20210329: React.FC<Props> = ({ date, currencyCode }) => {
       </section>
       <div className="text-white" style={{ backgroundColor: '#d394fc' }}>
         <div className="container pb-3 d-flex justify-content-center">
-          {promoCode === 'FOUNDIT' && price?.promoCodeRecognized === true
+          {price?.promoCode === 'FOUNDIT' &&
             ? <img src={couponButtonAppliedSrc} width="399" height="62" className="img-fluid" alt="Promo Code" />
             : <button onClick={() => { dispatch({ type: 'SET_PROMO_CODE', payload: 'FOUNDIT' }); }} className="btn btn-link p-0 border-0 btn-no-hover-shadow"><img src={couponButtonSrc} width="399" height="62" className="img-fluid" alt="Promo Code" /></button>
           }
