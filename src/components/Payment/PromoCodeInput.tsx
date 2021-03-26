@@ -62,7 +62,7 @@ export const PromoCodeInput: React.FC<Props> = ({ promos }) => {
                 <div className="col-7">
                   <input onChange={change} type="text" className="form-control text-center text-uppercase font-weight-bold" style={{ letterSpacing: '0.75px' }} value={promoCodeInputValue} aria-describedby="promoHelp" />
                 </div>
-                <div className="col-4">
+                <div className="col-4 col-sm-5">
                   <button type="submit" className="btn btn-secondary"><FontAwesomeIcon icon={faTag} /> Apply</button>
                 </div>
               </div>
