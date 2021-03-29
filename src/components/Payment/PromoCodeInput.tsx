@@ -5,11 +5,14 @@ import React from 'react';
 import { useDispatchContext } from '../../hooks/useDispatchContext';
 import { usePopup } from '../../hooks/usePopup';
 import { useStateContext } from '../../hooks/useStateContext';
+import { School } from '../../lib/enrollment';
 import { PromoCode } from '../PromoCode';
 import { PromoPopup } from './PromoPopup';
 
 export type Promo = {
+  schools: School[];
   code: string;
+  student: 'ALLOWED' | 'DENIED' | 'ONLY';
   description: React.ReactNode;
   desktopImageSrc: any;
   mobileImageSrc: any;
