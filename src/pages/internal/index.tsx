@@ -19,8 +19,6 @@ const Internal: React.FC = () => {
   return (
     <>
       <Helmet>
-        <script async src="/js/gtag.js"></script>
-        <script src="/internal/gtag.js"></script>
         <title>Enroll Online</title>
         <link rel="canonical" href="https://secure.qccareerschool.com/enroll2" />
         <link rel="manifest" href="/internal/manifest.json" />
