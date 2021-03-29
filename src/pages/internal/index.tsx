@@ -21,12 +21,12 @@ const Internal: React.FC = () => {
       <Helmet>
         <title>Enroll Online</title>
         <link rel="canonical" href="https://secure.qccareerschool.com/enroll2" />
-        <link rel="manifest" href="/internal/manifest.json" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/internal/apple-touch-icon.png?v=QEMKdlwA73" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/internal/favicon-32x32.png?v=QEMKdlwA73" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/internal/favicon-16x16.png?v=QEMKdlwA73" />
-        <link rel="mask-icon" href="/internal/safari-pinned-tab.svg?v=QEMKdlwA73" color="#5bbad5" />
-        <link rel="shortcut icon" href="/internal/favicon.ico?v=QEMKdlwA73" />
+        <link rel="manifest" href="/enroll2/internal/manifest.json" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/enroll2/internal/apple-touch-icon.png?v=QEMKdlwA73" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/enroll2/internal/favicon-32x32.png?v=QEMKdlwA73" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/enroll2/internal/favicon-16x16.png?v=QEMKdlwA73" />
+        <link rel="mask-icon" href="/enroll2/internal/safari-pinned-tab.svg?v=QEMKdlwA73" color="#5bbad5" />
+        <link rel="shortcut icon" href="/enroll2/internal/favicon.ico?v=QEMKdlwA73" />
         <meta name="msapplication-TileColor" content="#000000" />
       </Helmet>
       <Header />
