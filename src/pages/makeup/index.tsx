@@ -20,7 +20,6 @@ const HundredOff = React.lazy(() => import('./100-off'));
 const LimitedTimeOffer = React.lazy(() => import('./limited-time-offer'));
 const DeluxeKit = React.lazy(() => import('./deluxe-kit'));
 const Personal = React.lazy(() => import('./personal'));
-const PromoTest = React.lazy(() => import('./promo-test'));
 
 const Makeup: React.FC = () => {
   const { courses, address, price } = useStateContext();
@@ -58,7 +57,6 @@ const Makeup: React.FC = () => {
             <Route path="/deluxe-kit/" component={DeluxeKit} />
             <Route path="/limited-time-offer/" component={LimitedTimeOffer} />
             <Route path="/personal/" render={props => <Personal {...props} currencyCode={currencyCode} courses={courses.selected} />} />
-            <Route path="/promo-test/" render={props => <PromoTest {...props} currencyCode={currencyCode} courses={courses.selected} />} />
             <Route render={props => <Default {...props} currencyCode={currencyCode} courses={courses.selected} />} />
           </Switch>
         </Suspense>
