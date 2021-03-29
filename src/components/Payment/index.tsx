@@ -21,52 +21,60 @@ type Props = {
   showPromoCodeInput: boolean;
 }
 
-const getPromos = (now: Date, price: PriceState, school: School): Promo[] => {
-  if (school === 'QC Makeup Academy') {
-    const promos: Promo[] = [
-      {
-        code: 'FOUNDIT',
-        description: <>Get the <strong>Virtual Makeup</strong> course free when you enroll in <strong>Master Makeup Artistry</strong></>,
-        desktopImageSrc: require('./images/coupon-FOUNDIT.jpg'),
-        mobileImageSrc: require('./images/coupon-mobile-FOUNDIT.jpg'),
-        altText: 'Get the Virtual Makeup course free when you enroll in Master Makeup Artistry',
-        startDate: new Date('2021-03-29T09:00:00-0400'),
-        endDate: new Date('2021-04-06T00:00:00-0400'),
-      },
-      {
-        code: 'SAVE50',
-        description: 'Enroll in one course and get 50% off each additional course of equal or lesser value',
-        desktopImageSrc: require('./images/coupon-SAVE50.jpg'),
-        mobileImageSrc: require('./images/coupon-mobile-SAVE50.jpg'),
-        altText: 'Get 50% off additional courses of equal or lesser value',
-      },
-      {
-        code: 'ADVANCED100',
-        description: `Get ${price?.currency.code === 'GBP' ? '£100' : '$100'} off any advanced makeup course`,
-        desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/coupon-uk-ADVANCED100.jpg') : require('./images/coupon-ADVANCED100.jpg'),
-        mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/coupon-mobile-uk-ADVANCED100.jpg') : require('./images/coupon-mobile-ADVANCED100.jpg'),
-        altText: `Get ${price?.currency.code === 'GBP' ? '£100' : '$100'} off any advanced course`,
-      },
-      {
-        code: 'ELITE',
-        description: <>Get an <strong>elite makeup kit upgrade</strong> (includes a highlight palette, contour palette, eyebrow palette, 4-pack of false lashes, a makeup travel bag, and a stainless steel palette with spatula)</>,
-        desktopImageSrc: require('./images/coupon-ELITE.jpg'),
-        mobileImageSrc: require('./images/coupon-mobile-ELITE.jpg'),
-        altText: 'Get an elite makeup kit upgrade',
-      },
-    ];
-    return promos.filter(p => (typeof p.startDate === 'undefined' || p.startDate <= now) && (typeof p.endDate === 'undefined' || p.endDate > now));
-  } else {
-    return [];
-  }
+const getPromos = (now: Date, price: PriceState, school: School, student: boolean): Promo[] => {
+  const promos: Promo[] = [
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'FOUNDIT',
+      description: <>Get the <strong>Virtual Makeup</strong> course free when you enroll in <strong>Master Makeup Artistry</strong></>,
+      desktopImageSrc: require('./images/coupon-FOUNDIT.jpg'),
+      mobileImageSrc: require('./images/coupon-mobile-FOUNDIT.jpg'),
+      altText: 'Get the Virtual Makeup course free when you enroll in Master Makeup Artistry',
+      startDate: new Date('2021-03-29T09:00:00-0400'),
+      endDate: new Date('2021-04-06T00:00:00-0400'),
+    },
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'SAVE50',
+      description: 'Enroll in one course and get 50% off each additional course of equal or lesser value',
+      desktopImageSrc: require('./images/coupon-SAVE50.jpg'),
+      mobileImageSrc: require('./images/coupon-mobile-SAVE50.jpg'),
+      altText: 'Get 50% off additional courses of equal or lesser value',
+    },
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'ADVANCED100',
+      description: `Get ${price?.currency.code === 'GBP' ? '£100' : '$100'} off any advanced makeup course`,
+      desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/coupon-uk-ADVANCED100.jpg') : require('./images/coupon-ADVANCED100.jpg'),
+      mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/coupon-mobile-uk-ADVANCED100.jpg') : require('./images/coupon-mobile-ADVANCED100.jpg'),
+      altText: `Get ${price?.currency.code === 'GBP' ? '£100' : '$100'} off any advanced course`,
+    },
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'ELITE',
+      description: <>Get an <strong>elite makeup kit upgrade</strong> (includes a highlight palette, contour palette, eyebrow palette, 4-pack of false lashes, a makeup travel bag, and a stainless steel palette with spatula)</>,
+      desktopImageSrc: require('./images/coupon-ELITE.jpg'),
+      mobileImageSrc: require('./images/coupon-mobile-ELITE.jpg'),
+      altText: 'Get an elite makeup kit upgrade',
+    },
+  ];
+  return promos.filter(p => p.schools.includes(school)
+    && (p.student === 'ALLOWED' || (p.student === 'DENIED' && !student) || (p.student === 'ONLY' && student))
+    && (typeof p.startDate === 'undefined' || p.startDate <= now)
+    && (typeof p.endDate === 'undefined' || p.endDate > now)
+  );
 };
 
 export const Payment: React.FC<Props> = ({ school, shippingOption, shippingOptionReversed, noShippingTitle, showPromoCodeInput }) => {
-  const { payment, price } = useStateContext();
+  const { payment, price, meta: { student } } = useStateContext();
   const serverDate = useDate();
   const date = dateOverride() || serverDate;
   const showNoShipping = price && price.cost > 0 && price.shipping > 0 && price.noShipping !== 'FORBIDDEN' && price?.noShipping !== 'REQUIRED' && shippingOption;
-  const promos = getPromos(date, price, school);
+  const promos = getPromos(date, price, school, student);
   return (
     <section id="payment-section">
       <div className="container">
