@@ -48,7 +48,7 @@ const Full: React.FC<{ price: PriceResult; shippingOptionReversed: boolean }> = 
   return (
     <table className="table table-borderless table-sm">
       <tbody>
-        {price.courses.length > 1 && (
+        {(price.courses.length > 1) || (price.courses.length > 0 && (price.courses[0].multiCourseDiscount > 0 || price.courses[0].free)) && (
           <>
             {price.courses.map(course => (
               <React.Fragment key={course.code}>
@@ -124,7 +124,7 @@ const Part: React.FC<{ price: PriceResult; shippingOptionReversed: boolean }> = 
   return (
     <table className="table table-borderless table-sm">
       <tbody>
-        {price.courses.length > 1 && (
+        {(price.courses.length > 1) || (price.courses.length > 0 && (price.courses[0].multiCourseDiscount > 0 || price.courses[0].free)) && (
           <>
             {price.courses.map(course => (
               <React.Fragment key={course.code}>
