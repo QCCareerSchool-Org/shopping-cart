@@ -26,6 +26,7 @@ export const usePriceUpdater = (school: School, promoCodeDefault?: string, allow
         provinceCode: address.provinceCode ?? undefined,
         options: {
           discountAll: meta.student,
+          studentDiscount: meta.studentDiscount,
           noShipping: payment.noShipping,
           school,
           promoCode: promoCodeDefault ?? meta.promoCode,
