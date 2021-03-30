@@ -31,8 +31,8 @@ const getPromos = (now: Date, price: PriceState, school: School, student: boolea
       desktopImageSrc: require('./images/coupon-FOUNDIT.jpg'),
       mobileImageSrc: require('./images/coupon-mobile-FOUNDIT.jpg'),
       altText: 'Get the Virtual Makeup course free when you enroll in Master Makeup Artistry',
-      startDate: new Date('2021-03-29T09:00:00-0400'),
-      endDate: new Date('2021-04-06T00:00:00-0400'),
+      startDate: new Date('2021-03-29T09:00:00-04:00'),
+      endDate: new Date('2021-04-06T00:00:00-04:00'),
     },
     {
       schools: [ 'QC Makeup Academy' ],
