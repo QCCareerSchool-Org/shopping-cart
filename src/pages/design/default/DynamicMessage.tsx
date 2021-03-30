@@ -8,7 +8,7 @@ type Props = {
 }
 
 export const DynamicMessage: React.FC<Props> = ({ date, courses }) => {
-  if (date >= new Date('2021-03-29T09:00:00-0400')) {
+  if (date >= new Date('2021-03-29T09:00:00-04:00')) {
     return <DynamicMessage20210329 courses={courses} />;
   } else {
     return <DynamicMessage20210302 courses={courses} />;
