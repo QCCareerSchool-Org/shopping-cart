@@ -17,7 +17,9 @@ type Props = {
 
 const Default: React.FC<Props> = ({ currencyCode, courses }) => {
   const serverDate = useDate();
-  const date = dateOverride() || serverDate;
+  const date = dateOverride() ?? serverDate;
+
+  alert(date);
 
   return (
     <>

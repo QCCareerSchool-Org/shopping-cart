@@ -10,10 +10,6 @@ export const DateProvider: React.FC = ({ children }) => {
   const [ fetchedDate ] = useFetchImproved(url, date);
 
   useEffect(() => {
-    alert(fetchedDate);
-    alert(typeof fetchedDate);
-    const date = new Date(fetchedDate);
-    alert(date);
     setDate(new Date(fetchedDate));
   }, [ fetchedDate ]);
 
