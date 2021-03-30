@@ -4,7 +4,7 @@ import { Guarantee } from '../Guarantee';
 import { DefaultPromo } from '../default/DefaultPromo';
 import { CourseGroup } from '../../../state/courses';
 import { Form } from '../../../components/Form';
-import { useDate } from '../../../hooks/useDateContext';
+import { useDateContext } from '../../../hooks/useDateContext';
 import { dateOverride } from '../../../lib/dateOverride';
 
 const courseGroups: CourseGroup[] = [
@@ -53,7 +53,7 @@ type Props = {
 }
 
 const Personal: React.FC<Props> = ({ currencyCode }) => {
-  const serverDate = useDate();
+  const serverDate = useDateContext();
   const date = dateOverride() || serverDate;
 
   return (

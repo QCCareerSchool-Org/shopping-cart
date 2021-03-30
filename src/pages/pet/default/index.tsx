@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Form } from '../../../components/Form';
-import { useDate } from '../../../hooks/useDateContext';
+import { useDateContext } from '../../../hooks/useDateContext';
 import { dateOverride } from '../../../lib/dateOverride';
 import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
@@ -20,7 +20,7 @@ const additionalOptions = {
 };
 
 const Default: React.FC<Props> = ({ currencyCode }) => {
-  const serverDate = useDate();
+  const serverDate = useDateContext();
   const date = dateOverride() ?? serverDate;
 
   return (

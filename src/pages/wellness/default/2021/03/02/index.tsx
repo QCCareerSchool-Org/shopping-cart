@@ -16,13 +16,13 @@ export const Promo20210302: React.FC<Props> = ({ date, currencyCode }) => {
   let width: number;
   let height: number;
 
-  if (date >= new Date('2021-03-29T09:00:00-04:00')) {
+  if (date.getTime() >= Date.UTC(2021, 2, 29, 13)) {
     if (desktop) {
       image = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
     } else {
       image = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
     }
-  } else if (date >= new Date('2021-03-24T12:00:00-04:00')) {
+  } else if (date.getTime() >= Date.UTC(2021, 2, 24, 16)) {
     if (desktop) {
       image = currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg');
     } else {

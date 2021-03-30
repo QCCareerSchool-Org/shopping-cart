@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDate } from '../../hooks/useDateContext';
+import { useDateContext } from '../../hooks/useDateContext';
 
 import { useStateContext } from '../../hooks/useStateContext';
 import { dateOverride } from '../../lib/dateOverride';
@@ -31,8 +31,8 @@ const getPromos = (now: Date, price: PriceState, school: School, student: boolea
       desktopImageSrc: require('./images/coupon-FOUNDIT.jpg'),
       mobileImageSrc: require('./images/coupon-mobile-FOUNDIT.jpg'),
       altText: 'Get the Virtual Makeup course free when you enroll in Master Makeup Artistry',
-      startDate: new Date('2021-03-29T09:00:00-04:00'),
-      endDate: new Date('2021-04-06T00:00:00-04:00'),
+      startDate: new Date(Date.UTC(2021, 2, 29, 13)),
+      endDate: new Date(Date.UTC(2021, 3, 6, 4)),
     },
     {
       schools: [ 'QC Makeup Academy' ],
@@ -71,7 +71,7 @@ const getPromos = (now: Date, price: PriceState, school: School, student: boolea
 
 export const Payment: React.FC<Props> = ({ school, shippingOption, shippingOptionReversed, noShippingTitle, showPromoCodeInput }) => {
   const { payment, price, meta: { student } } = useStateContext();
-  const serverDate = useDate();
+  const serverDate = useDateContext();
   const date = dateOverride() || serverDate;
   const showNoShipping = price && price.cost > 0 && price.shipping > 0 && price.noShipping !== 'FORBIDDEN' && price?.noShipping !== 'REQUIRED' && shippingOption;
   const promos = getPromos(date, price, school, student);

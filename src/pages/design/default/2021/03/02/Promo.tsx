@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
-import { useDate } from '../../../../../../hooks/useDateContext';
+import { useDateContext } from '../../../../../../hooks/useDateContext';
 import { usePopup } from '../../../../../../hooks/usePopup';
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
 import { dateOverride } from '../../../../../../lib/dateOverride';
@@ -12,7 +12,7 @@ type Props = {
 
 export const Promo20210302: React.FC<Props> = ({ currencyCode }) => {
   const screenWidth = useScreenWidthContext();
-  const serverDate = useDate();
+  const serverDate = useDateContext();
   const [ popup, togglePopup ] = usePopup(false);
 
   const date = dateOverride() ?? serverDate;
@@ -23,7 +23,7 @@ export const Promo20210302: React.FC<Props> = ({ currencyCode }) => {
   let width: number;
   let height: number;
 
-  if (date >= new Date('2021-03-10T12:00:00-05:00')) {
+  if (date.getTime() >= Date.UTC(2021, 2, 10, 17)) {
     if (desktop) {
       image = require('./desktop-ends.jpg');
     } else {

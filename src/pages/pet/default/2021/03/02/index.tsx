@@ -19,15 +19,15 @@ export const Promo20210302: React.FC<Props> = ({ date, currencyCode }) => {
   let width: number;
   let height: number;
 
-  if (date >= new Date('2021-03-24T12:00:00-04:00')) { // March promotion ending
+  if (date.getTime() >= Date.UTC(2021, 2, 24, 16)) { // March promotion ending
     image = desktop
       ? currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg')
       : currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
-  } else if (date >= new Date('2021-03-15T09:00:00-04:00')) { // March promotion
+  } else if (date.getTime() >= Date.UTC(2021, 2, 15, 13)) { // March promotion
     image = desktop
       ? currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg')
       : currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
-  } else if (date >= new Date('2021-03-10T12:00:00-05:00')) { // March promotion ending
+  } else if (date.getTime() >= Date.UTC(2021, 2, 10, 17)) { // March promotion ending
     image = desktop
       ? currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg')
       : currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
