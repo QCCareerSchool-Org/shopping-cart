@@ -7,15 +7,13 @@ import { Form } from '../../../components/Form';
 import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
 import { DefaultPromo } from './DefaultPromo';
-import { BuyOneGetOne } from '../../../components/BuyOneGetOne';
-import { DynamicMessage } from './DynamicMessage';
 
 type Props = {
   currencyCode: string;
   courses: string[];
 }
 
-const Default: React.FC<Props> = ({ currencyCode, courses }) => {
+const Default: React.FC<Props> = ({ currencyCode }) => {
   const serverDate = useDate();
   const date = dateOverride() ?? serverDate;
 
