@@ -8,11 +8,11 @@ export interface Props {
 }
 
 export const DynamicMessage: React.FC<Props> = ({ date, courses }) => {
-  if (date >= new Date('2021-03-29T09:00:00-04:00')) {
+  if (date.getTime() >= Date.UTC(2021, 2, 29, 12)) {
     return null;
-  } else if (date >= new Date('2021-03-15T09:00:00-04:00')) {
+  } else if (date.getTime() >= Date.UTC(2021, 2, 15, 12)) {
     return <DynamicMessage20210315 courses={courses} />;
-  } else if (date >= new Date('2021-03-13T08:00:00-05:00')) {
+  } else if (date.getTime() >= Date.UTC(2021, 2, 13, 13)) {
     return <DynamicMessage20210313 courses={courses} />;
   } else {
     return null;

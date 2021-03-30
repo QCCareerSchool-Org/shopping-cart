@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useDate } from '../../../hooks/useDateContext';
+import { useDateContext } from '../../../hooks/useDateContext';
 import { useScreenWidthContext } from '../../../hooks/useScreenWidthContext';
 import { dateOverride } from '../../../lib/dateOverride';
 
@@ -10,7 +10,7 @@ type Props = {
 
 export const OrganizingPromo: React.FC<Props> = ({ currencyCode }) => {
   const screenWidth = useScreenWidthContext();
-  const serverDate = useDate();
+  const serverDate = useDateContext();
 
   const date = dateOverride() ?? serverDate;
 
@@ -19,7 +19,7 @@ export const OrganizingPromo: React.FC<Props> = ({ currencyCode }) => {
   let desktopImage;
   let mobileImage;
 
-  if (date >= new Date('2021-03-29T09:00:00-04:00')) {
+  if (date.getTime() >= Date.UTC(2021, 2, 29, 13)) {
     desktopImage = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
     mobileImage = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
   } else {

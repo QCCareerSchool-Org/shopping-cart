@@ -19,7 +19,7 @@ export const Promo20210302: React.FC<Props> = ({ date, currencyCode }) => {
   let width: number;
   let height: number;
 
-  if (date >= new Date('2021-03-10T12:00:00-05:00')) {
+  if (date.getTime() >= Date.UTC(2021, 2, 10, 17)) {
     if (desktop) {
       image = currencyCode === 'GBP' ? require('./desktop-ends-uk.jpg') : require('./desktop-ends.jpg');
     } else {
