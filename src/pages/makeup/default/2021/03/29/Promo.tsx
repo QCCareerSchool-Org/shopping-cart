@@ -48,6 +48,12 @@ export const Promo20210329: React.FC<Props> = ({ date, currencyCode }) => {
     height = 418;
   }
 
+  const buttonClick = () => {
+    dispatch({ type: 'ADD_COURSE', payload: { courseCode: 'MZ', internal: false } });
+    dispatch({ type: 'ADD_COURSE', payload: { courseCode: 'VM', internal: false } });
+    dispatch({ type: 'SET_PROMO_CODE', payload: 'FOUNDIT' });
+  };
+
   return (
     <>
       <section id="promoSection" style={{ backgroundColor: '#d394fc', padding: 0 }}>
@@ -61,7 +67,7 @@ export const Promo20210329: React.FC<Props> = ({ date, currencyCode }) => {
         <div className="container pb-3 d-flex justify-content-center">
           {price?.promoCode === 'FOUNDIT'
             ? <img src={couponButtonAppliedSrc} width="399" height="62" className="img-fluid" alt="Promo Code" />
-            : <button onClick={() => { dispatch({ type: 'SET_PROMO_CODE', payload: 'FOUNDIT' }); }} className="btn btn-link p-0 border-0 btn-no-hover-shadow"><img src={couponButtonSrc} width="399" height="62" className="img-fluid" alt="Promo Code" /></button>
+            : <button onClick={buttonClick} className="btn btn-link p-0 border-0 btn-no-hover-shadow"><img src={couponButtonSrc} width="399" height="62" className="img-fluid" alt="Promo Code" /></button>
           }
         </div>
       </div>

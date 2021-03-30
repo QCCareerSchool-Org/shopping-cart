@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Guarantee } from '../Guarantee';
 import { DefaultPromo } from '../default/DefaultPromo';
-import { DynamicMessage } from '../default/DynamicMessage';
 import { CourseGroup } from '../../../state/courses';
 import { Form } from '../../../components/Form';
 import { useDate } from '../../../hooks/useDateContext';
@@ -53,10 +52,7 @@ type Props = {
   courses: string[];
 }
 
-const additionalOptionsDeluxeKit = { deluxeKit: true };
-const additionalOptionsNone = {};
-
-const Personal: React.FC<Props> = ({ currencyCode, courses }) => {
+const Personal: React.FC<Props> = ({ currencyCode }) => {
   const serverDate = useDate();
   const date = dateOverride() || serverDate;
 
