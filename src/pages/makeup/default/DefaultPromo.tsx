@@ -10,6 +10,9 @@ type Props = {
 }
 
 export const DefaultPromo: React.FC<Props> = ({ date, currencyCode }) => {
+  alert(date);
+  alert(date >= new Date('2021-03-29T09:09:00-0400'));
+
   if (date >= new Date('2021-03-29T09:09:00-0400')) {
     return <Promo20210329 date={date} currencyCode={currencyCode} />;
   } else if (date >= new Date('2021-03-27T08:00:00-0400')) {
