@@ -1,11 +1,19 @@
 import React from 'react';
 
 import { Form } from '../../../components/Form';
+import { useDateContext } from '../../../hooks/useDateContext';
+import { dateOverride } from '../../../lib/dateOverride';
 import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
 
-const Student: React.FC = () => (
-  <>
+const additionalOptionsNone = {};
+const additionalOptionsStudentDiscount = { studentDiscount: true };
+
+const Student: React.FC = () => {
+  const serverDate = useDateContext();
+  const date = dateOverride() ?? serverDate;
+
+  return (
     <Form
       courseGroups={courseGroups}
       school="QC Event School"
@@ -15,8 +23,9 @@ const Student: React.FC = () => (
       agreementLinkGB="https://www.qceventplanning.com/enrollment-agreement-gb.html"
       successLink="https://www.qceventplanning.com/welcome-to-the-school/"
       student={true}
+      additionalOptions={date.getTime() >= Date.UTC(2021, 3, 6, 13) ? additionalOptionsStudentDiscount : additionalOptionsNone}
     />
-  </>
-);
+  );
+};
 
 export default Student;
