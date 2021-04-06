@@ -13,9 +13,6 @@ type Props = {
   currencyCode: string;
 }
 
-const additionalOptionsNone = {};
-const additionalOptionsPortfolio = { portfolio: true };
-
 const Default: React.FC<Props> = ({ courses, currencyCode }) => {
   const serverDate = useDateContext();
   const date = dateOverride() ?? serverDate;
@@ -32,7 +29,6 @@ const Default: React.FC<Props> = ({ courses, currencyCode }) => {
         agreementLinkGB="https://www.qceventplanning.com/enrollment-agreement-gb.html"
         successLink="https://www.qceventplanning.com/welcome-to-the-school/"
         dynamicCourseMessages={[ () => <DynamicMessage date={date} courses={courses} /> ]}
-        additionalOptions={date.getTime() >= Date.UTC(2021, 2, 27, 12) ? additionalOptionsPortfolio : additionalOptionsNone}
       />
     </>
   );
