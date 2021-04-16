@@ -60,6 +60,17 @@ const getPromos = (now: Date, price: PriceState, school: School, student: boolea
       desktopImageSrc: require('./images/coupon-ELITE.jpg'),
       mobileImageSrc: require('./images/coupon-mobile-ELITE.jpg'),
       altText: 'Get an elite makeup kit upgrade',
+      endDate: new Date(Date.UTC(2021, 3, 18, 4)),
+    },
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'ELITE',
+      description: <>Get an <strong>elite makeup kit upgrade</strong> (includes a highlight palette, contour palette, eyebrow palette, 4-pack of false lashes, a makeup travel bag, and a stainless steel palette with spatula)</>,
+      desktopImageSrc: require('./images/coupon-ELITE.jpg'),
+      mobileImageSrc: require('./images/coupon-mobile-ELITE.jpg'),
+      altText: 'Get an elite makeup kit upgrade',
+      startDate: new Date(Date.UTC(2021, 3, 18, 4)),
     },
   ];
   return promos.filter(p => p.schools.includes(school)
