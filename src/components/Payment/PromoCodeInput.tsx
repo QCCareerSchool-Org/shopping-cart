@@ -70,8 +70,8 @@ export const PromoCodeInput: React.FC<Props> = ({ promos }) => {
                 </div>
               </div>
               {promos.length > 0 && (
-                <div id="promoHelp" className="form-text" style={{ lineHeight: '1rem' }}>
-                  <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" style={{ lineHeight: 'inherit' }} onClick={e => { e.preventDefault(); togglePopup(); }}><small>Need a code? Get one here</small></button>
+                <div id="promoHelp" className="form-text mt-0">
+                  <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={e => { e.preventDefault(); togglePopup(); }}><FontAwesomeIcon icon={faTag} /> View all promotions</button>
                 </div>
               )}
             </form>

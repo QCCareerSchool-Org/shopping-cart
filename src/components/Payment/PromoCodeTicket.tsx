@@ -54,12 +54,12 @@ export const PromoCodeTicket: React.FC<Props> = ({ code, description, desktopIma
             <div className="w-50 d-flex flex-column align-items-center justify-content-around px-2">
               <div className="text-center">
                 {desktop
-                  ? <h5 className="m-0"><PromoCode>{code}</PromoCode></h5>
+                  ? <h5 className="mb-0 mt-2"><PromoCode>{code}</PromoCode></h5>
                   : <small className="m-0"><PromoCode>{code}</PromoCode></small>
                 }
               </div>
               <div className="text-center">
-                <button className="btn btn-secondary" onClick={onClick}><FontAwesomeIcon icon={faTag} /> Apply {desktop && 'Code'}</button>
+                <button className={`btn btn-secondary ${!desktop && 'btn-sm'}`} onClick={onClick}><FontAwesomeIcon icon={faTag} /> Apply {desktop && 'Code'}</button>
                 <div className={`${desktop ? '' : 'mt-2'}`} style={{ lineHeight: '1rem' }}>
                   <button onClick={() => setExpanded(true)} className="btn btn-link p-0 border-0 btn-no-hover-shadow" style={{ lineHeight: 'inherit' }}><small>details</small></button>
                 </div>
