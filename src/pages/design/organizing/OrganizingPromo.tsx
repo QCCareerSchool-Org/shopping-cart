@@ -19,12 +19,12 @@ export const OrganizingPromo: React.FC<Props> = ({ currencyCode }) => {
   let desktopImage;
   let mobileImage;
 
-  if (date.getTime() >= Date.UTC(2021, 2, 29, 13)) {
-    desktopImage = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
-    mobileImage = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
-  } else {
+  if (date.getTime() >= Date.UTC(2021, 3, 28, 13)) {
     desktopImage = currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg');
     mobileImage = currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
+  } else {
+    desktopImage = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
+    mobileImage = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
   }
 
   return (
