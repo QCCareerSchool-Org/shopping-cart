@@ -16,17 +16,17 @@ export const FloralPromo: React.FC<Props> = ({ currencyCode }) => {
   const desktop = screenWidth > 576;
 
   let image: string;
-  if (date.getTime() >= Date.UTC(2021, 2, 29, 13)) {
-    if (desktop) {
-      image = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
-    } else {
-      image = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
-    }
-  } else {
+  if (date.getTime() >= Date.UTC(2021, 3, 28, 16)) {
     if (desktop) {
       image = currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg');
     } else {
       image = currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
+    }
+  } else {
+    if (desktop) {
+      image = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
+    } else {
+      image = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
     }
   }
 

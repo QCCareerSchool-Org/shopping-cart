@@ -51,6 +51,18 @@ const getPromos = (now: Date, price: PriceState, school: School, student: boolea
       desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/coupon-uk-ADVANCED100.jpg') : require('./images/coupon-ADVANCED100.jpg'),
       mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/coupon-mobile-uk-ADVANCED100.jpg') : require('./images/coupon-mobile-ADVANCED100.jpg'),
       altText: `Get ${price?.currency.code === 'GBP' ? '£100' : '$100'} off any advanced course`,
+      endDate: new Date(Date.UTC(2021, 3, 19, 13)),
+    },
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'SPRING21',
+      description: 'Enroll in Master Makeup Artisty and get any advanced makeup course for FREE',
+      desktopImageSrc: require('./images/coupon-SPRING21.jpg'),
+      mobileImageSrc: require('./images/coupon-mobile-SPRING21.jpg'),
+      altText: 'Get a FREE advanced course',
+      startDate: new Date(Date.UTC(2021, 3, 19, 13)),
+      endDate: new Date(Date.UTC(2021, 3, 28, 4)),
     },
     {
       schools: [ 'QC Makeup Academy' ],
@@ -60,6 +72,17 @@ const getPromos = (now: Date, price: PriceState, school: School, student: boolea
       desktopImageSrc: require('./images/coupon-ELITE.jpg'),
       mobileImageSrc: require('./images/coupon-mobile-ELITE.jpg'),
       altText: 'Get an elite makeup kit upgrade',
+      endDate: new Date(Date.UTC(2021, 3, 18, 4)),
+    },
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'ELITE',
+      description: <>Get an <strong>elite makeup kit upgrade</strong> (includes a highlight palette, contour palette, eyebrow palette, 4-pack of false lashes, a makeup travel bag, and a stainless steel palette with spatula)</>,
+      desktopImageSrc: require('./images/coupon-ELITE.jpg'),
+      mobileImageSrc: require('./images/coupon-mobile-ELITE.jpg'),
+      altText: 'Get an elite makeup kit upgrade',
+      startDate: new Date(Date.UTC(2021, 3, 18, 4)),
     },
   ];
   return promos.filter(p => p.schools.includes(school)
