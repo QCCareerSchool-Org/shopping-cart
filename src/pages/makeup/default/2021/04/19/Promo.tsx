@@ -23,7 +23,10 @@ export const Promo20210419: React.FC<Props> = ({ date, currencyCode }) => {
       <div style={{ backgroundColor: '#000', backgroundImage: `url(${require('./bg-1.jpg')})`, backgroundPosition: 'top center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}>
         <section id="promoSection">
           <div className="container text-center">
-            <img src={require('./title.svg')} className="img-fluid mb-4" alt="Enroll in Master Makeup Artisty and Choose Your Offer" />
+            {date >= new Date(Date.UTC(2021, 3, 28, 16))
+              ? <img src={require('./title-last-chance.svg')} className="img-fluid" alt="Last Chance -- Enroll in Master Makeup Artisty and Choose Your Offer" />
+              : <img src={require('./title.svg')} className="img-fluid mb-4" alt="Enroll in Master Makeup Artisty and Choose Your Offer" />
+            }
             <div className="row">
               <div className="col-12 col-md-4 mb-4 mb-md-0">
                 <Card
