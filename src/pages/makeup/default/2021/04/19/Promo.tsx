@@ -27,16 +27,6 @@ export const Promo20210419: React.FC<Props> = ({ date, currencyCode }) => {
             <div className="row">
               <div className="col-12 col-md-4 mb-4 mb-md-0">
                 <Card
-                  code="ELITE"
-                  backgroundImgSrc={require('./ELITE-coupon-card.png')}
-                  textImgSrc={require('./ELITE-text.png')}
-                  codeImgSrc={require('./ELITE-code.png')}
-                  buttonImgSrc={couponButtonEliteSrc}
-                  buttonActiveImgSrc={couponButtonActiveSrc}
-                />
-              </div>
-              <div className="col-12 col-md-4 mb-4 mb-md-0">
-                <Card
                   code="SAVE50"
                   backgroundImgSrc={require('./SAVE50-coupon-card.png')}
                   textImgSrc={require('./SAVE50-text.png')}
@@ -45,13 +35,23 @@ export const Promo20210419: React.FC<Props> = ({ date, currencyCode }) => {
                   buttonActiveImgSrc={couponButtonActiveSrc}
                 />
               </div>
-              <div className="col-12 col-md-4 mb-0">
+              <div className="col-12 col-md-4 mb-4 mb-md-0">
                 <Card
                   code="SPRING21"
                   backgroundImgSrc={require('./SPRING21-coupon-card.png')}
                   textImgSrc={require('./SPRING21-text.png')}
                   codeImgSrc={require('./SPRING21-code.png')}
                   buttonImgSrc={couponButtonSpring21Src}
+                  buttonActiveImgSrc={couponButtonActiveSrc}
+                />
+              </div>
+              <div className="col-12 col-md-4 mb-0">
+                <Card
+                  code="ELITE"
+                  backgroundImgSrc={require('./ELITE-coupon-card.png')}
+                  textImgSrc={require('./ELITE-text.png')}
+                  codeImgSrc={require('./ELITE-code.png')}
+                  buttonImgSrc={couponButtonEliteSrc}
                   buttonActiveImgSrc={couponButtonActiveSrc}
                 />
               </div>
