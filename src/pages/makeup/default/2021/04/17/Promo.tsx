@@ -60,7 +60,7 @@ export const Promo20210417: React.FC<Props> = ({ date }) => {
         <meta property="og:title" content="Free Elite Makeup Kit" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://enroll.qcmakeupacademy.com/" />
-        <meta property="og:image" content={require('./featured-image.jpg')} />
+        <meta property="og:image" content={`https://enroll.qcmakeupacademy.com${require('./featured-image.jpg')}`} />
       </Helmet>
       <section id="promoSection" style={{ backgroundColor: '#000', padding: 0 }}>
         <div className="container px-0">
