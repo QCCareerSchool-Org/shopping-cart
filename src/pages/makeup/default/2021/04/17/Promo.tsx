@@ -7,6 +7,7 @@ import { useStateContext } from '../../../../../../hooks/useStateContext';
 
 import couponButtonSrc from './coupon-btn-elite.svg';
 import couponButtonAppliedSrc from './coupon-btn-elite-active.svg';
+import { Helmet } from 'react-helmet';
 
 type Props = {
   date: Date;
@@ -55,6 +56,12 @@ export const Promo20210417: React.FC<Props> = ({ date }) => {
 
   return (
     <>
+      <Helmet>
+        <meta property="og:title" content="Free Elite Makeup Kit" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://enroll.qcmakeupacademy.com/" />
+        <meta property="og:image" content={require('./featured-image.jpg')} />
+      </Helmet>
       <section id="promoSection" style={{ backgroundColor: '#000', padding: 0 }}>
         <div className="container px-0">
           <div className="text-center">
