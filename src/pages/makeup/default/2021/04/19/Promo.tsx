@@ -28,6 +28,7 @@ export const Promo20210419: React.FC<Props> = ({ date, currencyCode }) => {
               <div className="col-12 col-md-4 mb-4 mb-md-0">
                 <Card
                   code="SAVE50"
+                  description="Second course 50% off"
                   backgroundImgSrc={require('./SAVE50-coupon-card.png')}
                   textImgSrc={require('./SAVE50-text.png')}
                   codeImgSrc={require('./SAVE50-code.png')}
@@ -38,6 +39,7 @@ export const Promo20210419: React.FC<Props> = ({ date, currencyCode }) => {
               <div className="col-12 col-md-4 mb-4 mb-md-0">
                 <Card
                   code="SPRING21"
+                  description="Free advanced course"
                   backgroundImgSrc={require('./SPRING21-coupon-card.png')}
                   textImgSrc={require('./SPRING21-text.png')}
                   codeImgSrc={require('./SPRING21-code.png')}
@@ -48,6 +50,7 @@ export const Promo20210419: React.FC<Props> = ({ date, currencyCode }) => {
               <div className="col-12 col-md-4 mb-0">
                 <Card
                   code="ELITE"
+                  description="Free 6-piece makeup kit"
                   backgroundImgSrc={require('./ELITE-coupon-card.png')}
                   textImgSrc={require('./ELITE-text.png')}
                   codeImgSrc={require('./ELITE-code.png')}
@@ -66,6 +69,7 @@ export const Promo20210419: React.FC<Props> = ({ date, currencyCode }) => {
 
 type CardProps = {
   code: string;
+  description: string;
   backgroundImgSrc: string;
   textImgSrc: string;
   codeImgSrc: string;
@@ -73,7 +77,7 @@ type CardProps = {
   buttonActiveImgSrc: string;
 }
 
-const Card: React.FC<CardProps> = ({ code, backgroundImgSrc, textImgSrc, codeImgSrc, buttonImgSrc, buttonActiveImgSrc }) => {
+const Card: React.FC<CardProps> = ({ code, description, backgroundImgSrc, textImgSrc, codeImgSrc, buttonImgSrc, buttonActiveImgSrc }) => {
   const screenWidth = useScreenWidthContext();
   const { price } = useStateContext();
   const dispatch = useDispatchContext();
@@ -110,7 +114,7 @@ const Card: React.FC<CardProps> = ({ code, backgroundImgSrc, textImgSrc, codeImg
 
   return (
     <div style={{ padding: cardPadding, margin: '0 auto', backgroundImage: `url(${backgroundImgSrc})`, backgroundSize: '100% 100%', width: tagWidth, height: tagHeight }}>
-      <img src={textImgSrc} style={{ marginBottom: textMarginBottom }} width={textWidth} height={textHeight} />
+      <img src={textImgSrc} style={{ marginBottom: textMarginBottom }} width={textWidth} height={textHeight} alt={description} />
       <img src={codeImgSrc} style={{ marginBottom: '1em' }} alt={code} />
       {price?.promoCode === code
         ? <img src={buttonActiveImgSrc} width="172" height="36" className="img-fluid" alt={`${code} Promo Code Applied`} />
