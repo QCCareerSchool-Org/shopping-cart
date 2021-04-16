@@ -19,45 +19,48 @@ export const Promo20210419: React.FC<Props> = ({ date, currencyCode }) => {
   usePreloadImage(couponButtonActiveSrc);
 
   return (
-    <div style={{ backgroundColor: '#000', backgroundImage: `url(${require('./bg-1.jpg')})`, backgroundPosition: 'top center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}>
-      <section id="promoSection">
-        <div className="container text-center">
-          <img src={require('./title.svg')} className="img-fluid mb-4" alt="Enroll in Master Makeup Artisty and Choose Your Offer" />
-          <div className="row">
-            <div className="col-12 col-md-4 mb-4 mb-md-0">
-              <Card
-                code="ELITE"
-                backgroundImgSrc={require('./ELITE-coupon-card.png')}
-                textImgSrc={require('./ELITE-text.png')}
-                codeImgSrc={require('./ELITE-code.png')}
-                buttonImgSrc={couponButtonEliteSrc}
-                buttonActiveImgSrc={couponButtonActiveSrc}
-              />
-            </div>
-            <div className="col-12 col-md-4 mb-4 mb-md-0">
-              <Card
-                code="SAVE50"
-                backgroundImgSrc={require('./SAVE50-coupon-card.png')}
-                textImgSrc={require('./SAVE50-text.png')}
-                codeImgSrc={require('./SAVE50-code.png')}
-                buttonImgSrc={couponButtonSave50Src}
-                buttonActiveImgSrc={couponButtonActiveSrc}
-              />
-            </div>
-            <div className="col-12 col-md-4 mb-0">
-              <Card
-                code="SPRING21"
-                backgroundImgSrc={require('./SPRING21-coupon-card.png')}
-                textImgSrc={require('./SPRING21-text.png')}
-                codeImgSrc={require('./SPRING21-code.png')}
-                buttonImgSrc={couponButtonSpring21Src}
-                buttonActiveImgSrc={couponButtonActiveSrc}
-              />
+    <>
+      <div style={{ backgroundColor: '#000', backgroundImage: `url(${require('./bg-1.jpg')})`, backgroundPosition: 'top center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}>
+        <section id="promoSection">
+          <div className="container text-center">
+            <img src={require('./title.svg')} className="img-fluid mb-4" alt="Enroll in Master Makeup Artisty and Choose Your Offer" />
+            <div className="row">
+              <div className="col-12 col-md-4 mb-4 mb-md-0">
+                <Card
+                  code="ELITE"
+                  backgroundImgSrc={require('./ELITE-coupon-card.png')}
+                  textImgSrc={require('./ELITE-text.png')}
+                  codeImgSrc={require('./ELITE-code.png')}
+                  buttonImgSrc={couponButtonEliteSrc}
+                  buttonActiveImgSrc={couponButtonActiveSrc}
+                />
+              </div>
+              <div className="col-12 col-md-4 mb-4 mb-md-0">
+                <Card
+                  code="SAVE50"
+                  backgroundImgSrc={require('./SAVE50-coupon-card.png')}
+                  textImgSrc={require('./SAVE50-text.png')}
+                  codeImgSrc={require('./SAVE50-code.png')}
+                  buttonImgSrc={couponButtonSave50Src}
+                  buttonActiveImgSrc={couponButtonActiveSrc}
+                />
+              </div>
+              <div className="col-12 col-md-4 mb-0">
+                <Card
+                  code="SPRING21"
+                  backgroundImgSrc={require('./SPRING21-coupon-card.png')}
+                  textImgSrc={require('./SPRING21-text.png')}
+                  codeImgSrc={require('./SPRING21-code.png')}
+                  buttonImgSrc={couponButtonSpring21Src}
+                  buttonActiveImgSrc={couponButtonActiveSrc}
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+      <section style={{ padding: 0 }}></section>
+    </>
   );
 };
 
