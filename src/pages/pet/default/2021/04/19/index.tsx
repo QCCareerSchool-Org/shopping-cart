@@ -13,6 +13,10 @@ export const Promo20210419: React.FC<Props> = ({ date, currencyCode }) => {
   const [ popup, togglePopup ] = usePopup(false);
   const screenWidth = useScreenWidthContext();
 
+  if (currencyCode === 'AUD' || currencyCode === 'NZD') {
+    return <section style={{ padding: 0 }}></section>;
+  }
+
   const desktop = screenWidth > 518;
 
   let image: string;
