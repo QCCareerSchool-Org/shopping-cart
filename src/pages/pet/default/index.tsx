@@ -35,7 +35,6 @@ const Default: React.FC<Props> = ({ currencyCode }) => {
         agreementLink="https://www.doggroomingcourse.com/enrollment-agreement.html"
         agreementLinkGB="https://www.doggroomingcourse.com/enrollment-agreement-gb.html"
         successLink="https://www.doggroomingcourse.com/welcome-to-the-school/"
-        additionalOptions={additionalOptions}
       />
     </>
   );
