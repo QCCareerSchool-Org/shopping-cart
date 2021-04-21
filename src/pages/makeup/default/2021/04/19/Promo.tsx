@@ -28,7 +28,7 @@ export const Promo20210419: React.FC<Props> = ({ date, currencyCode }) => {
               : <img src={require('./title.svg')} className="img-fluid mb-4" alt="Enroll in Master Makeup Artisty and Choose Your Offer" />
             }
             <div className="row">
-              <div className="col-12 col-md-4 mb-md-0">
+              <div className="col-12 col-md-4 mb-4 mb-md-0">
                 <Card
                   code="ELITE"
                   description="Free 6-piece makeup kit"
