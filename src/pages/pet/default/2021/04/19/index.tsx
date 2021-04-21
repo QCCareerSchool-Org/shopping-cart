@@ -52,8 +52,8 @@ export const Promo20210419: React.FC<Props> = ({ date, currencyCode }) => {
         <ModalHeader toggle={togglePopup}>Your Dog Grooming Kit</ModalHeader>
         <ModalBody className="text-center p-0">
           <div className="p-3">
-            <p>Enroll today&mdash;at our lowest deposit ever&mdash;and receive a toolkit with the essential items you need to get started. This includes professional-grade grooming scissors, brushes, combs, and nail clippers.</p>
-            <p>After you submit your Unit B, we&apos;ll also ship you a WAHL ARCO 5-in-1 Cordless Clipper AND stainless steel attachment guide comb kit!</p>
+            <p>Enroll today at our lowest deposit ever!</p>
+            <p>After you submit your Unit B, we&apos;ll also ship you a toolkit with the essential items you need to get started. Your kit includes a WAHL ARCO 5-in-1 Cordless Clipper, a stainless steel attachment guide comb kit, professional-grade grooming scissors, brushes, combs, and nail clippers.</p>
           </div>
           <img src={require('./pop-up.jpg')} className="img-fluid" alt="promotion details" />
         </ModalBody>
