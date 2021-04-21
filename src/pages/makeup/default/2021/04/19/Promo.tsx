@@ -28,14 +28,14 @@ export const Promo20210419: React.FC<Props> = ({ date, currencyCode }) => {
               : <img src={require('./title.svg')} className="img-fluid mb-4" alt="Enroll in Master Makeup Artisty and Choose Your Offer" />
             }
             <div className="row">
-              <div className="col-12 col-md-4 mb-4 mb-md-0">
+              <div className="col-12 col-md-4 mb-md-0">
                 <Card
-                  code="SAVE50"
-                  description="Second course 50% off"
-                  backgroundImgSrc={require('./SAVE50-coupon-card.png')}
-                  textImgSrc={require('./SAVE50-text.png')}
-                  codeImgSrc={require('./SAVE50-code.png')}
-                  buttonImgSrc={couponButtonSave50Src}
+                  code="ELITE"
+                  description="Free 6-piece makeup kit"
+                  backgroundImgSrc={require('./ELITE-coupon-card.png')}
+                  textImgSrc={require('./ELITE-text.png')}
+                  codeImgSrc={require('./ELITE-code.png')}
+                  buttonImgSrc={couponButtonEliteSrc}
                   buttonActiveImgSrc={couponButtonActiveSrc}
                 />
               </div>
@@ -50,14 +50,14 @@ export const Promo20210419: React.FC<Props> = ({ date, currencyCode }) => {
                   buttonActiveImgSrc={couponButtonActiveSrc}
                 />
               </div>
-              <div className="col-12 col-md-4 mb-0">
+              <div className="col-12 col-md-4 mb-4 mb-0">
                 <Card
-                  code="ELITE"
-                  description="Free 6-piece makeup kit"
-                  backgroundImgSrc={require('./ELITE-coupon-card.png')}
-                  textImgSrc={require('./ELITE-text.png')}
-                  codeImgSrc={require('./ELITE-code.png')}
-                  buttonImgSrc={couponButtonEliteSrc}
+                  code="SAVE50"
+                  description="Second course 50% off"
+                  backgroundImgSrc={require('./SAVE50-coupon-card.png')}
+                  textImgSrc={require('./SAVE50-text.png')}
+                  codeImgSrc={require('./SAVE50-code.png')}
+                  buttonImgSrc={couponButtonSave50Src}
                   buttonActiveImgSrc={couponButtonActiveSrc}
                 />
               </div>
