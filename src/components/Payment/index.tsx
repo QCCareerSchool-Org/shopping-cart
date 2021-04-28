@@ -62,7 +62,7 @@ const getPromos = (now: Date, price: PriceState, school: School, student: boolea
       mobileImageSrc: require('./images/coupon-mobile-SPRING21.jpg'),
       altText: 'Get a FREE advanced course',
       startDate: new Date(Date.UTC(2021, 3, 19, 13)),
-      endDate: new Date(Date.UTC(2021, 3, 28, 4)),
+      endDate: new Date(Date.UTC(2021, 4, 1, 12)),
     },
     {
       schools: [ 'QC Makeup Academy' ],
