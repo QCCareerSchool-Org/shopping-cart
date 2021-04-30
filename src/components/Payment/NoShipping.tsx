@@ -1,6 +1,4 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvira } from '@fortawesome/free-brands-svg-icons/faEnvira';
 
 import { useDispatchContext } from '../../hooks/useDispatchContext';
 import { useStateContext } from '../../hooks/useStateContext';
@@ -22,7 +20,7 @@ export const NoShipping: React.FC<Props> = ({ school, title = 'Green Discount' }
   return (
     // <div className="alert alert-success mt-4">
     <div className="mt-4">
-      <h3>{title} <FontAwesomeIcon icon={faEnvira} /></h3>
+      <h3>{title}</h3>
       <div className="custom-control custom-checkbox my-2">
         <input type="checkbox" id="noShippingOption" className="custom-control-input" checked={noShipping} onChange={noShippingChange} />
         <label htmlFor="noShippingOption" className="custom-control-label">Get a {price?.currency.symbol}{price?.shipping.toFixed(2)} discount with online-only learning</label>

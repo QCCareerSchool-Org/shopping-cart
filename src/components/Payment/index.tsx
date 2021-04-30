@@ -84,6 +84,28 @@ const getPromos = (now: Date, price: PriceState, school: School, student: boolea
       altText: 'Get an elite makeup kit upgrade',
       startDate: new Date(Date.UTC(2021, 3, 18, 4)),
     },
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'HAPPYMAY',
+      description: <>Get the <strong>Virtual Makeup</strong> course for FREE when you enroll in the <strong>Master Makeup Artistry</strong> course.<br /><br />Plus, get a FREE 11-piece elite makeup kit upgrade.</>,
+      desktopImageSrc: require('./images/coupon-HAPPYMAY.jpg'),
+      mobileImageSrc: require('./images/coupon-mobile-HAPPYMAY.jpg'),
+      altText: 'Free Virtual Makeup course',
+      startDate: new Date(Date.UTC(2021, 4, 1, 12)),
+      endDate: new Date(Date.UTC(2021, 4, 3, 13)),
+    },
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'SKINCARE60',
+      description: <>Get the <strong>Skincare</strong> course at 60% off when you enroll in the <strong>Master Makeup Artisty</strong> course</>,
+      desktopImageSrc: require('./images/coupon-SKINCARE60.jpg'),
+      mobileImageSrc: require('./images/coupon-mobile-SKINCARE60.jpg'),
+      altText: '60% off Skincare course',
+      startDate: new Date(Date.UTC(2021, 4, 3, 13)),
+      endDate: new Date(Date.UTC(2021, 4, 15, 3, 59, 59)),
+    },
   ];
   return promos.filter(p => p.schools.includes(school)
     && (p.student === 'ALLOWED' || (p.student === 'DENIED' && !student) || (p.student === 'ONLY' && student))
