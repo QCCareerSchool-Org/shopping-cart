@@ -106,6 +106,17 @@ const getPromos = (now: Date, price: PriceState, school: School, student: boolea
       startDate: new Date(Date.UTC(2021, 4, 3, 13)),
       endDate: new Date(Date.UTC(2021, 4, 15, 3, 59, 59)),
     },
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'MOTHERSDAY',
+      description: <>Get the <strong>Pro Makeup Workshop</strong> for FREE when you enroll in the <strong>Master Makeup Artisty</strong> course</>,
+      desktopImageSrc: require('./images/coupon-MOTHERSDAY.jpg'),
+      mobileImageSrc: require('./images/coupon-mobile-MOTHERSDAY.jpg'),
+      altText: 'Free Pro Makeup Workshop',
+      startDate: new Date(Date.UTC(2021, 4, 5, 4)),
+      endDate: new Date(Date.UTC(2021, 4, 10, 3, 59, 59)),
+    },
   ];
   return promos.filter(p => p.schools.includes(school)
     && (p.student === 'ALLOWED' || (p.student === 'DENIED' && !student) || (p.student === 'ONLY' && student))
