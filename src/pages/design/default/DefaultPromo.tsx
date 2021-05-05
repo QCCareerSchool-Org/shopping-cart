@@ -8,6 +8,7 @@ import { Promo20210417 } from './2021/04/17/Promo';
 import { Promo20210419 } from './2021/04/19/Promo';
 import { Promo20210501 } from './2021/05/01/Promo';
 import { Promo20210503 } from './2021/05/03/Promo';
+import { Promo20210505 } from './2021/05/05';
 
 type Props = {
   date: Date;
@@ -15,7 +16,11 @@ type Props = {
 }
 
 export const DefaultPromo: React.FC<Props> = ({ date, currencyCode }) => {
-  if (date.getTime() >= Date.UTC(2021, 4, 3, 13)) { // May 3 at 09:00
+  if (date.getTime() >= Date.UTC(2021, 4, 10, 4)) { // May 10 at 00:00
+    return <Promo20210503 date={date} currencyCode={currencyCode} />;
+  } else if (date.getTime() >= Date.UTC(2021, 4, 5, 4)) { // May 5 at 00:00
+    return <Promo20210505 date={date} currencyCode={currencyCode} />;
+  } else if (date.getTime() >= Date.UTC(2021, 4, 3, 13)) { // May 3 at 09:00
     return <Promo20210503 date={date} currencyCode={currencyCode} />;
   } else if (date.getTime() >= Date.UTC(2021, 4, 1, 12)) { // May 1 at 08:00
     return <Promo20210501 date={date} currencyCode={currencyCode} />;
