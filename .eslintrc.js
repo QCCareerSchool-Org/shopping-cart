@@ -174,6 +174,7 @@ module.exports = {
     '@typescript-eslint/no-magic-numbers': [ 'warn', { ignoreArrayIndexes: true, ignore: [ 0, 1 ] } ],
     '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/no-throw-literal': 'error',
+    '@typescript-eslint/no-use-before-define': 'off', // override CRA's default
     '@typescript-eslint/object-curly-spacing': [ 'error', 'always' ],
     '@typescript-eslint/quotes': [ 'error', 'single' ],
     '@typescript-eslint/require-await': 'error',
@@ -191,8 +192,7 @@ module.exports = {
     'react/jsx-handler-names': 'error',
     'react/jsx-indent': [ 'error', 2, { checkAttributes: true, indentLogicalExpressions: true } ],
     'react/jsx-indent-props': [ 'error', 2 ],
-    // 'react/jsx-pascal-case': [ 'error', { allowAllCaps: true, allowNamespace: true } ], // old version of eslint-plugin-react bundled with CRA?
-    'react/jsx-pascal-case': [ 'error' ],
+    'react/jsx-pascal-case': [ 'error', { allowAllCaps: true, allowNamespace: true } ], // old version of eslint-plugin-react bundled with CRA?
     'react/jsx-props-no-multi-spaces': 'error',
     'react/prop-types': 'off',
     'react/jsx-tag-spacing': [ 'error', { beforeClosing: 'never' } ],
@@ -216,11 +216,10 @@ module.exports = {
       rules: {
         'eqeqeq': 'off',
         'no-eq-null': 'off',
-      }
-    }
+      },
+    },
   ],
   settings: {
     react: { version: 'detect' },
   },
 };
-
