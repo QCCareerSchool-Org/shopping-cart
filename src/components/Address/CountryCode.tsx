@@ -1,12 +1,12 @@
 import React from 'react';
-import { useFetchImproved } from '../../hooks/useFetchImproved';
 import { useDispatchContext } from '../../hooks/useDispatchContext';
+import { useFetchImproved } from '../../hooks/useFetchImproved';
 import { useStateContext } from '../../hooks/useStateContext';
 
 type Country = {
   code: string;
   name: string;
-}
+};
 
 const url = 'https://api.qccareerschool.com/geoLocation/countries';
 
@@ -24,7 +24,7 @@ export const CountryCode: React.FC = () => {
 
   const [ countries, , isLoading ] = useFetchImproved<Country[]>(url, []);
 
-  const change = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const change = (e: React.ChangeEvent<HTMLSelectElement>): void => {
     // we have to strip the leading "_" on values that are three characters long
     const value = e.target.value.length === 3 ? e.target.value.slice(1) : e.target.value;
     dispatch({ type: 'SET_COUNTRY_CODE', payload: { countryCode: value, manual: true } });

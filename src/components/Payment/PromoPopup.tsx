@@ -9,13 +9,13 @@ type Props = {
   togglePopup: () => void;
   apply: (code: string) => void;
   promos: Promo[];
-}
+};
 
 export const PromoPopup: React.FC<Props> = ({ popup, togglePopup, apply, promos }) => {
   const [ allExpanded, setAllExpanded ] = useState(Array(promos.length).fill(undefined).map(() => false));
 
-  const setIndexExpanded = (index: number, value: boolean) => {
-    setAllExpanded(expanded => expanded.map((e, i) => i === index ? value : false));
+  const setIndexExpanded = (index: number, value: boolean): void => {
+    setAllExpanded(expanded => expanded.map((e, i) => (i === index ? value : false)));
   };
 
   return (

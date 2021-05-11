@@ -1,27 +1,27 @@
-import React from 'react';
 import Slider from 'rc-slider';
+import React from 'react';
 import 'rc-slider/assets/index.css';
 
-import { useStateContext } from '../hooks/useStateContext';
 import { useDispatchContext } from '../hooks/useDispatchContext';
+import { useStateContext } from '../hooks/useStateContext';
 
 export const Overrides: React.FC = () => {
   const { overrides } = useStateContext();
   const dispatch = useDispatchContext();
 
-  const handleCourseChange = (value: number, code: string) => {
+  const handleCourseChange = (value: number, code: string): void => {
     dispatch({ type: 'SET_OVERRIDE_COURSE_VALUE', payload: { code, value } });
   };
 
-  const handleChange = (value: number) => {
+  const handleChange = (value: number): void => {
     dispatch({ type: 'SET_OVERRIDE_VALUE', payload: { value } });
   };
 
-  const handleReset = () => {
+  const handleReset = (): void => {
     dispatch({ type: 'RESET_OVERRIDES' });
   };
 
-  const handleInstallmentsChange = (installments: number) => {
+  const handleInstallmentsChange = (installments: number): void => {
     dispatch({ type: 'SET_OVERRIDE_INSTALLMENTS', payload: { installments } });
   };
 

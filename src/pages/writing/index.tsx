@@ -1,15 +1,13 @@
 import React, { Suspense } from 'react';
 import { Helmet } from 'react-helmet';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { LiveChat } from '../../components/LiveChat';
 
+import { LiveChat } from '../../components/LiveChat';
 import { useStateContext } from '../../hooks/useStateContext';
 
+import Default from './default'; // don't lazily load the default cart to reduce CLS for most visitors
 import { Footer } from './Footer';
 import { Header } from './Header';
-
-// don't lazily load the default cart to reduce CLS for most visitors
-import Default from './default';
 
 import './style.scss';
 

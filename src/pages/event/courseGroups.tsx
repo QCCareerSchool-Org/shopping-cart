@@ -21,7 +21,9 @@ export const courseGroups: CourseGroup[] = [
       { code: 'LW', name: 'Luxury Wedding & Event Planning' },
       { code: 'DW', name: 'Destination Wedding Planning' },
       {
-        code: 'FL', name: 'Festivals & Live Events', disabledMessage: (
+        code: 'FL',
+        name: 'Festivals & Live Events',
+        disabledMessage: (
           <p>
             The <span className="text-primary">Festivals &amp; Live Events</span> course requires corporate event
             training. Please select the <span className="text-primary">Corporate Event Planning</span> course first.
@@ -29,7 +31,9 @@ export const courseGroups: CourseGroup[] = [
         ),
       },
       {
-        code: 'PE', name: 'Promotional Event Planning', disabledMessage: (
+        code: 'PE',
+        name: 'Promotional Event Planning',
+        disabledMessage: (
           <p>
             The <span className="text-primary">Promotional Event Planning</span> course requires corporate event
             training. Please select the <span className="text-primary">Corporate Event Planning</span> course first.

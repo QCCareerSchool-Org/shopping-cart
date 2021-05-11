@@ -8,7 +8,7 @@ type Props = {
   price: PriceResult;
   showBuyOneGetOne?: boolean;
   shippingOptionReversed: boolean;
-}
+};
 
 export const CourseTable: React.FC<Props> = ({ price, showBuyOneGetOne, shippingOptionReversed }) => {
   const screenWidth = useScreenWidthContext();

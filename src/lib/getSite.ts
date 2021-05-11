@@ -20,7 +20,6 @@ export const getSite = (domain?: string): Site | null => {
     return 'writing';
   } else if (isInternal(domain)) {
     return 'internal';
-  } else {
-    return null;
   }
+  return null;
 };

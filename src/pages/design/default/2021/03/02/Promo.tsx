@@ -8,7 +8,7 @@ import { dateOverride } from '../../../../../../lib/dateOverride';
 
 type Props = {
   currencyCode: string;
-}
+};
 
 export const Promo20210302: React.FC<Props> = ({ currencyCode }) => {
   const screenWidth = useScreenWidthContext();
@@ -55,13 +55,13 @@ export const Promo20210302: React.FC<Props> = ({ currencyCode }) => {
       <Modal size="lg" isOpen={popup} toggle={togglePopup}>
         <ModalHeader toggle={togglePopup}>Special Offer</ModalHeader>
         <ModalBody className="text-center">
-        <p>Enroll in one of QC’s design courses and receive ANY second course for free!</p>
+          <p>Enroll in one of QC&apos;s design courses and receive ANY second course for free!</p>
         </ModalBody>
       </Modal>
     </section>
   );
 
-  function handlePromoClick(event: React.MouseEvent) {
+  function handlePromoClick(event: React.MouseEvent): void {
     event.preventDefault();
     togglePopup();
   }

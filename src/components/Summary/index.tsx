@@ -1,14 +1,14 @@
 import { faLock } from '@fortawesome/free-solid-svg-icons/faLock';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import React from 'react';
+import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
 import { usePopup } from '../../hooks/usePopup';
 import { useStateContext } from '../../hooks/useStateContext';
 import { PriceResult } from '../../state/price';
+import { DetailedBreakdown } from './DetailedBreakdown';
 import { Notes } from './Notes';
 import { PaymentModal, PaysafeCompany } from './PaymentModal';
-import { DetailedBreakdown } from './DetailedBreakdown';
 
 type Props = {
   addToDatabase: () => Promise<boolean>;
@@ -20,7 +20,7 @@ type Props = {
   showSubmitMessage?: () => boolean;
   submitMessage?: () => JSX.Element;
   submitTitle?: string;
-}
+};
 
 const getCompany = (currencyCode: string): PaysafeCompany => {
   if ([ 'GBP', 'AUD', 'NZD' ].includes(currencyCode)) {
@@ -48,7 +48,7 @@ export const Summary: React.FC<Props> = props => {
     return null;
   }
 
-  const submit = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const submit = (): void => {
     if (showSubmitMessage?.()) {
       confirmToggle();
     } else {
@@ -56,7 +56,7 @@ export const Summary: React.FC<Props> = props => {
     }
   };
 
-  const showPaymentForm = () => {
+  const showPaymentForm = (): void => {
     addToDatabase().then(result => {
       if (result) {
         const company = getCompany(price.currency.code);
@@ -106,7 +106,7 @@ export const Summary: React.FC<Props> = props => {
       <DetailedBreakdown isOpen={detailsPopup} toggle={detailsToggle} price={price} payment={payment} />
 
       <Modal size="lg" isOpen={confirmPopup} toggle={confirmToggle}>
-        <ModalHeader toggle={confirmToggle}>{submitTitle || 'Confirmation Required'}</ModalHeader>
+        <ModalHeader toggle={confirmToggle}>{submitTitle ?? 'Confirmation Required'}</ModalHeader>
         <ModalBody>
           {submitMessage?.()}
         </ModalBody>

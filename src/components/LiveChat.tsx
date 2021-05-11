@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable camelcase */
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -55,14 +55,14 @@ type Props = {
   onPrechatSurveySubmitted?: (...args: any[]) => any;
   onRatingSubmitted?: (...args: any[]) => any;
   onRatingCommentSubmitted?: (...args: any[]) => any;
-}
+};
 
 export class LiveChat extends React.PureComponent<Props> {
-  private static defaultProps = {
+  private static readonly defaultProps = {
     group: 0,
   };
 
-  private static propTypes = {
+  private static readonly propTypes = {
     // important
     license: PropTypes.number.isRequired,
     group: PropTypes.number,
@@ -73,8 +73,8 @@ export class LiveChat extends React.PureComponent<Props> {
       value: PropTypes.any.isRequired,
     })),
     visitor: PropTypes.shape({
-        name: PropTypes.string,
-        email: PropTypes.string,
+      name: PropTypes.string,
+      email: PropTypes.string,
     }),
     gaVersion: PropTypes.oneOf([
       'pageTracker',
@@ -114,7 +114,7 @@ export class LiveChat extends React.PureComponent<Props> {
   //   if (prevProps.)
   // }
 
-  public chatLoaded() {
+  public chatLoaded(): void {
     if (window.LC_API) {
       this.setCallbacks.bind(this)();
       if (typeof this.props.onChatLoaded === 'function') {
@@ -123,13 +123,13 @@ export class LiveChat extends React.PureComponent<Props> {
     }
   }
 
-  public chatNotLoaded() {
+  public chatNotLoaded(): void {
     if (typeof this.props.onErrorLoading === 'function') {
       this.props.onErrorLoading();
     }
   }
 
-  public loadLiveChatApi() {
+  public loadLiveChatApi(): void {
     if (!window.LC_API) {
       window.__lc = window.__lc || {};
       window.__lc.license = this.props.license;
@@ -141,7 +141,7 @@ export class LiveChat extends React.PureComponent<Props> {
       const lc = document.createElement('script');
       lc.type = 'text/javascript';
       lc.async = true;
-      lc.src = ('https:' === document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+      lc.src = (document.location.protocol === 'https:' ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
       const s = document.getElementsByTagName('script')[0];
       if (s.parentNode) {
         s.parentNode.insertBefore(lc, s);
@@ -151,11 +151,11 @@ export class LiveChat extends React.PureComponent<Props> {
     }
   }
 
-  public render() {
+  public render(): null {
     return null;
   }
 
-  public setCallbacks() {
+  public setCallbacks(): void {
     if (typeof this.props.onBeforeLoad === 'function') {
       window.LC_API.on_before_load = this.props.onBeforeLoad.bind(this);
     }

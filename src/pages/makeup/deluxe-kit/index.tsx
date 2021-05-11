@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { Form } from '../../../components/Form';
-import { Guarantee } from '../Guarantee';
 import { courseGroups } from '../courseGroups';
+import { Guarantee } from '../Guarantee';
 import { DeluxeKitPromo } from './DeluxeKitPromo';
 
 const DeluxeKit: React.FC = () => (

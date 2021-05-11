@@ -7,7 +7,7 @@ export const Title: React.FC = () => {
   const { address: { title }, enrollmentErrors } = useStateContext();
   const dispatch = useDispatchContext();
 
-  const change = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const change = (e: React.ChangeEvent<HTMLSelectElement>): void => {
     const value = e.target.value;
     if (value === 'Mrs.' || value === 'Miss' || value === 'Ms.' || value === 'Mr.') {
       dispatch({ type: 'SET_TITLE', payload: value });

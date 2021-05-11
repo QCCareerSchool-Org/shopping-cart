@@ -29,7 +29,7 @@ export type EnrollmentPayload = {
   campaignId: string | null;
   existingStudent: boolean;
   options?: any;
-}
+};
 
 const baseUrl = 'https://api.qccareerschool.com/enrollments';
 
@@ -108,7 +108,7 @@ export const chargeEnrollment = async (id: number, token: string, company: 'CA' 
       if (typeof axiosError.response !== 'undefined') {
         const code = axiosError.response.data.code;
         if (typeof code !== 'undefined') {
-          if ([ 3009, 3014, 3023, 3024 ].indexOf(code) !== -1) {
+          if ([ 3009, 3014, 3023, 3024 ].includes(code)) {
             throw Error('Declined by bank');
           } else if (code === 3022) {
             throw Error('NSF');

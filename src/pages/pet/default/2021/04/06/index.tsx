@@ -7,7 +7,7 @@ import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthCon
 type Props = {
   date: Date;
   currencyCode: string;
-}
+};
 
 export const Promo20210406: React.FC<Props> = ({ date, currencyCode }) => {
   const [ popup, togglePopup ] = usePopup(false);
@@ -57,7 +57,7 @@ export const Promo20210406: React.FC<Props> = ({ date, currencyCode }) => {
     </section>
   );
 
-  function handlePromoClick(event: React.MouseEvent) {
+  function handlePromoClick(event: React.MouseEvent): void {
     event.preventDefault();
     togglePopup();
   }

@@ -6,28 +6,28 @@ import { LiveChat } from '../../components/LiveChat';
 import { useSaveablePaths } from '../../hooks/useSaveablePaths';
 import { useStateContext } from '../../hooks/useStateContext';
 
+import Default from './default';
 import { Footer } from './Footer';
 import { Header } from './Header';
 
 // don't lazily load the default cart to reduce CLS for most visitors
-import Default from './default';
 
 import './style.scss';
 
 // lazily load the other carts because they're used less often
-const Student = React.lazy(() => import('./student'));
-const FreePortfolio = React.lazy(() => import('./free-portfolio'));
-const TuitionDiscount = React.lazy(() => import('./tuition-discount'));
-const Floral = React.lazy(() => import('./floral'));
+const Student = React.lazy(async () => import('./student'));
+const FreePortfolio = React.lazy(async () => import('./free-portfolio'));
+const TuitionDiscount = React.lazy(async () => import('./tuition-discount'));
+const Floral = React.lazy(async () => import('./floral'));
 
 const Event: React.FC = () => {
   const { courses, address, price } = useStateContext();
   const currencyCode = price?.currency.code ?? 'USD';
 
   useSaveablePaths([
-    /^\/free-portfolio(\/.*)?$/,
-    /^\/tuition-discount(\/.*)?$/,
-    /^\/floral(\/.*)?$/,
+    /^\/free-portfolio(\/.*)?$/u,
+    /^\/tuition-discount(\/.*)?$/u,
+    /^\/floral(\/.*)?$/u,
   ]);
 
   return (

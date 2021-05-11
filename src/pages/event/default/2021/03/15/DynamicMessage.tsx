@@ -2,7 +2,7 @@ import React from 'react';
 
 type Props = {
   courses: string[];
-}
+};
 
 export const DynamicMessage20210315: React.FC<Props> = ({ courses }) => {
   if (courses.includes('EP') && courses.includes('DW') && courses.includes('LW')) {

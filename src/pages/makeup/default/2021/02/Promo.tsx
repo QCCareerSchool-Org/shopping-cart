@@ -7,7 +7,7 @@ import { useScreenWidthContext } from '../../../../../hooks/useScreenWidthContex
 type Props = {
   date: Date;
   currencyCode: string;
-}
+};
 
 export const Promo20210201: React.FC<Props> = ({ date, currencyCode }) => {
   const [ popup, togglePopup ] = usePopup(false);

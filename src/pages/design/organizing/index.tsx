@@ -8,7 +8,7 @@ import { OrganizingPromo } from './OrganizingPromo';
 
 type Props = {
   currencyCode: string;
-}
+};
 
 const additionalOptions = {
   discount: {
@@ -28,7 +28,7 @@ export const getModifiedCourseGroups = (defaultCourseGroups: CourseGroup[]): Cou
   const modifiedCourseGroups: CourseGroup[] = defaultCourseGroups.map(c => ({ ...c, items: c.items.filter(i => i.code !== 'PO') }));
 
   // find the PO course from the default course groups
-  const isPOCourse = (i: Course) => i.code === 'PO';
+  const isPOCourse = (i: Course): boolean => i.code === 'PO';
   const PO = defaultCourseGroups.find(c => c.items.find(isPOCourse))?.items.find(isPOCourse);
   if (!PO) {
     throw Error('can\'t find PO course');

@@ -1,7 +1,7 @@
 import React, { MouseEvent } from 'react';
 
-import { GuaranteeModal } from './GuaranteeModal';
 import { usePopup } from '../../hooks/usePopup';
+import { GuaranteeModal } from './GuaranteeModal';
 
 export const Guarantee: React.FC = () => {
   const [ popup, togglePopup ] = usePopup(false);
@@ -19,7 +19,7 @@ export const Guarantee: React.FC = () => {
     </div>
   );
 
-  function handleClick(event: MouseEvent) {
+  function handleClick(event: MouseEvent): void {
     togglePopup();
   }
 };

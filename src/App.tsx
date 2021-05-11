@@ -1,10 +1,10 @@
 import React, { Suspense } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import { Resume } from './components/Resume';
 import { Cart } from './components/Cart';
+import { Resume } from './components/Resume';
 
 const queryClient = new QueryClient();
 

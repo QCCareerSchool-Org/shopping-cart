@@ -7,19 +7,19 @@ import { useStateContext } from '../../../../../../hooks/useStateContext';
 type Props = {
   date: Date;
   currencyCode: string;
-}
+};
 
 export const Promo20210505: React.FC<Props> = ({ date, currencyCode }) => {
   const dispatch = useDispatchContext();
 
-  const button1Click = () => {
+  const button1Click = (): void => {
     dispatch({ type: 'REMOVE_COURSE', payload: { courseCode: 'MK', internal: false } });
     dispatch({ type: 'ADD_COURSE', payload: { courseCode: 'MZ', internal: false } });
     dispatch({ type: 'ADD_COURSE', payload: { courseCode: 'MW', internal: false } });
     dispatch({ type: 'SET_PROMO_CODE', payload: 'MOTHERSDAY' });
   };
 
-  const button2Click = () => {
+  const button2Click = (): void => {
     dispatch({ type: 'REMOVE_COURSE', payload: { courseCode: 'MK', internal: false } });
     dispatch({ type: 'ADD_COURSE', payload: { courseCode: 'MZ', internal: false } });
     dispatch({ type: 'ADD_COURSE', payload: { courseCode: 'SK', internal: false } });
@@ -61,7 +61,7 @@ type CardProps = {
   description: string;
   imgSrc: string;
   onClick: () => void;
-}
+};
 
 const Card: React.FC<CardProps> = ({ code, description, imgSrc, onClick }) => {
   const { price } = useStateContext();

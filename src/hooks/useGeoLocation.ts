@@ -7,7 +7,7 @@ import { useStateContext } from './useStateContext';
 export type GeoLocation = {
   countryCode: string;
   provinceCode: string | null;
-}
+};
 
 export const useGeoLocation = (): void => {
   const { address } = useStateContext();
@@ -24,6 +24,4 @@ export const useGeoLocation = (): void => {
       }
     }
   }, [ dispatch, geoLocation, address.locationModified ]);
-
-  return;
 };

@@ -38,12 +38,12 @@ const PartPaymentSummary: React.FC<{ price: PriceResult; day: number }> = ({ pri
   <>
     <p>
       I agree to pay a deposit of <strong>{price.currency.symbol}{formatCurrency(price.plans.part.deposit)}</strong> now
-        and <u>{price.plans.part.installments} monthly installments</u> of <strong>{price.currency.symbol}{formatCurrency(price.plans.part.installmentSize)}</strong> each.
-      </p>
+      and <u>{price.plans.part.installments} monthly installments</u> of <strong>{price.currency.symbol}{formatCurrency(price.plans.part.installmentSize)}</strong> each.
+    </p>
     <p>
       Payments will be automatically charged to my card on the {ordinal(day)} of each month.{' '}
       {day >= 29 ? <span>If there are fewer than {day} days in a month, my payment will be charged on the last day of that month. </span> : null}
-        The monthly payments will start on {nextDay(day)}.</p>
+      The monthly payments will start on {nextDay(day)}.</p>
   </>
 );
 

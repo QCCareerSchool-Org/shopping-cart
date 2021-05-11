@@ -3,11 +3,11 @@ import { useEffect } from 'react';
 
 import { useDispatchContext } from './useDispatchContext';
 
-export const useInitialData = (internal: boolean) => {
+export const useInitialData = (internal: boolean): void => {
   const dispatch = useDispatchContext();
 
   useEffect(() => {
-    const loadQueryStringData = () => {
+    const loadQueryStringData = (): void => {
       const parsed = qs.parse(window.location.search.slice(1));
       if (parsed.c) {
         if (Array.isArray(parsed.c)) {
@@ -32,7 +32,7 @@ export const useInitialData = (internal: boolean) => {
       }
     };
 
-    const loadSessionStorageData = () => {
+    const loadSessionStorageData = (): void => {
       if (window.sessionStorage) {
         const storedData = window.sessionStorage.getItem('form');
         if (storedData === null) {

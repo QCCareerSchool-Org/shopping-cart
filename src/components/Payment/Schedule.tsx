@@ -9,7 +9,7 @@ export const Schedule: React.FC = () => {
   const { payment: { day } } = useStateContext();
   const dispatch = useDispatchContext();
 
-  const change = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const change = (e: React.ChangeEvent<HTMLSelectElement>): void => {
     dispatch({ type: 'SET_PAYMENT_DATE', payload: parseInt(e.target.value, 10) });
   };
 

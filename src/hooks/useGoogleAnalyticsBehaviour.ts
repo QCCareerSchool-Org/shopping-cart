@@ -10,7 +10,7 @@ declare global {
 /**
  * Logs shopping behaviour with Google Analytics
  */
-export const useGoogleAnalyticsBehaviour = () => {
+export const useGoogleAnalyticsBehaviour = (): readonly [ () => void ] => {
   const state = useStateContext();
 
   // log changes to the course selections
@@ -32,12 +32,12 @@ export const useGoogleAnalyticsBehaviour = () => {
     }
   });
 
-  const logCheckout = () => {
+  const logCheckout = (): void => {
     if (typeof window.gtag !== 'undefined') {
       const items = state.courses.selected.map(c => ({ id: c, quantity: 1 }));
       window.gtag('event', 'begin_checkout', { items });
     }
   };
 
-  return [ logCheckout ];
+  return [ logCheckout ] as const;
 };

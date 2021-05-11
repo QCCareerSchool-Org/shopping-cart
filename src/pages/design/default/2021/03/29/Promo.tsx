@@ -6,7 +6,7 @@ import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthCon
 
 type Props = {
   date: Date;
-}
+};
 
 export const Promo20210329: React.FC<Props> = ({ date }) => {
   const screenWidth = useScreenWidthContext();
@@ -50,13 +50,13 @@ export const Promo20210329: React.FC<Props> = ({ date }) => {
       <Modal size="lg" isOpen={popup} toggle={togglePopup}>
         <ModalHeader toggle={togglePopup}>Easter Offer</ModalHeader>
         <ModalBody className="text-center">
-          <p>Enroll in one of QC’s design courses and receive <strong>Virtual Design</strong> and <strong>any other course</strong> (of equal or lesser value) for FREE!</p>
+          <p>Enroll in one of QC&apos;s design courses and receive <strong>Virtual Design</strong> and <strong>any other course</strong> (of equal or lesser value) for FREE!</p>
         </ModalBody>
       </Modal>
     </section>
   );
 
-  function handlePromoClick(event: React.MouseEvent) {
+  function handlePromoClick(event: React.MouseEvent): void {
     event.preventDefault();
     togglePopup();
   }

@@ -8,7 +8,7 @@ import React, { useEffect, useState } from 'react';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
 import { useStateContext } from '../../hooks/useStateContext';
-import { tokenize, createInstance, PaysafeInstance, TokenizeOptions } from '../../lib/paysafe';
+import { createInstance, PaysafeInstance, tokenize, TokenizeOptions } from '../../lib/paysafe';
 
 export type PaysafeCompany = 'CA' | 'US' | 'GB';
 
@@ -17,7 +17,7 @@ type Props = {
   isOpen: boolean;
   toggle: () => void;
   charge: (token: string, compay: PaysafeCompany) => Promise<boolean>;
-}
+};
 
 type Status = {
   instance?: PaysafeInstance;
@@ -114,7 +114,7 @@ export const PaymentModal: React.FC<Props> = ({ company, isOpen, toggle, charge 
     return null;
   }
 
-  const submit = async (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault();
     if (submitting) {
       return;
@@ -222,7 +222,7 @@ export const PaymentModal: React.FC<Props> = ({ company, isOpen, toggle, charge 
 
         {status.errors && (
           <div className="alert alert-danger mt-3 mb-0">
-            {status.errors.displayMessage || 'Unknown Error'}
+            {status.errors.displayMessage ?? 'Unknown Error'}
           </div>
         )}
 

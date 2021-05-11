@@ -7,7 +7,7 @@ import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthCon
 type Props = {
   date: Date;
   currencyCode: string;
-}
+};
 
 export const Promo20210417: React.FC<Props> = ({ date }) => {
   const screenWidth = useScreenWidthContext();

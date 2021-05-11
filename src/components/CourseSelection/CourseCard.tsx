@@ -7,7 +7,7 @@ import { useStateContext } from '../../hooks/useStateContext';
 
 type Props = {
   courseCode?: string;
-}
+};
 
 type CourseCard = {
   name: string;
@@ -20,7 +20,7 @@ type CourseCard = {
   description: string;
 };
 
-const hasImage = (courseCode?: string) => typeof courseCode !== 'undefined' && [ 'MZ', 'AB', 'HS', 'SF' ].includes(courseCode);
+const hasImage = (courseCode?: string): boolean => typeof courseCode !== 'undefined' && [ 'MZ', 'AB', 'HS', 'SF' ].includes(courseCode);
 
 export const CourseCard: React.FC<Props> = ({ courseCode }) => {
   const { address: { countryCode, provinceCode } } = useStateContext();

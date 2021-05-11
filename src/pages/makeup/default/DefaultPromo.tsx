@@ -13,7 +13,7 @@ import { Promo20210505 } from './2021/05/05';
 type Props = {
   date: Date;
   currencyCode: string;
-}
+};
 
 export const DefaultPromo: React.FC<Props> = ({ date, currencyCode }) => {
   if (date.getTime() >= Date.UTC(2021, 4, 10, 4)) { // May 10 at 00:00
@@ -34,7 +34,6 @@ export const DefaultPromo: React.FC<Props> = ({ date, currencyCode }) => {
     return <Promo20210329 date={date} currencyCode={currencyCode} />;
   } else if (date.getTime() >= Date.UTC(2021, 2, 27, 12)) {
     return <Promo20210327 date={date} />;
-  } else {
-    return <Promo20210315 date={date} currencyCode={currencyCode} />;
   }
+  return <Promo20210315 date={date} currencyCode={currencyCode} />;
 };

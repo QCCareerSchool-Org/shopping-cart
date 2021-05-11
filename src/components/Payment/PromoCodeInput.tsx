@@ -19,7 +19,7 @@ export type Promo = {
   altText: string;
   startDate?: Date;
   endDate?: Date;
-}
+};
 
 type Props = {
   promos: Promo[];
@@ -30,16 +30,16 @@ export const PromoCodeInput: React.FC<Props> = ({ promos }) => {
   const { price, meta: { promoCode, promoCodeInputValue } } = useStateContext();
   const dispatch = useDispatchContext();
 
-  const change = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const change = (e: React.ChangeEvent<HTMLInputElement>): void => {
     dispatch({ type: 'SET_PROMO_CODE_INPUT_VALUE', payload: e.target.value });
   };
 
-  const submit = (e: React.FormEvent) => {
+  const submit = (e: React.FormEvent): void => {
     e.preventDefault();
     dispatch({ type: 'SET_PROMO_CODE', payload: promoCodeInputValue });
   };
 
-  const popupApply = (code: string) => {
+  const popupApply = (code: string): void => {
     dispatch({ type: 'SET_PROMO_CODE', payload: code });
   };
 

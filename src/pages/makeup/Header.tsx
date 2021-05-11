@@ -7,7 +7,7 @@ import { useScreenWidthContext } from '../../hooks/useScreenWidthContext';
 
 type Props = {
   countryCode: string;
-}
+};
 
 export const Header: React.FC<Props> = ({ countryCode }) => {
   const screenWidth = useScreenWidthContext();

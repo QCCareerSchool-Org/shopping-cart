@@ -19,7 +19,7 @@ type Props = {
   shippingOptionReversed: boolean;
   noShippingTitle?: string;
   showPromoCodeInput: boolean;
-}
+};
 
 const getPromos = (now: Date, price: PriceState, school: School, student: boolean): Promo[] => {
   const promos: Promo[] = [
@@ -121,14 +121,13 @@ const getPromos = (now: Date, price: PriceState, school: School, student: boolea
   return promos.filter(p => p.schools.includes(school)
     && (p.student === 'ALLOWED' || (p.student === 'DENIED' && !student) || (p.student === 'ONLY' && student))
     && (typeof p.startDate === 'undefined' || p.startDate <= now)
-    && (typeof p.endDate === 'undefined' || p.endDate > now)
-  );
+    && (typeof p.endDate === 'undefined' || p.endDate > now));
 };
 
 export const Payment: React.FC<Props> = ({ school, shippingOption, shippingOptionReversed, noShippingTitle, showPromoCodeInput }) => {
   const { payment, price, meta: { student } } = useStateContext();
   const serverDate = useDateContext();
-  const date = dateOverride() || serverDate;
+  const date = dateOverride() ?? serverDate;
   const showNoShipping = price && price.cost > 0 && price.shipping > 0 && price.noShipping !== 'FORBIDDEN' && price?.noShipping !== 'REQUIRED' && shippingOption;
   const promos = getPromos(date, price, school, student);
   return (

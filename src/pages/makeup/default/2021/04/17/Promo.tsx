@@ -1,18 +1,18 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
 import { usePreloadImage } from '../../../../../../hooks/usePreloadImage';
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../../../../hooks/useStateContext';
 
-import couponButtonSrc from './coupon-btn-elite.svg';
 import couponButtonAppliedSrc from './coupon-btn-elite-active.svg';
-import { Helmet } from 'react-helmet';
+import couponButtonSrc from './coupon-btn-elite.svg';
 
 type Props = {
   date: Date;
   currencyCode: string;
-}
+};
 
 export const Promo20210417: React.FC<Props> = ({ date }) => {
   const screenWidth = useScreenWidthContext();
@@ -49,7 +49,7 @@ export const Promo20210417: React.FC<Props> = ({ date }) => {
     height = 732;
   }
 
-  const buttonClick = () => {
+  const buttonClick = (): void => {
     // dispatch({ type: 'ADD_COURSE', payload: { courseCode: 'MZ', internal: false } });
     dispatch({ type: 'SET_PROMO_CODE', payload: 'ELITE' });
   };

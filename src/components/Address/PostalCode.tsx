@@ -1,5 +1,5 @@
-import React from 'react';
 import { postalZip } from '@qccareerschool/helper-functions';
+import React from 'react';
 
 import { useDispatchContext } from '../../hooks/useDispatchContext';
 import { useStateContext } from '../../hooks/useStateContext';
@@ -9,7 +9,7 @@ export const PostalCode: React.FC = () => {
   const { address: { postalCode, countryCode }, enrollmentErrors } = useStateContext();
   const dispatch = useDispatchContext();
 
-  const change = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const change = (e: React.ChangeEvent<HTMLInputElement>): void => {
     dispatch({ type: 'SET_POSTAL_CODE', payload: e.target.value });
   };
 

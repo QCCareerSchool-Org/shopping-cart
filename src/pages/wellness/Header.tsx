@@ -7,14 +7,14 @@ import { useScreenWidthContext } from '../../hooks/useScreenWidthContext';
 
 type Props = {
   countryCode: string;
-}
+};
 
 export const Header: React.FC<Props> = ({ countryCode }) => {
   const screenWidth = useScreenWidthContext();
   const tel = telephoneNumber(countryCode);
 
   const desktop = screenWidth >= 576;
-  const logo =  desktop ? require('./logo-lg.svg') : require('./logo-sm.svg');
+  const logo = desktop ? require('./logo-lg.svg') : require('./logo-sm.svg');
   const width = desktop ? 212 : 34;
   const height = 32;
 

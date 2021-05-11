@@ -5,19 +5,19 @@ type Data = {
   max: number;
   default: number;
   value: number;
-}
+};
 
 type CourseData = Data & {
   code: string;
   name: string;
-}
+};
 
 export type OverridesState = Data & {
   courses: CourseData[];
   maxInstallments: number;
   defaultInstallments: number;
   installments: number;
-}
+};
 
 export type OverridesAction =
   | { type: 'INITIALIZE_OVERRIDES'; payload: { installments: number; courses: CourseData[] } }
@@ -72,7 +72,7 @@ export const overridesReducer = (state: OverridesState, action: OverridesAction)
       if (value >= state.default) { // update the individual courses' values in proportion to the difference between their default and max values
         const ratio = (value - state.default) / (state.max - state.default);
         let remainderIndex: number;
-        const courses = state.courses.map((c, i, a) => {
+        const courses = state.courses.map((c, i) => {
           if (c.max === 0) {
             return { ...c, value: 0 };
           }
@@ -82,50 +82,50 @@ export const overridesReducer = (state: OverridesState, action: OverridesAction)
           }
           if (i === remainderIndex) { // don't modify our remainder course
             return { ...c };
-          } else { // update the other courses
-            const available = c.max - c.default;
-            return { ...c, value: Math.round((available * ratio + c.default) * 100) / 100 };
-          }
+          } // update the other courses
+          const available = c.max - c.default;
+          return { ...c, value: Math.round(((available * ratio) + c.default) * 100) / 100 };
+
         }).map((c, i, a) => {
           if (i === remainderIndex) { // update the remaining course
             // sum the values of the other courses, which we already updated
             const otherCoursesValue = sum(a.filter((_, j) => j !== i).map(o => o.value));
             // set the value of this course to whatever remainder is left over (to prevent rounding errors)
             return { ...c, value: Math.round((value - otherCoursesValue) * 100) / 100 };
-          } else { // skip the other courses
-            return { ...c };
-          }
+          } // skip the other courses
+          return { ...c };
+
         });
         return { ...state, value, courses };
-      } else { // update the individual courses' values in proportion to the difference between their min and default values
-        const ratio = (value - state.min) / (state.default - state.min);
-        let remainderIndex: number;
-        const courses = state.courses.map((c, i, a) => {
-          if (c.max === 0) {
-            return { ...c, value: 0 };
-          }
-          // pick the first "non-zero" course to be our remainder course
-          if (typeof remainderIndex === 'undefined') {
-            remainderIndex = i;
-          }
-          if (i === remainderIndex) { // don't modify our remainder course
-            return { ...c };
-          } else { // update the other courses
-            const available = c.default - c.min;
-            return { ...c, value: Math.round((available * ratio + c.min) * 100) / 100 };
-          }
-        }).map((c, i, a) => {
-          if (i === a.length - 1) { // update the remaining course
-            // sum the values of the other courses, which we already updated
-            const otherCoursesValue = sum(a.filter((_, j) => j !== i).map(o => o.value));
-            // set the value of this course to whatever remainder is left over (to prevent rounding errors)
-            return { ...c, value: Math.round((value - otherCoursesValue) * 100) / 100 };
-          } else { // skip the first n-1 courses
-            return { ...c };
-          }
-        });
-        return { ...state, value, courses };
-      }
+      } // update the individual courses' values in proportion to the difference between their min and default values
+      const ratio = (value - state.min) / (state.default - state.min);
+      let remainderIndex: number;
+      const courses = state.courses.map((c, i) => {
+        if (c.max === 0) {
+          return { ...c, value: 0 };
+        }
+        // pick the first "non-zero" course to be our remainder course
+        if (typeof remainderIndex === 'undefined') {
+          remainderIndex = i;
+        }
+        if (i === remainderIndex) { // don't modify our remainder course
+          return { ...c };
+        } // update the other courses
+        const available = c.default - c.min;
+        return { ...c, value: Math.round(((available * ratio) + c.min) * 100) / 100 };
+
+      }).map((c, i, a) => {
+        if (i === a.length - 1) { // update the remaining course
+          // sum the values of the other courses, which we already updated
+          const otherCoursesValue = sum(a.filter((_, j) => j !== i).map(o => o.value));
+          // set the value of this course to whatever remainder is left over (to prevent rounding errors)
+          return { ...c, value: Math.round((value - otherCoursesValue) * 100) / 100 };
+        } // skip the first n-1 courses
+        return { ...c };
+
+      });
+      return { ...state, value, courses };
+
     }
     case 'SET_OVERRIDE_COURSE_VALUE': {
       const courses = state.courses.map(c => ({ ...c }));

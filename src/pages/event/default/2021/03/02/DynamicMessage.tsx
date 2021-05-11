@@ -2,7 +2,7 @@ import React from 'react';
 
 type Props = {
   courses: string[];
-}
+};
 
 export const DynamicMessage20210302: React.FC<Props> = ({ courses }) => {
   const numFoundationSelected = courses.filter(c => [ 'EP', 'CP', 'CE', 'WP', 'FD' ].includes(c)).length;

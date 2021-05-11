@@ -1,6 +1,6 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
 import qs from 'qs';
+import React, { useEffect } from 'react';
 
 /**
  * Looks up a past enrollment in the back end, fills sessionStorage with the data, and redirects back to the original cart

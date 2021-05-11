@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { CourseGroup } from '../../state/courses';
-
 import mostPopular from '../../most-pop.svg';
+import { CourseGroup } from '../../state/courses';
 
 export const courseGroups: CourseGroup[] = [
   {

@@ -16,7 +16,7 @@ type Props = {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   expanded: boolean;
   setExpanded: (value: boolean) => void;
-}
+};
 
 const getEndOfMonth = (): Date => {
   const endOfMonth = new Date();

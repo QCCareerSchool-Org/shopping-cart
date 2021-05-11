@@ -7,7 +7,7 @@ export const PlanFull: React.FC = () => {
   const { payment, price } = useStateContext();
   const dispatch = useDispatchContext();
 
-  const change = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const change = (e: React.ChangeEvent<HTMLInputElement>): void => {
     if (e.target.value !== 'on') {
       return;
     }

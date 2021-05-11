@@ -7,7 +7,7 @@ type Props = {
   message: string | JSX.Element;
   isOpen: boolean;
   toggle: () => void;
-}
+};
 
 /**
  * A popup that explains why a particular course selection is disabled

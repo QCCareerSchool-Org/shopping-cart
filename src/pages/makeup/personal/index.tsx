@@ -1,18 +1,16 @@
 import React from 'react';
 
-import { Guarantee } from '../Guarantee';
-import { DefaultPromo } from '../default/DefaultPromo';
-import { CourseGroup } from '../../../state/courses';
 import { Form } from '../../../components/Form';
 import { useDateContext } from '../../../hooks/useDateContext';
 import { dateOverride } from '../../../lib/dateOverride';
+import { CourseGroup } from '../../../state/courses';
+import { DefaultPromo } from '../default/DefaultPromo';
+import { Guarantee } from '../Guarantee';
 
 const courseGroups: CourseGroup[] = [
   {
     name: 'Do Your Own Makeup',
-    items: [
-      { code: 'PA', name: 'Personal Makeup Techniques' },
-    ],
+    items: [ { code: 'PA', name: 'Personal Makeup Techniques' } ],
   },
   {
     name: 'Professional Training',
@@ -23,9 +21,7 @@ const courseGroups: CourseGroup[] = [
   },
   {
     name: 'Become a Skincare Consultant',
-    items: [
-      { code: 'SK', name: 'Skincare' },
-    ],
+    items: [ { code: 'SK', name: 'Skincare' } ],
   },
   {
     name: 'Advanced Courses',
@@ -50,11 +46,11 @@ const courseGroups: CourseGroup[] = [
 type Props = {
   currencyCode: string;
   courses: string[];
-}
+};
 
 const Personal: React.FC<Props> = ({ currencyCode }) => {
   const serverDate = useDateContext();
-  const date = dateOverride() || serverDate;
+  const date = dateOverride() ?? serverDate;
 
   return (
     <>

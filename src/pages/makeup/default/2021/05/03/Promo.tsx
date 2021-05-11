@@ -5,13 +5,13 @@ import { usePreloadImage } from '../../../../../../hooks/usePreloadImage';
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../../../../hooks/useStateContext';
 
-import couponButtonSrc from './coupon-btn-skincare60.svg';
 import couponButtonAppliedSrc from './coupon-btn-skincare60-active.svg';
+import couponButtonSrc from './coupon-btn-skincare60.svg';
 
 type Props = {
   date: Date;
   currencyCode: string;
-}
+};
 
 export const Promo20210503: React.FC<Props> = ({ date, currencyCode }) => {
   const screenWidth = useScreenWidthContext();
@@ -48,7 +48,7 @@ export const Promo20210503: React.FC<Props> = ({ date, currencyCode }) => {
     height = 418;
   }
 
-  const buttonClick = () => {
+  const buttonClick = (): void => {
     dispatch({ type: 'REMOVE_COURSE', payload: { courseCode: 'MK', internal: false } });
     dispatch({ type: 'ADD_COURSE', payload: { courseCode: 'MZ', internal: false } });
     dispatch({ type: 'ADD_COURSE', payload: { courseCode: 'SK', internal: false } });

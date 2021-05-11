@@ -51,13 +51,13 @@ export const Promo20210313: React.FC = () => {
       <Modal size="lg" isOpen={popup} toggle={togglePopup}>
         <ModalHeader toggle={togglePopup}>Limited Time Offer</ModalHeader>
         <ModalBody className="text-center">
-        <p>Receive a <strong>FREE Benjamin Moore color fan deck</strong> when you enroll in any course. Plus, get <strong>ANY second course for FREE</strong> (of equal or lesser value)</p>
+          <p>Receive a <strong>FREE Benjamin Moore color fan deck</strong> when you enroll in any course. Plus, get <strong>ANY second course for FREE</strong> (of equal or lesser value)</p>
         </ModalBody>
       </Modal>
     </section>
   );
 
-  function handlePromoClick(event: React.MouseEvent) {
+  function handlePromoClick(event: React.MouseEvent): void {
     event.preventDefault();
     togglePopup();
   }

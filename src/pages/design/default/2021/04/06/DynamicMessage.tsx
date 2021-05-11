@@ -2,7 +2,7 @@ import React from 'react';
 
 type Props = {
   courses: string[];
-}
+};
 
 export const DynamicMessage20210406: React.FC<Props> = ({ courses }) => {
   const numCourses = courses.length;

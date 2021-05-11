@@ -5,13 +5,13 @@ type State<T> = {
   data: T;
   isLoading: boolean;
   isError: boolean;
-}
+};
 
 type Action<T> =
   | { type: 'FETCH_INIT' }
   | { type: 'FETCH_SUCCESS'; payload: T }
   | { type: 'FETCH_FAILURE' }
-  | { type: 'OVERRIDE'; payload: T }
+  | { type: 'OVERRIDE'; payload: T };
 
 function reducer<T>(state: State<T>, action: Action<T>): State<T> {
   switch (action.type) {
@@ -62,7 +62,7 @@ export function useFetchImproved<T>(initialUrl: string, initialData: T): ReturnT
   useEffect(() => {
     const cancelTokenSource = axios.CancelToken.source();
 
-    const fetchData = async () => {
+    const fetchData = async (): Promise<void> => {
       dispatch({ type: 'FETCH_INIT' });
       try {
         const response = await axios.get<T>(url, { cancelToken: cancelTokenSource.token });

@@ -7,7 +7,7 @@ import { HundredOffPromo } from './HundredOffPromo';
 
 type Props = {
   currencyCode: string;
-}
+};
 
 const additionalOptions = {
   discount: {

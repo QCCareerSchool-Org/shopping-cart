@@ -6,7 +6,7 @@ export const EmailAddress: React.FC = () => {
   const { address: { emailAddress }, enrollmentErrors } = useStateContext();
   const dispatch = useDispatchContext();
 
-  const change = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const change = (e: React.ChangeEvent<HTMLInputElement>): void => {
     dispatch({ type: 'SET_EMAIL_ADDRESS', payload: e.target.value });
   };
 

@@ -1,19 +1,19 @@
-import React from 'react';
 import { needsPostal, needsProvince } from '@qccareerschool/helper-functions';
+import React from 'react';
 
-import { Title } from './Title';
-import { FirstName } from './FirstName';
-import { LastName } from './LastName';
-import { CountryCode } from './CountryCode';
-import { ProvinceCode } from './ProvinceCode';
+import { useStateContext } from '../../hooks/useStateContext';
+import { NoShippingAlert } from '../NoShippingAlert';
 import { Address1 } from './Address1';
 import { Address2 } from './Address2';
-import { EmailAddress } from './EmailAddress';
-import { TelephoneNumber } from './TelephoneNumber';
-import { useStateContext } from '../../hooks/useStateContext';
-import { PostalCode } from './PostalCode';
 import { City } from './City';
-import { NoShippingAlert } from '../NoShippingAlert';
+import { CountryCode } from './CountryCode';
+import { EmailAddress } from './EmailAddress';
+import { FirstName } from './FirstName';
+import { LastName } from './LastName';
+import { PostalCode } from './PostalCode';
+import { ProvinceCode } from './ProvinceCode';
+import { TelephoneNumber } from './TelephoneNumber';
+import { Title } from './Title';
 
 export const Address: React.FC = () => {
   const { address: { countryCode } } = useStateContext();

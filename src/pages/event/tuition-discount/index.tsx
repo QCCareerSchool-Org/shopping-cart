@@ -7,7 +7,7 @@ import { TuitionDiscountPromo } from './TuitionDiscountPromo';
 
 type Props = {
   currencyCode: string;
-}
+};
 
 const additionalOptions = {
   discount: {

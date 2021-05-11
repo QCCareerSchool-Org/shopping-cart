@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { GuaranteeModal } from './GuaranteeModal';
 import { usePopup } from '../../hooks/usePopup';
+import { GuaranteeModal } from './GuaranteeModal';
 
 export const Guarantee: React.FC = () => {
   const [ popup, togglePopup ] = usePopup(false);

@@ -65,7 +65,7 @@ export interface PaysafeInstance {
  * @param apiKey the single-use (public) API key to use
  * @param options the options
  */
-export function createInstance(apiKey: string, options: any): Promise<PaysafeInstance> {
+export async function createInstance(apiKey: string, options: any): Promise<PaysafeInstance> {
   return new Promise<PaysafeInstance>((resolve, reject) => {
     paysafe.fields.setup(apiKey, options, (instance: PaysafeInstance, err: Error | null) => {
       if (err) {
@@ -80,7 +80,7 @@ export function createInstance(apiKey: string, options: any): Promise<PaysafeIns
  * Submits the hosted form to Paysafe and returns a single-use token
  * @param instance the Paysafe instance to use
  */
-export function tokenize(instance: PaysafeInstance, options?: TokenizeOptions): Promise<string> {
+export async function tokenize(instance: PaysafeInstance, options?: TokenizeOptions): Promise<string> {
   return new Promise((resolve, reject) => {
     instance.tokenize(options, (tokenInstance, err, result) => {
       if (err) {
@@ -91,7 +91,7 @@ export function tokenize(instance: PaysafeInstance, options?: TokenizeOptions): 
   });
 }
 
-export function threeDSecureStart(apiKey: string, accountId: number, paymentToken: string): Promise<string> {
+export async function threeDSecureStart(apiKey: string, accountId: number, paymentToken: string): Promise<string> {
   return new Promise<string>((resolve, reject) => {
     const data = {
       environment: 'LIVE',

@@ -5,7 +5,7 @@ import { dateOverride } from '../../../lib/dateOverride';
 
 type Props = {
   currencyCode: string;
-}
+};
 
 export const FloralPromo: React.FC<Props> = ({ currencyCode }) => {
   const screenWidth = useScreenWidthContext();

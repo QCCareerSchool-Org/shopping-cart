@@ -1,36 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import { scroller } from 'react-scroll';
 
-import { useGeoLocation } from '../hooks/useGeoLocation';
-import { usePriceUpdater } from '../hooks/usePriceUpdater';
-import { useInitialData } from '../hooks/useInitialData';
 import { useDispatchContext } from '../hooks/useDispatchContext';
+import { useGeoLocation } from '../hooks/useGeoLocation';
 import { useGoogleAnalyticsBehaviour } from '../hooks/useGoogleAnalyticsBehaviour';
+import { useInitialData } from '../hooks/useInitialData';
+import { usePriceUpdater } from '../hooks/usePriceUpdater';
+import { useStateContext } from '../hooks/useStateContext';
+
+import { addEnrollment, chargeEnrollment, EnrollmentPayload, School, updateEnrollment } from '../lib/enrollment';
+import { EnrollmentError } from '../lib/enrollmentError';
 
 import { CourseGroup } from '../state/courses';
 
 import { Address } from './Address';
-import { Summary } from './Summary';
-import { Payment } from './Payment';
+import { CourseSelection } from './CourseSelection';
+import { ErrorModal } from './ErrorModal';
 import { Internal } from './Internal';
 import { Overrides } from './Overrides';
-import { CourseSelection } from './CourseSelection';
-import { addEnrollment, chargeEnrollment, EnrollmentPayload, School, updateEnrollment } from '../lib/enrollment';
+import { Payment } from './Payment';
+import { Summary } from './Summary';
 import { PaysafeCompany } from './Summary/PaymentModal';
-import { EnrollmentError } from '../lib/enrollmentError';
-import { useStateContext } from '../hooks/useStateContext';
-import { ErrorModal } from './ErrorModal';
 
 type EnrollmentData = {
   id: number;
   code: number;
-}
+};
 
 type ErrorModalData = {
   open: boolean;
   title: string;
   message: string | JSX.Element;
-}
+};
 
 type Props = {
   courseGroups: CourseGroup[];
@@ -76,7 +77,7 @@ type Props = {
   promoCodeDefault?: string;
   /** whether to show the dynamic course descriptions */
   showDynamicCourseDescriptions?: boolean;
-}
+};
 
 export const scrollToPosition = (section: 'courses' | 'shipping' | 'plan'): void => {
   const scrollProps = {
@@ -126,7 +127,7 @@ export const Form: React.FC<Props> = props => {
   const [ enrollment, setEnrollment ] = useState<EnrollmentData | null>(null);
   const [ errorModal, setErrorModal ] = useState<ErrorModalData>({ open: false, title: '', message: '' });
 
-  const toggleErrorModal = () => {
+  const toggleErrorModal = (): void => {
     setErrorModal(prevState => ({ ...prevState, open: !prevState.open }));
   };
 

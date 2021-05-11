@@ -7,7 +7,7 @@ import { FloralPromo } from './FloralPromo';
 
 type Props = {
   currencyCode: string;
-}
+};
 
 const additionalOptions = {
   discount: {
@@ -19,9 +19,7 @@ const additionalOptions = {
 
 const courseGroups: CourseGroup[] = [
   {
-    items: [
-      { code: 'FD', name: 'Floral Design' },
-    ],
+    items: [ { code: 'FD', name: 'Floral Design' } ],
   },
 ];
 

@@ -4,7 +4,7 @@ import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 type Props = {
   isOpen: boolean;
   toggle: () => void;
-}
+};
 
 export const GuaranteeModal: React.FC<Props> = ({ isOpen, toggle }) => (
   <Modal isOpen={isOpen} toggle={toggle}>

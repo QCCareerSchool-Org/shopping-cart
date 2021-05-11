@@ -1,4 +1,4 @@
-import { render, fireEvent } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import faker from 'faker';
 import React from 'react';
 
@@ -20,7 +20,7 @@ describe('City', () => {
     (useStateContext as jest.Mock).mockReturnValue({ address, enrollmentErrors });
 
     const { getByLabelText } = render(<City />);
-    expect(getByLabelText(/city/i)).toHaveValue(city);
+    expect(getByLabelText(/city/iu)).toHaveValue(city);
   });
 
   it('should add the is-invalid class to the input when the city is invalid', () => {
@@ -30,7 +30,7 @@ describe('City', () => {
     (useStateContext as jest.Mock).mockReturnValue({ address, enrollmentErrors });
 
     const { getByLabelText } = render(<City />);
-    expect(getByLabelText(/city/i)).toHaveClass('is-invalid');
+    expect(getByLabelText(/city/iu)).toHaveClass('is-invalid');
   });
 
   it('should not add the is-invalid class to the input when the city is not invalid', () => {
@@ -40,7 +40,7 @@ describe('City', () => {
     (useStateContext as jest.Mock).mockReturnValue({ address, enrollmentErrors });
 
     const { getByLabelText } = render(<City />);
-    expect(getByLabelText(/city/i)).not.toHaveClass('is-invalid');
+    expect(getByLabelText(/city/iu)).not.toHaveClass('is-invalid');
   });
 
   it('should not add the is-invalid class to the input when the city validity is undefined', () => {
@@ -50,7 +50,7 @@ describe('City', () => {
     (useStateContext as jest.Mock).mockReturnValue({ address, enrollmentErrors });
 
     const { getByLabelText } = render(<City />);
-    expect(getByLabelText(/city/i)).not.toHaveClass('is-invalid');
+    expect(getByLabelText(/city/iu)).not.toHaveClass('is-invalid');
   });
 
   it('should call dipatch on input change event', () => {
@@ -65,7 +65,7 @@ describe('City', () => {
 
     const newValue = faker.address.city();
     const { getByLabelText } = render(<City />);
-    fireEvent.change(getByLabelText(/city/i), { target: { value: newValue } });
+    fireEvent.change(getByLabelText(/city/iu), { target: { value: newValue } });
     expect(dispatch).toHaveBeenCalledWith({ type: 'SET_CITY', payload: newValue });
   });
 });

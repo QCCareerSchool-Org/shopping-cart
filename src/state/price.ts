@@ -15,7 +15,7 @@ export type PriceQueryOptions = {
   studentDiscount?: boolean;
   promoCode?: string;
   dateOverride?: Date;
-}
+};
 
 export interface PriceQuery {
   courses: string[];
@@ -105,7 +105,7 @@ export interface PriceRow {
 export type PriceState = PriceResult | null;
 
 export type PriceAction =
-  | { type: 'SET_PRICE'; payload: PriceState }
+  | { type: 'SET_PRICE'; payload: PriceState };
 
 export const initialPriceState: PriceState = null;
 
