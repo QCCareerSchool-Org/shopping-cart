@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
@@ -6,7 +7,7 @@ import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthCon
 
 type Props = {
   date: Date;
-}
+};
 
 export const Promo20210329: React.FC<Props> = ({ date }) => {
   const screenWidth = useScreenWidthContext();
@@ -20,15 +21,15 @@ export const Promo20210329: React.FC<Props> = ({ date }) => {
 
   if (date.getTime() >= Date.UTC(2021, 3, 4, 4)) {
     if (desktop) {
-      image = require('./desktop-ends.jpg');
+      image = require('./desktop-ends.jpg').default;
     } else {
-      image = require('./mobile-ends.jpg');
+      image = require('./mobile-ends.jpg').default;
     }
   } else {
     if (desktop) {
-      image = require('./desktop.jpg');
+      image = require('./desktop.jpg').default;
     } else {
-      image = require('./mobile.jpg');
+      image = require('./mobile.jpg').default;
     }
   }
 
@@ -50,13 +51,13 @@ export const Promo20210329: React.FC<Props> = ({ date }) => {
       <Modal size="lg" isOpen={popup} toggle={togglePopup}>
         <ModalHeader toggle={togglePopup}>Easter Offer</ModalHeader>
         <ModalBody className="text-center">
-          <p>Enroll in one of QC’s design courses and receive <strong>Virtual Design</strong> and <strong>any other course</strong> (of equal or lesser value) for FREE!</p>
+          <p>Enroll in one of QC&apos;s design courses and receive <strong>Virtual Design</strong> and <strong>any other course</strong> (of equal or lesser value) for FREE!</p>
         </ModalBody>
       </Modal>
     </section>
   );
 
-  function handlePromoClick(event: React.MouseEvent) {
+  function handlePromoClick(event: React.MouseEvent): void {
     event.preventDefault();
     togglePopup();
   }

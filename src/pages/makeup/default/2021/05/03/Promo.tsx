@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
 
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
@@ -5,15 +6,15 @@ import { usePreloadImage } from '../../../../../../hooks/usePreloadImage';
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../../../../hooks/useStateContext';
 
-import couponButtonSrc from './coupon-btn-skincare60.svg';
 import couponButtonAppliedSrc from './coupon-btn-skincare60-active.svg';
+import couponButtonSrc from './coupon-btn-skincare60.svg';
 
 type Props = {
   date: Date;
   currencyCode: string;
-}
+};
 
-export const Promo20210503: React.FC<Props> = ({ date, currencyCode }) => {
+export const Promo20210503: React.FC<Props> = ({ date }) => {
   const screenWidth = useScreenWidthContext();
   const { price } = useStateContext();
   const dispatch = useDispatchContext();
@@ -28,15 +29,15 @@ export const Promo20210503: React.FC<Props> = ({ date, currencyCode }) => {
 
   if (date.getTime() >= Date.UTC(2021, 4, 12, 16)) { // May 12 at 12:00
     if (desktop) {
-      image = require('./desktop-ends.jpg');
+      image = require('./desktop-ends.jpg').default;
     } else {
-      image = require('./mobile-ends.jpg');
+      image = require('./mobile-ends.jpg').default;
     }
   } else {
     if (desktop) {
-      image = require('./desktop.jpg');
+      image = require('./desktop.jpg').default;
     } else {
-      image = require('./mobile.jpg');
+      image = require('./mobile.jpg').default;
     }
   }
 
@@ -48,7 +49,7 @@ export const Promo20210503: React.FC<Props> = ({ date, currencyCode }) => {
     height = 418;
   }
 
-  const buttonClick = () => {
+  const buttonClick = (): void => {
     dispatch({ type: 'REMOVE_COURSE', payload: { courseCode: 'MK', internal: false } });
     dispatch({ type: 'ADD_COURSE', payload: { courseCode: 'MZ', internal: false } });
     dispatch({ type: 'ADD_COURSE', payload: { courseCode: 'SK', internal: false } });

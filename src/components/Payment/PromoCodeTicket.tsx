@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import { faChevronUp, faTag } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
@@ -16,7 +17,7 @@ type Props = {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   expanded: boolean;
   setExpanded: (value: boolean) => void;
-}
+};
 
 const getEndOfMonth = (): Date => {
   const endOfMonth = new Date();

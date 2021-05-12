@@ -1,6 +1,6 @@
 import faker from 'faker';
 
-import { isMakeup, isDesign, isEvent, isPet, isWellness, isWriting } from '../lib/domains';
+import { isDesign, isEvent, isMakeup, isPet, isWellness, isWriting } from '../lib/domains';
 import { getSite } from './getSite';
 
 jest.mock('../lib/domains');

@@ -1,19 +1,20 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons/faQuestionCircle';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
 
-import { Course } from '../../state/courses';
 import { useDispatchContext } from '../../hooks/useDispatchContext';
-import { useStateContext } from '../../hooks/useStateContext';
 import { usePopup } from '../../hooks/usePopup';
 import { useScreenWidthContext } from '../../hooks/useScreenWidthContext';
+import { useStateContext } from '../../hooks/useStateContext';
+import { Course } from '../../state/courses';
 import { DisabledCourseModal } from './DisabledCourseModal';
 
 type Props = {
   course: Course;
   internal: boolean;
   mouseOver?: () => void;
-}
+};
 
 export const CheckBox: React.FC<Props> = ({ course, internal, mouseOver }) => {
   const { courses } = useStateContext();
@@ -21,7 +22,7 @@ export const CheckBox: React.FC<Props> = ({ course, internal, mouseOver }) => {
   const screenWidth = useScreenWidthContext();
   const [ modal, toggleModal ] = usePopup(false);
 
-  const courseChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const courseChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     if (e.target.checked) {
       dispatch({ type: 'ADD_COURSE', payload: { courseCode: course.code, internal } });
     } else {
@@ -29,7 +30,7 @@ export const CheckBox: React.FC<Props> = ({ course, internal, mouseOver }) => {
     }
   };
 
-  const disabledButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const disabledButtonClick = (): void => {
     toggleModal();
   };
 

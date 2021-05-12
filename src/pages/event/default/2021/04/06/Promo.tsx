@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
@@ -7,7 +8,7 @@ import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthCon
 type Props = {
   date: Date;
   currencyCode: string;
-}
+};
 
 export const Promo20210406: React.FC<Props> = ({ date, currencyCode }) => {
   const screenWidth = useScreenWidthContext();
@@ -21,15 +22,15 @@ export const Promo20210406: React.FC<Props> = ({ date, currencyCode }) => {
 
   if (date.getTime() >= Date.UTC(2021, 3, 14, 16)) {
     if (desktop) {
-      image = currencyCode === 'GBP' ? require('./desktop-ends-uk.jpg') : require('./desktop-ends.jpg');
+      image = currencyCode === 'GBP' ? require('./desktop-ends-uk.jpg').default : require('./desktop-ends.jpg').default;
     } else {
-      image = currencyCode === 'GBP' ? require('./mobile-ends-uk.jpg') : require('./mobile-ends.jpg');
+      image = currencyCode === 'GBP' ? require('./mobile-ends-uk.jpg').default : require('./mobile-ends.jpg').default;
     }
   } else {
     if (desktop) {
-      image = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
+      image = currencyCode === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default;
     } else {
-      image = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
+      image = currencyCode === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
     }
   }
 
@@ -51,7 +52,7 @@ export const Promo20210406: React.FC<Props> = ({ date, currencyCode }) => {
       <Modal size="lg" isOpen={popup} toggle={togglePopup}>
         <ModalHeader toggle={togglePopup}>Special Offer</ModalHeader>
         <ModalBody className="text-center">
-          <p>Enroll in one of QC’s foundation courses&mdash;at our lowest deposit ever&mdash;and receive a specialty course for free (of equal or lesser value).</p>
+          <p>Enroll in one of QC&apos;s foundation courses&mdash;at our lowest deposit ever&mdash;and receive a specialty course for free (of equal or lesser value).</p>
         </ModalBody>
       </Modal>
     </section>

@@ -6,7 +6,7 @@ export const LastName: React.FC = () => {
   const { address: { lastName }, enrollmentErrors } = useStateContext();
   const dispatch = useDispatchContext();
 
-  const change = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const change = (e: React.ChangeEvent<HTMLInputElement>): void => {
     dispatch({ type: 'SET_LAST_NAME', payload: e.target.value });
   };
 

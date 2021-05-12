@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import Big from 'big.js';
 import React from 'react';
 
@@ -8,7 +9,7 @@ type Props = {
   price: PriceResult;
   showBuyOneGetOne?: boolean;
   shippingOptionReversed: boolean;
-}
+};
 
 export const CourseTable: React.FC<Props> = ({ price, showBuyOneGetOne, shippingOptionReversed }) => {
   const screenWidth = useScreenWidthContext();

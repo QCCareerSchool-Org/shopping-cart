@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
@@ -6,7 +7,7 @@ import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthCon
 
 type Props = {
   date: Date;
-}
+};
 
 export const Promo20210313: React.FC<Props> = ({ date }) => {
   const screenWidth = useScreenWidthContext();
@@ -20,15 +21,15 @@ export const Promo20210313: React.FC<Props> = ({ date }) => {
 
   if (date.getTime() >= Date.UTC(2021, 2, 14, 5)) {
     if (desktop) {
-      image = require('./desktop-ends.jpg');
+      image = require('./desktop-ends.jpg').default;
     } else {
-      image = require('./mobile-ends.jpg');
+      image = require('./mobile-ends.jpg').default;
     }
   } else {
     if (desktop) {
-      image = require('./desktop.jpg');
+      image = require('./desktop.jpg').default;
     } else {
-      image = require('./mobile.jpg');
+      image = require('./mobile.jpg').default;
     }
   }
 
@@ -51,7 +52,7 @@ export const Promo20210313: React.FC<Props> = ({ date }) => {
         <ModalHeader toggle={togglePopup}>Limited Time Offer</ModalHeader>
         <ModalBody className="text-center">
           <p>Receive a FREE leather portfolio when you enroll in any course.</p>
-          <p>Plus, when you enroll in one of QC’s foundation courses&mdash;at our lowest deposit ever&mdash;you&apos;ll get a specialty course for free (of equal or lesser value).</p>
+          <p>Plus, when you enroll in one of QC&apos;s foundation courses&mdash;at our lowest deposit ever&mdash;you&apos;ll get a specialty course for free (of equal or lesser value).</p>
         </ModalBody>
       </Modal>
     </section>

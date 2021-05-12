@@ -1,4 +1,5 @@
-import { render, fireEvent } from '@testing-library/react';
+/* eslint-disable @typescript-eslint/no-magic-numbers */
+import { fireEvent, render } from '@testing-library/react';
 import faker from 'faker';
 import React from 'react';
 
@@ -29,7 +30,7 @@ describe('CountryCode', () => {
     (useFetchImproved as jest.Mock).mockReturnValue([ countries, undefined, false ]);
 
     const { getByLabelText } = render(<CountryCode />);
-    expect(getByLabelText(/country/i)).toHaveValue(countryCode);
+    expect(getByLabelText(/country/iu)).toHaveValue(countryCode);
   });
 
   it('should have a select with the correct options when isLoading is true', () => {
@@ -44,7 +45,7 @@ describe('CountryCode', () => {
 
     const { getByLabelText } = render(<CountryCode />);
 
-    const select = getByLabelText(/country/i);
+    const select = getByLabelText(/country/iu);
 
     expect(select.childNodes).toHaveLength(1);
     expect(select.childNodes[0]).toHaveTextContent('---');
@@ -70,7 +71,7 @@ describe('CountryCode', () => {
 
     const { getByLabelText } = render(<CountryCode />);
 
-    const select = getByLabelText(/country/i);
+    const select = getByLabelText(/country/iu);
 
     expect(select.childNodes).toHaveLength(6 + countries.length);
     expect(select.childNodes[0]).toHaveTextContent('Australia');
@@ -98,7 +99,7 @@ describe('CountryCode', () => {
     (useStateContext as jest.Mock).mockReturnValue({ address, enrollmentErrors });
 
     const { getByLabelText } = render(<CountryCode />);
-    expect(getByLabelText(/country/i)).toHaveClass('is-invalid');
+    expect(getByLabelText(/country/iu)).toHaveClass('is-invalid');
   });
 
   it('should not add the is-invalid class to the input when the address is not invalid', () => {
@@ -108,7 +109,7 @@ describe('CountryCode', () => {
     (useStateContext as jest.Mock).mockReturnValue({ address, enrollmentErrors });
 
     const { getByLabelText } = render(<CountryCode />);
-    expect(getByLabelText(/country/i)).not.toHaveClass('is-invalid');
+    expect(getByLabelText(/country/iu)).not.toHaveClass('is-invalid');
   });
 
   it('should not add the is-invalid class to the input when the address validity is undefined', () => {
@@ -118,7 +119,7 @@ describe('CountryCode', () => {
     (useStateContext as jest.Mock).mockReturnValue({ address, enrollmentErrors });
 
     const { getByLabelText } = render(<CountryCode />);
-    expect(getByLabelText(/country/i)).not.toHaveClass('is-invalid');
+    expect(getByLabelText(/country/iu)).not.toHaveClass('is-invalid');
   });
 
   it('should call dipatch with the correct parameters on input change event to a default country', () => {
@@ -139,7 +140,7 @@ describe('CountryCode', () => {
     (useFetchImproved as jest.Mock).mockReturnValue([ countries, undefined, false ]);
 
     const { getByLabelText } = render(<CountryCode />);
-    fireEvent.change(getByLabelText(/country/i), { target: { value: '_CA' } });
+    fireEvent.change(getByLabelText(/country/iu), { target: { value: '_CA' } });
     expect(dispatch).toHaveBeenCalledWith({ type: 'SET_COUNTRY_CODE', payload: { countryCode: 'CA', manual: true } });
   });
 
@@ -163,7 +164,7 @@ describe('CountryCode', () => {
     (useFetchImproved as jest.Mock).mockReturnValue([ countries, undefined, false ]);
 
     const { getByLabelText } = render(<CountryCode />);
-    fireEvent.change(getByLabelText(/country/i), { target: { value: newValue } });
+    fireEvent.change(getByLabelText(/country/iu), { target: { value: newValue } });
     expect(dispatch).toHaveBeenCalledWith({ type: 'SET_COUNTRY_CODE', payload: { countryCode: newValue, manual: true } });
   });
 });

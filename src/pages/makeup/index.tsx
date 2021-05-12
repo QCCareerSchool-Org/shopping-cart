@@ -6,30 +6,28 @@ import { LiveChat } from '../../components/LiveChat';
 import { useSaveablePaths } from '../../hooks/useSaveablePaths';
 import { useStateContext } from '../../hooks/useStateContext';
 
+import Default from './default'; // don't lazily load the default cart to reduce CLS for most visitors
 import { Footer } from './Footer';
 import { Header } from './Header';
-
-// don't lazily load the default cart to reduce CLS for most visitors
-import Default from './default';
 
 import './style.scss';
 
 // lazily load the other carts because they're used less often
-const Student = React.lazy(() => import('./student'));
-const HundredOff = React.lazy(() => import('./100-off'));
-const LimitedTimeOffer = React.lazy(() => import('./limited-time-offer'));
-const DeluxeKit = React.lazy(() => import('./deluxe-kit'));
-const Personal = React.lazy(() => import('./personal'));
+const Student = React.lazy(async () => import('./student'));
+const HundredOff = React.lazy(async () => import('./100-off'));
+const LimitedTimeOffer = React.lazy(async () => import('./limited-time-offer'));
+const DeluxeKit = React.lazy(async () => import('./deluxe-kit'));
+const Personal = React.lazy(async () => import('./personal'));
 
 const Makeup: React.FC = () => {
   const { courses, address, price } = useStateContext();
   const currencyCode = price?.currency.code ?? 'USD';
 
   useSaveablePaths([
-    /^\/limited-time-offer(\/.*)?$/,
-    /^\/deluxe-kit(\/.*)?$/,
-    /^\/100-off(\/.*)?$/,
-    /^\/personal(\/.*)?$/,
+    /^\/limited-time-offer(\/.*)?$/u,
+    /^\/deluxe-kit(\/.*)?$/u,
+    /^\/100-off(\/.*)?$/u,
+    /^\/personal(\/.*)?$/u,
   ]);
 
   return (

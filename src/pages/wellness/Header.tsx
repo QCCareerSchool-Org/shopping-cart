@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import { faPhone } from '@fortawesome/free-solid-svg-icons/faPhone';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { telephoneNumber } from '@qccareerschool/helper-functions';
@@ -7,14 +8,14 @@ import { useScreenWidthContext } from '../../hooks/useScreenWidthContext';
 
 type Props = {
   countryCode: string;
-}
+};
 
 export const Header: React.FC<Props> = ({ countryCode }) => {
   const screenWidth = useScreenWidthContext();
   const tel = telephoneNumber(countryCode);
 
   const desktop = screenWidth >= 576;
-  const logo =  desktop ? require('./logo-lg.svg') : require('./logo-sm.svg');
+  const logo = desktop ? require('./logo-lg.svg').default : require('./logo-sm.svg').default;
   const width = desktop ? 212 : 34;
   const height = 32;
 

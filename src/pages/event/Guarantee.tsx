@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { GuaranteeModal } from './GuaranteeModal';
 import { usePopup } from '../../hooks/usePopup';
+import { GuaranteeModal } from './GuaranteeModal';
 
 export const Guarantee: React.FC = () => {
   const [ popup, togglePopup ] = usePopup(false);
@@ -9,7 +9,7 @@ export const Guarantee: React.FC = () => {
   return (
     <div className="row d-flex align-items-center">
       <div className="col-12 col-md-6 text-center text-md-right mb-3 mb-md-0">
-        <button type="button" className="btn btn-link p-0 btn-no-hover-shadow" onClick={togglePopup}><img src={require('../../21-day.svg')} width="97" height="100" className="img-fluid" alt="21-Day Money-Back Guarantee" /></button>
+        <button type="button" className="btn btn-link p-0 btn-no-hover-shadow" onClick={togglePopup}><img src={require('../../21-day.svg').default} width="97" height="100" className="img-fluid" alt="21-Day Money-Back Guarantee" /></button>
       </div>
       <div className="col-12 col-md-6 text-center text-md-left">
         <h5>21-Day Money-Back Guarantee</h5>

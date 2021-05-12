@@ -4,7 +4,7 @@ import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 type Props = {
   isOpen: boolean;
   toggle: () => void;
-}
+};
 
 export const GuaranteeModal: React.FC<Props> = ({ isOpen, toggle }) => (
   <Modal isOpen={isOpen} toggle={toggle}>
@@ -12,7 +12,7 @@ export const GuaranteeModal: React.FC<Props> = ({ isOpen, toggle }) => (
     <ModalBody>
       <div className="row">
         <div className="col-4 d-none d-sm-block">
-          <img className="img-fluid w-100" src={require('../../21-day.svg')} alt="21-Day Money-Back Guarantee" />
+          <img className="img-fluid w-100" src={require('../../21-day.svg').default} alt="21-Day Money-Back Guarantee" />
         </div>
         <div className="col-12 col-sm-8">
           <p>We stand behind our quality courses. That&apos;s why we offer a full money-back guarantee. From the date you enroll, you have 21 days to review the course materials.</p>

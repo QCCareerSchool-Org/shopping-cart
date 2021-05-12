@@ -1,7 +1,7 @@
-import React from 'react';
 import { useReducerWithMiddleware } from '@qccareerschool/hooks';
+import React from 'react';
 
-import { dispatchMiddleware, reducer, initialState, State, Action } from '../state';
+import { Action, dispatchMiddleware, initialState, reducer, State } from '../state';
 
 export type Callback<T> = (state: State) => T;
 export type Selector<T> = (callback: Callback<T>) => T;
@@ -17,7 +17,7 @@ export const StateProvider: React.FC = ({ children }) => {
   return (
     <StateContext.Provider value={state}>
       <DispatchContext.Provider value={dispatch}>
-          {children}
+        {children}
       </DispatchContext.Provider>
     </StateContext.Provider>
   );

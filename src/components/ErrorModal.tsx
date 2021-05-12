@@ -6,7 +6,7 @@ type Props = {
   toggle: () => void;
   title: string;
   message?: string | JSX.Element;
-}
+};
 
 /**
  * A popup that explains the latest enrollment error

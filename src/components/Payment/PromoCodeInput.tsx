@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import { faTag } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
@@ -14,12 +15,12 @@ export type Promo = {
   code: string;
   student: 'ALLOWED' | 'DENIED' | 'ONLY';
   description: React.ReactNode;
-  desktopImageSrc: any;
-  mobileImageSrc: any;
+  desktopImageSrc: string;
+  mobileImageSrc: string;
   altText: string;
   startDate?: Date;
   endDate?: Date;
-}
+};
 
 type Props = {
   promos: Promo[];
@@ -30,16 +31,16 @@ export const PromoCodeInput: React.FC<Props> = ({ promos }) => {
   const { price, meta: { promoCode, promoCodeInputValue } } = useStateContext();
   const dispatch = useDispatchContext();
 
-  const change = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const change = (e: React.ChangeEvent<HTMLInputElement>): void => {
     dispatch({ type: 'SET_PROMO_CODE_INPUT_VALUE', payload: e.target.value });
   };
 
-  const submit = (e: React.FormEvent) => {
+  const submit = (e: React.FormEvent): void => {
     e.preventDefault();
     dispatch({ type: 'SET_PROMO_CODE', payload: promoCodeInputValue });
   };
 
-  const popupApply = (code: string) => {
+  const popupApply = (code: string): void => {
     dispatch({ type: 'SET_PROMO_CODE', payload: code });
   };
 

@@ -8,7 +8,8 @@ import { PriceQuery, PriceResult } from '../state/price';
 import { useDispatchContext } from './useDispatchContext';
 import { useStateContext } from './useStateContext';
 
-export const usePriceUpdater = (school: School, promoCodeDefault?: string, allowOverrides?: boolean, additionalOptions?: any) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
+export const usePriceUpdater = (school: School, promoCodeDefault?: string, allowOverrides?: boolean, additionalOptions?: any): void => {
   const { courses, address, payment, overrides, meta } = useStateContext();
   const dispatch = useDispatchContext();
 
@@ -16,7 +17,7 @@ export const usePriceUpdater = (school: School, promoCodeDefault?: string, allow
   useEffect(() => {
     const cancelTokenSource = axios.CancelToken.source();
 
-    const preFetchData = async () => {
+    const preFetchData = async (): Promise<void> => {
       if (!allowOverrides) {
         return;
       }
@@ -34,15 +35,16 @@ export const usePriceUpdater = (school: School, promoCodeDefault?: string, allow
         },
       };
       const date = dateOverride();
-      if (process.env.REACT_APP_PRICES_ENDPOINT && date)  {
+      if (process.env.REACT_APP_PRICES_ENDPOINT && date) {
         const options = params.options;
         if (options) {
           options.dateOverride = date;
         }
       }
       const url = process.env.REACT_APP_PRICES_ENDPOINT ?? 'https://api.qccareerschool.com/prices';
+      const apiVersion = 2;
       const response = await axios.get<PriceResult>(url, {
-        headers: { 'X-API-Version': 2 },
+        headers: { 'X-API-Version': apiVersion },
         params,
         paramsSerializer: qs.stringify,
         cancelToken: cancelTokenSource.token,
@@ -72,7 +74,7 @@ export const usePriceUpdater = (school: School, promoCodeDefault?: string, allow
   useEffect(() => {
     const cancelTokenSource = axios.CancelToken.source();
 
-    const fetchData = async () => {
+    const fetchData = async (): Promise<void> => {
       const params: PriceQuery = {
         courses: courses.selected,
         countryCode: address.countryCode,
@@ -87,7 +89,7 @@ export const usePriceUpdater = (school: School, promoCodeDefault?: string, allow
         },
       };
       const date = dateOverride();
-      if (process.env.REACT_APP_PRICES_ENDPOINT && date)  {
+      if (process.env.REACT_APP_PRICES_ENDPOINT && date) {
         const options = params.options;
         if (options) {
           options.dateOverride = date;
@@ -98,17 +100,18 @@ export const usePriceUpdater = (school: School, promoCodeDefault?: string, allow
         params.options = {
           ...params.options,
           installmentsOverride: Math.max(1, overrides.installments),
-          depositOverrides: overrides.courses.reduce((prev, cur) => {
+          depositOverrides: overrides.courses.reduce<{ [key: string]: number }>((prev, cur) => {
             prev[cur.code] = cur.value;
             return prev;
-          }, {} as any),
+          }, {}),
         };
       }
 
       try {
         const url = process.env.REACT_APP_PRICES_ENDPOINT ?? 'https://api.qccareerschool.com/prices';
+        const apiVersion = 2;
         const response = await axios.get<PriceResult>(url, {
-          headers: { 'X-API-Version': 2 },
+          headers: { 'X-API-Version': apiVersion },
           params,
           paramsSerializer: qs.stringify,
           cancelToken: cancelTokenSource.token,

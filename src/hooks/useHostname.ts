@@ -7,7 +7,7 @@ export const useHostname = (): string => {
   const [ hostname, setHostname ] = useState(window.location.hostname);
 
   useEffect(() => {
-    const eventListener = () => {
+    const eventListener = (): void => {
       setHostname(window.location.hostname);
     };
     window.addEventListener('popstate', eventListener);

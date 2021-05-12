@@ -1,9 +1,9 @@
-import { telephoneNumber, gbpCountry } from '@qccareerschool/helper-functions';
+import { gbpCountry, telephoneNumber } from '@qccareerschool/helper-functions';
 import React from 'react';
 
 type Props = {
   countryCode: string;
-}
+};
 
 export const Footer: React.FC<Props> = ({ countryCode }) => {
   const tel = telephoneNumber(countryCode);

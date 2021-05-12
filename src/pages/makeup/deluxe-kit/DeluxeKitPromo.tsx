@@ -33,7 +33,7 @@ export const DeluxeKitPromo: React.FC = () => {
     </section>
   );
 
-  function handlePromoClick(event: React.MouseEvent) {
+  function handlePromoClick(event: React.MouseEvent): void {
     event.preventDefault();
     togglePopup();
   }

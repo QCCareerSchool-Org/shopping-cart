@@ -7,11 +7,11 @@ export const Internal: React.FC = () => {
   const { meta: { student, studentDiscount } } = useStateContext();
   const dispatch = useDispatchContext();
 
-  const studentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const studentChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     dispatch({ type: 'SET_STUDENT', payload: e.target.checked });
   };
 
-  const studentDiscountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const studentDiscountChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     dispatch({ type: 'SET_STUDENT_DISCOUNT', payload: e.target.checked });
   };
 

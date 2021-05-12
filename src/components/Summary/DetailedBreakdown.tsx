@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import React, { Fragment } from 'react';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
@@ -10,7 +11,7 @@ type Props = {
   toggle: () => void;
   payment: PaymentState;
   price: PriceResult;
-}
+};
 
 export const DetailedBreakdown: React.FC<Props> = ({ isOpen, toggle, payment, price }) => (
   <Modal isOpen={isOpen} toggle={toggle}>

@@ -7,7 +7,7 @@ import mobile from './mobile.jpg';
 
 type Props = {
   currencyCode: string;
-}
+};
 
 export const TuitionDiscountPromo: React.FC<Props> = ({ currencyCode }) => {
   const desktopImage = currencyCode === 'GBP' ? desktopGB : desktop;

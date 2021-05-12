@@ -4,7 +4,7 @@ import { useStateContext } from '../hooks/useStateContext';
 export const NoShippingAlert: React.FC = () => {
   const { price } = useStateContext();
 
-  if (price && price.noShippingMessage) {
+  if (price?.noShippingMessage) {
     return (
       <div className="alert alert-info">
         <h6>Please Note</h6>

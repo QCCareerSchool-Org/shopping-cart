@@ -6,7 +6,7 @@ export const Address2: React.FC = () => {
   const { address: { address2 }, enrollmentErrors } = useStateContext();
   const dispatch = useDispatchContext();
 
-  const change = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const change = (e: React.ChangeEvent<HTMLInputElement>): void => {
     dispatch({ type: 'SET_ADDRESS2', payload: e.target.value });
   };
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
 
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
@@ -5,13 +6,13 @@ import { usePreloadImage } from '../../../../../../hooks/usePreloadImage';
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../../../../hooks/useStateContext';
 
-import couponButtonSrc from './coupon-btn-foundit.svg';
 import couponButtonAppliedSrc from './coupon-btn-foundit-over.svg';
+import couponButtonSrc from './coupon-btn-foundit.svg';
 
 type Props = {
   date: Date;
   currencyCode: string;
-}
+};
 
 export const Promo20210329: React.FC<Props> = ({ date, currencyCode }) => {
   const screenWidth = useScreenWidthContext();
@@ -28,15 +29,15 @@ export const Promo20210329: React.FC<Props> = ({ date, currencyCode }) => {
 
   if (date.getTime() >= Date.UTC(2021, 3, 4, 16)) {
     if (desktop) {
-      image = currencyCode === 'GBP' ? require('./desktop-ends-uk.jpg') : require('./desktop-ends.jpg');
+      image = currencyCode === 'GBP' ? require('./desktop-ends-uk.jpg').default : require('./desktop-ends.jpg').default;
     } else {
-      image = currencyCode === 'GBP' ? require('./mobile-ends-uk.jpg') : require('./mobile-ends.jpg');
+      image = currencyCode === 'GBP' ? require('./mobile-ends-uk.jpg').default : require('./mobile-ends.jpg').default;
     }
   } else {
     if (desktop) {
-      image = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
+      image = currencyCode === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default;
     } else {
-      image = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
+      image = currencyCode === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
     }
   }
 
@@ -48,7 +49,7 @@ export const Promo20210329: React.FC<Props> = ({ date, currencyCode }) => {
     height = 418;
   }
 
-  const buttonClick = () => {
+  const buttonClick = (): void => {
     dispatch({ type: 'ADD_COURSE', payload: { courseCode: 'MZ', internal: false } });
     dispatch({ type: 'ADD_COURSE', payload: { courseCode: 'VM', internal: false } });
     dispatch({ type: 'SET_PROMO_CODE', payload: 'FOUNDIT' });

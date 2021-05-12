@@ -9,14 +9,14 @@ export type Course = {
 export type CourseGroup = {
   name?: string;
   items: Course[];
-}
+};
 
 export type CoursesState = {
   courseGroups: CourseGroup[];
   selected: string[];
   disabled: string[];
   hidden: string[];
-}
+};
 
 export type CoursesAction =
   | { type: 'CLEAR_COURSES'; payload: { internal: boolean } }
@@ -65,7 +65,7 @@ export function coursesReducer(state: CoursesState, action: CoursesAction): Cour
         // remove the course
         let selected = state.selected.filter(c => c !== courseCode);
         // also remove MS if I2 is being removed
-        if (! action.payload.internal && !selected.includes('I2')) {
+        if (!action.payload.internal && !selected.includes('I2')) {
           selected = selected.filter(c => c !== 'MS');
         }
         return {
@@ -87,14 +87,14 @@ export function coursesReducer(state: CoursesState, action: CoursesAction): Cour
   }
 }
 
-function convert(course: string) {
+function convert(course: string): string {
   if (course.toUpperCase() === 'MM') {
     return 'MZ';
   } else if (course.toUpperCase() === 'MA') {
     return 'MK';
-  } else {
-    return course.toUpperCase();
   }
+  return course.toUpperCase();
+
 }
 
 /**

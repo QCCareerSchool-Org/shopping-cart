@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
 
 import { Form } from '../../../components/Form';
@@ -7,7 +8,7 @@ import { FloralPromo } from './FloralPromo';
 
 type Props = {
   currencyCode: string;
-}
+};
 
 const additionalOptions = {
   discount: {
@@ -19,9 +20,7 @@ const additionalOptions = {
 
 const courseGroups: CourseGroup[] = [
   {
-    items: [
-      { code: 'FD', name: 'Floral Design' },
-    ],
+    items: [ { code: 'FD', name: 'Floral Design' } ],
   },
 ];
 

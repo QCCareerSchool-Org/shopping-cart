@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
 
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
@@ -5,7 +6,7 @@ import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthCon
 type Props = {
   date: Date;
   currencyCode: string;
-}
+};
 
 export const Promo20210302: React.FC<Props> = ({ date, currencyCode }) => {
   const screenWidth = useScreenWidthContext();
@@ -18,15 +19,15 @@ export const Promo20210302: React.FC<Props> = ({ date, currencyCode }) => {
 
   if (date.getTime() >= Date.UTC(2021, 3, 28, 16)) {
     if (desktop) {
-      image = currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg');
+      image = currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg').default : require('./desktop-ends.jpg').default;
     } else {
-      image = currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
+      image = currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg').default : require('./mobile-ends.jpg').default;
     }
   } else {
     if (desktop) {
-      image = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
+      image = currencyCode === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default;
     } else {
-      image = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
+      image = currencyCode === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
     }
   }
 

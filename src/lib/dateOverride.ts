@@ -1,9 +1,9 @@
 import qs from 'qs';
 
 const internalDomains = [
-  /^(?:.+\.)*localhost$/,
-  /^(?:.+\.)*enrolltest.qccareerschool.com$/,
-  /^(?:.+\.)*vercel.app$/,
+  /^(?:.+\.)*localhost$/u,
+  /^(?:.+\.)*enrolltest.qccareerschool.com$/u,
+  /^(?:.+\.)*vercel.app$/u,
 ];
 
 export const dateOverride = (): Date | null => {

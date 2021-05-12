@@ -1,9 +1,9 @@
-export type Province = { code: string; name: string }
+export type Province = { code: string; name: string };
 
 export type ProvincesState = {
   provinces: Province[];
   error: Error | null;
-}
+};
 
 export type ProvincesAction =
   | { type: 'SET_PROVINCES'; payload: { provinces: Province[] } }

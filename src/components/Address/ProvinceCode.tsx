@@ -1,5 +1,5 @@
-import React from 'react';
 import { provinceState } from '@qccareerschool/helper-functions';
+import React from 'react';
 
 import { useDispatchContext } from '../../hooks/useDispatchContext';
 import { useStateContext } from '../../hooks/useStateContext';
@@ -9,7 +9,7 @@ export const ProvinceCode: React.FC = () => {
   const { provinces: { provinces }, address: { countryCode, provinceCode }, enrollmentErrors } = useStateContext();
   const dispatch = useDispatchContext();
 
-  const change = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const change = (e: React.ChangeEvent<HTMLSelectElement>): void => {
     dispatch({ type: 'SET_PROVINCE_CODE', payload: { provinceCode: e.target.value || null, manual: true } });
   };
 

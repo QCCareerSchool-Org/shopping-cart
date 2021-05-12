@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
 
 import { useDispatchContext } from '../../hooks/useDispatchContext';
@@ -7,13 +8,13 @@ import { School } from '../../lib/enrollment';
 type Props = {
   school: School;
   title?: string;
-}
+};
 
 export const Shipping: React.FC<Props> = ({ school }) => {
   const { payment: { noShipping }, price } = useStateContext();
   const dispatch = useDispatchContext();
 
-  const shippingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const shippingChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     dispatch({ type: 'SET_NO_SHIPPING', payload: !e.target.checked });
   };
 

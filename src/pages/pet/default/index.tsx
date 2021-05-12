@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
 
 import { Form } from '../../../components/Form';
@@ -9,7 +10,7 @@ import { DefaultPromo } from './DefaultPromo';
 
 type Props = {
   currencyCode: string;
-}
+};
 
 const additionalOptionsDiscount = {
   discount: {

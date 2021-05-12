@@ -1,13 +1,14 @@
-import React from 'react';
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import Big from 'big.js';
+import React from 'react';
+import { Card, CardBody } from 'reactstrap';
 
 import { useStateContext } from '../../hooks/useStateContext';
 import { PriceResult } from '../../state/price';
-import { Card, CardBody } from 'reactstrap';
 
 type Props = {
   shippingOptionReversed: boolean;
-}
+};
 
 export const PlanResult: React.FC<Props> = ({ shippingOptionReversed }) => {
   const { payment, price } = useStateContext();

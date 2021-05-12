@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare const paysafe: any;
 
 if (typeof paysafe === 'undefined') {
@@ -8,7 +9,7 @@ if (typeof paysafe === 'undefined') {
   }
 }
 
-type PaysafeFieldsCallback = (eventInstance: any, event: any) => void;
+type PaysafeFieldsCallback = (eventInstance: unknown, event: unknown) => void;
 type PaysafeEvents = 'Focus' | 'Blur' | 'Valid' | 'Invalid' | 'FieldValueChange' | 'InvalidCharacter';
 
 interface PaysafeThreeDSOptions {
@@ -52,7 +53,7 @@ export interface TokenizeOptions {
 }
 
 export interface PaysafeInstance {
-  tokenize: (options: TokenizeOptions | undefined, callback: (tokenInstance: any, err: any, result: { token: string }) => void) => void;
+  tokenize: (options: TokenizeOptions | undefined, callback: (tokenInstance: unknown, err: unknown, result: { token: string }) => void) => void;
   fields: (selector: string) => {
     valid: (callback: PaysafeFieldsCallback) => void;
     invalid: (callback: PaysafeFieldsCallback) => void;
@@ -65,7 +66,7 @@ export interface PaysafeInstance {
  * @param apiKey the single-use (public) API key to use
  * @param options the options
  */
-export function createInstance(apiKey: string, options: any): Promise<PaysafeInstance> {
+export async function createInstance(apiKey: string, options: unknown): Promise<PaysafeInstance> {
   return new Promise<PaysafeInstance>((resolve, reject) => {
     paysafe.fields.setup(apiKey, options, (instance: PaysafeInstance, err: Error | null) => {
       if (err) {
@@ -80,7 +81,7 @@ export function createInstance(apiKey: string, options: any): Promise<PaysafeIns
  * Submits the hosted form to Paysafe and returns a single-use token
  * @param instance the Paysafe instance to use
  */
-export function tokenize(instance: PaysafeInstance, options?: TokenizeOptions): Promise<string> {
+export async function tokenize(instance: PaysafeInstance, options?: TokenizeOptions): Promise<string> {
   return new Promise((resolve, reject) => {
     instance.tokenize(options, (tokenInstance, err, result) => {
       if (err) {
@@ -91,7 +92,7 @@ export function tokenize(instance: PaysafeInstance, options?: TokenizeOptions): 
   });
 }
 
-export function threeDSecureStart(apiKey: string, accountId: number, paymentToken: string): Promise<string> {
+export async function threeDSecureStart(apiKey: string, accountId: number, paymentToken: string): Promise<string> {
   return new Promise<string>((resolve, reject) => {
     const data = {
       environment: 'LIVE',
@@ -100,7 +101,7 @@ export function threeDSecureStart(apiKey: string, accountId: number, paymentToke
         paymentToken,
       },
     };
-    paysafe.threedsecure.start(apiKey, data, (deviceFingerprintingId: string, err: any) => {
+    paysafe.threedsecure.start(apiKey, data, (deviceFingerprintingId: string, err: unknown) => {
       if (err) {
         return reject(err);
       }

@@ -16,7 +16,7 @@ export type AddressState = {
   provinces: Province[];
 };
 
-export type Province = { code: string; name: string }
+export type Province = { code: string; name: string };
 
 export type AddressAction =
   | { type: 'SET_COUNTRY_CODE_AND_PROVINCES'; payload: { countryCode: string; provinces: Province[]; provinceCode?: string; manual: boolean } }

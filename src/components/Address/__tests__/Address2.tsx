@@ -1,4 +1,4 @@
-import { render, fireEvent } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import faker from 'faker';
 import React from 'react';
 
@@ -20,7 +20,7 @@ describe('Address2', () => {
     (useStateContext as jest.Mock).mockReturnValue({ address, enrollmentErrors });
 
     const { getByLabelText } = render(<Address2 />);
-    expect(getByLabelText(/address line 2/i)).toHaveValue(address2);
+    expect(getByLabelText(/address line 2/iu)).toHaveValue(address2);
   });
 
   it('should add the is-invalid class to the input when the address is invalid', () => {
@@ -30,7 +30,7 @@ describe('Address2', () => {
     (useStateContext as jest.Mock).mockReturnValue({ address, enrollmentErrors });
 
     const { getByLabelText } = render(<Address2 />);
-    expect(getByLabelText(/address line 2/i)).toHaveClass('is-invalid');
+    expect(getByLabelText(/address line 2/iu)).toHaveClass('is-invalid');
   });
 
   it('should not add the is-invalid class to the input when the address is not invalid', () => {
@@ -40,7 +40,7 @@ describe('Address2', () => {
     (useStateContext as jest.Mock).mockReturnValue({ address, enrollmentErrors });
 
     const { getByLabelText } = render(<Address2 />);
-    expect(getByLabelText(/address line 2/i)).not.toHaveClass('is-invalid');
+    expect(getByLabelText(/address line 2/iu)).not.toHaveClass('is-invalid');
   });
 
   it('should not add the is-invalid class to the input when the address validity is undefined', () => {
@@ -50,7 +50,7 @@ describe('Address2', () => {
     (useStateContext as jest.Mock).mockReturnValue({ address, enrollmentErrors });
 
     const { getByLabelText } = render(<Address2 />);
-    expect(getByLabelText(/address line 2/i)).not.toHaveClass('is-invalid');
+    expect(getByLabelText(/address line 2/iu)).not.toHaveClass('is-invalid');
   });
 
   it('should call dipatch on input change event', () => {
@@ -65,7 +65,7 @@ describe('Address2', () => {
 
     const newValue = faker.address.secondaryAddress();
     const { getByLabelText } = render(<Address2 />);
-    fireEvent.change(getByLabelText(/address line 2/i), { target: { value: newValue } });
+    fireEvent.change(getByLabelText(/address line 2/iu), { target: { value: newValue } });
     expect(dispatch).toHaveBeenCalledWith({ type: 'SET_ADDRESS2', payload: newValue });
   });
 });

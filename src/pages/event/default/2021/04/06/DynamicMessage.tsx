@@ -2,7 +2,7 @@ import React from 'react';
 
 type Props = {
   courses: string[];
-}
+};
 
 const eventFoundationCourses = [ 'EP', 'CP', 'CE', 'WP', 'FD' ];
 const eventSpecialtyCourses = [ 'ED', 'EB', 'LW', 'DW', 'FL', 'PE', 'TT', 'TG', 'VE' ];

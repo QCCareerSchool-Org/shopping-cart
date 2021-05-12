@@ -12,7 +12,7 @@ type Props = {
   courseOverride: boolean;
   shippingOptionReversed: boolean;
   showDynamicCourseDescriptions: boolean;
-}
+};
 
 export const CourseSelection: React.FC<Props> = ({ internal, coursesSubtitle, dynamicCourseMessages, courseOverride, shippingOptionReversed, showDynamicCourseDescriptions }) => {
   const { courses, price, enrollmentErrors } = useStateContext();
@@ -25,7 +25,7 @@ export const CourseSelection: React.FC<Props> = ({ internal, coursesSubtitle, dy
           ? (
             <>
               <h2 className="h1">Choose Your Courses</h2>
-              {coursesSubtitle && coursesSubtitle()}
+              {coursesSubtitle?.()}
               <div className="row">
                 <div className="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-0">
                   {enrollmentErrors.courses && (
@@ -40,7 +40,7 @@ export const CourseSelection: React.FC<Props> = ({ internal, coursesSubtitle, dy
                       {g.items.filter(c => !courses.hidden.includes(c.code)).map(c => <CheckBox key={c.code} course={c} internal={internal} mouseOver={() => { setCourseCode(c.code); }} />)}
                     </React.Fragment>
                   ))}
-                  {dynamicCourseMessages && dynamicCourseMessages.map((DynamicCourseMessage, i) => (
+                  {dynamicCourseMessages?.map((DynamicCourseMessage, i) => (
                     <DynamicCourseMessage key={i} />
                   ))}
                 </div>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
@@ -21,15 +22,15 @@ export const Promo20210313: React.FC = () => {
 
   if (date.getTime() >= Date.UTC(2021, 2, 14, 5)) {
     if (desktop) {
-      image = require('./desktop-ends.jpg');
+      image = require('./desktop-ends.jpg').default;
     } else {
-      image = require('./mobile-ends.jpg');
+      image = require('./mobile-ends.jpg').default;
     }
   } else {
     if (desktop) {
-      image = require('./desktop.jpg');
+      image = require('./desktop.jpg').default;
     } else {
-      image = require('./mobile.jpg');
+      image = require('./mobile.jpg').default;
     }
   }
 
@@ -51,13 +52,13 @@ export const Promo20210313: React.FC = () => {
       <Modal size="lg" isOpen={popup} toggle={togglePopup}>
         <ModalHeader toggle={togglePopup}>Limited Time Offer</ModalHeader>
         <ModalBody className="text-center">
-        <p>Receive a <strong>FREE Benjamin Moore color fan deck</strong> when you enroll in any course. Plus, get <strong>ANY second course for FREE</strong> (of equal or lesser value)</p>
+          <p>Receive a <strong>FREE Benjamin Moore color fan deck</strong> when you enroll in any course. Plus, get <strong>ANY second course for FREE</strong> (of equal or lesser value)</p>
         </ModalBody>
       </Modal>
     </section>
   );
 
-  function handlePromoClick(event: React.MouseEvent) {
+  function handlePromoClick(event: React.MouseEvent): void {
     event.preventDefault();
     togglePopup();
   }

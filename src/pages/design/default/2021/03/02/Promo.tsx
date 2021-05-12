@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
@@ -8,7 +9,7 @@ import { dateOverride } from '../../../../../../lib/dateOverride';
 
 type Props = {
   currencyCode: string;
-}
+};
 
 export const Promo20210302: React.FC<Props> = ({ currencyCode }) => {
   const screenWidth = useScreenWidthContext();
@@ -25,15 +26,15 @@ export const Promo20210302: React.FC<Props> = ({ currencyCode }) => {
 
   if (date.getTime() >= Date.UTC(2021, 2, 10, 17)) {
     if (desktop) {
-      image = require('./desktop-ends.jpg');
+      image = require('./desktop-ends.jpg').default;
     } else {
-      image = require('./mobile-ends.jpg');
+      image = require('./mobile-ends.jpg').default;
     }
   } else {
     if (desktop) {
-      image = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
+      image = currencyCode === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default;
     } else {
-      image = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
+      image = currencyCode === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
     }
   }
 
@@ -55,13 +56,13 @@ export const Promo20210302: React.FC<Props> = ({ currencyCode }) => {
       <Modal size="lg" isOpen={popup} toggle={togglePopup}>
         <ModalHeader toggle={togglePopup}>Special Offer</ModalHeader>
         <ModalBody className="text-center">
-        <p>Enroll in one of QC’s design courses and receive ANY second course for free!</p>
+          <p>Enroll in one of QC&apos;s design courses and receive ANY second course for free!</p>
         </ModalBody>
       </Modal>
     </section>
   );
 
-  function handlePromoClick(event: React.MouseEvent) {
+  function handlePromoClick(event: React.MouseEvent): void {
     event.preventDefault();
     togglePopup();
   }

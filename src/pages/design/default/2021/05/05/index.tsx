@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
@@ -7,7 +8,7 @@ import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthCon
 type Props = {
   date: Date;
   currencyCode: string;
-}
+};
 
 export const Promo20210505: React.FC<Props> = ({ date, currencyCode }) => {
   const screenWidth = useScreenWidthContext();
@@ -21,15 +22,15 @@ export const Promo20210505: React.FC<Props> = ({ date, currencyCode }) => {
 
   if (date.getTime() >= Date.UTC(2021, 4, 9, 4)) { // May 9 at 00:00
     if (desktop) {
-      image = currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg');
+      image = currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg').default : require('./desktop-ends.jpg').default;
     } else {
-      image = currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
+      image = currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg').default : require('./mobile-ends.jpg').default;
     }
   } else {
     if (desktop) {
-      image = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
+      image = currencyCode === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default;
     } else {
-      image = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
+      image = currencyCode === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
     }
   }
 
@@ -52,13 +53,13 @@ export const Promo20210505: React.FC<Props> = ({ date, currencyCode }) => {
         <ModalHeader toggle={togglePopup}>Special Offer</ModalHeader>
         <ModalBody className="text-center">
           <p>Celebrate Mother&apos;s Day! Receive {currencyCode === 'GBP' ? '£50' : '$50'} off your tuition when you enroll.</p>
-          <p>Plus, enroll in one of QC’s design courses and receive your second course (of equal or lesser value) for free.</p>
+          <p>Plus, enroll in one of QC&apos;s design courses and receive your second course (of equal or lesser value) for free.</p>
         </ModalBody>
       </Modal>
     </section>
   );
 
-  function handlePromoClick(event: React.MouseEvent) {
+  function handlePromoClick(event: React.MouseEvent): void {
     event.preventDefault();
     togglePopup();
   }

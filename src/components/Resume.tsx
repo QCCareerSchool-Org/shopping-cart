@@ -1,6 +1,6 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
 import qs from 'qs';
+import React, { useEffect } from 'react';
 
 /**
  * Looks up a past enrollment in the back end, fills sessionStorage with the data, and redirects back to the original cart
@@ -28,7 +28,7 @@ export const Resume: React.FC = () => {
         city: response.data.city,
         provinceCode: response.data.provinceCode,
         postalCode: response.data.postalCode,
-        courses: response.data.courses.map((c: any) => c.code),
+        courses: response.data.courses.map((c: { code: string }) => c.code),
       }));
       window.location.replace(response.data.url);
     }).catch(() => {

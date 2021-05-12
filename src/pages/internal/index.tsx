@@ -8,12 +8,12 @@ import { Menu } from './Menu';
 
 import './style.scss';
 
-const Design = React.lazy(() => import('./design'));
-const Event = React.lazy(() => import('./event'));
-const Makeup = React.lazy(() => import('./makeup'));
-const Pet = React.lazy(() => import('./pet'));
-const Wellness = React.lazy(() => import('./wellness'));
-const Writing = React.lazy(() => import('./writing'));
+const Design = React.lazy(async () => import('./design'));
+const Event = React.lazy(async () => import('./event'));
+const Makeup = React.lazy(async () => import('./makeup'));
+const Pet = React.lazy(async () => import('./pet'));
+const Wellness = React.lazy(async () => import('./wellness'));
+const Writing = React.lazy(async () => import('./writing'));
 
 const Internal: React.FC = () => {
   return (

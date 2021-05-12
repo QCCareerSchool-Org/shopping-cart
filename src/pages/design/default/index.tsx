@@ -1,17 +1,18 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
 
 import { Form } from '../../../components/Form';
-import { DynamicMessage } from './DynamicMessage';
+import { useDateContext } from '../../../hooks/useDateContext';
+import { dateOverride } from '../../../lib/dateOverride';
 import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
 import { DefaultPromo } from './DefaultPromo';
-import { useDateContext } from '../../../hooks/useDateContext';
-import { dateOverride } from '../../../lib/dateOverride';
+import { DynamicMessage } from './DynamicMessage';
 
 type Props = {
   courses: string[];
   currencyCode: string;
-}
+};
 
 const additionalOptionsNone = {};
 const additionalOptionsDiscount = {

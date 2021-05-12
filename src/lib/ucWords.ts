@@ -1,1 +1,1 @@
-export const ucWords = (str: string) => str.replace(/^(.)|\s+(.)/g, s => s.toLocaleUpperCase());
+export const ucWords = (str: string): string => str.replace(/^(.)|\s+(.)/gu, s => s.toLocaleUpperCase());

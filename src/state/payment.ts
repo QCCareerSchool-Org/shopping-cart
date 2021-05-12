@@ -4,7 +4,7 @@ export type PaymentState = {
   plan: PaymentPlan;
   day: number;
   noShipping: boolean;
-}
+};
 
 export type PaymentAction =
   | { type: 'SET_PAYMENT_PLAN'; payload: PaymentPlan }
