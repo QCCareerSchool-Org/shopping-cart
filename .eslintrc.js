@@ -147,7 +147,10 @@ module.exports = {
 
     // @typescript-eslint rules
     '@typescript-eslint/explicit-function-return-type': 'off', // included in "overrides" section
+    '@typescript-eslint/explicit-member-accessibility': 'off', // included in "overrides" section
     '@typescript-eslint/member-delimiter-style': 'error',
+    '@typescript-eslint/member-ordering': 'error',
+    '@typescript-eslint/method-signature-style': 'error',
     '@typescript-eslint/no-var-requires': 'off', // needed for dynamic require
     '@typescript-eslint/prefer-for-of': 'error',
     '@typescript-eslint/prefer-includes': 'error',
@@ -171,7 +174,17 @@ module.exports = {
     '@typescript-eslint/lines-between-class-members': [ 'error', 'always', { exceptAfterSingleLine: true } ],
     '@typescript-eslint/no-implied-eval': 'error',
     '@typescript-eslint/no-loop-func': 'error',
-    '@typescript-eslint/no-magic-numbers': [ 'warn', { ignoreArrayIndexes: true, ignore: [ 0, 1 ] } ],
+    '@typescript-eslint/no-magic-numbers': [
+      'warn', {
+        ignoreArrayIndexes: true,
+        ignoreDefaultValues: true,
+        detectObjects: true,
+        ignoreEnums: true,
+        ignoreNumericLiteralTypes: true,
+        ignoreReadonlyClassProperties: true,
+        ignore: [ 0, 1 ],
+      },
+    ],
     '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/no-throw-literal': 'error',
     '@typescript-eslint/no-use-before-define': 'off', // override CRA's default
@@ -209,6 +222,19 @@ module.exports = {
       files: [ '*.ts', '*.tsx' ],
       rules: {
         '@typescript-eslint/explicit-function-return-type': [ 'error', { allowExpressions: true } ],
+        '@typescript-eslint/explicit-member-accessibility': 'error',
+      },
+    },
+    {
+      files: [
+        'src/__tests__/**/*.ts',
+        'src/__tests__/**/*.tsx',
+        '*.spec.ts',
+        '*.spec.tsx',
+      ],
+      rules: {
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-magic-numbers': 'off',
       },
     },
     {
