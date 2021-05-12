@@ -107,17 +107,17 @@ const getPromos = (now: Date, price: PriceState, school: School, student: boolea
       startDate: new Date(Date.UTC(2021, 4, 3, 13)),
       endDate: new Date(Date.UTC(2021, 4, 15, 3, 59, 59)),
     },
-    {
-      schools: [ 'QC Makeup Academy' ],
-      student: 'DENIED',
-      code: 'MOTHERSDAY',
-      description: <>Get the <strong>Pro Makeup Workshop</strong> for FREE when you enroll in the <strong>Master Makeup Artisty</strong> course</>,
-      desktopImageSrc: require('./images/coupon-MOTHERSDAY.jpg').default,
-      mobileImageSrc: require('./images/coupon-mobile-MOTHERSDAY.jpg').default,
-      altText: 'Free Pro Makeup Workshop',
-      startDate: new Date(Date.UTC(2021, 4, 5, 4)),
-      endDate: new Date(Date.UTC(2021, 4, 17, 13)), // May 17 at 09:00
-    },
+    // {
+    //   schools: [ 'QC Makeup Academy' ],
+    //   student: 'DENIED',
+    //   code: 'MOTHERSDAY',
+    //   description: <>Get the <strong>Pro Makeup Workshop</strong> for FREE when you enroll in the <strong>Master Makeup Artisty</strong> course</>,
+    //   desktopImageSrc: require('./images/coupon-MOTHERSDAY.jpg').default,
+    //   mobileImageSrc: require('./images/coupon-mobile-MOTHERSDAY.jpg').default,
+    //   altText: 'Free Pro Makeup Workshop',
+    //   startDate: new Date(Date.UTC(2021, 4, 5, 4)),
+    //   endDate: new Date(Date.UTC(2021, 4, 17, 13)), // May 17 at 09:00
+    // },
   ];
   return promos.filter(p => p.schools.includes(school)
     && (p.student === 'ALLOWED' || (p.student === 'DENIED' && !student) || (p.student === 'ONLY' && student))
