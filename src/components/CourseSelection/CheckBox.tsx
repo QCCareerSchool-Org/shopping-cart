@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons/faQuestionCircle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
@@ -29,7 +30,7 @@ export const CheckBox: React.FC<Props> = ({ course, internal, mouseOver }) => {
     }
   };
 
-  const disabledButtonClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
+  const disabledButtonClick = (): void => {
     toggleModal();
   };
 

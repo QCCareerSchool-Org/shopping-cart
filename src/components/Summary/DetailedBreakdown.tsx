@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import React, { Fragment } from 'react';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 

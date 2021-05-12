@@ -39,18 +39,18 @@ const apiKeys = {
 
 const accounts = {
   CA: {
-    CAD: 1002521124,
-    NZD: 1002567684,
-    AUD: 1002567744,
-    GBP: 1002567754,
+    CAD: 1002521124, // eslint-disable-line @typescript-eslint/no-magic-numbers
+    NZD: 1002567684, // eslint-disable-line @typescript-eslint/no-magic-numbers
+    AUD: 1002567744, // eslint-disable-line @typescript-eslint/no-magic-numbers
+    GBP: 1002567754, // eslint-disable-line @typescript-eslint/no-magic-numbers
   },
   US: {
-    USD: 1002704564,
+    USD: 1002704564, // eslint-disable-line @typescript-eslint/no-magic-numbers
   },
   GB: {
-    GBP: 1002659124,
-    AUD: 1002649432,
-    NZD: 1002818994,
+    GBP: 1002659124, // eslint-disable-line @typescript-eslint/no-magic-numbers
+    AUD: 1002649432, // eslint-disable-line @typescript-eslint/no-magic-numbers
+    NZD: 1002818994, // eslint-disable-line @typescript-eslint/no-magic-numbers
   },
 };
 
@@ -126,8 +126,8 @@ export const PaymentModal: React.FC<Props> = ({ company, isOpen, toggle, charge 
       }
       let options: TokenizeOptions | undefined;
       if (company === 'GB' && price.currency.code === 'GBP') {
-        const accountId = (accounts[company] as any)[price.currency.code];
-        if (accountId === 'undefined') {
+        const accountId = (accounts[company] as { [key: string]: number })[price.currency.code];
+        if (typeof accountId === 'undefined') {
           throw Error(`Currency ${price.currency.code} not supported by ${company} company`);
         }
         options = {

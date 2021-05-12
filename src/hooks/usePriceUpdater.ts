@@ -8,6 +8,7 @@ import { PriceQuery, PriceResult } from '../state/price';
 import { useDispatchContext } from './useDispatchContext';
 import { useStateContext } from './useStateContext';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
 export const usePriceUpdater = (school: School, promoCodeDefault?: string, allowOverrides?: boolean, additionalOptions?: any): void => {
   const { courses, address, payment, overrides, meta } = useStateContext();
   const dispatch = useDispatchContext();
@@ -41,8 +42,9 @@ export const usePriceUpdater = (school: School, promoCodeDefault?: string, allow
         }
       }
       const url = process.env.REACT_APP_PRICES_ENDPOINT ?? 'https://api.qccareerschool.com/prices';
+      const apiVersion = 2;
       const response = await axios.get<PriceResult>(url, {
-        headers: { 'X-API-Version': 2 },
+        headers: { 'X-API-Version': apiVersion },
         params,
         paramsSerializer: qs.stringify,
         cancelToken: cancelTokenSource.token,
@@ -107,8 +109,9 @@ export const usePriceUpdater = (school: School, promoCodeDefault?: string, allow
 
       try {
         const url = process.env.REACT_APP_PRICES_ENDPOINT ?? 'https://api.qccareerschool.com/prices';
+        const apiVersion = 2;
         const response = await axios.get<PriceResult>(url, {
-          headers: { 'X-API-Version': 2 },
+          headers: { 'X-API-Version': apiVersion },
           params,
           paramsSerializer: qs.stringify,
           cancelToken: cancelTokenSource.token,

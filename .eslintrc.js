@@ -242,6 +242,7 @@ module.exports = {
       rules: {
         'eqeqeq': 'off',
         'no-eq-null': 'off',
+        '@typescript-eslint/no-magic-numbers': 'off',
       },
     },
   ],

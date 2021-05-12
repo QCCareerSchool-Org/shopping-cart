@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import Big from 'big.js';
 import { round } from '../lib/round';
 

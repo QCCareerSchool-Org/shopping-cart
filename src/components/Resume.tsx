@@ -28,7 +28,7 @@ export const Resume: React.FC = () => {
         city: response.data.city,
         provinceCode: response.data.provinceCode,
         postalCode: response.data.postalCode,
-        courses: response.data.courses.map((c: any) => c.code),
+        courses: response.data.courses.map((c: { code: string }) => c.code),
       }));
       window.location.replace(response.data.url);
     }).catch(() => {

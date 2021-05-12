@@ -20,6 +20,7 @@ export class EnrollmentError extends Error {
     super(message);
     this.name = this.constructor.name;
     if (Error.captureStackTrace) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       Error.captureStackTrace(this, (this as any).contructor);
     }
   }

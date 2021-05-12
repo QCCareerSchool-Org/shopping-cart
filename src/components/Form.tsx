@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import React, { useEffect, useState } from 'react';
 import { scroller } from 'react-scroll';
 
@@ -38,11 +39,11 @@ type Props = {
   school: School;
   courseOverride?: string[];
   /** the guarantee component to display in the summary section */
-  guarantee: (() => JSX.Element);
+  guarantee: () => JSX.Element;
   /** a component to display below the courses title */
   coursesSubtitle?: () => JSX.Element;
   /** an array of components to display below the course selection checkboxes */
-  dynamicCourseMessages?: Array<(...args: any[]) => JSX.Element | null>;
+  dynamicCourseMessages?: Array<() => JSX.Element | null>;
   /** whether this is an internal shopping cart (allows toggling student status) */
   internal?: boolean;
   /** whether the person enrolling is an existing student or not */
@@ -64,7 +65,7 @@ type Props = {
   /** url of enrollment agreement for UK students */
   agreementLinkGB: string;
   /** Additional options to send to the back end when looking up prices or enrolling */
-  additionalOptions?: any;
+  additionalOptions?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
   /** a function that determines whether we should show a confirmation message before proceeding to payment */
   showSubmitMessage?: () => boolean;
   /** a component for the confirmation message (will appear in a popup)  */

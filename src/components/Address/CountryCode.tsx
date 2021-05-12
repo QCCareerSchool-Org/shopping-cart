@@ -26,7 +26,8 @@ export const CountryCode: React.FC = () => {
 
   const change = (e: React.ChangeEvent<HTMLSelectElement>): void => {
     // we have to strip the leading "_" on values that are three characters long
-    const value = e.target.value.length === 3 ? e.target.value.slice(1) : e.target.value;
+    const codeLength = 3;
+    const value = e.target.value.length === codeLength ? e.target.value.slice(1) : e.target.value;
     dispatch({ type: 'SET_COUNTRY_CODE', payload: { countryCode: value, manual: true } });
   };
 

@@ -9,7 +9,7 @@ type Props = {
   courseCode?: string;
 };
 
-type CourseCard = {
+type CourseCardData = {
   name: string;
   cost: number;
   currency: {
@@ -25,13 +25,13 @@ const hasImage = (courseCode?: string): boolean => typeof courseCode !== 'undefi
 export const CourseCard: React.FC<Props> = ({ courseCode }) => {
   const { address: { countryCode, provinceCode } } = useStateContext();
 
-  const fetchCourseCard = async (): Promise<CourseCard | undefined> => {
+  const fetchCourseCard = async (): Promise<CourseCardData | undefined> => {
     if (typeof courseCode === 'undefined') {
       return;
     }
     const url = 'https://api.qccareerschool.com/courseCards';
     const params = { courseCode, countryCode, provinceCode };
-    const response = await axios.get<CourseCard>(url, { params });
+    const response = await axios.get<CourseCardData>(url, { params });
     return response.data;
   };
 
@@ -45,6 +45,8 @@ export const CourseCard: React.FC<Props> = ({ courseCode }) => {
     return null;
   }
 
+  const decimalDigits = 2;
+
   return (
     <Card>
       <CardBody>
@@ -55,7 +57,7 @@ export const CourseCard: React.FC<Props> = ({ courseCode }) => {
         <div dangerouslySetInnerHTML={{ __html: courseCard.description }} />
         {hasImage(courseCode) && <img className="img-fluid" src={require(`./kits/${courseCode?.toLocaleLowerCase()}.jpg`)} alt="makeup kit" />}
         <hr />
-        <p className="card-text">Tuition before discounts: <strong>{courseCard.currency.symbol}{courseCard.cost.toFixed(2)}</strong></p>
+        <p className="card-text">Tuition before discounts: <strong>{courseCard.currency.symbol}{courseCard.cost.toFixed(decimalDigits)}</strong></p>
       </CardBody>
     </Card>
   );

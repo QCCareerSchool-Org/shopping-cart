@@ -28,12 +28,15 @@ export type EnrollmentPayload = {
   discountCode: string;
   campaignId: string | null;
   existingStudent: boolean;
-  options?: any;
+  options?: unknown;
 };
 
 const baseUrl = 'https://api.qccareerschool.com/enrollments';
 
 type AddEnrollmentResponse = { id: number; code: number };
+
+const userErrorStart = 400;
+const serverErrorStart = 500;
 
 /**
  * Adds an enrollment
@@ -42,15 +45,16 @@ type AddEnrollmentResponse = { id: number; code: number };
  */
 export const addEnrollment = async (data: EnrollmentPayload): Promise<AddEnrollmentResponse> => {
   try {
+    const apiVersion = 2;
     const response = await axios.post<AddEnrollmentResponse>(baseUrl, data, {
-      headers: { 'X-API-Version': 2 },
+      headers: { 'X-API-Version': apiVersion },
     });
     return response.data;
   } catch (err) {
     if (err.isAxiosError) {
       const axiosError = err as AxiosError;
       if (typeof axiosError.response !== 'undefined') {
-        if (axiosError.response.status >= 400 && axiosError.response.status < 500) {
+        if (axiosError.response.status >= userErrorStart && axiosError.response.status < serverErrorStart) {
           throw new EnrollmentError(axiosError.response.status, axiosError.response.data.errorCode, axiosError.response.data.errors, axiosError.message);
         }
       }
@@ -68,15 +72,16 @@ export const addEnrollment = async (data: EnrollmentPayload): Promise<AddEnrollm
 export const updateEnrollment = async (id: number, data: EnrollmentPayload): Promise<void> => {
   const url = `${baseUrl}/${id}`;
   try {
+    const apiVersion = 2;
     const response = await axios.put(url, data, {
-      headers: { 'X-API-Version': 2 },
+      headers: { 'X-API-Version': apiVersion },
     });
     return response.data;
   } catch (err) {
     if (err.isAxiosError) {
       const axiosError = err as AxiosError;
       if (typeof axiosError.response !== 'undefined') {
-        if (axiosError.response.status >= 400 && axiosError.response.status < 500) {
+        if (axiosError.response.status >= userErrorStart && axiosError.response.status < serverErrorStart) {
           if (axiosError.response.data.errors) {
             throw new EnrollmentError(axiosError.response.status, axiosError.response.data.errorCode, axiosError.response.data.errors, axiosError.message);
           }
@@ -98,8 +103,9 @@ export const updateEnrollment = async (id: number, data: EnrollmentPayload): Pro
 export const chargeEnrollment = async (id: number, token: string, company: 'CA' | 'US' | 'GB'): Promise<number> => {
   const url = `${baseUrl}/${id}/profiles`;
   try {
+    const apiVersion = 2;
     const response = await axios.post(url, { token, company }, {
-      headers: { 'X-API-Version': 2 },
+      headers: { 'X-API-Version': apiVersion },
     });
     return response.data;
   } catch (err) {
@@ -108,13 +114,13 @@ export const chargeEnrollment = async (id: number, token: string, company: 'CA' 
       if (typeof axiosError.response !== 'undefined') {
         const code = axiosError.response.data.code;
         if (typeof code !== 'undefined') {
-          if ([ 3009, 3014, 3023, 3024 ].includes(code)) {
+          if ([ 3009, 3014, 3023, 3024 ].includes(code)) { // eslint-disable-line @typescript-eslint/no-magic-numbers
             throw Error('Declined by bank');
-          } else if (code === 3022) {
+          } else if (code === 3022) { // eslint-disable-line @typescript-eslint/no-magic-numbers
             throw Error('NSF');
-          } else if (code === 3016) {
+          } else if (code === 3016) { // eslint-disable-line @typescript-eslint/no-magic-numbers
             throw Error('Hold card');
-          } else if (code === 3007) {
+          } else if (code === 3007) { // eslint-disable-line @typescript-eslint/no-magic-numbers
             throw Error('AVS check failed');
           }
         }

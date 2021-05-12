@@ -11,7 +11,9 @@ export const useSaveablePaths = (saveablePaths: RegExp[]): void => {
     if (window.localStorage) {
       if (saveablePaths.some(path => path.test(window.location.pathname))) {
         window.localStorage.setItem('pathname', window.location.pathname);
-        window.localStorage.setItem('pathnameExpiry', (new Date().getTime() + (1000 * 60 * 60 * 24 * 7)).toString());
+        const days = 7;
+        const millisecondsPerDay = 86_400_000;
+        window.localStorage.setItem('pathnameExpiry', (new Date().getTime() + (days * millisecondsPerDay)).toString());
       } else if (window.location.pathname === '/') {
         const pathname = window.localStorage.getItem('pathname');
         const pathnameExpiry = window.localStorage.getItem('pathnameExpiry');

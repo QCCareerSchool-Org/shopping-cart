@@ -3,6 +3,7 @@ import { useStateContext } from './useStateContext';
 
 declare global {
   interface Window {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     gtag: (...T: any[]) => void;
   }
 }

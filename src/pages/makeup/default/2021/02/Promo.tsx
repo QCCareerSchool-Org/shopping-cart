@@ -1,4 +1,5 @@
-import React, { ReactNode } from 'react';
+/* eslint-disable @typescript-eslint/no-magic-numbers */
+import React from 'react';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
 import { usePopup } from '../../../../../hooks/usePopup';

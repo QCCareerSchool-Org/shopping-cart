@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 export const ordinal = (n: number): string => {
   const s = [ 'th', 'st', 'nd', 'rd' ];
   const v = n % 100;

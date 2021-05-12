@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
 import { DynamicMessage20210313 } from './2021/03/13/DynamicMessage';
 import { DynamicMessage20210315 } from './2021/03/15/DynamicMessage';

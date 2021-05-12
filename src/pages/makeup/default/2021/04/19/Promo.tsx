@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
 
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
@@ -15,7 +16,7 @@ type Props = {
   currencyCode: string;
 };
 
-export const Promo20210419: React.FC<Props> = ({ date, currencyCode }) => {
+export const Promo20210419: React.FC<Props> = ({ date }) => {
   usePreloadImage(couponButtonActiveSrc);
 
   return (

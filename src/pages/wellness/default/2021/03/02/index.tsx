@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
 
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';

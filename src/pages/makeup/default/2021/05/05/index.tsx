@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
 
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
-import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../../../../hooks/useStateContext';
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
   currencyCode: string;
 };
 
-export const Promo20210505: React.FC<Props> = ({ date, currencyCode }) => {
+export const Promo20210505: React.FC<Props> = ({ date }) => {
   const dispatch = useDispatchContext();
 
   const button1Click = (): void => {

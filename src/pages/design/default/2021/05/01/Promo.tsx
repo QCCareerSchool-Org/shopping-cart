@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
@@ -9,7 +10,7 @@ type Props = {
   currencyCode: string;
 };
 
-export const Promo20210501: React.FC<Props> = ({ date, currencyCode }) => {
+export const Promo20210501: React.FC<Props> = ({ date }) => {
   const screenWidth = useScreenWidthContext();
   const [ popup, togglePopup ] = usePopup(false);
 

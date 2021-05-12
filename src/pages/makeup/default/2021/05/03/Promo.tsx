@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
 
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
@@ -13,7 +14,7 @@ type Props = {
   currencyCode: string;
 };
 
-export const Promo20210503: React.FC<Props> = ({ date, currencyCode }) => {
+export const Promo20210503: React.FC<Props> = ({ date }) => {
   const screenWidth = useScreenWidthContext();
   const { price } = useStateContext();
   const dispatch = useDispatchContext();

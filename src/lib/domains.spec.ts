@@ -1,6 +1,6 @@
 import faker from 'faker';
 
-import { isDesign, isEvent, isMakeup } from './domains';
+import { isDesign, isMakeup } from './domains';
 
 describe('domains', () => {
 

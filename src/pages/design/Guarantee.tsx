@@ -1,4 +1,4 @@
-import React, { MouseEvent } from 'react';
+import React from 'react';
 
 import { usePopup } from '../../hooks/usePopup';
 import { GuaranteeModal } from './GuaranteeModal';
@@ -19,7 +19,7 @@ export const Guarantee: React.FC = () => {
     </div>
   );
 
-  function handleClick(event: MouseEvent): void {
+  function handleClick(): void {
     togglePopup();
   }
 };

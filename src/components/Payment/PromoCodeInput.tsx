@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import { faTag } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
@@ -14,8 +15,8 @@ export type Promo = {
   code: string;
   student: 'ALLOWED' | 'DENIED' | 'ONLY';
   description: React.ReactNode;
-  desktopImageSrc: any;
-  mobileImageSrc: any;
+  desktopImageSrc: string;
+  mobileImageSrc: string;
   altText: string;
   startDate?: Date;
   endDate?: Date;
