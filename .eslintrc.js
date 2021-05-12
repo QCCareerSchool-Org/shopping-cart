@@ -100,7 +100,7 @@ module.exports = {
     'jsx-quotes': 'error',
     'key-spacing': 'error',
     'keyword-spacing': 'off', // handled by @typescript-eslint plugin
-    'linebreak-style': 'warn',
+    'linebreak-style': 'error',
     'lines-between-class-members': 'off', // handled by @typescript-eslint plugin
     'new-parens': 'error',
     'no-bitwise': 'error',
