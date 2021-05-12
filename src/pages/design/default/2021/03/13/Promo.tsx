@@ -21,15 +21,15 @@ export const Promo20210313: React.FC = () => {
 
   if (date.getTime() >= Date.UTC(2021, 2, 14, 5)) {
     if (desktop) {
-      image = require('./desktop-ends.jpg');
+      image = require('./desktop-ends.jpg').default;
     } else {
-      image = require('./mobile-ends.jpg');
+      image = require('./mobile-ends.jpg').default;
     }
   } else {
     if (desktop) {
-      image = require('./desktop.jpg');
+      image = require('./desktop.jpg').default;
     } else {
-      image = require('./mobile.jpg');
+      image = require('./mobile.jpg').default;
     }
   }
 

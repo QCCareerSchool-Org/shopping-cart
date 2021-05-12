@@ -12,14 +12,14 @@ export const GuaranteeModal: React.FC<Props> = ({ isOpen, toggle }) => (
     <ModalBody>
       <div className="row">
         <div className="col-12 col-lg-4 d-none d-sm-block text-center">
-          <img className="img-fluid mb-2" src={require('./guarantee-21-days.svg')} width="165" height="165" alt="21-Day Money-Back Guarantee" />
+          <img className="img-fluid mb-2" src={require('./guarantee-21-days.svg').default} width="165" height="165" alt="21-Day Money-Back Guarantee" />
         </div>
         <div className="col-12 col-lg-8 text-left text-sm-center text-md-left">
           <h3>The 21-Day Money-Back Guarantee</h3>
           <p>You have 21 days to review your materials from the date of enrollment. If during this time you decide that becoming a dog groomer isn&apos;t the right fit for you, you&apos;ll receive a full refund. Simply return the materials (using a shipping method that provides a tracking number) and your course fees will be immediately refunded. All we ask is that you call us to receive shipping instructions for the return. Please note that all materials must be returned unused and in their original condition in order to get a full refund. For example, the set of clippers and attachment combs cannot be refunded if their seal has been broken (value $200 US).</p>
         </div>
         <div className="col-12 col-lg-4 d-none d-sm-block text-center">
-          <img className="img-fluid mb-2" src={require('./guarantee-1-year.svg')} width="199" height="165" alt="1-Year Money-Back Guarantee" />
+          <img className="img-fluid mb-2" src={require('./guarantee-1-year.svg').default} width="199" height="165" alt="1-Year Money-Back Guarantee" />
         </div>
         <div className="col-12 col-lg-8 text-left text-sm-center text-md-left">
           <h3>1-Year Money-Back Guarantee</h3>

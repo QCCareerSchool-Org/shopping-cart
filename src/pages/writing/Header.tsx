@@ -14,7 +14,7 @@ export const Header: React.FC<Props> = ({ countryCode }) => {
   const tel = telephoneNumber(countryCode);
 
   const desktop = screenWidth >= 588;
-  const logo = desktop ? require('./logo-lg.svg') : require('./logo-sm.svg');
+  const logo = desktop ? require('./logo-lg.svg').default : require('./logo-sm.svg').default;
   const width = desktop ? 312 : 112;
   const height = 14;
 

@@ -1,5 +1,7 @@
 export const round = (num: number, precision = 2): number => {
-  const factor = 10 ** precision;
-  const m = Number((Math.abs(num) * factor).toPrecision(15));
+  const MAX_PRECISION = 15;
+  const BASE = 10;
+  const factor = BASE ** precision;
+  const m = Number((Math.abs(num) * factor).toPrecision(MAX_PRECISION));
   return Math.round(m) / factor * Math.sign(num);
 };

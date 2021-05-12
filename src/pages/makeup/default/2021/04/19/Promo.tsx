@@ -20,21 +20,21 @@ export const Promo20210419: React.FC<Props> = ({ date, currencyCode }) => {
 
   return (
     <>
-      <div style={{ backgroundColor: '#000', backgroundImage: `url(${require('./bg-1.jpg')})`, backgroundPosition: 'top center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}>
+      <div style={{ backgroundColor: '#000', backgroundImage: `url(${require('./bg-1.jpg').default})`, backgroundPosition: 'top center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}>
         <section id="promoSection">
           <div className="container text-center">
             {date >= new Date(Date.UTC(2021, 3, 28, 16))
-              ? <img src={require('./title-last-chance.svg')} className="img-fluid" alt="Last Chance -- Enroll in Master Makeup Artisty and Choose Your Offer" />
-              : <img src={require('./title.svg')} className="img-fluid mb-4" alt="Enroll in Master Makeup Artisty and Choose Your Offer" />
+              ? <img src={require('./title-last-chance.svg').default} className="img-fluid" alt="Last Chance -- Enroll in Master Makeup Artisty and Choose Your Offer" />
+              : <img src={require('./title.svg').default} className="img-fluid mb-4" alt="Enroll in Master Makeup Artisty and Choose Your Offer" />
             }
             <div className="row">
               <div className="col-12 col-md-4 mb-4 mb-md-0">
                 <Card
                   code="ELITE"
                   description="Free 6-piece makeup kit"
-                  backgroundImgSrc={require('./ELITE-coupon-card.png')}
-                  textImgSrc={require('./ELITE-text.png')}
-                  codeImgSrc={require('./ELITE-code.png')}
+                  backgroundImgSrc={require('./ELITE-coupon-card.png').default}
+                  textImgSrc={require('./ELITE-text.png').default}
+                  codeImgSrc={require('./ELITE-code.png').default}
                   buttonImgSrc={couponButtonEliteSrc}
                   buttonActiveImgSrc={couponButtonActiveSrc}
                 />
@@ -43,9 +43,9 @@ export const Promo20210419: React.FC<Props> = ({ date, currencyCode }) => {
                 <Card
                   code="SPRING21"
                   description="Free advanced course"
-                  backgroundImgSrc={require('./SPRING21-coupon-card.png')}
-                  textImgSrc={require('./SPRING21-text.png')}
-                  codeImgSrc={require('./SPRING21-code.png')}
+                  backgroundImgSrc={require('./SPRING21-coupon-card.png').default}
+                  textImgSrc={require('./SPRING21-text.png').default}
+                  codeImgSrc={require('./SPRING21-code.png').default}
                   buttonImgSrc={couponButtonSpring21Src}
                   buttonActiveImgSrc={couponButtonActiveSrc}
                 />
@@ -54,9 +54,9 @@ export const Promo20210419: React.FC<Props> = ({ date, currencyCode }) => {
                 <Card
                   code="SAVE50"
                   description="Second course 50% off"
-                  backgroundImgSrc={require('./SAVE50-coupon-card.png')}
-                  textImgSrc={require('./SAVE50-text.png')}
-                  codeImgSrc={require('./SAVE50-code.png')}
+                  backgroundImgSrc={require('./SAVE50-coupon-card.png').default}
+                  textImgSrc={require('./SAVE50-text.png').default}
+                  codeImgSrc={require('./SAVE50-code.png').default}
                   buttonImgSrc={couponButtonSave50Src}
                   buttonActiveImgSrc={couponButtonActiveSrc}
                 />

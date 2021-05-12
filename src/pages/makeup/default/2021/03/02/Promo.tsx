@@ -21,15 +21,15 @@ export const Promo20210302: React.FC<Props> = ({ date, currencyCode }) => {
 
   if (date.getTime() >= Date.UTC(2021, 2, 10, 17)) {
     if (desktop) {
-      image = currencyCode === 'GBP' ? require('./desktop-ends-uk.jpg') : require('./desktop-ends.jpg');
+      image = currencyCode === 'GBP' ? require('./desktop-ends-uk.jpg').default : require('./desktop-ends.jpg').default;
     } else {
-      image = currencyCode === 'GBP' ? require('./mobile-ends-uk.jpg') : require('./mobile-ends.jpg');
+      image = currencyCode === 'GBP' ? require('./mobile-ends-uk.jpg').default : require('./mobile-ends.jpg').default;
     }
   } else {
     if (desktop) {
-      image = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
+      image = currencyCode === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default;
     } else {
-      image = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
+      image = currencyCode === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
     }
   }
 
@@ -52,7 +52,7 @@ export const Promo20210302: React.FC<Props> = ({ date, currencyCode }) => {
         <ModalHeader toggle={togglePopup}>Special Offer</ModalHeader>
         <ModalBody className="text-center p-0">
           <p className="mt-3">Get started today with our <strong>lowest deposit ever</strong>, followed by low monthly payments. Plus, receive a free Elite Makeup Kit when you enroll in the <strong>Master Makeup Artistry Course</strong>.</p>
-          <img className="img-fluid" src={require('./popup-makeup-kit.jpg')} alt="Makeup Kit" />
+          <img className="img-fluid" src={require('./popup-makeup-kit.jpg').default} alt="Makeup Kit" />
         </ModalBody>
         <ModalFooter>
           <div>The kit pictured above is included only when you enroll in the <strong>Master Makeup Artistry</strong> course. You will receive a different, course-specific makeup starter kit with all other QC Makeup Academy courses instead of the one shown.</div>

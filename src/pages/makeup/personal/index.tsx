@@ -15,7 +15,7 @@ const courseGroups: CourseGroup[] = [
   {
     name: 'Professional Training',
     items: [
-      { code: 'MZ', name: 'Master Makeup Artistry', badge: <img src={require('../../../most-pop.svg')} style={{ height: 32, marginTop: -4, marginLeft: 6 }} alt="Most Popular" /> },
+      { code: 'MZ', name: 'Master Makeup Artistry', badge: <img src={require('../../../most-pop.svg').default} style={{ height: 32, marginTop: -4, marginLeft: 6 }} alt="Most Popular" /> },
       // { code: 'MK', name: 'Makeup Artistry' },
     ],
   },
