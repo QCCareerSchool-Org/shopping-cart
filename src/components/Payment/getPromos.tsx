@@ -132,7 +132,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: require('./images/coupon-mobile-LEVELUP.jpg').default,
       altText: 'Get the Virtual Makeup course free when you enroll in Master Makeup Artistry',
       startDate: new Date(Date.UTC(2021, 4, 15, 12)), // May 15 at 08:00
-      endDate: new Date(Date.UTC(2021, 4, 17, 13)), // May 17 at 09:00
+      endDate: new Date(Date.UTC(2021, 4, 17, 3, 59, 59)), // May 16 at 23:59:59
     },
   ];
   return promos.filter(p => p.schools.includes(school)
