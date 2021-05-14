@@ -27,7 +27,7 @@ export const Promo20210515: React.FC<Props> = ({ date }) => {
   let width: number;
   let height: number;
 
-  if (date.getTime() >= Date.UTC(2021, 4, 16, 16)) { // May 16 at 12:00
+  if (date.getTime() >= Date.UTC(2021, 4, 16, 4)) { // May 16 at 00:00
     if (desktop) {
       image = require('./desktop-ends.jpg').default;
     } else {
