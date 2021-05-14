@@ -43,7 +43,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/coupon-uk-ADVANCED100.jpg').default : require('./images/coupon-ADVANCED100.jpg').default,
       mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/coupon-mobile-uk-ADVANCED100.jpg').default : require('./images/coupon-mobile-ADVANCED100.jpg').default,
       altText: `Get ${price?.currency.code === 'GBP' ? '£100' : '$100'} off any advanced course`,
-      endDate: new Date(Date.UTC(2021, 3, 19, 13)),
+      startDate: new Date(Date.UTC(2021, 4, 17, 13)), // May 17 at 09:00
+      endDate: new Date(Date.UTC(2021, 5, 1, 13)), // June 1 at 09:00
     },
     {
       schools: [ 'QC Makeup Academy' ],
