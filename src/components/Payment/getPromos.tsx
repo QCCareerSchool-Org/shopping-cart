@@ -131,6 +131,17 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       startDate: new Date(Date.UTC(2021, 4, 17, 13)),
       endDate: new Date(Date.UTC(2021, 4, 29, 3, 59, 59)), // May 28 at 23:59:59 (but the promo code is still valid til June 1)
     },
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'LEVELUP',
+      description: <>Get the <strong>Virtual Makeup</strong> course free when you enroll in <strong>Master Makeup Artistry</strong></>,
+      desktopImageSrc: require('./images/coupon-LEVELUP.jpg').default,
+      mobileImageSrc: require('./images/coupon-mobile-LEVELUP.jpg').default,
+      altText: 'Get the Virtual Makeup course free when you enroll in Master Makeup Artistry',
+      startDate: new Date(Date.UTC(2021, 4, 15, 12)), // May 15 at 08:00
+      endDate: new Date(Date.UTC(2021, 4, 17, 13)), // May 17 at 09:00
+    },
   ];
   return promos.filter(p => p.schools.includes(school)
     && (p.student === 'ALLOWED' || (p.student === 'DENIED' && !student) || (p.student === 'ONLY' && student))
