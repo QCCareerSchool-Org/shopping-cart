@@ -17,24 +17,14 @@ export const FloralPromo: React.FC<Props> = ({ currencyCode }) => {
   const desktop = screenWidth > 576;
 
   let image: string;
-  if (date.getTime() >= Date.UTC(2021, 4, 12, 16)) { // May 12 at 12:00
-    if (desktop) {
-      image = currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg').default : require('./desktop-ends.jpg').default;
-    } else {
-      image = currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg').default : require('./mobile-ends.jpg').default;
-    }
-  } else if (date.getTime() >= Date.UTC(2021, 4, 3, 13)) { // May 3 at 09:00
-    if (desktop) {
-      image = currencyCode === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default;
-    } else {
-      image = currencyCode === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
-    }
+  if (date.getTime() >= Date.UTC(2021, 4, 17, 13)) { // May 17 at 09:00
+    image = desktop
+      ? currencyCode === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default
+      : currencyCode === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
   } else {
-    if (desktop) {
-      image = currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg').default : require('./desktop-ends.jpg').default;
-    } else {
-      image = currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg').default : require('./mobile-ends.jpg').default;
-    }
+    image = desktop
+      ? currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg').default : require('./desktop-ends.jpg').default
+      : currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg').default : require('./mobile-ends.jpg').default;
   }
 
   return (
