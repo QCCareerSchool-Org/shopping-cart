@@ -29,8 +29,8 @@ export const Promo20210517: React.FC<Props> = ({ date }) => {
     <section id="promoSection" style={{ backgroundColor: 'white', backgroundImage: `url(${desktop ? require('./background.jpg').default : require('./background-mobile.jpg').default})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center center', backgroundSize: 'cover' }}>
       <div className="container text-center">
         {date >= new Date(Date.UTC(2021, 4, 26, 16)) // May 26 at 12:00
-          ? <img src={desktop ? require('./title-ends.svg').default : require('./title-mobile-ends.svg').default} className="img-fluid mb-4" alt="Last Chance -- Enroll in Master Makeup Artisty and Choose Your Offer" />
-          : <img src={desktop ? require('./title.svg').default : require('./title-mobile.svg').default} className="img-fluid mb-4" alt="Enroll in Master Makeup Artisty and Choose Your Offer" />
+          ? <img src={desktop ? require('./title-ends.svg').default : require('./title-mobile-ends.svg').default} className="img-fluid mb-4" alt="Last Chance -- Enroll Today and Choose Your Offer" />
+          : <img src={desktop ? require('./title.svg').default : require('./title-mobile.svg').default} className="img-fluid mb-4" alt="Enroll Today and Choose Your Offer" />
         }
         <div className="row">
           <div className="col-12 col-md-6 mb-3 mb-md-0">
