@@ -38,6 +38,7 @@ const Default: React.FC<Props> = ({ courses, currencyCode }) => {
         agreementLinkGB="https://www.qcdesignschool.com/enrollment-agreement-gb.html"
         successLink="https://www.qcdesignschool.com/welcome-to-the-school/"
         dynamicCourseMessages={[ () => <DynamicMessage date={date} courses={courses} /> ]}
+        showPromoCodeInput={date.getTime() >= Date.UTC(2021, 4, 17, 13)}
         additionalOptions={date.getTime() < Date.UTC(2021, 4, 10, 4) ? additionalOptionsDiscount : additionalOptionsNone}
       />
     </>
