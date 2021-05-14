@@ -44,7 +44,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/coupon-mobile-uk-ADVANCED100.jpg').default : require('./images/coupon-mobile-ADVANCED100.jpg').default,
       altText: `Get ${price?.currency.code === 'GBP' ? '£100' : '$100'} off any advanced course`,
       startDate: new Date(Date.UTC(2021, 4, 17, 13)), // May 17 at 09:00
-      endDate: new Date(Date.UTC(2021, 5, 1, 13)), // June 1 at 09:00
+      endDate: new Date(Date.UTC(2021, 4, 29, 3, 59, 59)), // May 28 at 23:59:59
     },
     {
       schools: [ 'QC Makeup Academy' ],
@@ -65,17 +65,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/coupon-ELITE.jpg').default,
       mobileImageSrc: require('./images/coupon-mobile-ELITE.jpg').default,
       altText: 'Get an elite makeup kit upgrade',
-      endDate: new Date(Date.UTC(2021, 3, 18, 4)),
-    },
-    {
-      schools: [ 'QC Makeup Academy' ],
-      student: 'DENIED',
-      code: 'ELITE',
-      description: <>Get an <strong>elite makeup kit upgrade</strong> (includes a highlight palette, contour palette, eyebrow palette, 4-pack of false lashes, a makeup travel bag, and a stainless steel palette with spatula)</>,
-      desktopImageSrc: require('./images/coupon-ELITE.jpg').default,
-      mobileImageSrc: require('./images/coupon-mobile-ELITE.jpg').default,
-      altText: 'Get an elite makeup kit upgrade',
-      startDate: new Date(Date.UTC(2021, 3, 18, 4)),
+      startDate: new Date(Date.UTC(2021, 4, 17, 13)), // May 17 at 09:00
+      endDate: new Date(Date.UTC(2021, 4, 29, 3, 59, 59)), // May 28 at 23:59:59
     },
     {
       schools: [ 'QC Makeup Academy' ],
