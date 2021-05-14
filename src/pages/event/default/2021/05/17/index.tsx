@@ -4,6 +4,7 @@ import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
 import { usePopup } from '../../../../../../hooks/usePopup';
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
+import { useStateContext } from '../../../../../../hooks/useStateContext';
 
 type Props = {
   date: Date;
@@ -11,6 +12,7 @@ type Props = {
 };
 
 export const Promo20210517: React.FC<Props> = ({ date }) => {
+  const { price } = useStateContext();
   const screenWidth = useScreenWidthContext();
   const [ popup, togglePopup ] = usePopup(false);
 
@@ -20,7 +22,7 @@ export const Promo20210517: React.FC<Props> = ({ date }) => {
   let width: number;
   let height: number;
 
-  if (date.getTime() >= Date.UTC(2021, 4, 16, 4)) { // May 16 at 00:00
+  if (date.getTime() >= Date.UTC(2021, 4, 26, 16)) { // May 26 at 00:00
     if (desktop) {
       image = require('./desktop-ends.jpg').default;
     } else {
@@ -28,9 +30,9 @@ export const Promo20210517: React.FC<Props> = ({ date }) => {
     }
   } else {
     if (desktop) {
-      image = require('./desktop.jpg').default;
+      image = price?.currency.code === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default;
     } else {
-      image = require('./mobile.jpg').default;
+      image = price?.currency.code === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
     }
   }
 
@@ -43,7 +45,7 @@ export const Promo20210517: React.FC<Props> = ({ date }) => {
   }
 
   return (
-    <section id="promoSection" style={{ backgroundColor: '#2b0a11', padding: 0 }}>
+    <section id="promoSection" style={{ backgroundColor: '#e9efed', padding: 0 }}>
       <div className="container px-0">
         <div className="text-center">
           <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={togglePopup}><img src={image} width={width} height={height} className="img-fluid d-block mx-auto" alt="Special Offer" /></button>
@@ -52,8 +54,8 @@ export const Promo20210517: React.FC<Props> = ({ date }) => {
       <Modal size="lg" isOpen={popup} toggle={togglePopup}>
         <ModalHeader toggle={togglePopup}>Limited Time Offer</ModalHeader>
         <ModalBody className="text-center">
-          <p>Receive a FREE leather portfolio when you enroll in any course.</p>
-          <p>Enroll in QC&apos;s Event &amp; Wedding Planning course&mdash;with our lowest deposit ever&mdash;and get both the Destination Wedding Planning and the Luxury Wedding Planning courses for FREE.</p>
+          <p>Enroll in one of QC&apos;s foundation courses&mdash;at our lowest deposit ever&mdash;and receive a specialty course for free (of equal or lesser value).</p>
+          <p>Plus, get a free 6-month subscription to Aisle Planner, an all-in-one event planning software.</p>
         </ModalBody>
       </Modal>
     </section>

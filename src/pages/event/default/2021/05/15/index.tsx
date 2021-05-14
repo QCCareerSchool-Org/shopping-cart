@@ -52,8 +52,8 @@ export const Promo20210515: React.FC<Props> = ({ date }) => {
       <Modal size="lg" isOpen={popup} toggle={togglePopup}>
         <ModalHeader toggle={togglePopup}>Limited Time Offer</ModalHeader>
         <ModalBody className="text-center">
-          <p>Receive a FREE leather portfolio when you enroll in any course.</p>
-          <p>Enroll in QC&apos;s Event &amp; Wedding Planning course&mdash;with our lowest deposit ever&mdash;and get both the Destination Wedding Planning and the Luxury Wedding Planning courses for FREE.</p>
+          <p>Receive a FREE Google Home Mini when you enroll in any course.</p>
+          <p>Plus, enroll in one of QC&apos;s foundation courses&mdash;at our lowest deposit ever&mdash;and receive a specialty course for free (of equal or lesser value).</p>
         </ModalBody>
       </Modal>
     </section>
