@@ -18,12 +18,21 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       endDate: new Date(Date.UTC(2021, 3, 6, 4)),
     },
     {
-      schools: [ 'QC Makeup Academy', 'QC Design School' ],
+      schools: [ 'QC Makeup Academy' ],
       student: 'DENIED',
       code: 'SAVE50',
       description: 'Enroll in one course and get 50% off each additional course of equal or lesser value',
       desktopImageSrc: require('./images/coupon-SAVE50.jpg').default,
       mobileImageSrc: require('./images/coupon-mobile-SAVE50.jpg').default,
+      altText: 'Get 50% off additional courses of equal or lesser value',
+    },
+    {
+      schools: [ 'QC Design School' ],
+      student: 'DENIED',
+      code: 'SAVE50',
+      description: 'Enroll in one course and get 50% off each additional course of equal or lesser value',
+      desktopImageSrc: require('./images/coupon-SAVE50-design.jpg').default,
+      mobileImageSrc: require('./images/coupon-mobile-SAVE50-design.jpg').default,
       altText: 'Get 50% off additional courses of equal or lesser value',
     },
     {
@@ -87,7 +96,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: require('./images/coupon-mobile-SKINCARE60.jpg').default,
       altText: '60% off Skincare course',
       startDate: new Date(Date.UTC(2021, 4, 3, 13)),
-      endDate: new Date(Date.UTC(2021, 4, 15, 3, 59, 59)),
+      endDate: new Date(Date.UTC(2021, 4, 15, 12)),
     },
     // {
     //   schools: [ 'QC Makeup Academy' ],
