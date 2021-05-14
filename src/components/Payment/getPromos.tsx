@@ -18,7 +18,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       endDate: new Date(Date.UTC(2021, 3, 6, 4)),
     },
     {
-      schools: [ 'QC Makeup Academy' ],
+      schools: [ 'QC Makeup Academy', 'QC Design School' ],
       student: 'DENIED',
       code: 'SAVE50',
       description: 'Enroll in one course and get 50% off each additional course of equal or lesser value',
@@ -109,7 +109,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: require('./images/coupon-mobile-MAY21.jpg').default,
       altText: 'Get any second course for free',
       startDate: new Date(Date.UTC(2021, 4, 17, 13)),
-      endDate: new Date(Date.UTC(2021, 5, 1, 13)), // May 28 at 23:59:59 (but the promo code is still valid til June 1)
+      endDate: new Date(Date.UTC(2021, 4, 29, 3, 59, 59)), // May 28 at 23:59:59 (but the promo code is still valid til June 1)
     },
     {
       schools: [ 'QC Design School' ],
