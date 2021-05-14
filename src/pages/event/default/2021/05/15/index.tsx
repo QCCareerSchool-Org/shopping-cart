@@ -43,7 +43,7 @@ export const Promo20210515: React.FC<Props> = ({ date }) => {
   }
 
   return (
-    <section id="promoSection" style={{ backgroundColor: '#2b0a11', padding: 0 }}>
+    <section id="promoSection" style={{ backgroundColor: '#fcdfa7', padding: 0 }}>
       <div className="container px-0">
         <div className="text-center">
           <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={togglePopup}><img src={image} width={width} height={height} className="img-fluid d-block mx-auto" alt="Special Offer" /></button>
