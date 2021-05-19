@@ -30,6 +30,13 @@ export const useInitialData = (internal: boolean): void => {
           dispatch({ type: 'SET_PROMO_CODE', payload: parsed.promoCode });
         }
       }
+      if (parsed.plan) {
+        if (typeof parsed.plan === 'string') {
+          if (parsed.plan === 'full' || parsed.plan === 'part') {
+            dispatch({ type: 'SET_PAYMENT_PLAN', payload: parsed.plan });
+          }
+        }
+      }
     };
 
     const loadSessionStorageData = (): void => {
