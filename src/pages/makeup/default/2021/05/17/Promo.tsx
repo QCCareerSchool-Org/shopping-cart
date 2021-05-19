@@ -35,18 +35,18 @@ export const Promo20210517: React.FC<Props> = ({ date }) => {
     }
   } else {
     if (desktop) {
-      image = price?.currency.code === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default;
+      image = price?.currency.code === 'GBP' ? require('./desktop-new-uk.jpg').default : require('./desktop-new.jpg').default;
     } else {
-      image = price?.currency.code === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
+      image = price?.currency.code === 'GBP' ? require('./mobile-new-uk.jpg').default : require('./mobile-new.jpg').default;
     }
   }
 
   if (desktop) {
     width = 976;
-    height = 418;
+    height = 585;
   } else {
     width = 600;
-    height = 418;
+    height = 747;
   }
 
   const buttonClick = (): void => {
