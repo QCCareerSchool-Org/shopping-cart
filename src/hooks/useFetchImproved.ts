@@ -72,7 +72,7 @@ export function useFetchImproved<T>(initialUrl: string, initialData: T): ReturnT
       }
     };
 
-    fetchData();
+    void fetchData();
 
     return () => cancelTokenSource.cancel();
   }, [ url ]);
