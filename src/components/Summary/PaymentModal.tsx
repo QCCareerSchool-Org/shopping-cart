@@ -105,6 +105,8 @@ export const PaymentModal: React.FC<Props> = ({ company, isOpen, toggle, charge 
           instance.fields('expiryDate').on('Blur', () => setStatus(s => ({ ...s, expFilled: true })));
           instance.fields('cvv').on('Blur', () => setStatus(s => ({ ...s, cvvFilled: true })));
           setStatus(s => ({ ...s, instance }));
+        }).catch(err => {
+          console.error(err);
         });
       }
     }

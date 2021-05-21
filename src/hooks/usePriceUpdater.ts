@@ -65,7 +65,7 @@ export const usePriceUpdater = (school: School, promoCodeDefault?: string, allow
       });
     };
 
-    preFetchData();
+    void preFetchData();
 
     return () => cancelTokenSource.cancel();
   }, [ dispatch, courses, address.countryCode, address.provinceCode, meta.student, meta.studentDiscount, meta.promoCode, payment.noShipping, school, promoCodeDefault, allowOverrides, additionalOptions ]);
@@ -123,7 +123,7 @@ export const usePriceUpdater = (school: School, promoCodeDefault?: string, allow
       }
     };
 
-    fetchData();
+    void fetchData();
 
     return () => cancelTokenSource.cancel();
   }, [ dispatch, courses, address.countryCode, address.provinceCode, meta.student, meta.studentDiscount, meta.promoCode, payment.noShipping, overrides.courses, overrides.installments, overrides.value, school, promoCodeDefault, allowOverrides, additionalOptions ]);

@@ -24,9 +24,9 @@ export const Promo20210517: React.FC<Props> = ({ date }) => {
 
   if (date.getTime() >= Date.UTC(2021, 4, 26, 16)) { // May 26 at 00:00
     if (desktop) {
-      image = require('./desktop-ends.jpg').default;
+      image = price?.currency.code === 'GBP' ? require('./desktop-ends-uk.jpg').default : require('./desktop-ends.jpg').default;
     } else {
-      image = require('./mobile-ends.jpg').default;
+      image = price?.currency.code === 'GBP' ? require('./mobile-ends-uk.jpg').default : require('./mobile-ends.jpg').default;
     }
   } else {
     if (desktop) {
@@ -55,7 +55,8 @@ export const Promo20210517: React.FC<Props> = ({ date }) => {
         <ModalHeader toggle={togglePopup}>Limited Time Offer</ModalHeader>
         <ModalBody className="text-center">
           <p>Enroll in one of QC&apos;s foundation courses&mdash;at our lowest deposit ever&mdash;and receive a specialty course for free (of equal or lesser value).</p>
-          <p>Plus, get a free 6-month subscription to Aisle Planner, an all-in-one event planning software.</p>
+          <p>Plus, get a FREE 6-month subscription to Aisle Planner, an all-in-one event planning software. Valued at $250, this super software will allow you to manage clients, plan projects, streamline workflows, design floor plans, and much more!</p>
+          <p>Designed for the modern event professional, this software will be invaluable for your event planning career.</p>
         </ModalBody>
       </Modal>
     </section>

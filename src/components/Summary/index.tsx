@@ -69,6 +69,8 @@ export const Summary: React.FC<Props> = props => {
           toggleGB();
         }
       }
+    }).catch(err => {
+      console.error(err);
     });
   };
 
