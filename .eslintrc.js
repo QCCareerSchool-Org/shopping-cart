@@ -175,17 +175,7 @@ module.exports = {
     '@typescript-eslint/lines-between-class-members': [ 'error', 'always', { exceptAfterSingleLine: true } ],
     '@typescript-eslint/no-implied-eval': 'error',
     '@typescript-eslint/no-loop-func': 'error',
-    '@typescript-eslint/no-magic-numbers': [
-      'warn', {
-        ignoreArrayIndexes: true,
-        ignoreDefaultValues: true,
-        detectObjects: true,
-        ignoreEnums: true,
-        ignoreNumericLiteralTypes: true,
-        ignoreReadonlyClassProperties: true,
-        ignore: [ 0, 1 ],
-      },
-    ],
+    '@typescript-eslint/no-magic-numbers': 'off',
     '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/no-throw-literal': 'error',
     '@typescript-eslint/no-use-before-define': 'off', // override CRA's default
