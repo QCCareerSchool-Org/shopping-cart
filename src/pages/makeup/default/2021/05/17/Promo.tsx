@@ -35,9 +35,9 @@ export const Promo20210517: React.FC<Props> = ({ date }) => {
     }
   } else {
     if (desktop) {
-      image = price?.currency.code === 'GBP' ? require('./desktop-new-uk.jpg').default : require('./desktop-new.jpg').default;
+      image = price?.currency.code === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default;
     } else {
-      image = price?.currency.code === 'GBP' ? require('./mobile-new-uk.jpg').default : require('./mobile-new.jpg').default;
+      image = price?.currency.code === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
     }
   }
 
