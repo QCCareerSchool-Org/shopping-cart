@@ -25,6 +25,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/coupon-SAVE50.jpg').default,
       mobileImageSrc: require('./images/coupon-mobile-SAVE50.jpg').default,
       altText: 'Get 50% off additional courses of equal or lesser value',
+      endDate: new Date(Date.UTC(2021, 5, 12, 3, 59, 59)),
     },
     {
       schools: [ 'QC Design School' ],
@@ -65,8 +66,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/coupon-ELITE.jpg').default,
       mobileImageSrc: require('./images/coupon-mobile-ELITE.jpg').default,
       altText: 'Get an elite makeup kit upgrade',
-      startDate: new Date(Date.UTC(2021, 4, 17, 13)), // May 17 at 09:00
-      endDate: new Date(Date.UTC(2021, 4, 29, 3, 59, 59)), // May 28 at 23:59:59
+      startDate: new Date(Date.UTC(2021, 5, 1, 13)), // June 1 at 09:00
+      endDate: new Date(Date.UTC(2021, 5, 12, 3, 59, 59)), // June 11 at 23:59:59
     },
     {
       schools: [ 'QC Makeup Academy' ],
@@ -133,6 +134,39 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       altText: 'Get the Virtual Makeup course free when you enroll in Master Makeup Artistry',
       startDate: new Date(Date.UTC(2021, 4, 15, 12)), // May 15 at 08:00
       endDate: new Date(Date.UTC(2021, 4, 17, 3, 59, 59)), // May 16 at 23:59:59
+    },
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'WEEKEND',
+      description: <>Get the <strong>Virtual Makeup</strong> course free when you enroll in <strong>Master Makeup Artistry</strong>. Also get an elite makeup kit upgrade</>,
+      desktopImageSrc: require('./images/coupon-WEEKEND.jpg').default,
+      mobileImageSrc: require('./images/coupon-mobile-WEEKEND.jpg').default,
+      altText: 'Get the Virtual Makeup course free when you enroll in Master Makeup Artistry',
+      startDate: new Date(Date.UTC(2021, 4, 29, 12)), // May 29 at 08:00
+      endDate: new Date(Date.UTC(2021, 5, 1, 3, 59, 59)), // May 31 at 23:59:59
+    },
+    {
+      schools: [ 'QC Design School' ],
+      student: 'DENIED',
+      code: 'WEEKEND',
+      description: <>Enroll in one of QC&apos;s design courses and receive your second course (of equal or lesser value) for free. Also get a free Sherwin-Williams fan deck!</>,
+      desktopImageSrc: require('./images/coupon-WEEKEND-design.jpg').default,
+      mobileImageSrc: require('./images/coupon-mobile-WEEKEND-design.jpg').default,
+      altText: 'Get any second course for free',
+      startDate: new Date(Date.UTC(2021, 4, 29, 12)), // May 29 at 08:00
+      endDate: new Date(Date.UTC(2021, 5, 1, 3, 59, 59)), // May 31 at 23:59:59
+    },
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'FREEPRO',
+      description: <>Enroll in the <strong>Master Makeup Artistry</strong> course and get the <strong>Pro Makeup Workshop</strong> for free!</>,
+      desktopImageSrc: require('./images/coupon-FREEPRO.jpg').default,
+      mobileImageSrc: require('./images/coupon-mobile-FREEPRO.jpg').default,
+      altText: 'Get the Pro Makeup Workshop for free when you enroll in Master Makeup Artistry',
+      startDate: new Date(Date.UTC(2021, 5, 1, 13)), // June 1 at 09:00
+      endDate: new Date(Date.UTC(2021, 5, 12, 3, 59, 59)), // June 11 at 23:59:59
     },
   ];
   return promos.filter(p => p.schools.includes(school)
