@@ -3,8 +3,10 @@ import { faChevronUp, faTag } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Card, CardBody } from 'reactstrap';
+import { useDateContext } from '../../hooks/useDateContext';
 
 import { useScreenWidthContext } from '../../hooks/useScreenWidthContext';
+import { dateOverride } from '../../lib/dateOverride';
 import { PromoCode } from '../PromoCode';
 
 type Props = {
@@ -14,6 +16,7 @@ type Props = {
   mobileImageSrc: string;
   altText: string;
   expiryDate?: Date;
+  displayExpiryDate?: Date;
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   expanded: boolean;
   setExpanded: (value: boolean) => void;
@@ -32,17 +35,26 @@ const formatDate = (date: Date): string => {
   return `${months[date.getMonth()]} ${date.getDate()}`;
 };
 
-export const PromoCodeTicket: React.FC<Props> = ({ code, description, desktopImageSrc, mobileImageSrc, altText, expiryDate, onClick, expanded, setExpanded }) => {
+export const PromoCodeTicket: React.FC<Props> = ({ code, description, desktopImageSrc, mobileImageSrc, altText, expiryDate, displayExpiryDate, onClick, expanded, setExpanded }) => {
+  const serverDate = useDateContext();
+  const date = dateOverride() ?? serverDate;
   const width = useScreenWidthContext();
 
   const desktop = width >= 450;
 
-  const endOfMonth = getEndOfMonth();
+  const fallbackExpiryDate = expiryDate ?? getEndOfMonth();
 
-  const now = new Date();
+  if (displayExpiryDate) {
+    displayExpiryDate.setHours(23);
+    displayExpiryDate.setMinutes(59);
+    displayExpiryDate.setSeconds(59);
+    displayExpiryDate.setMilliseconds(999);
+  }
 
-  const endsSoon = (expiryDate ?? endOfMonth).getTime() - now.getTime() < 1000 * 60 * 60 * 24 * 3; // less than 3 days remaining
-  const lastChance = (expiryDate ?? endOfMonth).getTime() - now.getTime() < 1000 * 60 * 60 * 36; // less than 36 hours remaining
+  const endDate = displayExpiryDate && displayExpiryDate.getTime() >= date.getTime() ? displayExpiryDate : fallbackExpiryDate;
+
+  const endsSoon = endDate.getTime() - date.getTime() < 1000 * 60 * 60 * 24 * 3; // less than 3 days remaining
+  const lastChance = endDate.getTime() - date.getTime() < 1000 * 60 * 60 * 36; // less than 36 hours remaining
 
   return (
     <>
@@ -74,7 +86,7 @@ export const PromoCodeTicket: React.FC<Props> = ({ code, description, desktopIma
           <FontAwesomeIcon icon={faChevronUp} className="mr-2" />{' '}
           {description}
           <hr />
-          <strong>Expires:</strong>{' '}{formatDate(expiryDate ?? endOfMonth)}{' '}{lastChance ? <strong className="text-danger">Last chance!</strong> : endsSoon && <strong className="text-danger">Ends soon!</strong>}
+          <strong>Expires:</strong>{' '}{formatDate(endDate)}{' '}{lastChance ? <strong className="text-danger">Last chance!</strong> : endsSoon && <strong className="text-danger">Ends soon!</strong>}
           <button onClick={() => setExpanded(false)} type="button" className="close" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

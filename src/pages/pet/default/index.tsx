@@ -20,7 +20,13 @@ const additionalOptionsDiscount = {
   discountSignature: 'ZEWLbuphTH4oLBZyyu4/iuASSVgRnykmXjeZOMNbgOl75TYgW9YaO7NyaYkqfcHYVFv2kTAwxZ+PPUxxx2tnsq+LysBHqhSoslgY+JVDO5ETDymqhcMo9IIuwTGlZ8Cwxu2BScM3RBMQ1f30jXYis1wwXmcaYv5urpM9jQ794gVLlBIsrDYoHDe3BO0IUaOk1a2JtMyLntprcde1rXf9GkDsUujWqTuSDyKKNqwiqnRksGNu3LWA9swEdL8mP6SoPKJyv8NkWHZVsseWRzqS/W9rYS6FiJx6+PiiL61pU2Zj1Ai1l5NkrEvxaKBOjkYmWG1gOjgMsf3DcciXmPTdhQ==',
 };
 
-const additionalOptionsNone = {};
+const additionalOptions200 = {
+  discount: {
+    default: 200,
+    GBP: 150,
+  },
+  discountSignature: 'NIigInzAudp5TBfGRSqrPQ75+tuhQhSc5KC9lodAy/0SeeMIN6YoHDBlv+S0hjjJ+CIm4X5hWaLF3V1QReTE1sznymTCVVVJL5rT2QWFLCMkUMJrPwBCt1xqdQWhU/uQSt0aXYFmWHXI4gCfEQr1AgAZaQPpcWGINhMK5T20+iPqWcCO/e1fX2/t8aQW7co3vkbAZC0iXHp71bihb6RsvJ6mxf5T/5cVg0yiE/KSTxP4nEf0GGz83Z9IYM9B/AKuejgljz4T0bvan8K/kQZDWwN00QjyzW3Llz9XufKiBnELRL8AW24Cbk1FrTNBmOiRxQApMgk8RWnzermCtTAoGA==',
+};
 
 const Default: React.FC<Props> = ({ currencyCode }) => {
   const serverDate = useDateContext();
@@ -38,7 +44,7 @@ const Default: React.FC<Props> = ({ currencyCode }) => {
         agreementLink="https://www.doggroomingcourse.com/enrollment-agreement.html"
         agreementLinkGB="https://www.doggroomingcourse.com/enrollment-agreement-gb.html"
         successLink="https://www.doggroomingcourse.com/welcome-to-the-school/"
-        additionalOptions={date.getTime() >= Date.UTC(2021, 4, 3, 13) ? additionalOptionsDiscount : additionalOptionsNone}
+        additionalOptions={date.getTime() >= Date.UTC(2021, 5, 1, 13) ? additionalOptions200 : additionalOptionsDiscount}
       />
     </>
   );
