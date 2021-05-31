@@ -25,7 +25,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/coupon-SAVE50.jpg').default,
       mobileImageSrc: require('./images/coupon-mobile-SAVE50.jpg').default,
       altText: 'Get 50% off additional courses of equal or lesser value',
-      endDate: new Date(Date.UTC(2021, 5, 12, 3, 59, 59)),
+      displayEndDate: new Date(2021, 5, 11),
     },
     {
       schools: [ 'QC Design School' ],

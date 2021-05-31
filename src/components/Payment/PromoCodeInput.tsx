@@ -18,8 +18,12 @@ export type Promo = {
   desktopImageSrc: string;
   mobileImageSrc: string;
   altText: string;
+  /** won't show before this date */
   startDate?: Date;
+  /** won't show after this date */
   endDate?: Date;
+  /** the expiry date to display to visitors (if undefined, we'll use endDate, or end of current month if endDate is undefined) */
+  displayEndDate?: Date;
 };
 
 type Props = {
