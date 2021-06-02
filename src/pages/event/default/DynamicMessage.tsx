@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
 
-import { DynamicMessage20210406 } from './2021/04/06/DynamicMessage';
+import { DynamicMessage20210601 } from './2021/06/01/DynamicMessage';
 
 type Props = {
   date: Date;
@@ -9,5 +8,5 @@ type Props = {
 };
 
 export const DynamicMessage: React.FC<Props> = ({ courses }) => {
-  return <DynamicMessage20210406 courses={courses} />;
+  return <DynamicMessage20210601 courses={courses} />;
 };
