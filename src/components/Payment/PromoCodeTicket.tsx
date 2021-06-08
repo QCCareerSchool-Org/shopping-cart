@@ -26,7 +26,7 @@ const getEndOfMonth = (): Date => {
   const endOfMonth = new Date();
   endOfMonth.setMonth(endOfMonth.getMonth() + 1);
   endOfMonth.setDate(0);
-  endOfMonth.setHours(23, 59, 59);
+  endOfMonth.setHours(23, 59, 59, 999);
   return endOfMonth;
 };
 
@@ -45,11 +45,10 @@ export const PromoCodeTicket: React.FC<Props> = ({ code, description, desktopIma
   const fallbackExpiryDate = expiryDate ?? getEndOfMonth();
 
   if (displayExpiryDate) {
-    displayExpiryDate.setHours(23);
-    displayExpiryDate.setMinutes(59);
-    displayExpiryDate.setSeconds(59);
-    displayExpiryDate.setMilliseconds(999);
+    displayExpiryDate.setHours(23, 59, 59, 999);
   }
+
+  console.log(code, displayExpiryDate, fallbackExpiryDate);
 
   const endDate = displayExpiryDate && displayExpiryDate.getTime() >= date.getTime() ? displayExpiryDate : fallbackExpiryDate;
 
