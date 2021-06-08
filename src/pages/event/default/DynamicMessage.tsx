@@ -7,6 +7,9 @@ type Props = {
   courses: string[];
 };
 
-export const DynamicMessage: React.FC<Props> = ({ courses }) => {
+export const DynamicMessage: React.FC<Props> = ({ date, courses }) => {
+  if (date.getTime() >= Date.UTC(2021, 5, 9, 13)) {
+    return null;
+  }
   return <DynamicMessage20210601 courses={courses} />;
 };

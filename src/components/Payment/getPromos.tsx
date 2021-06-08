@@ -37,6 +37,15 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       altText: 'Get 50% off additional courses of equal or lesser value',
     },
     {
+      schools: [ 'QC Event School' ],
+      student: 'DENIED',
+      code: 'SAVE50',
+      description: 'Enroll in one course and get 50% off each additional course of equal or lesser value',
+      desktopImageSrc: require('./images/coupon-SAVE50-event.jpg').default,
+      mobileImageSrc: require('./images/coupon-mobile-SAVE50-event.jpg').default,
+      altText: 'Get 50% off additional courses of equal or lesser value',
+    },
+    {
       schools: [ 'QC Makeup Academy' ],
       student: 'DENIED',
       code: 'ADVANCED100',
@@ -176,9 +185,33 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       description: <>Enroll in one course and get your second course (of equal or lesser value) for free.</>,
       desktopImageSrc: require('./images/coupon-MAY21.jpg').default,
       mobileImageSrc: require('./images/coupon-mobile-MAY21.jpg').default,
-      altText: 'Enroll in one course and and get your second course free',
+      altText: 'Enroll in one course and get your second course free',
       startDate: new Date(Date.UTC(2021, 5, 1, 13)), // June 1 at 09:00
       endDate: new Date(Date.UTC(2021, 5, 12, 4)), // June 12 at 00:00
+      displayEndDate: new Date(2021, 5, 11), // June 11
+    },
+    {
+      schools: [ 'QC Event School' ],
+      student: 'DENIED',
+      code: 'WEDDING21',
+      description: <>Enroll in <strong>Event &amp; Wedding Planning</strong> and get both <strong>Luxury Wedding Planning</strong> and <strong>Destination Wedding Planning</strong> free.</>,
+      desktopImageSrc: require('./images/coupon-WEDDING21.jpg').default,
+      mobileImageSrc: require('./images/coupon-mobile-WEDDING21.jpg').default,
+      altText: 'Enroll in Event & Wedding Planning and get two free specialty courses',
+      startDate: new Date(Date.UTC(2021, 5, 9, 13)), // June 9 at 09:00
+      endDate: new Date(Date.UTC(2021, 5, 28, 13)), // June 28 at 00:00
+      displayEndDate: new Date(2021, 5, 11), // June 11
+    },
+    {
+      schools: [ 'QC Event School' ],
+      student: 'DENIED',
+      code: 'EXPERT',
+      description: <>Enroll in a Foundation course and get any Specialty course free.</>,
+      desktopImageSrc: require('./images/coupon-EXPERT.jpg').default,
+      mobileImageSrc: require('./images/coupon-mobile-EXPERT.jpg').default,
+      altText: 'Enroll in a Foundation course and get any Specialty course free',
+      startDate: new Date(Date.UTC(2021, 5, 9, 13)), // June 9 at 09:00
+      endDate: new Date(Date.UTC(2021, 5, 28, 13)), // June 28 at 00:00
       displayEndDate: new Date(2021, 5, 11), // June 11
     },
   ];
