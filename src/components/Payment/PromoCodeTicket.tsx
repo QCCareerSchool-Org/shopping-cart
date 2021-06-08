@@ -48,8 +48,6 @@ export const PromoCodeTicket: React.FC<Props> = ({ code, description, desktopIma
     displayExpiryDate.setHours(23, 59, 59, 999);
   }
 
-  console.log(code, displayExpiryDate, fallbackExpiryDate);
-
   const endDate = displayExpiryDate && displayExpiryDate.getTime() >= date.getTime() ? displayExpiryDate : fallbackExpiryDate;
 
   const endsSoon = endDate.getTime() - date.getTime() < 1000 * 60 * 60 * 24 * 3; // less than 3 days remaining
