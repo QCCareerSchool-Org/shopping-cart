@@ -14,6 +14,7 @@ const Event: React.FC = () => <Form
   successLink="https://www.qceventplanning.com/welcome-to-the-school/"
   internal={true}
   allowOverrides={true}
+  showPromoCodeInput={true}
 />;
 
 export default Event;
