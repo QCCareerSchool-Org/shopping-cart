@@ -85,7 +85,6 @@ export const Promo20210609: React.FC<Props> = ({ date }) => {
             ? <img src={couponButtonAppliedSrc} width="385" height="40" className="img-fluid" alt="Promo Code" />
             : <button onClick={buttonClick} className="btn btn-link p-0 border-0 btn-no-hover-shadow"><img src={couponButtonSrc} width="385" height="40" className="img-fluid" alt="Promo Code" /></button>
           }
-          <Link to="/student">link</Link>
         </div>
       </div>
     </>
