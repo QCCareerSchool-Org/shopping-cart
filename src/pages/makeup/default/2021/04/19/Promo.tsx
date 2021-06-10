@@ -11,13 +11,15 @@ import couponButtonEliteSrc from './ELITE-choose-offer-btn.png';
 import couponButtonSave50Src from './SAVE50-choose-offer-btn.png';
 import couponButtonSpring21Src from './SPRING21-choose-offer-btn.png';
 
+const preload = [ couponButtonActiveSrc ];
+
 type Props = {
   date: Date;
   currencyCode: string;
 };
 
 export const Promo20210419: React.FC<Props> = ({ date }) => {
-  usePreloadImages([ couponButtonActiveSrc ]);
+  usePreloadImages(preload);
 
   return (
     <>

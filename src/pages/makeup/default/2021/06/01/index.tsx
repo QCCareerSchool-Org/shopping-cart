@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
 import { usePreloadImages } from '../../../../../../hooks/usePreloadImages';
@@ -8,6 +8,8 @@ import { useStateContext } from '../../../../../../hooks/useStateContext';
 
 import couponButtonAppliedSrc from './coupon-btn-freepro-active.svg';
 import couponButtonSrc from './coupon-btn-freepro.svg';
+
+const preload = [ couponButtonAppliedSrc ];
 
 type Props = {
   date: Date;
@@ -19,7 +21,7 @@ export const Promo20210601: React.FC<Props> = ({ date }) => {
   const { price } = useStateContext();
   const dispatch = useDispatchContext();
 
-  usePreloadImages([ couponButtonAppliedSrc ]);
+  usePreloadImages(preload);
 
   const desktop = screenWidth >= 576;
 
