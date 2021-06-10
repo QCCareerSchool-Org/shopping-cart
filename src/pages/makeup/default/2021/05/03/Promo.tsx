@@ -9,6 +9,8 @@ import { useStateContext } from '../../../../../../hooks/useStateContext';
 import couponButtonAppliedSrc from './coupon-btn-skincare60-active.svg';
 import couponButtonSrc from './coupon-btn-skincare60.svg';
 
+const preload = [ couponButtonAppliedSrc ];
+
 type Props = {
   date: Date;
   currencyCode: string;
@@ -19,7 +21,7 @@ export const Promo20210503: React.FC<Props> = ({ date }) => {
   const { price } = useStateContext();
   const dispatch = useDispatchContext();
 
-  usePreloadImages([ couponButtonAppliedSrc ]);
+  usePreloadImages(preload);
 
   const desktop = screenWidth >= 576;
 
