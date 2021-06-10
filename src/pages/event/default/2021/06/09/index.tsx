@@ -4,6 +4,7 @@ import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
 
 import { usePopup } from '../../../../../../hooks/usePopup';
+import { usePreloadImage } from '../../../../../../hooks/usePreloadImage';
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../../../../hooks/useStateContext';
 
@@ -20,6 +21,8 @@ export const Promo20210609: React.FC<Props> = ({ date }) => {
   const dispatch = useDispatchContext();
   const screenWidth = useScreenWidthContext();
   const [ popup, togglePopup ] = usePopup(false);
+
+  usePreloadImage(couponButtonAppliedSrc);
 
   const desktop = screenWidth > 440;
 
