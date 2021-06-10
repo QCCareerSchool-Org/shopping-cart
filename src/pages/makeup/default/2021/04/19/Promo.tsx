@@ -2,7 +2,7 @@
 import React from 'react';
 
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
-import { usePreloadImage } from '../../../../../../hooks/usePreloadImage';
+import { usePreloadImages } from '../../../../../../hooks/usePreloadImages';
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../../../../hooks/useStateContext';
 
@@ -17,7 +17,7 @@ type Props = {
 };
 
 export const Promo20210419: React.FC<Props> = ({ date }) => {
-  usePreloadImage(couponButtonActiveSrc);
+  usePreloadImages([ couponButtonActiveSrc ]);
 
   return (
     <>
