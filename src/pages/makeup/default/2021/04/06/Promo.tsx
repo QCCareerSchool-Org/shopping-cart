@@ -2,7 +2,7 @@
 import React from 'react';
 
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
-import { usePreloadImage } from '../../../../../../hooks/usePreloadImage';
+import { usePreloadImages } from '../../../../../../hooks/usePreloadImages';
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../../../../hooks/useStateContext';
 
@@ -19,7 +19,7 @@ export const Promo20210406: React.FC<Props> = ({ date, currencyCode }) => {
   const { price } = useStateContext();
   const dispatch = useDispatchContext();
 
-  usePreloadImage(couponButtonAppliedSrc);
+  usePreloadImages([ couponButtonAppliedSrc ]);
 
   const desktop = screenWidth >= 576;
 
