@@ -263,6 +263,18 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       displayEndDate: new Date(2021, 5, 13), // June 13
     },
     {
+      schools: [ 'QC Design School' ],
+      student: 'DENIED',
+      code: 'BONUSGIFT',
+      description: <>Enroll in one course and get a second course of equal or lesser value FREE. Also get a free leather portfolio!</>,
+      desktopImageSrc: require('./images/coupon-BONUSGIFT-design.jpg').default,
+      mobileImageSrc: require('./images/coupon-mobile-BONUSGIFT-design.jpg').default,
+      altText: 'Enroll one cours and get a second course free',
+      startDate: new Date(Date.UTC(2021, 5, 12, 12)), // June 12 at 08:00
+      endDate: new Date(Date.UTC(2021, 5, 14, 13)), // June 14 at 09:00
+      displayEndDate: new Date(2021, 5, 13), // June 13
+    },
+    {
       schools: [ 'QC Makeup Academy' ],
       student: 'DENIED',
       code: 'SUMMER21',
