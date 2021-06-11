@@ -217,20 +217,32 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
     {
       schools: [ 'QC Event School' ],
       student: 'DENIED',
+      code: 'WEDDING21',
+      description: <>Enroll in <strong>Event &amp; Wedding Planning</strong> and get both <strong>Luxury Wedding Planning</strong> and <strong>Destination Wedding Planning</strong> free.</>,
+      desktopImageSrc: require('./images/coupon-WEDDING21.jpg').default,
+      mobileImageSrc: require('./images/coupon-mobile-WEDDING21.jpg').default,
+      altText: 'Enroll in Event & Wedding Planning and get two free specialty courses',
+      startDate: new Date(Date.UTC(2021, 5, 14, 13)), // June 14 at 09:00
+      endDate: new Date(Date.UTC(2021, 5, 28, 13)), // June 28 at 09:00
+      displayEndDate: new Date(2021, 5, 25), // June 11
+    },
+    {
+      schools: [ 'QC Event School' ],
+      student: 'DENIED',
       code: 'EXPERT',
       description: <>Enroll in a Foundation course and get any Specialty course free.</>,
       desktopImageSrc: require('./images/coupon-EXPERT.jpg').default,
       mobileImageSrc: require('./images/coupon-mobile-EXPERT.jpg').default,
       altText: 'Enroll in a Foundation course and get any Specialty course free',
       startDate: new Date(Date.UTC(2021, 5, 9, 13)), // June 9 at 09:00
-      endDate: new Date(Date.UTC(2021, 5, 28, 13)), // June 28 at 00:00
+      endDate: new Date(Date.UTC(2021, 5, 14, 13)), // June 14 at 09:00
       displayEndDate: new Date(2021, 5, 11), // June 11
     },
     {
       schools: [ 'QC Makeup Academy' ],
       student: 'DENIED',
       code: 'BONUSGIFT',
-      description: <>Enroll in <strong>Master Makeup Artisty</strong> and get any Specialty course free. Plus, get a free 11-piece Elite Makeup Kit. </>,
+      description: <>Enroll in <strong>Master Makeup Artisty</strong> and get the <strong>Pro Makeup Workshop</strong>. Plus, get a free 11-piece Elite Makeup Kit. </>,
       desktopImageSrc: require('./images/coupon-BONUSGIFT.jpg').default,
       mobileImageSrc: require('./images/coupon-mobile-BONUSGIFT.jpg').default,
       altText: 'Get the Pro Makeup Workshop for free and an 11-piece makeup kit',
@@ -258,6 +270,18 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/coupon-SUMMER21.jpg').default,
       mobileImageSrc: require('./images/coupon-mobile-SUMMER21.jpg').default,
       altText: 'Enroll in any Foundation course and get any Advanced course free',
+      startDate: new Date(Date.UTC(2021, 5, 14, 13)), // June 14 at 09:00
+      endDate: new Date(Date.UTC(2021, 5, 28, 9)), // June 28 at 09:00
+      displayEndDate: new Date(2021, 5, 25), // June 25
+    },
+    {
+      schools: [ 'QC Event School' ],
+      student: 'DENIED',
+      code: 'SUMMER21',
+      description: <>Enroll in any Foundation course and get any Specialty course free.</>,
+      desktopImageSrc: require('./images/coupon-EXPERT.jpg').default,
+      mobileImageSrc: require('./images/coupon-mobile-EXPERT.jpg').default,
+      altText: 'Enroll in any Foundation course and get any Specialty course free',
       startDate: new Date(Date.UTC(2021, 5, 14, 13)), // June 14 at 09:00
       endDate: new Date(Date.UTC(2021, 5, 28, 9)), // June 28 at 09:00
       displayEndDate: new Date(2021, 5, 25), // June 25
