@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
 
-import { Promo20210529 } from './2021/05/29/Promo';
 import { Promo20210601 } from './2021/06/01';
 import { Promo20210612 } from './2021/06/12';
 import { Promo20210614 } from './2021/06/14';

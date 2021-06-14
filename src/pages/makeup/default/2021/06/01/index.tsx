@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
-import React, { useMemo } from 'react';
+import React from 'react';
 
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
 import { usePreloadImages } from '../../../../../../hooks/usePreloadImages';
