@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
 
