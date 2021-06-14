@@ -1,12 +1,15 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
+import { usePreloadImages } from '../../../../../../hooks/usePreloadImages';
 
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../../../../hooks/useStateContext';
 
 import couponButtonAppliedSrc from './coupon-btn-SUMMER21-active.svg';
 import couponButtonSrc from './coupon-btn-SUMMER21.svg';
+
+const preloadImages = [ couponButtonAppliedSrc ];
 
 type Props = {
   date: Date;
@@ -17,6 +20,8 @@ export const Promo20210614: React.FC<Props> = ({ date, currencyCode }) => {
   const { price } = useStateContext();
   const dispatch = useDispatchContext();
   const screenWidth = useScreenWidthContext();
+
+  usePreloadImages(preloadImages);
 
   const desktop = screenWidth > 514;
 
