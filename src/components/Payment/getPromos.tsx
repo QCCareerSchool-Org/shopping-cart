@@ -271,7 +271,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: require('./images/makeup/coupon-mobile-SUMMER21.jpg').default,
       altText: 'Enroll in any Foundation course and get any Advanced course free',
       startDate: new Date(Date.UTC(2021, 5, 14, 13)), // June 14 at 09:00
-      endDate: new Date(Date.UTC(2021, 5, 28, 9)), // June 28 at 09:00
+      endDate: new Date(Date.UTC(2021, 5, 18, 13, 30)), // June 18 at 09:30
       displayEndDate: new Date(2021, 5, 25), // June 25
     },
     {
@@ -283,7 +283,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: require('./images/event/coupon-mobile-EXPERT.jpg').default,
       altText: 'Enroll in any Foundation course and get any Specialty course free',
       startDate: new Date(Date.UTC(2021, 5, 14, 13)), // June 14 at 09:00
-      endDate: new Date(Date.UTC(2021, 5, 28, 9)), // June 28 at 09:00
+      endDate: new Date(Date.UTC(2021, 5, 18, 13, 30)), // June 18 at 09:30
       displayEndDate: new Date(2021, 5, 25), // June 25
     },
     {
@@ -295,18 +295,91 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: require('./images/design/coupon-mobile-FREESECONDCOURSE.jpg').default,
       altText: 'Get your second course FREE',
       startDate: new Date(Date.UTC(2021, 5, 14, 13)), // June 14 at 09:00
-      endDate: new Date(Date.UTC(2021, 5, 28, 9)), // June 28 at 09:00
+      endDate: new Date(Date.UTC(2021, 5, 18, 13, 30)), // June 18 at 09:30
       displayEndDate: new Date(2021, 5, 25), // June 25
     },
     {
       schools: [ 'QC Design School' ],
       student: 'DENIED',
       code: 'DESIGN100',
-      description: <>Get ${price?.currency.code === 'GBP' ? '£100' : '$100'} off your tuition</>,
+      description: <>Get {price?.currency.code === 'GBP' ? '£100' : '$100'} off your tuition</>,
       desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/design/coupon-uk-100OFF.jpg').default : require('./images/design/coupon-100OFF.jpg').default,
       mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/design/coupon-mobile-uk-100OFF.jpg').default : require('./images/design/coupon-mobile-100OFF.jpg').default,
       altText: `${price?.currency.code === 'GBP' ? '£100' : '$100'} off your tuition`,
       startDate: new Date(Date.UTC(2021, 5, 14, 13)), // June 14 at 09:00
+      displayEndDate: new Date(2021, 5, 25), // June 25
+    },
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'FATHERSDAY',
+      description: <>Get {price?.currency.code === 'GBP' ? '£50' : '$50'} off your tuition and get a FREE Advanced makeup course</>,
+      desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-FATHERSDAY-makeup-uk.jpg').default : require('./images/makeup/coupon-FATHERSDAY-makeup.jpg').default,
+      mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-mobile-FATHERSDAY-makeup-uk.jpg').default : require('./images/makeup/coupon-mobile-FATHERSDAY-makeup.jpg').default,
+      altText: `${price?.currency.code === 'GBP' ? '£50' : '$50'} off your tuition + FREE Advanced course`,
+      startDate: new Date(Date.UTC(2021, 5, 18, 13, 30)), // June 18 at 09:30
+      endDate: new Date(2021, 5, 20), // June 20 at 00:00
+      displayEndDate: new Date(2021, 5, 20), // June 20
+    },
+    {
+      schools: [ 'QC Design School' ],
+      student: 'DENIED',
+      code: 'FATHERSDAY',
+      description: <>Get a deulxe design kit, plus get a second course of equal or lesser value for FREE</>,
+      desktopImageSrc: require('./images/design/coupon-FATHERSDAY-design.jpg').default,
+      mobileImageSrc: require('./images/design/coupon-mobile-FATHERSDAY-design.jpg').default,
+      altText: 'Deluxe design kit + second course FREE',
+      startDate: new Date(Date.UTC(2021, 5, 18, 13, 30)), // June 18 at 09:30
+      endDate: new Date(2021, 5, 20), // June 20 at 00:00
+      displayEndDate: new Date(2021, 5, 20), // June 20
+    },
+    {
+      schools: [ 'QC Event School' ],
+      student: 'DENIED',
+      code: 'FATHERSDAY',
+      description: <>Get {price?.currency.code === 'GBP' ? '£50' : '$50'} off your tuition and get a FREE Advanced makeup course</>,
+      desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/event/coupon-FATHERSDAY-event-uk.jpg').default : require('./images/event/coupon-FATHERSDAY-event.jpg').default,
+      mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/event/coupon-mobile-FATHERSDAY-event-uk.jpg').default : require('./images/event/coupon-mobile-FATHERSDAY-event.jpg').default,
+      altText: `${price?.currency.code === 'GBP' ? '£50' : '$50'} off your tuition + FREE Advanced course`,
+      startDate: new Date(Date.UTC(2021, 5, 18, 13, 30)), // June 18 at 09:30
+      endDate: new Date(2021, 5, 20), // June 20 at 00:00
+      displayEndDate: new Date(2021, 5, 20), // June 20
+    },
+
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'SUMMER21',
+      description: <>Enroll in any Foundation course and get any Advanced course free.</>,
+      desktopImageSrc: require('./images/makeup/coupon-SUMMER21.jpg').default,
+      mobileImageSrc: require('./images/makeup/coupon-mobile-SUMMER21.jpg').default,
+      altText: 'Enroll in any Foundation course and get any Advanced course free',
+      startDate: new Date(Date.UTC(2021, 5, 20, 0)), // June 20 at 00:00
+      endDate: new Date(Date.UTC(2021, 5, 28, 9)), // June 28 at 09:00
+      displayEndDate: new Date(2021, 5, 25), // June 25
+    },
+    {
+      schools: [ 'QC Event School' ],
+      student: 'DENIED',
+      code: 'SUMMER21',
+      description: <>Enroll in any Foundation course and get any Specialty course free.</>,
+      desktopImageSrc: require('./images/event/coupon-EXPERT.jpg').default,
+      mobileImageSrc: require('./images/event/coupon-mobile-EXPERT.jpg').default,
+      altText: 'Enroll in any Foundation course and get any Specialty course free',
+      startDate: new Date(Date.UTC(2021, 5, 20, 0)), // June 20 at 00:00
+      endDate: new Date(Date.UTC(2021, 5, 28, 9)), // June 28 at 09:00
+      displayEndDate: new Date(2021, 5, 25), // June 25
+    },
+    {
+      schools: [ 'QC Design School' ],
+      student: 'DENIED',
+      code: 'SUMMER21',
+      description: <>Enroll in any course and get your second course of equal or lesser value FREE!</>,
+      desktopImageSrc: require('./images/design/coupon-FREESECONDCOURSE.jpg').default,
+      mobileImageSrc: require('./images/design/coupon-mobile-FREESECONDCOURSE.jpg').default,
+      altText: 'Get your second course FREE',
+      startDate: new Date(Date.UTC(2021, 5, 20, 0)), // June 20 at 00:00
+      endDate: new Date(Date.UTC(2021, 5, 28, 9)), // June 28 at 09:00
       displayEndDate: new Date(2021, 5, 25), // June 25
     },
   ];
