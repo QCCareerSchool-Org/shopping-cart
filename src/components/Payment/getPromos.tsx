@@ -318,7 +318,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-mobile-FATHERSDAY-makeup-uk.jpg').default : require('./images/makeup/coupon-mobile-FATHERSDAY-makeup.jpg').default,
       altText: `${price?.currency.code === 'GBP' ? '£50' : '$50'} off your tuition + FREE Advanced course`,
       startDate: new Date(Date.UTC(2021, 5, 18, 13, 30)), // June 18 at 09:30
-      endDate: new Date(2021, 5, 20), // June 20 at 00:00
+      endDate: new Date(2021, 5, 21), // June 20 at 00:00
       displayEndDate: new Date(2021, 5, 21), // June 21
     },
     {
@@ -330,7 +330,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: require('./images/design/coupon-mobile-FATHERSDAY-design.jpg').default,
       altText: 'Deluxe design kit + second course FREE',
       startDate: new Date(Date.UTC(2021, 5, 18, 13, 30)), // June 18 at 09:30
-      endDate: new Date(2021, 5, 20), // June 20 at 00:00
+      endDate: new Date(2021, 5, 21), // June 20 at 00:00
       displayEndDate: new Date(2021, 5, 21), // June 21
     },
     {
@@ -343,7 +343,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       altText: `${price?.currency.code === 'GBP' ? '£50' : '$50'} off your tuition + FREE Advanced course`,
       startDate: new Date(Date.UTC(2021, 5, 18, 13, 30)), // June 18 at 09:30
       endDate: new Date(2021, 5, 21), // June 21 at 00:00
-      displayEndDate: new Date(2021, 5, 20), // June 20
+      displayEndDate: new Date(2021, 5, 21), // June 20
     },
 
     {
