@@ -319,7 +319,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       altText: `${price?.currency.code === 'GBP' ? '£50' : '$50'} off your tuition + FREE Advanced course`,
       startDate: new Date(Date.UTC(2021, 5, 18, 13, 30)), // June 18 at 09:30
       endDate: new Date(2021, 5, 20), // June 20 at 00:00
-      displayEndDate: new Date(2021, 5, 20), // June 20
+      displayEndDate: new Date(2021, 5, 21), // June 21
     },
     {
       schools: [ 'QC Design School' ],
@@ -331,7 +331,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       altText: 'Deluxe design kit + second course FREE',
       startDate: new Date(Date.UTC(2021, 5, 18, 13, 30)), // June 18 at 09:30
       endDate: new Date(2021, 5, 20), // June 20 at 00:00
-      displayEndDate: new Date(2021, 5, 20), // June 20
+      displayEndDate: new Date(2021, 5, 21), // June 21
     },
     {
       schools: [ 'QC Event School' ],
@@ -342,7 +342,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/event/coupon-mobile-FATHERSDAY-event-uk.jpg').default : require('./images/event/coupon-mobile-FATHERSDAY-event.jpg').default,
       altText: `${price?.currency.code === 'GBP' ? '£50' : '$50'} off your tuition + FREE Advanced course`,
       startDate: new Date(Date.UTC(2021, 5, 18, 13, 30)), // June 18 at 09:30
-      endDate: new Date(2021, 5, 20), // June 20 at 00:00
+      endDate: new Date(2021, 5, 21), // June 21 at 00:00
       displayEndDate: new Date(2021, 5, 20), // June 20
     },
 
@@ -354,7 +354,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/makeup/coupon-SUMMER21.jpg').default,
       mobileImageSrc: require('./images/makeup/coupon-mobile-SUMMER21.jpg').default,
       altText: 'Enroll in any Foundation course and get any Advanced course free',
-      startDate: new Date(Date.UTC(2021, 5, 20, 0)), // June 20 at 00:00
+      startDate: new Date(Date.UTC(2021, 5, 21, 0)), // June 21 at 00:00
       endDate: new Date(Date.UTC(2021, 5, 28, 9)), // June 28 at 09:00
       displayEndDate: new Date(2021, 5, 25), // June 25
     },
@@ -366,7 +366,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/event/coupon-EXPERT.jpg').default,
       mobileImageSrc: require('./images/event/coupon-mobile-EXPERT.jpg').default,
       altText: 'Enroll in any Foundation course and get any Specialty course free',
-      startDate: new Date(Date.UTC(2021, 5, 20, 0)), // June 20 at 00:00
+      startDate: new Date(Date.UTC(2021, 5, 21, 0)), // June 21 at 00:00
       endDate: new Date(Date.UTC(2021, 5, 28, 9)), // June 28 at 09:00
       displayEndDate: new Date(2021, 5, 25), // June 25
     },
@@ -378,7 +378,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/design/coupon-FREESECONDCOURSE.jpg').default,
       mobileImageSrc: require('./images/design/coupon-mobile-FREESECONDCOURSE.jpg').default,
       altText: 'Get your second course FREE',
-      startDate: new Date(Date.UTC(2021, 5, 20, 0)), // June 20 at 00:00
+      startDate: new Date(Date.UTC(2021, 5, 21, 0)), // June 21 at 00:00
       endDate: new Date(Date.UTC(2021, 5, 28, 9)), // June 28 at 09:00
       displayEndDate: new Date(2021, 5, 25), // June 25
     },
