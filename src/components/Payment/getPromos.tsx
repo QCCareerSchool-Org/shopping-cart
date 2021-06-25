@@ -354,8 +354,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/makeup/coupon-SUMMER21.jpg').default,
       mobileImageSrc: require('./images/makeup/coupon-mobile-SUMMER21.jpg').default,
       altText: 'Enroll in any Foundation course and get any Advanced course free',
-      startDate: new Date(Date.UTC(2021, 5, 21, 0)), // June 21 at 00:00
-      endDate: new Date(Date.UTC(2021, 5, 28, 9)), // June 28 at 09:00
+      startDate: new Date(2021, 5, 21, 0), // June 21 at 00:00
+      endDate: new Date(2021, 5, 28, 9), // June 28 at 09:00
       displayEndDate: new Date(2021, 5, 25), // June 25
     },
     {
@@ -366,8 +366,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/event/coupon-EXPERT.jpg').default,
       mobileImageSrc: require('./images/event/coupon-mobile-EXPERT.jpg').default,
       altText: 'Enroll in any Foundation course and get any Specialty course free',
-      startDate: new Date(Date.UTC(2021, 5, 21, 0)), // June 21 at 00:00
-      endDate: new Date(Date.UTC(2021, 5, 28, 9)), // June 28 at 09:00
+      startDate: new Date(2021, 5, 21, 0), // June 21 at 00:00
+      endDate: new Date(2021, 5, 28, 9), // June 28 at 09:00
       displayEndDate: new Date(2021, 5, 25), // June 25
     },
     {
@@ -378,9 +378,33 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/design/coupon-FREESECONDCOURSE.jpg').default,
       mobileImageSrc: require('./images/design/coupon-mobile-FREESECONDCOURSE.jpg').default,
       altText: 'Get your second course FREE',
-      startDate: new Date(Date.UTC(2021, 5, 21, 0)), // June 21 at 00:00
-      endDate: new Date(Date.UTC(2021, 5, 28, 9)), // June 28 at 09:00
+      startDate: new Date(2021, 5, 21, 0), // June 21 at 00:00
+      endDate: new Date(2021, 5, 28, 9), // June 28 at 09:00
       displayEndDate: new Date(2021, 5, 25), // June 25
+    },
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'DIVEIN',
+      description: <>Enroll in QC&apos;s Master Makeup Artistry Course and get a FREE leather portfolio! Plus get a FREE advanced course.</>,
+      desktopImageSrc: require('./images/makeup/coupon-DIVEIN.jpg').default,
+      mobileImageSrc: require('./images/makeup/coupon-mobile-DIVEIN.jpg').default,
+      altText: 'Free leather portfolio and free advanced course',
+      startDate: new Date(2021, 5, 26, 8), // June 26 at 08:00
+      endDate: new Date(2021, 5, 28, 9, 30), // June 28 at 09:30
+      displayEndDate: new Date(2021, 5, 28), // June 25
+    },
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'CANADA154',
+      description: <>Enroll in any online makeup course and get {price?.currency.code === 'GBP' ? '£' : '$'}154 off your tuition!</>,
+      desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-uk-CANADA154.jpg').default : require('./images/makeup/coupon-CANADA154.jpg').default,
+      mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-mobile-uk-CANADA154.jpg').default : require('./images/makeup/coupon-mobile-CANADA154.jpg').default,
+      altText: `get ${price?.currency.code === 'GBP' ? '£' : '$'}154 off your tuition!`,
+      startDate: new Date(2021, 5, 28, 9, 30), // June 26 at 08:00
+      endDate: new Date(2021, 6, 7, 9, 30), // July 7 at 09:30
+      displayEndDate: new Date(2021, 6, 6), // July 6
     },
   ];
   return promos.filter(p => p.schools.includes(school)
