@@ -395,10 +395,58 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       displayEndDate: new Date(2021, 5, 28), // June 25
     },
     {
+      schools: [ 'QC Design School' ],
+      student: 'DENIED',
+      code: 'DIVEIN',
+      description: <>When you enroll in any design course, get any second course of equal or lesser value free. Also get a free color fan deck and free leather portfolio!</>,
+      desktopImageSrc: require('./images/design/coupon-WEEKEND-design.jpg').default,
+      mobileImageSrc: require('./images/design/coupon-mobile-WEEKEND-design.jpg').default,
+      altText: 'Free second course, plus free color fan deck & free portfolio',
+      startDate: new Date(2021, 5, 26, 8), // June 26 at 08:00
+      endDate: new Date(2021, 5, 28, 9, 30), // June 28 at 09:30
+      displayEndDate: new Date(2021, 5, 28), // June 25
+    },
+    {
+      schools: [ 'QC Event School' ],
+      student: 'DENIED',
+      code: 'DIVEIN',
+      description: <>Enroll in QC&apos;s Master Makeup Artistry Course and get a FREE leather portfolio! Plus get a FREE advanced course.</>,
+      desktopImageSrc: require('./images/makeup/coupon-DIVEIN.jpg').default,
+      mobileImageSrc: require('./images/makeup/coupon-mobile-DIVEIN.jpg').default,
+      altText: 'Free leather portfolio and free advanced course',
+      startDate: new Date(2021, 5, 26, 8), // June 26 at 08:00
+      endDate: new Date(2021, 5, 28, 9, 30), // June 28 at 09:30
+      displayEndDate: new Date(2021, 5, 28), // June 25
+    },
+    {
       schools: [ 'QC Makeup Academy' ],
       student: 'DENIED',
       code: 'CANADA154',
       description: <>Enroll in any online makeup course and get {price?.currency.code === 'GBP' ? '£' : '$'}154 off your tuition!</>,
+      desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-uk-CANADA154.jpg').default : require('./images/makeup/coupon-CANADA154.jpg').default,
+      mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-mobile-uk-CANADA154.jpg').default : require('./images/makeup/coupon-mobile-CANADA154.jpg').default,
+      altText: `get ${price?.currency.code === 'GBP' ? '£' : '$'}154 off your tuition!`,
+      startDate: new Date(2021, 5, 28, 9, 30), // June 26 at 08:00
+      endDate: new Date(2021, 6, 7, 9, 30), // July 7 at 09:30
+      displayEndDate: new Date(2021, 6, 6), // July 6
+    },
+    {
+      schools: [ 'QC Design School' ],
+      student: 'DENIED',
+      code: 'CANADA154',
+      description: <>Enroll in any online design course and get {price?.currency.code === 'GBP' ? '£' : '$'}154 off your tuition!</>,
+      desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-uk-CANADA154.jpg').default : require('./images/makeup/coupon-CANADA154.jpg').default,
+      mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-mobile-uk-CANADA154.jpg').default : require('./images/makeup/coupon-mobile-CANADA154.jpg').default,
+      altText: `get ${price?.currency.code === 'GBP' ? '£' : '$'}154 off your tuition!`,
+      startDate: new Date(2021, 5, 28, 9, 30), // June 26 at 08:00
+      endDate: new Date(2021, 6, 7, 9, 30), // July 7 at 09:30
+      displayEndDate: new Date(2021, 6, 6), // July 6
+    },
+    {
+      schools: [ 'QC Event School' ],
+      student: 'DENIED',
+      code: 'CANADA154',
+      description: <>Enroll in any online event course and get {price?.currency.code === 'GBP' ? '£' : '$'}154 off your tuition!</>,
       desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-uk-CANADA154.jpg').default : require('./images/makeup/coupon-CANADA154.jpg').default,
       mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-mobile-uk-CANADA154.jpg').default : require('./images/makeup/coupon-mobile-CANADA154.jpg').default,
       altText: `get ${price?.currency.code === 'GBP' ? '£' : '$'}154 off your tuition!`,
