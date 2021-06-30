@@ -390,9 +390,9 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/makeup/coupon-DIVEIN.jpg').default,
       mobileImageSrc: require('./images/makeup/coupon-mobile-DIVEIN.jpg').default,
       altText: 'Free leather portfolio and free advanced course',
-      startDate: new Date(2021, 5, 26, 8), // June 26 at 08:00
-      endDate: new Date(2021, 5, 28, 9, 30), // June 28 at 09:30
-      displayEndDate: new Date(2021, 5, 28), // June 25
+      startDate: new Date(2021, 5, 30, 10), // June 30 at 10:00
+      endDate: new Date(2021, 5, 30, 23, 59, 59, 999), // June 30 at 23:59:59.999
+      displayEndDate: new Date(2021, 5, 30), // June 25
     },
     {
       schools: [ 'QC Design School' ],
@@ -402,9 +402,9 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/design/coupon-WEEKEND-design.jpg').default,
       mobileImageSrc: require('./images/design/coupon-mobile-WEEKEND-design.jpg').default,
       altText: 'Free second course, plus free color fan deck & free portfolio',
-      startDate: new Date(2021, 5, 26, 8), // June 26 at 08:00
-      endDate: new Date(2021, 5, 28, 9, 30), // June 28 at 09:30
-      displayEndDate: new Date(2021, 5, 28), // June 25
+      startDate: new Date(2021, 5, 30, 10), // June 30 at 10:00
+      endDate: new Date(2021, 5, 30, 23, 59, 59, 999), // June 30 at 23:59:59.999
+      displayEndDate: new Date(2021, 5, 30), // June 25
     },
     {
       schools: [ 'QC Event School' ],
@@ -414,9 +414,9 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/makeup/coupon-DIVEIN.jpg').default,
       mobileImageSrc: require('./images/makeup/coupon-mobile-DIVEIN.jpg').default,
       altText: 'Free leather portfolio and free advanced course',
-      startDate: new Date(2021, 5, 26, 8), // June 26 at 08:00
-      endDate: new Date(2021, 5, 28, 9, 30), // June 28 at 09:30
-      displayEndDate: new Date(2021, 5, 28), // June 25
+      startDate: new Date(2021, 5, 30, 10), // June 30 at 10:00
+      endDate: new Date(2021, 5, 30, 23, 59, 59, 999), // June 30 at 23:59:59.999
+      displayEndDate: new Date(2021, 5, 30), // June 25
     },
     {
       schools: [ 'QC Makeup Academy' ],
