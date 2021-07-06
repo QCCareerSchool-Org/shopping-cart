@@ -54,6 +54,7 @@ export const Promo20210706: React.FC<Props> = ({ date, currencyCode }) => {
   const buttonClick = (): void => {
     dispatch({ type: 'REMOVE_COURSE', payload: { courseCode: 'MK', internal: false } });
     dispatch({ type: 'ADD_COURSE', payload: { courseCode: 'MZ', internal: false } });
+    dispatch({ type: 'ADD_COURSE', payload: { courseCode: 'HS', internal: false } });
     dispatch({ type: 'SET_PROMO_CODE', payload: 'WEDDING21' });
   };
 
