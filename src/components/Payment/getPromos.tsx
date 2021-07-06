@@ -439,7 +439,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-mobile-uk-CANADA154.jpg').default : require('./images/makeup/coupon-mobile-CANADA154.jpg').default,
       altText: `get ${price?.currency.code === 'GBP' ? '£' : '$'}154 off your tuition!`,
       startDate: new Date(2021, 5, 28, 9, 30), // June 26 at 08:00
-      endDate: new Date(2021, 6, 7, 9, 30), // July 7 at 09:30
+      endDate: new Date(2021, 6, 6, 10, 30), // July 6 at 10:30
       displayEndDate: new Date(2021, 6, 6), // July 6
     },
     {
@@ -451,7 +451,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-mobile-uk-CANADA154.jpg').default : require('./images/makeup/coupon-mobile-CANADA154.jpg').default,
       altText: `get ${price?.currency.code === 'GBP' ? '£' : '$'}154 off your tuition!`,
       startDate: new Date(2021, 5, 28, 9, 30), // June 26 at 08:00
-      endDate: new Date(2021, 6, 7, 9, 30), // July 7 at 09:30
+      endDate: new Date(2021, 6, 6, 10, 30), // July 6 at 10:30
       displayEndDate: new Date(2021, 6, 6), // July 6
     },
 
@@ -479,7 +479,30 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       endDate: new Date(2021, 6, 17, 23, 59, 59, 999), // July 17 at 23:59:59.999
       displayEndDate: new Date(2021, 6, 17), // July 17
     },
-
+    {
+      schools: [ 'QC Design School' ],
+      student: 'DENIED',
+      code: 'DELUXE',
+      description: <>Get a deulxe design kit, plus get a second course of equal or lesser value for FREE</>,
+      desktopImageSrc: require('./images/design/coupon-DELUXE-design.jpg').default,
+      mobileImageSrc: require('./images/design/coupon-mobile-DELUXE-design.jpg').default,
+      altText: 'Deluxe design kit + second course FREE',
+      startDate: new Date(2021, 6, 6, 10, 30), // July 6 at 10:30
+      endDate: new Date(2021, 6, 17, 23, 59, 59, 999), // July 17 at 23:59:59.999
+      displayEndDate: new Date(2021, 6, 17), // July 17
+    },
+    {
+      schools: [ 'QC Event School' ],
+      student: 'DENIED',
+      code: 'WEDDINGSZN',
+      description: <>Enroll in any Foundation course and get any Specialty course free.</>,
+      desktopImageSrc: require('./images/event/coupon-WEDDINGSZN.jpg').default,
+      mobileImageSrc: require('./images/event/coupon-mobile-WEDDINGSZN.jpg').default,
+      altText: 'Enroll in any Foundation course and get any Specialty course free',
+      startDate: new Date(2021, 6, 6, 10, 30), // July 6 at 10:30
+      endDate: new Date(2021, 6, 17, 23, 59, 59, 999), // July 17 at 23:59:59.999
+      displayEndDate: new Date(2021, 6, 17), // July 17
+    },
   ];
   return promos.filter(p => p.schools.includes(school)
     && (p.student === 'ALLOWED' || (p.student === 'DENIED' && !student) || (p.student === 'ONLY' && student))
