@@ -427,7 +427,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-mobile-uk-CANADA154.jpg').default : require('./images/makeup/coupon-mobile-CANADA154.jpg').default,
       altText: `get ${price?.currency.code === 'GBP' ? '£' : '$'}154 off your tuition!`,
       startDate: new Date(2021, 5, 28, 9, 30), // June 26 at 08:00
-      endDate: new Date(2021, 6, 7, 9, 30), // July 7 at 09:30
+      endDate: new Date(2021, 6, 6, 10, 30), // July 6 at 10:30
       displayEndDate: new Date(2021, 6, 6), // July 6
     },
     {
@@ -454,6 +454,32 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       endDate: new Date(2021, 6, 7, 9, 30), // July 7 at 09:30
       displayEndDate: new Date(2021, 6, 6), // July 6
     },
+
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'WEDDING21',
+      description: <>Enroll in <strong>Master Makeup Artistry</strong> and get a free five-piece bridal makeup kit and hair styling wand!</>,
+      desktopImageSrc: require('./images/makeup/coupon-WEDDING21.jpg').default,
+      mobileImageSrc: require('./images/makeup/coupon-mobile-WEDDING21.jpg').default,
+      altText: 'free 5-piece bridal makeup kit + hair styling wand',
+      startDate: new Date(2021, 6, 6, 10, 30), // July 6 at 10:30
+      endDate: new Date(2021, 6, 15, 12), // July 15 at 12:00
+      displayEndDate: new Date(2021, 6, 15), // July 15
+    },
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'ONLY',
+      code: 'WEDDING21',
+      description: <>Enroll in any course and get a free six-piece makeup kit!</>,
+      desktopImageSrc: require('./images/makeup/coupon-WEDDING21.jpg').default,
+      mobileImageSrc: require('./images/makeup/coupon-mobile-WEDDING21.jpg').default,
+      altText: 'free 6-piece makeup kit',
+      startDate: new Date(2021, 6, 6, 10, 30), // July 6 at 10:30
+      endDate: new Date(2021, 6, 15, 12), // July 15 at 12:00
+      displayEndDate: new Date(2021, 6, 15), // July 15
+    },
+
   ];
   return promos.filter(p => p.schools.includes(school)
     && (p.student === 'ALLOWED' || (p.student === 'DENIED' && !student) || (p.student === 'ONLY' && student))
