@@ -464,8 +464,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: require('./images/makeup/coupon-mobile-WEDDING21.jpg').default,
       altText: 'free 5-piece bridal makeup kit + hair styling wand',
       startDate: new Date(2021, 6, 6, 10, 30), // July 6 at 10:30
-      endDate: new Date(2021, 6, 15, 12), // July 15 at 12:00
-      displayEndDate: new Date(2021, 6, 15), // July 15
+      endDate: new Date(2021, 6, 17, 23, 59, 59, 999), // July 17 at 23:59:59.999
+      displayEndDate: new Date(2021, 6, 17), // July 17
     },
     {
       schools: [ 'QC Makeup Academy' ],
@@ -476,8 +476,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: require('./images/makeup/coupon-mobile-WEDDING21.jpg').default,
       altText: 'free 6-piece makeup kit',
       startDate: new Date(2021, 6, 6, 10, 30), // July 6 at 10:30
-      endDate: new Date(2021, 6, 15, 12), // July 15 at 12:00
-      displayEndDate: new Date(2021, 6, 15), // July 15
+      endDate: new Date(2021, 6, 17, 23, 59, 59, 999), // July 17 at 23:59:59.999
+      displayEndDate: new Date(2021, 6, 17), // July 17
     },
 
   ];
