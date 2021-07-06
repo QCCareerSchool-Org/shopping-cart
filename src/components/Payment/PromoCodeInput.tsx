@@ -53,7 +53,7 @@ export const PromoCodeInput: React.FC<Props> = ({ promos }) => {
       <h3>Promo Code</h3>
       {promoCode && price?.promoCodeRecognized === true
         ? (
-          <div className={`alert ${price?.promoWarnings.length > 0 ? 'alert-danger' : 'alert-success'} alert-dismissible`} role="alert">
+          <div className={`alert ${price?.promoWarnings.length > 0 ? 'alert-warning' : 'alert-success'} alert-dismissible`} role="alert">
             {price.promoWarnings.length > 0
               ? price.promoWarnings.map((p, i) => <p key={i} dangerouslySetInnerHTML={{ __html: p }} className={`mb-0 ${i > 0 ? 'mt-2' : ''}`}></p>)
               : <>Promo code applied: <PromoCode>{promoCode}</PromoCode></>
