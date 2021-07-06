@@ -107,7 +107,7 @@ function disabledCourses(selectedCourses: string[], internal: boolean): string[]
   if (!internal && !selectedCourses.includes('I2')) {
     result.push('MS');
   }
-  if (selectedCourses.includes('I2') || selectedCourses.includes('MSt')) {
+  if (selectedCourses.includes('I2') || selectedCourses.includes('MS')) {
     result.push('ST');
   }
   if (selectedCourses.includes('ST')) {
