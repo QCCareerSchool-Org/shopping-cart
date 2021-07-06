@@ -459,10 +459,10 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       schools: [ 'QC Makeup Academy' ],
       student: 'DENIED',
       code: 'WEDDING21',
-      description: <>Enroll in <strong>Master Makeup Artistry</strong> and get a free five-piece bridal makeup kit and hair styling wand!</>,
+      description: <>Enroll in the <strong>Master Makeup Artistry</strong> course and get 50% off the <strong>Hair Styling Essentials</strong> course, plus get a FREE a free five-piece bridal makeup kit and hair styling wand!</>,
       desktopImageSrc: require('./images/makeup/coupon-WEDDING21.jpg').default,
       mobileImageSrc: require('./images/makeup/coupon-mobile-WEDDING21.jpg').default,
-      altText: 'free 5-piece bridal makeup kit + hair styling wand',
+      altText: '50% off the Hair Styling Essentials course, plus FREE 5-piece bridal makeup kit and hair styling wand',
       startDate: new Date(2021, 6, 6, 10, 30), // July 6 at 10:30
       endDate: new Date(2021, 6, 17, 23, 59, 59, 999), // July 17 at 23:59:59.999
       displayEndDate: new Date(2021, 6, 17), // July 17
