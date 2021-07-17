@@ -86,9 +86,9 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/makeup/coupon-ELITE.jpg').default,
       mobileImageSrc: require('./images/makeup/coupon-mobile-ELITE.jpg').default,
       altText: 'Get an elite makeup kit upgrade',
-      startDate: new Date(Date.UTC(2021, 5, 14, 13)), // June 14 at 09:00
-      endDate: new Date(Date.UTC(2021, 5, 26, 4)), // June 26 at 00:00
-      displayEndDate: new Date(2021, 5, 25), // June 25
+      startDate: new Date(Date.UTC(2021, 6, 17, 12)), // July 17th at 08:00
+      endDate: new Date(Date.UTC(2021, 6, 19, 4)), // July 19th at 00:00
+      displayEndDate: new Date(2021, 6, 18), // July 19
     },
     {
       schools: [ 'QC Makeup Academy' ],
@@ -278,13 +278,13 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       schools: [ 'QC Event School' ],
       student: 'DENIED',
       code: 'SUMMER21',
-      description: <>Enroll in any Foundation course and get any Specialty course free.</>,
+      description: <>Enroll in a foundation course and get a specialty course + leather portfolio + $50 off</>,
       desktopImageSrc: require('./images/event/coupon-EXPERT.jpg').default,
       mobileImageSrc: require('./images/event/coupon-mobile-EXPERT.jpg').default,
-      altText: 'Enroll in any Foundation course and get any Specialty course free',
-      startDate: new Date(Date.UTC(2021, 5, 14, 13)), // June 14 at 09:00
-      endDate: new Date(Date.UTC(2021, 5, 18, 13, 30)), // June 18 at 09:30
-      displayEndDate: new Date(2021, 5, 25), // June 25
+      altText: 'Enroll in a foundation course and get a specialty course + leather portfolio + $50 off',
+      startDate: new Date(Date.UTC(2021, 6, 17, 12)), // July 17 at 08:00
+      endDate: new Date(Date.UTC(2021, 6, 19, 4)), // July 19 at 00:00
+      displayEndDate: new Date(2021, 6, 18), // July 18
     },
     {
       schools: [ 'QC Design School' ],
@@ -502,6 +502,18 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       startDate: new Date(2021, 6, 6, 10, 30), // July 6 at 10:30
       endDate: new Date(2021, 6, 17, 23, 59, 59, 999), // July 17 at 23:59:59.999
       displayEndDate: new Date(2021, 6, 17), // July 17
+    },
+    {
+      schools: [ 'QC Design School' ],
+      student: 'DENIED',
+      code: 'DELUXE21',
+      description: <>Enroll in any course &amp; get FREE 2nd course + Deluxe Design Kit + Sherwin-Williams Color Fan deck</>,
+      desktopImageSrc: require('./images/design/coupon-DELUXE21-design.jpg').default,
+      mobileImageSrc: require('./images/design/coupon-mobile-DELUXE21-design.jpg').default,
+      altText: 'Enroll in any course & get FREE 2nd course + Deluxe Design Kit + Sherwin-Williams Color Fan deck',
+      startDate: new Date(Date.UTC(2021, 6, 17, 12)), // July 17 at 08:00
+      endDate: new Date(Date.UTC(2021, 6, 19, 4)), // July 19 at 00:00
+      displayEndDate: new Date(2021, 6, 18), // July 18
     },
   ];
   return promos.filter(p => p.schools.includes(school)
