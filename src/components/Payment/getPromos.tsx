@@ -515,6 +515,30 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       endDate: new Date(Date.UTC(2021, 6, 19, 4)), // July 19 at 00:00
       displayEndDate: new Date(2021, 6, 18), // July 18
     },
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'GLOWUP',
+      description: <>Enroll in <strong>Master Makeup Artistry</strong> and get the <strong>Pro Makeup Workshop</strong> FREE. Also get a FREE elite makeup kit upgrade.</>,
+      desktopImageSrc: require('./images/makeup/coupon-GLOWUP-makeup.jpg').default,
+      mobileImageSrc: require('./images/makeup/coupon-mobile-GLOWUP-makeup.jpg').default,
+      altText: 'FREE Pro Makeup Workshop + elite makeup kit upgrade',
+      startDate: new Date(Date.UTC(2021, 6, 19, 13, 30)), // July 19 at 09:30
+      endDate: new Date(Date.UTC(2021, 6, 31, 4)), // July 31 at 00:00
+      displayEndDate: new Date(2021, 6, 30), // July 30
+    },
+    {
+      schools: [ 'QC Event School' ],
+      student: 'DENIED',
+      code: 'FASTPASS',
+      description: <>Enroll in any of QC&apos;s foundation courses and get both the <strong>Luxury Wedding Planning</strong> course and <strong>Virtual Event Training</strong> program FREE.</>,
+      desktopImageSrc: require('./images/event/coupon-FASTPASS-event.jpg').default,
+      mobileImageSrc: require('./images/event/coupon-mobile-FASTPASS-event.jpg').default,
+      altText: 'FREE Luxury Wedding Planning course and Virtual Event Training program',
+      startDate: new Date(Date.UTC(2021, 6, 19, 13, 30)), // July 19 at 09:30
+      endDate: new Date(Date.UTC(2021, 6, 31, 4)), // July 31 at 00:00
+      displayEndDate: new Date(2021, 6, 30), // July 30
+    },
   ];
   return promos.filter(p => p.schools.includes(school)
     && (p.student === 'ALLOWED' || (p.student === 'DENIED' && !student) || (p.student === 'ONLY' && student))
