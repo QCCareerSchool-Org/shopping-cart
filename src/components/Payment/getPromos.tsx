@@ -539,6 +539,18 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       endDate: new Date(Date.UTC(2021, 6, 31, 4)), // July 31 at 00:00
       displayEndDate: new Date(2021, 6, 30), // July 30
     },
+    {
+      schools: [ 'QC Design School' ],
+      student: 'DENIED',
+      code: 'JULY21',
+      description: <>Enroll any course and get a second course of equal or lesser value for FREE!</>,
+      desktopImageSrc: require('./images/design/coupon-JULY21-design.jpg').default,
+      mobileImageSrc: require('./images/design/coupon-mobile-JULY21-design.jpg').default,
+      altText: 'FREE second course',
+      startDate: new Date(Date.UTC(2021, 6, 19, 13, 30)), // July 19 at 09:30
+      endDate: new Date(Date.UTC(2021, 6, 31, 4)), // July 31 at 00:00
+      displayEndDate: new Date(2021, 6, 30), // July 30
+    },
   ];
   return promos.filter(p => p.schools.includes(school)
     && (p.student === 'ALLOWED' || (p.student === 'DENIED' && !student) || (p.student === 'ONLY' && student))
