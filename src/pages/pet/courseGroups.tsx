@@ -23,7 +23,7 @@ export const courseGroups: CourseGroup[] = [
       },
       {
         code: 'DS',
-        name: 'Breed Styling & First Aid',
+        name: 'Breed Styling (includes First Aid)',
         // disabledMessage: (
         //   <>
         //     <p>
