@@ -150,8 +150,12 @@ function disabledCourses(selectedCourses: string[], internal: boolean): string[]
   if (selectedCourses.includes('DG')) {
     result.push('DS');
   }
+  if (selectedCourses.includes('FA')) {
+    result.push('DS');
+  }
   if (selectedCourses.includes('DS')) {
     result.push('DG');
+    result.push('FA');
   }
   return result;
 }
