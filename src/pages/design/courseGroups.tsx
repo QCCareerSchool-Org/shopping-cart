@@ -27,6 +27,7 @@ export const courseGroups: CourseGroup[] = [
           </p>
         ),
       },
+      { code: 'LD', name: 'Landscape Design' },
       { code: 'PO', name: 'Professional Organizing' },
       { code: 'FS', name: 'Feng Shui' },
       { code: 'CC', name: 'Color Consultant Course' },
