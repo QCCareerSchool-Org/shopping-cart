@@ -1,18 +1,17 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
 
-import { Promo20210717 } from './2021/07/17';
 import { Promo20210719 } from './2021/07/19';
+import { Promo20210731 } from './2021/07/31';
 
 type Props = {
   date: Date;
-  currencyCode: string;
 };
 
-export const DefaultPromo: React.FC<Props> = ({ date, currencyCode }) => {
+export const DefaultPromo: React.FC<Props> = ({ date }) => {
   const time = date.getTime();
-  if (time >= Date.UTC(2021, 6, 19, 13, 30)) { // July 19 at 09:30
-    return <Promo20210719 date={date} currencyCode={currencyCode} />;
+  if (time >= Date.UTC(2021, 6, 31, 12)) { // July 31 at 08:00
+    return <Promo20210731 date={date} />;
   }
-  return <Promo20210717 date={date} currencyCode={currencyCode} />;
+  return <Promo20210719 date={date} />;
 };
