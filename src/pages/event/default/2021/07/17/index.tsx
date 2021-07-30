@@ -1,9 +1,7 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
-import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
-import { usePopup } from '../../../../../../hooks/usePopup';
 import { usePreloadImages } from '../../../../../../hooks/usePreloadImages';
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../../../../hooks/useStateContext';
@@ -15,14 +13,12 @@ const preloadImages = [ couponButtonAppliedSrc ];
 
 type Props = {
   date: Date;
-  currencyCode: string;
 };
 
-export const Promo20210717: React.FC<Props> = ({ date, currencyCode }) => {
+export const Promo20210717: React.FC<Props> = ({ date }) => {
   const { price } = useStateContext();
   const dispatch = useDispatchContext();
   const screenWidth = useScreenWidthContext();
-  const [ popup, togglePopup ] = usePopup(false);
 
   usePreloadImages(preloadImages);
 

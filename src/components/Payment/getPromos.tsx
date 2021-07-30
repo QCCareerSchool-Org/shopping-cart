@@ -71,24 +71,13 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       schools: [ 'QC Makeup Academy' ],
       student: 'DENIED',
       code: 'ELITE',
-      description: <>Get an <strong>elite makeup kit upgrade</strong> (includes a highlight palette, contour palette, eyebrow palette, 4-pack of false lashes, a makeup travel bag, and a stainless steel palette with spatula)</>,
+      description: <>When you enroll in <strong>Master Makeup Artistry</strong>, get an <strong>elite makeup kit upgrade</strong> (includes a highlight palette, contour palette, eyebrow palette, 4-pack of false lashes, a makeup travel bag, and a stainless steel palette with spatula)</>,
       desktopImageSrc: require('./images/makeup/coupon-ELITE.jpg').default,
       mobileImageSrc: require('./images/makeup/coupon-mobile-ELITE.jpg').default,
       altText: 'Get an elite makeup kit upgrade',
-      startDate: new Date(Date.UTC(2021, 5, 1, 13)), // June 1 at 09:00
-      endDate: new Date(Date.UTC(2021, 5, 12, 3, 59, 59)), // June 11 at 23:59:59
-    },
-    {
-      schools: [ 'QC Makeup Academy' ],
-      student: 'DENIED',
-      code: 'ELITE',
-      description: <>Get an <strong>elite makeup kit upgrade</strong> (includes a highlight palette, contour palette, eyebrow palette, 4-pack of false lashes, a makeup travel bag, and a stainless steel palette with spatula)</>,
-      desktopImageSrc: require('./images/makeup/coupon-ELITE.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-mobile-ELITE.jpg').default,
-      altText: 'Get an elite makeup kit upgrade',
-      startDate: new Date(Date.UTC(2021, 6, 17, 12)), // July 17th at 08:00
-      endDate: new Date(Date.UTC(2021, 6, 19, 4)), // July 19th at 00:00
-      displayEndDate: new Date(2021, 6, 18), // July 19
+      startDate: new Date(Date.UTC(2021, 6, 31, 12)), // July 31 at 08:00
+      endDate: new Date(Date.UTC(2021, 7, 3, 4)), // August 3 at 00:00
+      displayEndDate: new Date(2021, 7, 2),
     },
     {
       schools: [ 'QC Makeup Academy' ],
@@ -242,13 +231,13 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       schools: [ 'QC Event School' ],
       student: 'DENIED',
       code: 'BONUSGIFT',
-      description: <>Enroll in <strong>Event &amp; Wedding Planning</strong> and get both <strong>Luxury Wedding Planning</strong> and <strong>Destination Wedding Planning</strong> free. Also get a free leather portfolio!</>,
+      description: <>Enroll in any <strong>Foundation course</strong> and get both <strong>Luxury Wedding Planning</strong> and <strong>Vitual Event Training</strong> free. Also get a free leather portfolio!</>,
       desktopImageSrc: require('./images/event/coupon-BONUSGIFT.jpg').default,
       mobileImageSrc: require('./images/event/coupon-mobile-BONUSGIFT.jpg').default,
-      altText: 'Enroll in Event & Wedding Planning and get two free specialty courses',
-      startDate: new Date(Date.UTC(2021, 5, 12, 12)), // June 12 at 08:00
-      endDate: new Date(Date.UTC(2021, 5, 14, 13)), // June 14 at 09:00
-      displayEndDate: new Date(2021, 5, 13), // June 13
+      altText: 'Get two free specialty courses + leather portfolio',
+      startDate: new Date(Date.UTC(2021, 6, 31, 12)), // July 31 at 08:00
+      endDate: new Date(Date.UTC(2021, 7, 3, 4)), // Aug 3 at 00:00
+      displayEndDate: new Date(2021, 7, 2), // August 2
     },
     {
       schools: [ 'QC Design School' ],
@@ -550,6 +539,18 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       startDate: new Date(Date.UTC(2021, 6, 19, 13, 30)), // July 19 at 09:30
       endDate: new Date(Date.UTC(2021, 6, 31, 4)), // July 31 at 00:00
       displayEndDate: new Date(2021, 6, 30), // July 30
+    },
+    {
+      schools: [ 'QC Design School' ],
+      student: 'DENIED',
+      code: 'DESIGN21',
+      description: <>Enroll any course and get a deluxe design kit and leather portfolio FREE!</>,
+      desktopImageSrc: require('./images/design/coupon-DESIGN21-design.jpg').default,
+      mobileImageSrc: require('./images/design/coupon-mobile-DESIGN21-design.jpg').default,
+      altText: 'FREE deluxe kit + leather portfolio',
+      startDate: new Date(Date.UTC(2021, 6, 31, 12)), // July 31 at 08:00
+      endDate: new Date(Date.UTC(2021, 7, 3, 4)), // August 3 at 00:00
+      displayEndDate: new Date(2021, 7, 2), // August 2
     },
   ];
   return promos.filter(p => p.schools.includes(school)
