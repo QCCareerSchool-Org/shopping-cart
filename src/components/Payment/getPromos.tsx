@@ -562,6 +562,18 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       endDate: new Date(Date.UTC(2021, 7, 14, 12)), // August 14 at 08:00 (12:00 GMT)
       displayEndDate: new Date(2021, 7, 13), // August 13
     },
+    {
+      schools: [ 'QC Event School' ],
+      student: 'DENIED',
+      code: 'TRIPLETHREAT',
+      description: <>Get any two <strong>Specialty</strong> courses for FREE when you enroll in any <strong>Foundation</strong> course.</>,
+      desktopImageSrc: require('./images/event/coupon-TRIPLETHREAT-event.jpg').default,
+      mobileImageSrc: require('./images/event/coupon-mobile-TRIPLETHREAT-event.jpg').default,
+      altText: 'Two free Specialty courses',
+      startDate: new Date(Date.UTC(2021, 7, 3, 16, 15)), // August 3 at 12:15 (16:15 GMT)
+      endDate: new Date(Date.UTC(2021, 7, 14, 12)), // August 14 at 08:00 (12:00 GMT)
+      displayEndDate: new Date(2021, 7, 13), // August 13
+    },
   ];
   return promos.filter(p => p.schools.includes(school)
     && (p.student === 'ALLOWED' || (p.student === 'DENIED' && !student) || (p.student === 'ONLY' && student))
