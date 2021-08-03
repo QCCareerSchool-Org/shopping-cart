@@ -210,8 +210,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: require('./images/event/coupon-mobile-EXPERT.jpg').default,
       altText: 'Enroll in a Foundation course and get any Specialty course free',
       startDate: new Date(Date.UTC(2021, 5, 9, 13)), // June 9 at 09:00
-      endDate: new Date(Date.UTC(2021, 5, 14, 13)), // June 14 at 09:00
-      displayEndDate: new Date(2021, 5, 11), // June 11
+      // endDate: new Date(Date.UTC(2021, 5, 14, 13)), // June 14 at 09:00
+      // displayEndDate: new Date(2021, 5, 11), // June 11
     },
     {
       schools: [ 'QC Makeup Academy' ],
@@ -234,7 +234,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: require('./images/event/coupon-mobile-BONUSGIFT.jpg').default,
       altText: 'Get two free specialty courses + leather portfolio',
       startDate: new Date(Date.UTC(2021, 6, 31, 12)), // July 31 at 08:00
-      endDate: new Date(Date.UTC(2021, 7, 3, 4)), // Aug 3 at 00:00
+      endDate: new Date(Date.UTC(2021, 7, 3, 16, 15)), // Aug 3 at 12:15 (16:15 GMT)
       displayEndDate: new Date(2021, 7, 2), // August 2
     },
     {
