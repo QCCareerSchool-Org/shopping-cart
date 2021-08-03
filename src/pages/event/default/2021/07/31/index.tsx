@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
-import { PromoCode } from '../../../../../../components/PromoCode';
 
+import { PromoCode } from '../../../../../../components/PromoCode';
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
 import { usePopup } from '../../../../../../hooks/usePopup';
 import { usePreloadImages } from '../../../../../../hooks/usePreloadImages';
