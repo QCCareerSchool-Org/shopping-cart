@@ -26,7 +26,7 @@ const Default: React.FC<Props> = ({ currencyCode }) => {
 
   return (
     <>
-      <DefaultPromo date={date} currencyCode={currencyCode} />
+      <DefaultPromo date={date} />
       <Form
         courseGroups={courseGroups}
         school="QC Wellness Studies"
