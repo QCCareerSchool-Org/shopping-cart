@@ -294,7 +294,6 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/design/coupon-mobile-uk-100OFF.jpg').default : require('./images/design/coupon-mobile-100OFF.jpg').default,
       altText: `${price?.currency.code === 'GBP' ? '£100' : '$100'} off your tuition`,
       startDate: new Date(Date.UTC(2021, 5, 14, 13)), // June 14 at 09:00
-      displayEndDate: new Date(2021, 5, 25), // June 25
     },
     {
       schools: [ 'QC Makeup Academy' ],
@@ -570,6 +569,18 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/event/coupon-TRIPLETHREAT-event.jpg').default,
       mobileImageSrc: require('./images/event/coupon-mobile-TRIPLETHREAT-event.jpg').default,
       altText: 'Two free Specialty courses',
+      startDate: new Date(Date.UTC(2021, 7, 3, 16, 15)), // August 3 at 12:15 (16:15 GMT)
+      endDate: new Date(Date.UTC(2021, 7, 14, 12)), // August 14 at 08:00 (12:00 GMT)
+      displayEndDate: new Date(2021, 7, 13), // August 13
+    },
+    {
+      schools: [ 'QC Design School' ],
+      student: 'DENIED',
+      code: 'DELUXE200',
+      description: <>Get {price?.currency.code === 'GBP' ? '£150' : '$200'} off your tuition, plus get a FREE <strong>deluxe design kit</strong>.</>,
+      desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/design/coupon-DELUXE200-design-uk.jpg').default : require('./images/design/coupon-DELUXE200-design.jpg').default,
+      mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/design/coupon-mobile-DELUXE200-design-uk.jpg').default : require('./images/design/coupon-mobile-DELUXE200-design.jpg').default,
+      altText: `${price?.currency.code === 'GBP' ? '£150' : '$200'} off, plus free deluxe design kit`,
       startDate: new Date(Date.UTC(2021, 7, 3, 16, 15)), // August 3 at 12:15 (16:15 GMT)
       endDate: new Date(Date.UTC(2021, 7, 14, 12)), // August 14 at 08:00 (12:00 GMT)
       displayEndDate: new Date(2021, 7, 13), // August 13
