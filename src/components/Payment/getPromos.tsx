@@ -545,9 +545,9 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/design/coupon-DESIGN21-design.jpg').default,
       mobileImageSrc: require('./images/design/coupon-mobile-DESIGN21-design.jpg').default,
       altText: 'FREE deluxe kit + leather portfolio',
-      startDate: new Date(Date.UTC(2021, 6, 31, 12)), // July 31 at 08:00
-      endDate: new Date(Date.UTC(2021, 7, 3, 4)), // August 3 at 00:00
-      displayEndDate: new Date(2021, 7, 2), // August 2
+      startDate: new Date(Date.UTC(2021, 7, 14, 12, 30)), // August 14 at 08:30 (12:30 GMT)
+      endDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // August 16 at 09:30 (13:30 GMT)
+      displayEndDate: new Date(2021, 7, 15), // August 15
     },
     {
       schools: [ 'QC Makeup Academy' ],
