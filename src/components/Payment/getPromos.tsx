@@ -230,12 +230,12 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'BONUSGIFT',
       description: <>Enroll in any <strong>Foundation course</strong> and get both <strong>Luxury Wedding Planning</strong> and <strong>Vitual Event Training</strong> free. Also get a free leather portfolio!</>,
-      desktopImageSrc: require('./images/event/coupon-BONUSGIFT.jpg').default,
-      mobileImageSrc: require('./images/event/coupon-mobile-BONUSGIFT.jpg').default,
+      desktopImageSrc: require('./images/event/coupon-BONUSGIFT-event.jpg').default,
+      mobileImageSrc: require('./images/event/coupon-mobile-BONUSGIFT-event.jpg').default,
       altText: 'Get two free specialty courses + leather portfolio',
-      startDate: new Date(Date.UTC(2021, 6, 31, 12)), // July 31 at 08:00
-      endDate: new Date(Date.UTC(2021, 7, 3, 16, 15)), // Aug 3 at 12:15 (16:15 GMT)
-      displayEndDate: new Date(2021, 7, 2), // August 2
+      startDate: new Date(Date.UTC(2021, 7, 14, 12, 30)), // August 14 at 08:30 (12:30 GMT)
+      endDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // Aug 16 at 9:30 (13:30 GMT)
+      displayEndDate: new Date(2021, 7, 15), // August 15
     },
     {
       schools: [ 'QC Design School' ],
