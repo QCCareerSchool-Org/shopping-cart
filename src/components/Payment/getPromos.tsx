@@ -585,6 +585,18 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       endDate: new Date(Date.UTC(2021, 7, 14, 12)), // August 14 at 08:00 (12:00 GMT)
       displayEndDate: new Date(2021, 7, 13), // August 13
     },
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'ELITEVIP',
+      description: <>Get the <strong>VIP Career Catalyst</strong> session for FREE when you enroll in the <strong>Master Makeup Artistry</strong> course. Plus, get an elite makeup kit.</>,
+      desktopImageSrc: require('./images/makeup/coupon-ELITEVIP.jpg').default,
+      mobileImageSrc: require('./images/makeup/coupon-mobile-ELITEVIP.jpg').default,
+      altText: 'Free VIP Career Catalyst session + elite makeup kit',
+      startDate: new Date(Date.UTC(2021, 7, 14, 4)), // August 14 at 00:00 (04:00 GMT)
+      endDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // August 16 at 09:30 (13:30 GMT)
+      displayEndDate: new Date(2021, 7, 15), // August 13
+    },
   ];
   return promos.filter(p => p.schools.includes(school)
     && (p.student === 'ALLOWED' || (p.student === 'DENIED' && !student) || (p.student === 'ONLY' && student))
