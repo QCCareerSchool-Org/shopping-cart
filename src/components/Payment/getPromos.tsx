@@ -597,6 +597,43 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       endDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // August 16 at 09:30 (13:30 GMT)
       displayEndDate: new Date(2021, 7, 15), // August 13
     },
+
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'BACK2SCHOOL',
+      description: <>Enroll in the <strong>Master Makeup Artistry</strong> course and get a <strong>Back-to-School Kit</strong> FREE!</>,
+      desktopImageSrc: require('./images/makeup/coupon-BACK2SCHOOL-makeup.jpg').default,
+      mobileImageSrc: require('./images/makeup/coupon-BACK2SCHOOL-makeup-mobile.jpg').default,
+      altText: 'FREE Back-to-School Kit',
+      startDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // August 16 at 09:30 (13:30 GMT)
+      endDate: new Date(Date.UTC(2021, 7, 27, 12)), // August 27 at 08:00 (12:00 GMT)
+      displayEndDate: new Date(2021, 7, 26), // August 15
+    },
+    {
+      schools: [ 'QC Event School' ],
+      student: 'DENIED',
+      code: 'BACK2SCHOOL',
+      description: <>Enroll in the <strong>Event &amp; Wedding Planning</strong> course and get any <strong>Specialty</strong> course FREE! Also get a free <strong>Back-to-School Kit</strong>!</>,
+      desktopImageSrc: require('./images/event/coupon-BACK2SCHOOL-event.jpg').default,
+      mobileImageSrc: require('./images/event/coupon-mobile-BACK2SCHOOL-event.jpg').default,
+      altText: 'FREE Specialty course and Back-to-School Kit',
+      startDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // August 16 at 09:30 (13:30 GMT)
+      endDate: new Date(Date.UTC(2021, 7, 27, 12)), // August 27 at 08:00 (12:00 GMT)
+      displayEndDate: new Date(2021, 7, 26), // August 15
+    },
+    {
+      schools: [ 'QC Design School' ],
+      student: 'DENIED',
+      code: 'BACK2SCHOOL',
+      description: <>Enroll in any course and get a second course of equal or lesser value FREE! Also get a free <strong>Back-to-School Kit</strong>!</>,
+      desktopImageSrc: require('./images/design/coupon-BACK2SCHOOL-design.jpg').default,
+      mobileImageSrc: require('./images/design/coupon-mobile-BACK2SCHOOL-design.jpg').default,
+      altText: 'FREE second course and Back-to-School Kit',
+      startDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // August 16 at 09:30 (13:30 GMT)
+      endDate: new Date(Date.UTC(2021, 7, 27, 12)), // August 27 at 08:00 (12:00 GMT)
+      displayEndDate: new Date(2021, 7, 26), // August 15
+    },
   ];
   return promos.filter(p => p.schools.includes(school)
     && (p.student === 'ALLOWED' || (p.student === 'DENIED' && !student) || (p.student === 'ONLY' && student))
