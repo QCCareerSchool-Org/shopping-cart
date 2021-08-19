@@ -21,7 +21,7 @@ export const Promo20210816: React.FC<Props> = ({ date }) => {
   let width: number;
   let height: number;
 
-  if (date.getTime() >= Date.UTC(2021, 7, 12, 4)) { // August 12 at 00:00 (04:00 GMT)
+  if (date.getTime() >= Date.UTC(2021, 7, 25, 4)) { // August 25 at 00:00 (04:00 GMT)
     image = desktop
       ? price?.currency.code === 'GBP' ? require('./desktop-ends-uk.jpg').default : require('./desktop-ends.jpg').default
       : price?.currency.code === 'GBP' ? require('./mobile-ends-uk.jpg').default : require('./mobile-ends.jpg').default;
@@ -50,7 +50,7 @@ export const Promo20210816: React.FC<Props> = ({ date }) => {
         <ModalHeader toggle={togglePopup}>Special Offer</ModalHeader>
         <ModalBody className="text-center p-0">
           <div className="p-3">
-            <p>Enroll today at our lowest deposit ever! Plus, receive {price?.currency.code === 'GBP' ? '£150' : '$200'} off your tuition.</p>
+            <p>Enroll in QC&apos;s Dog Grooming Course and get a FREE Back-to-School Kit. Plus, get {price?.currency.code === 'GBP' ? '£150' : '$200'} off your tuition! This kit includes an eco-friendly notebook and a QC tote bag. Kit is valued at {price?.currency.code === 'GBP' ? '£40' : '$50'}.</p>
             <p>After you submit your Unit B, we&apos;ll also ship you a toolkit with the essential items you need to get started. Your kit includes a WAHL ARCO 5-in-1 Cordless Clipper, a stainless steel attachment guide comb kit, professional-grade grooming scissors, brushes, combs, and nail clippers.</p>
           </div>
           <img src={require('./pop-up.jpg').default} className="img-fluid" alt="promotion details" />
