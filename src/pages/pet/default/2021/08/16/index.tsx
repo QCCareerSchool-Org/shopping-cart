@@ -21,7 +21,7 @@ export const Promo20210816: React.FC<Props> = ({ date }) => {
   let width: number;
   let height: number;
 
-  if (date.getTime() >= Date.UTC(2021, 7, 12, 4)) { // August 12 at 00:00 (04:00 GMT)
+  if (date.getTime() >= Date.UTC(2021, 7, 25, 4)) { // August 25 at 00:00 (04:00 GMT)
     image = desktop
       ? price?.currency.code === 'GBP' ? require('./desktop-ends-uk.jpg').default : require('./desktop-ends.jpg').default
       : price?.currency.code === 'GBP' ? require('./mobile-ends-uk.jpg').default : require('./mobile-ends.jpg').default;
