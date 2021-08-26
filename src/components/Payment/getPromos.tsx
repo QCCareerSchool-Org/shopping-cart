@@ -607,8 +607,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: require('./images/makeup/coupon-BACK2SCHOOL-makeup-mobile.jpg').default,
       altText: 'FREE Back-to-School Kit',
       startDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // August 16 at 09:30 (13:30 GMT)
-      endDate: new Date(Date.UTC(2021, 7, 27, 12)), // August 27 at 08:00 (12:00 GMT)
-      displayEndDate: new Date(2021, 7, 26), // August 15
+      endDate: new Date(Date.UTC(2021, 7, 28, 12)), // August 28 at 08:00 (12:00 GMT)
+      displayEndDate: new Date(2021, 7, 27), // August 27
     },
     {
       schools: [ 'QC Event School' ],
@@ -619,8 +619,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: require('./images/event/coupon-mobile-BACK2SCHOOL-event.jpg').default,
       altText: 'FREE Specialty course and Back-to-School Kit',
       startDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // August 16 at 09:30 (13:30 GMT)
-      endDate: new Date(Date.UTC(2021, 7, 27, 12)), // August 27 at 08:00 (12:00 GMT)
-      displayEndDate: new Date(2021, 7, 26), // August 15
+      endDate: new Date(Date.UTC(2021, 7, 28, 12)), // August 28 at 08:00 (12:00 GMT)
+      displayEndDate: new Date(2021, 7, 27), // August 27
     },
     {
       schools: [ 'QC Design School' ],
@@ -631,8 +631,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: require('./images/design/coupon-mobile-BACK2SCHOOL-design.jpg').default,
       altText: 'FREE second course and Back-to-School Kit',
       startDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // August 16 at 09:30 (13:30 GMT)
-      endDate: new Date(Date.UTC(2021, 7, 27, 12)), // August 27 at 08:00 (12:00 GMT)
-      displayEndDate: new Date(2021, 7, 26), // August 15
+      endDate: new Date(Date.UTC(2021, 7, 28, 12)), // August 28 at 08:00 (12:00 GMT)
+      displayEndDate: new Date(2021, 7, 27), // August 27
     },
   ];
   return promos.filter(p => p.schools.includes(school)
