@@ -233,8 +233,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/event/coupon-BONUSGIFT-event.jpg').default,
       mobileImageSrc: require('./images/event/coupon-mobile-BONUSGIFT-event.jpg').default,
       altText: 'Get two free specialty courses + leather portfolio',
-      startDate: new Date(Date.UTC(2021, 7, 14, 12, 30)), // August 14 at 08:30 (12:30 GMT)
-      endDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // Aug 16 at 9:30 (13:30 GMT)
+      startDate: new Date(Date.UTC(2021, 7, 14, 12, 30)), // August 14 at 08:30 (12:30 UTC)
+      endDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // Aug 16 at 9:30 (13:30 UTC)
       displayEndDate: new Date(2021, 7, 15), // August 15
     },
     {
@@ -545,8 +545,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/design/coupon-DESIGN21-design.jpg').default,
       mobileImageSrc: require('./images/design/coupon-mobile-DESIGN21-design.jpg').default,
       altText: 'FREE deluxe kit + leather portfolio',
-      startDate: new Date(Date.UTC(2021, 7, 14, 12, 30)), // August 14 at 08:30 (12:30 GMT)
-      endDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // August 16 at 09:30 (13:30 GMT)
+      startDate: new Date(Date.UTC(2021, 7, 14, 12, 30)), // August 14 at 08:30 (12:30 UTC)
+      endDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // August 16 at 09:30 (13:30 UTC)
       displayEndDate: new Date(2021, 7, 15), // August 15
     },
     {
@@ -557,8 +557,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/makeup/coupon-VIP2021-makeup.jpg').default,
       mobileImageSrc: require('./images/makeup/coupon-mobile-VIP2021-makeup.jpg').default,
       altText: 'Free VIP Career Catalyst Workshop',
-      startDate: new Date(Date.UTC(2021, 7, 3, 16, 15)), // August 3 at 12:15 (16:15 GMT)
-      endDate: new Date(Date.UTC(2021, 7, 14, 12)), // August 14 at 08:00 (12:00 GMT)
+      startDate: new Date(Date.UTC(2021, 7, 3, 16, 15)), // August 3 at 12:15 (16:15 UTC)
+      endDate: new Date(Date.UTC(2021, 7, 14, 12)), // August 14 at 08:00 (12:00 UTC)
       displayEndDate: new Date(2021, 7, 13), // August 13
     },
     {
@@ -569,8 +569,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/event/coupon-TRIPLETHREAT-event.jpg').default,
       mobileImageSrc: require('./images/event/coupon-mobile-TRIPLETHREAT-event.jpg').default,
       altText: 'Two free Specialty courses',
-      startDate: new Date(Date.UTC(2021, 7, 3, 16, 15)), // August 3 at 12:15 (16:15 GMT)
-      endDate: new Date(Date.UTC(2021, 7, 14, 12)), // August 14 at 08:00 (12:00 GMT)
+      startDate: new Date(Date.UTC(2021, 7, 3, 16, 15)), // August 3 at 12:15 (16:15 UTC)
+      endDate: new Date(Date.UTC(2021, 7, 14, 12)), // August 14 at 08:00 (12:00 UTC)
       displayEndDate: new Date(2021, 7, 13), // August 13
     },
     {
@@ -581,8 +581,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/design/coupon-DELUXE200-design-uk.jpg').default : require('./images/design/coupon-DELUXE200-design.jpg').default,
       mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/design/coupon-mobile-DELUXE200-design-uk.jpg').default : require('./images/design/coupon-mobile-DELUXE200-design.jpg').default,
       altText: `${price?.currency.code === 'GBP' ? '£150' : '$200'} off, plus free deluxe design kit`,
-      startDate: new Date(Date.UTC(2021, 7, 3, 16, 15)), // August 3 at 12:15 (16:15 GMT)
-      endDate: new Date(Date.UTC(2021, 7, 14, 12)), // August 14 at 08:00 (12:00 GMT)
+      startDate: new Date(Date.UTC(2021, 7, 3, 16, 15)), // August 3 at 12:15 (16:15 UTC)
+      endDate: new Date(Date.UTC(2021, 7, 14, 12)), // August 14 at 08:00 (12:00 UTC)
       displayEndDate: new Date(2021, 7, 13), // August 13
     },
     {
@@ -593,8 +593,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/makeup/coupon-ELITEVIP.jpg').default,
       mobileImageSrc: require('./images/makeup/coupon-mobile-ELITEVIP.jpg').default,
       altText: 'Free VIP Career Catalyst session + elite makeup kit',
-      startDate: new Date(Date.UTC(2021, 7, 14, 4)), // August 14 at 00:00 (04:00 GMT)
-      endDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // August 16 at 09:30 (13:30 GMT)
+      startDate: new Date(Date.UTC(2021, 7, 14, 4)), // August 14 at 00:00 (04:00 UTC)
+      endDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // August 16 at 09:30 (13:30 UTC)
       displayEndDate: new Date(2021, 7, 15), // August 13
     },
 
@@ -606,8 +606,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/makeup/coupon-BACK2SCHOOL-makeup.jpg').default,
       mobileImageSrc: require('./images/makeup/coupon-BACK2SCHOOL-makeup-mobile.jpg').default,
       altText: 'FREE Back-to-School Kit',
-      startDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // August 16 at 09:30 (13:30 GMT)
-      endDate: new Date(Date.UTC(2021, 7, 28, 12)), // August 28 at 08:00 (12:00 GMT)
+      startDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // August 16 at 09:30 (13:30 UTC)
+      endDate: new Date(Date.UTC(2021, 7, 28, 12)), // August 28 at 08:00 (12:00 UTC)
       displayEndDate: new Date(2021, 7, 27), // August 27
     },
     {
@@ -618,8 +618,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/event/coupon-BACK2SCHOOL-event.jpg').default,
       mobileImageSrc: require('./images/event/coupon-mobile-BACK2SCHOOL-event.jpg').default,
       altText: 'FREE Specialty course and Back-to-School Kit',
-      startDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // August 16 at 09:30 (13:30 GMT)
-      endDate: new Date(Date.UTC(2021, 7, 28, 12)), // August 28 at 08:00 (12:00 GMT)
+      startDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // August 16 at 09:30 (13:30 UTC)
+      endDate: new Date(Date.UTC(2021, 7, 28, 12)), // August 28 at 08:00 (12:00 UTC)
       displayEndDate: new Date(2021, 7, 27), // August 27
     },
     {
@@ -630,9 +630,83 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/design/coupon-BACK2SCHOOL-design.jpg').default,
       mobileImageSrc: require('./images/design/coupon-mobile-BACK2SCHOOL-design.jpg').default,
       altText: 'FREE second course and Back-to-School Kit',
-      startDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // August 16 at 09:30 (13:30 GMT)
-      endDate: new Date(Date.UTC(2021, 7, 28, 12)), // August 28 at 08:00 (12:00 GMT)
+      startDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // August 16 at 09:30 (13:30 UTC)
+      endDate: new Date(Date.UTC(2021, 7, 28, 12)), // August 28 at 08:00 (12:00 UTC)
       displayEndDate: new Date(2021, 7, 27), // August 27
+    },
+
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'SCHOOLKIT',
+      description: <>Get the Back-to-School Kit (totebag and notebook) and elite makeup kit when you enroll in <strong>Master Makeup Artistry</strong></>,
+      desktopImageSrc: require('./images/makeup/coupon-SCHOOLKIT.jpg').default,
+      mobileImageSrc: require('./images/makeup/coupon-mobile-SCHOOLKIT.jpg').default,
+      altText: 'FREE Back-to-School Kit and elite makeup kit',
+      startDate: new Date(Date.UTC(2021, 7, 28, 12)), // August 28 at 08:00 (12:00 UTC)
+      endDate: new Date(Date.UTC(2021, 7, 30, 13, 30)), // August 30 at 09:30 (13:30 UTC)
+      displayEndDate: new Date(2021, 7, 29), // August 29
+    },
+    {
+      schools: [ 'QC Event School' ],
+      student: 'DENIED',
+      code: 'SCHOOLKIT',
+      description: <>Enroll in <strong>Event &amp; Wedding Planning</strong> and get a FREE specialty course. Plus, get the UPGRADED Back-to-School Kit!</>,
+      desktopImageSrc: require('./images/event/coupon-SCHOOLKIT-event.jpg').default,
+      mobileImageSrc: require('./images/event/coupon-mobile-SCHOOLKIT-event.jpg').default,
+      altText: 'FREE specialty course + UPGRADED Back-to-School Kit',
+      startDate: new Date(Date.UTC(2021, 7, 28, 12)), // August 28 at 08:00 (12:00 UTC)
+      endDate: new Date(Date.UTC(2021, 7, 30, 13, 30)), // August 30 at 09:30 (13:30 UTC)
+      displayEndDate: new Date(2021, 7, 29), // August 29
+    },
+    {
+      schools: [ 'QC Design School' ],
+      student: 'DENIED',
+      code: 'SCHOOLKIT',
+      description: <>Enroll in any course and get a <strong>FREE second course</strong> of equal or lesser value plus two gifts: the Back-to-School Kit and the Deluxe Design Kit.</>,
+      desktopImageSrc: require('./images/design/coupon-SCHOOLKIT-design.jpg').default,
+      mobileImageSrc: require('./images/design/coupon-mobile-SCHOOLKIT-design.jpg').default,
+      altText: 'FREE 2nd Course + UPGRADED Back-to-School Kit',
+      startDate: new Date(Date.UTC(2021, 7, 28, 12)), // August 28 at 08:00 (12:00 UTC)
+      endDate: new Date(Date.UTC(2021, 7, 30, 13, 30)), // August 30 at 09:30 (13:30 UTC)
+      displayEndDate: new Date(2021, 7, 29), // August 29
+    },
+
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'BCK2S',
+      description: <>Get the Grab-and-Go Kit and ANISA smokey eye makeup brush set when you enroll in <strong>Master Makeup Artistry</strong></>,
+      desktopImageSrc: require('./images/makeup/coupon-BCK2S-makeup.jpg').default,
+      mobileImageSrc: require('./images/makeup/coupon-BCK2S-makeup-mobile.jpg').default,
+      altText: 'FREE Grab-and-Go Kit and ANISA smokey eye makeup brush set',
+      startDate: new Date(Date.UTC(2021, 7, 30, 13, 30)), // August 30 at 09:30 (13:30 UTC)
+      endDate: new Date(Date.UTC(2021, 8, 7, 13, 30)), // September 7 at 09:30 (13:30 UTC)
+      displayEndDate: new Date(2021, 8, 6), // September 6
+    },
+    {
+      schools: [ 'QC Event School' ],
+      student: 'DENIED',
+      code: 'BCK2S',
+      description: <>Enroll in <strong>Event &amp; Wedding Planning</strong> a get a FREE specialty course. Plus, get the Grab-and-Go Kit!</>,
+      desktopImageSrc: require('./images/event/coupon-BCK2S-event.jpg').default,
+      mobileImageSrc: require('./images/event/coupon-mobile-BCK2S-event.jpg').default,
+      altText: 'FREE specialty course + Grab-and-Go Kit',
+      startDate: new Date(Date.UTC(2021, 7, 30, 13, 30)), // August 30 at 09:30 (13:30 UTC)
+      endDate: new Date(Date.UTC(2021, 8, 7, 13, 30)), // September 7 at 09:30 (13:30 UTC)
+      displayEndDate: new Date(2021, 8, 6), // September 6
+    },
+    {
+      schools: [ 'QC Design School' ],
+      student: 'DENIED',
+      code: 'BCK2S',
+      description: <>Enroll in any course and get a <strong>FREE second course</strong> of equal or lesser value plus the Grab-and-Go Kit!</>,
+      desktopImageSrc: require('./images/design/coupon-BCK2S-design.jpg').default,
+      mobileImageSrc: require('./images/design/coupon-mobile-BCK2S-design.jpg').default,
+      altText: 'FREE 2nd Course + the Grab-and-Go Kit',
+      startDate: new Date(Date.UTC(2021, 7, 30, 13, 30)), // August 30 at 09:30 (13:30 UTC)
+      endDate: new Date(Date.UTC(2021, 8, 7, 13, 30)), // September 7 at 09:30 (13:30 UTC)
+      displayEndDate: new Date(2021, 8, 6), // September 6
     },
   ];
   return promos.filter(p => p.schools.includes(school)
