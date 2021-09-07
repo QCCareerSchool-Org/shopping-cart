@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { School } from '../../lib/enrollment';
+import { StateContext } from '../../providers/StateProvider';
 import { PriceState } from '../../state/price';
 import { Promo } from './PromoCodeInput';
 
@@ -707,6 +708,43 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       startDate: new Date(Date.UTC(2021, 7, 30, 13, 30)), // August 30 at 09:30 (13:30 UTC)
       endDate: new Date(Date.UTC(2021, 8, 7, 13, 30)), // September 7 at 09:30 (13:30 UTC)
       displayEndDate: new Date(2021, 8, 6), // September 6
+    },
+
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'GLOBALBTY',
+      description: <>Enroll in <strong>Master Makeup Artistry</strong> a get the <strong>Global Beauty Workshop</strong> FREE (get started for {price?.currency.code === 'GBP' ? '£49' : '$89'}).</>,
+      desktopImageSrc: require('./images/makeup/coupon-GLOBALBTY-makeup.jpg').default,
+      mobileImageSrc: require('./images/makeup/coupon-GLOBALBTY-makeup-mobile.jpg').default,
+      altText: 'FREE Global Beauty Workshop',
+      startDate: new Date(Date.UTC(2021, 8, 7, 13, 30)), // September 7 at 09:30 (13:30 UTC)
+      endDate: new Date(Date.UTC(2021, 8, 17, 12)), // September 18 at 08:00 (12:00 UTC)
+      displayEndDate: new Date(2021, 8, 17), // September 17
+    },
+    {
+      schools: [ 'QC Event School' ],
+      student: 'DENIED',
+      code: 'GREENGIFT',
+      description: <>Enroll in any <strong>Foundation Course</strong> and get a FREE second course of equal or lesser value plus the Eco-Friendly Planner &amp; Pen!</>,
+      desktopImageSrc: require('./images/event/coupon-GREENGIFT-event.jpg').default,
+      mobileImageSrc: require('./images/event/coupon-mobile-GREENGIFT-event.jpg').default,
+      altText: 'FREE 2nd course + eco-friendly planner and pen',
+      startDate: new Date(Date.UTC(2021, 8, 7, 13, 30)), // September 7 at 09:30 (13:30 UTC)
+      endDate: new Date(Date.UTC(2021, 8, 17, 12)), // September 18 at 08:00 (12:00 UTC)
+      displayEndDate: new Date(2021, 8, 17), // September 17
+    },
+    {
+      schools: [ 'QC Design School' ],
+      student: 'DENIED',
+      code: 'GREENGIFT',
+      description: <>Enroll in any course and get a FREE second course of equal or lesser value plus the Eco-Friendly Planner &amp; Pen!</>,
+      desktopImageSrc: require('./images/design/coupon-GREENGIFT-design.jpg').default,
+      mobileImageSrc: require('./images/design/coupon-mobile-GREENGIFT-design.jpg').default,
+      altText: 'FREE 2nd course + eco-friendly planner and pen',
+      startDate: new Date(Date.UTC(2021, 8, 7, 13, 30)), // September 7 at 09:30 (13:30 UTC)
+      endDate: new Date(Date.UTC(2021, 8, 17, 12)), // September 18 at 08:00 (12:00 UTC)
+      displayEndDate: new Date(2021, 8, 17), // September 17
     },
   ];
   return promos.filter(p => p.schools.includes(school)
