@@ -69,8 +69,9 @@ export const Promo20210907: React.FC<Props> = ({ date }) => {
           </div>
         </div>
         <Modal size="lg" isOpen={popup} toggle={togglePopup}>
-          <ModalHeader toggle={togglePopup}>Back-to-School Special Offer</ModalHeader>
+          <ModalHeader toggle={togglePopup}>Special Offer</ModalHeader>
           <ModalBody>
+            <p><strong>Get Ready for September with a FREE Course!</strong></p>
             <p>Enroll in ANY of QC&apos;s online design courses and use promo code <PromoCode>GREENGIFT</PromoCode> to get a FREE second course. This means you could save up to $1498!</p>
             <p>Plus, get the Eco-Friendly Planner &amp; Pen as a bonus gift! Crafted from recycled cardboard, these down-to-earth writing supplies embody the green-spirit.</p>
           </ModalBody>
