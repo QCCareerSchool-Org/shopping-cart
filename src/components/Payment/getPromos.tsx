@@ -746,6 +746,31 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       endDate: new Date(Date.UTC(2021, 8, 17, 12)), // September 18 at 08:00 (12:00 UTC)
       displayEndDate: new Date(2021, 8, 17), // September 17
     },
+
+    {
+      schools: [ 'QC Event School' ],
+      student: 'DENIED',
+      code: 'GIFTCODE',
+      description: <>Enroll in any <strong>Foundation Course</strong> and get a FREE second course of equal or lesser value plus the eco-friendly planner &amp; QC tote bag!</>,
+      desktopImageSrc: require('./images/event/coupon-GIFTCODE-event.jpg').default,
+      mobileImageSrc: require('./images/event/coupon-mobile-GIFTCODE-event.jpg').default,
+      altText: 'FREE 2nd Course + 2 Bonus Gifts!',
+      startDate: new Date(Date.UTC(2021, 8, 18, 12)), // September 18 at 08:00 (12:00 UTC)
+      endDate: new Date(Date.UTC(2021, 8, 20, 13, 30)), // September 20 at 09:30 (13:30 UTC)
+      displayEndDate: new Date(2021, 8, 19), // September 19
+    },
+    {
+      schools: [ 'QC Design School' ],
+      student: 'DENIED',
+      code: 'GIFTCODE',
+      description: <>Enroll in any course and get a FREE second course of equal or lesser value plus the eco-friendly Planner &amp; Deluxe Design Kit!</>,
+      desktopImageSrc: require('./images/design/coupon-GIFTCODE-design.jpg').default,
+      mobileImageSrc: require('./images/design/coupon-mobile-GIFTCODE-design.jpg').default,
+      altText: 'FREE 2nd course + 2 Bonus Gifts!',
+      startDate: new Date(Date.UTC(2021, 8, 18, 12)), // September 18 at 08:00 (12:00 UTC)
+      endDate: new Date(Date.UTC(2021, 8, 20, 13, 30)), // September 20 at 09:30 (13:30 UTC)
+      displayEndDate: new Date(2021, 8, 19), // September 19
+    },
   ];
   return promos.filter(p => p.schools.includes(school)
     && (p.student === 'ALLOWED' || (p.student === 'DENIED' && !student) || (p.student === 'ONLY' && student))
