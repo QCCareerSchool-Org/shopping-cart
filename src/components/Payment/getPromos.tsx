@@ -748,6 +748,18 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
     },
 
     {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'PROBRUSHES',
+      description: <>Get the <strong>Global Beauty Workshop</strong> and the Smokey Eye Brush Set FREE when you enroll in Master Makeup Artistry</>,
+      desktopImageSrc: require('./images/makeup/coupon-PROBRUSHES-makeup.jpg').default,
+      mobileImageSrc: require('./images/makeup/coupon-PROBRUSHES-makeup-mobile.jpg').default,
+      altText: 'FREE The Global Beauty Workshop + Smokey Eye Brush Set!',
+      startDate: new Date(Date.UTC(2021, 8, 18, 12)), // September 18 at 08:00 (12:00 UTC)
+      endDate: new Date(Date.UTC(2021, 8, 20, 13, 30)), // September 20 at 09:30 (13:30 UTC)
+      displayEndDate: new Date(2021, 8, 19), // September 19
+    },
+    {
       schools: [ 'QC Event School' ],
       student: 'DENIED',
       code: 'GIFTCODE',
