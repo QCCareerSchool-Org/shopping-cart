@@ -69,10 +69,11 @@ export const Promo20210920: React.FC<Props> = ({ date }) => {
           </div>
         </div>
         <Modal size="lg" isOpen={popup} toggle={togglePopup}>
-          <ModalHeader toggle={togglePopup}>Get a FREE 2nd Course</ModalHeader>
+          <ModalHeader toggle={togglePopup}>Special Offer</ModalHeader>
           <ModalBody>
-            <h5>Get a FREE 2nd Course + 2 Bonus Gifts!</h5>
-            <p>Enroll in any foundation course and use promo code <PromoCode>GIFTCODE</PromoCode> to get your second course FREE. Plus, you&apos;ll receive TWO exclusive gifts: the QC tote bag &amp; Eco-Friendly Planner!</p>
+            <h5>Get a FREE Certification Course!</h5>
+            <p>Enroll in ANY of QC&apos;s online design courses and get any FREE 2nd course. This means you could save up to $1498!</p>
+            <p>Plus, get The Deluxe Design Kit as a bonus gift! Valued at $150, this upgraded kit includes the NEW easy-to-use laser &ldquo;tape&rdquo; measure. It makes measuring rooms an absolute breeze.</p>
           </ModalBody>
         </Modal>
       </section>
