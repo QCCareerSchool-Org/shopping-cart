@@ -567,7 +567,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       schools: [ 'QC Event School' ],
       student: 'DENIED',
       code: 'TRIPLETHREAT',
-      description: <>Get any two <strong>Specialty</strong> courses for FREE when you enroll in any <strong>Foundation</strong> course.</>,
+      description: <>Get any two <strong>Specialty</strong> courses for FREE when you enroll in the <strong>Event &amp; Wedding Planning</strong> course.</>,
       desktopImageSrc: require('./images/event/coupon-TRIPLETHREAT-event.jpg').default,
       mobileImageSrc: require('./images/event/coupon-mobile-TRIPLETHREAT-event.jpg').default,
       altText: 'Two free Specialty courses',

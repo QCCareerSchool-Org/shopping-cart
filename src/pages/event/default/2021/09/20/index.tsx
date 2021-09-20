@@ -56,6 +56,7 @@ export const Promo20210920: React.FC<Props> = ({ date }) => {
 
   const buttonClick = (): void => {
     dispatch({ type: 'SET_PROMO_CODE', payload: 'TRIPLETHREAT' });
+    dispatch({ type: 'ADD_COURSE', payload: { courseCode: 'EP', internal: false } });
   };
 
   return (
@@ -69,9 +70,9 @@ export const Promo20210920: React.FC<Props> = ({ date }) => {
           </div>
         </div>
         <Modal size="lg" isOpen={popup} toggle={togglePopup}>
-          <ModalHeader toggle={togglePopup}>Special Offer</ModalHeader>
+          <ModalHeader toggle={togglePopup}>2 FREE Specialty Courses</ModalHeader>
           <ModalBody>
-            <p>Enroll in any foundation course and use promo code <PromoCode>TRIPLETHREAT</PromoCode> to get any two specailty courses FREE!</p>
+            <p>Enroll in the <strong>Event &amp; Wedding Planning</strong> course and use promo code <PromoCode>TRIPLETHREAT</PromoCode> to get any two specialty courses FREE!</p>
           </ModalBody>
         </Modal>
       </section>
