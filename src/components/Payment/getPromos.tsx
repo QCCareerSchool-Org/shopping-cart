@@ -97,8 +97,9 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/makeup/coupon-SKINCARE60.jpg').default,
       mobileImageSrc: require('./images/makeup/coupon-mobile-SKINCARE60.jpg').default,
       altText: '60% off Skincare course',
-      startDate: new Date(Date.UTC(2021, 4, 3, 13)),
-      endDate: new Date(Date.UTC(2021, 4, 15, 12)),
+      startDate: new Date(Date.UTC(2021, 8, 20, 13, 30)), // September 20 at 09:30 (13:30 UTC)
+      endDate: new Date(Date.UTC(2021, 9, 1, 12)), // October 1 at 08:00 (12:00 UTC)
+      displayEndDate: new Date(2021, 8, 30), // September 30
     },
     // {
     //   schools: [ 'QC Makeup Academy' ],
@@ -474,9 +475,9 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/design/coupon-DELUXE-design.jpg').default,
       mobileImageSrc: require('./images/design/coupon-mobile-DELUXE-design.jpg').default,
       altText: 'Deluxe design kit + second course FREE',
-      startDate: new Date(2021, 6, 6, 10, 30), // July 6 at 10:30
-      endDate: new Date(2021, 6, 17, 23, 59, 59, 999), // July 17 at 23:59:59.999
-      displayEndDate: new Date(2021, 6, 17), // July 17
+      startDate: new Date(Date.UTC(2021, 8, 20, 13, 30)), // September 20 at 09:30 (13:30 UTC)
+      endDate: new Date(Date.UTC(2021, 9, 1, 12)), // October 1 at 08:00 (12:00 UTC)
+      displayEndDate: new Date(2021, 8, 30), // September 30
     },
     {
       schools: [ 'QC Event School' ],
@@ -570,9 +571,9 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/event/coupon-TRIPLETHREAT-event.jpg').default,
       mobileImageSrc: require('./images/event/coupon-mobile-TRIPLETHREAT-event.jpg').default,
       altText: 'Two free Specialty courses',
-      startDate: new Date(Date.UTC(2021, 7, 3, 16, 15)), // August 3 at 12:15 (16:15 UTC)
-      endDate: new Date(Date.UTC(2021, 7, 14, 12)), // August 14 at 08:00 (12:00 UTC)
-      displayEndDate: new Date(2021, 7, 13), // August 13
+      startDate: new Date(Date.UTC(2021, 8, 20, 13, 30)), // September 20 at 09:30 (13:30 UTC)
+      endDate: new Date(Date.UTC(2021, 9, 1, 12)), // October 1 at 08:00 (12:00 UTC)
+      displayEndDate: new Date(2021, 8, 30), // September 30
     },
     {
       schools: [ 'QC Design School' ],

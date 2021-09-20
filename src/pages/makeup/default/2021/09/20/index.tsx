@@ -56,7 +56,7 @@ export const Promo20210920: React.FC<Props> = ({ date }) => {
   const buttonClick = (): void => {
     dispatch({ type: 'REMOVE_COURSE', payload: { courseCode: 'MK', internal: false } });
     dispatch({ type: 'ADD_COURSE', payload: { courseCode: 'MZ', internal: false } });
-    dispatch({ type: 'ADD_COURSE', payload: { courseCode: 'GB', internal: false } });
+    dispatch({ type: 'ADD_COURSE', payload: { courseCode: 'SK', internal: false } });
     dispatch({ type: 'SET_PROMO_CODE', payload: 'SKINCARE60' });
   };
 
@@ -71,25 +71,14 @@ export const Promo20210920: React.FC<Props> = ({ date }) => {
           </div>
         </div>
         <Modal size="lg" isOpen={popup} toggle={togglePopup}>
-          <ModalHeader toggle={togglePopup}>FREE Global Beauty Workshop</ModalHeader>
+          <ModalHeader toggle={togglePopup}>60% Off Skincare</ModalHeader>
           <ModalBody>
-            <p>Enroll in QC&apos;s <strong>Master Makeup Artistry</strong> course and use promo code <PromoCode>BCK2S</PromoCode> to get the <strong>Global Beauty Workshop</strong> for FREE.</p>
-            <hr />
-            <p>QC&apos;s Master Makeup Artistry course comes with a FREE makeup kit you&apos;ll use to excel in your course and your career.</p>
-            <div className="text-center">
-              <img src={require('./popup-makeup-kit.jpg').default} alt="makeup kit" />
-            </div>
-            <p>In the Global Beauty Workshop, you&apos;ll advance the  makeup skills you learned in your Master Makeup Artistry course!</p>
-            <ul>
-              <li>Get even more practice working with all different skin tones</li>
-              <li>Create gorgeous makeup looks from different cultural and religious traditions around the world</li>
-              <li>Learn how to create beautiful henna designs for brides</li>
-              <li>+ BONUS Makeup Kit &amp; henna paste!</li>
-            </ul>
+            <p>Enroll in QC&apos;s Master Makeup Artistry and use promo code <PromoCode>SKINCARE60</PromoCode> to get the Skincare Course 60% off!</p>
+            <p>QC&apos;s Master Makeup Artistry Course lays the foundation for your makeup career. Your tuition also includes a FREE professional makeup kit to help you get started.</p>
+            <p>With QC&apos;s built-in business training, you&apos;ll learn how to build the beauty empire you&apos;ve always dreamed of.</p>
+            <p>QC&apos;s Skincare Course teaches you how to work with different skin types. You&apos;ll learn how to prepare your clients for flawless makeup applications. Plus, you&apos;ll be able to design skincare routines for them. This will add a huge revenue stream to your business!</p>
+            <p>Graduate as both a Master International Makeup Professional (MIMP) and as a Certified Skincare Consultant in just a few months!</p>
           </ModalBody>
-          <ModalFooter>
-            <div>The kit pictured above is included only when you enroll in the <strong>Master Makeup Artistry</strong> course. You will receive a different, course-specific makeup starter kit with all other QC Makeup Academy courses instead of the one shown.</div>
-          </ModalFooter>
         </Modal>
       </section>
       <div className="text-white" style={{ backgroundColor: '#bfc1c0' }}>
