@@ -50,8 +50,7 @@ export const Promo20210920: React.FC<Props> = ({ date }) => {
         <ModalHeader toggle={togglePopup}>Get {price?.currency.code === 'GBP' ? '£150' : '$200'} Off Your Course!</ModalHeader>
         <ModalBody className="text-center p-0">
           <div className="p-3">
-            <p>Enroll in QC&apos;s Pet Grooming Course and save {price?.currency.code === 'GBP' ? '£150' : '$200'} on your tuition. Plus, you&apos;ll receive QC&apos;s NEW Eco-Friendly Planner!</p>
-            <p>Or, if you prefer to pay in full, you&apos;ll save {price?.currency.code === 'GBP' ? '£450' : '$600'}.</p>
+            <p>Enroll in QC&apos;s Pet Grooming Course and save {price?.currency.code === 'GBP' ? '£150' : '$200'} on your tuition. Or, if you prefer to pay in full, you&apos;ll save {price?.currency.code === 'GBP' ? '£450' : '$600'}.</p>
             <hr />
             <p>After you submit your Unit B, we&apos;ll also ship you a toolkit with the essential items you need to get started. Your kit includes a WAHL ARCO 5-in-1 Cordless Clipper, a stainless steel attachment guide comb kit, professional-grade grooming scissors, brushes, combs, and nail clippers.</p>
           </div>
