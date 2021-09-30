@@ -98,7 +98,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: require('./images/makeup/coupon-mobile-SKINCARE60.jpg').default,
       altText: '60% off Skincare course',
       startDate: new Date(Date.UTC(2021, 8, 20, 13, 30)), // September 20 at 09:30 (13:30 UTC)
-      endDate: new Date(Date.UTC(2021, 9, 1, 12)), // October 1 at 08:00 (12:00 UTC)
+      endDate: new Date(Date.UTC(2021, 9, 1, 14, 30)), // October 1 at 10:30 (14:30 UTC)
       displayEndDate: new Date(2021, 8, 30), // September 30
     },
     // {
@@ -476,7 +476,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: require('./images/design/coupon-mobile-DELUXE-design.jpg').default,
       altText: 'Deluxe design kit + second course FREE',
       startDate: new Date(Date.UTC(2021, 8, 20, 13, 30)), // September 20 at 09:30 (13:30 UTC)
-      endDate: new Date(Date.UTC(2021, 9, 1, 12)), // October 1 at 08:00 (12:00 UTC)
+      endDate: new Date(Date.UTC(2021, 9, 1, 14, 30)), // October 1 at 10:30 (14:30 UTC)
       displayEndDate: new Date(2021, 8, 30), // September 30
     },
     {
@@ -572,7 +572,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: require('./images/event/coupon-mobile-TRIPLETHREAT-event.jpg').default,
       altText: 'Two free Specialty courses',
       startDate: new Date(Date.UTC(2021, 8, 20, 13, 30)), // September 20 at 09:30 (13:30 UTC)
-      endDate: new Date(Date.UTC(2021, 9, 1, 12)), // October 1 at 08:00 (12:00 UTC)
+      endDate: new Date(Date.UTC(2021, 9, 1, 14, 30)), // October 1 at 10:30 (14:30 UTC)
       displayEndDate: new Date(2021, 8, 30), // September 30
     },
     {
