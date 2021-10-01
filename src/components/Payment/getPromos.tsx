@@ -98,7 +98,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: require('./images/makeup/coupon-mobile-SKINCARE60.jpg').default,
       altText: '60% off Skincare course',
       startDate: new Date(Date.UTC(2021, 8, 20, 13, 30)), // September 20 at 09:30 (13:30 UTC)
-      endDate: new Date(Date.UTC(2021, 9, 1, 14, 30)), // October 1 at 10:30 (14:30 UTC)
+      endDate: new Date(Date.UTC(2021, 9, 1, 13, 30)), // October 1 at 09:30 (13:30 UTC)
       displayEndDate: new Date(2021, 8, 30), // September 30
     },
     // {
@@ -476,7 +476,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: require('./images/design/coupon-mobile-DELUXE-design.jpg').default,
       altText: 'Deluxe design kit + second course FREE',
       startDate: new Date(Date.UTC(2021, 8, 20, 13, 30)), // September 20 at 09:30 (13:30 UTC)
-      endDate: new Date(Date.UTC(2021, 9, 1, 14, 30)), // October 1 at 10:30 (14:30 UTC)
+      endDate: new Date(Date.UTC(2021, 9, 1, 13, 30)), // October 1 at 09:30 (13:30 UTC)
       displayEndDate: new Date(2021, 8, 30), // September 30
     },
     {
@@ -572,7 +572,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: require('./images/event/coupon-mobile-TRIPLETHREAT-event.jpg').default,
       altText: 'Two free Specialty courses',
       startDate: new Date(Date.UTC(2021, 8, 20, 13, 30)), // September 20 at 09:30 (13:30 UTC)
-      endDate: new Date(Date.UTC(2021, 9, 1, 14, 30)), // October 1 at 10:30 (14:30 UTC)
+      endDate: new Date(Date.UTC(2021, 9, 1, 13, 30)), // October 1 at 09:30 (13:30 UTC)
       displayEndDate: new Date(2021, 8, 30), // September 30
     },
     {
@@ -784,6 +784,43 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       endDate: new Date(Date.UTC(2021, 8, 20, 13, 30)), // September 20 at 09:30 (13:30 UTC)
       displayEndDate: new Date(2021, 8, 19), // September 19
     },
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'ELITEPRO',
+      description: <>Get the <strong>Pro Makeup Workshop</strong> FREE when you enroll in the <strong>Master Makeup Artistry</strong> course. Plus, get the Elite Makeup Kit!</>,
+      desktopImageSrc: require('./images/makeup/coupon-ELITEPRO.jpg').default,
+      mobileImageSrc: require('./images/makeup/coupon-mobile-ELITEPRO.jpg').default,
+      altText: 'FREE Pro Makeup Workshop + the Elite Makeup Kit',
+      startDate: new Date(Date.UTC(2021, 9, 1, 13, 30)), // October 1 at 09:30 (13:30 UTC)
+      endDate: new Date(Date.UTC(2021, 10, 1, 13, 30)), // November 1 at 09:30 (13:30 UTC)
+      displayEndDate: new Date(2021, 9, 31), // October 31
+    },
+    {
+      schools: [ 'QC Event School' ],
+      student: 'DENIED',
+      code: 'SPECIALIST',
+      description: <>Enroll in the <strong>Event &amp; Wedding Planning</strong> course and get a FREE specialty course!</>,
+      desktopImageSrc: require('./images/event/coupon-SPECIALIST-event.jpg').default,
+      mobileImageSrc: require('./images/event/coupon-mobile-SPECIALIST-event.jpg').default,
+      altText: 'FREE specialty course',
+      startDate: new Date(Date.UTC(2021, 9, 1, 13, 30)), // October 1 at 09:30 (13:30 UTC)
+      endDate: new Date(Date.UTC(2021, 10, 1, 13, 30)), // November 1 at 09:30 (13:30 UTC)
+      displayEndDate: new Date(2021, 9, 31), // October 31
+    },
+    {
+      schools: [ 'QC Design School' ],
+      student: 'DENIED',
+      code: 'TREAT',
+      description: <>Enroll in any course and get a FREE second course. Plus, get the NEW laser tape measure!</>,
+      desktopImageSrc: require('./images/design/coupon-TREAT-design.jpg').default,
+      mobileImageSrc: require('./images/design/coupon-mobile-TREAT-design.jpg').default,
+      altText: 'FREE second course + laser tape measure',
+      startDate: new Date(Date.UTC(2021, 9, 1, 13, 30)), // October 1 at 09:30 (13:30 UTC)
+      endDate: new Date(Date.UTC(2021, 10, 1, 13, 30)), // November 1 at 09:30 (13:30 UTC)
+      displayEndDate: new Date(2021, 9, 31), // October 31
+    },
+
   ];
   return promos.filter(p => p.schools.includes(school)
     && (p.student === 'ALLOWED' || (p.student === 'DENIED' && !student) || (p.student === 'ONLY' && student))
