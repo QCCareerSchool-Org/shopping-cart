@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { Promo20210907 } from './2021/09/07';
-import { Promo20210918 } from './2021/09/18';
 import { Promo20210920 } from './2021/09/20';
+import { Promo20211001 } from './2021/10/1';
 
 type Props = {
   date: Date;
@@ -10,10 +9,8 @@ type Props = {
 
 export const DefaultPromo: React.FC<Props> = ({ date }) => {
   const time = date.getTime();
-  if (time >= Date.UTC(2021, 8, 20, 13, 30)) { // September 20 at 09:30 (13:30 UTC)
-    return <Promo20210920 date={date} />;
-  } else if (time >= Date.UTC(2021, 8, 18, 12)) { // September 18 at 08:00 (12:00 UTC)
-    return <Promo20210918 date={date} />;
+  if (time >= Date.UTC(2021, 9, 1, 13, 30)) { // October 1 at 09:30 (13:30 UTC)
+    return <Promo20211001 date={date} />;
   }
-  return <Promo20210907 date={date} />;
+  return <Promo20210920 date={date} />;
 };
