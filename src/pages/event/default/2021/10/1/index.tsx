@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import React, { ReactElement } from 'react';
+import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
+import { usePopup } from '../../../../../../hooks/usePopup';
 import { usePreloadImages } from '../../../../../../hooks/usePreloadImages';
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../../../../hooks/useStateContext';
@@ -19,6 +21,7 @@ export const Promo20211001 = ({ date }: Props): ReactElement => {
   const { price } = useStateContext();
   const dispatch = useDispatchContext();
   const screenWidth = useScreenWidthContext();
+  const [ popup, togglePopup ] = usePopup(false);
 
   usePreloadImages(preloadImages);
 
@@ -60,9 +63,17 @@ export const Promo20211001 = ({ date }: Props): ReactElement => {
       <section id="promoSection" style={{ backgroundColor: '#ffe3c2', padding: 0 }}>
         <div className="container px-0">
           <div className="text-center">
-            <img src={image} width={width} height={height} className="img-fluid d-block mx-auto" alt="Special Offer" />
+            <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={togglePopup}>
+              <img src={image} width={width} height={height} className="img-fluid d-block mx-auto" alt="Special Offer" />
+            </button>
           </div>
         </div>
+        <Modal size="lg" isOpen={popup} toggle={togglePopup}>
+          <ModalHeader toggle={togglePopup}>FREE Specialty Course</ModalHeader>
+          <ModalBody>
+            <p>Until October 31st, you can take advantage of a scary good deal: Enroll in <strong>Event &amp; Wedding Planning</strong> and get a <strong>FREE specialty course</strong>. You can choose from 8 courses&mdash;{price?.currency.code === 'GBP' ? 'and save hundreds on your tuition' : 'and save up to $1039'}!</p>
+          </ModalBody>
+        </Modal>
       </section>
       <div className="text-white" style={{ backgroundColor: '#ffe3c2' }}>
         <div className="container py-3 d-flex justify-content-center">
