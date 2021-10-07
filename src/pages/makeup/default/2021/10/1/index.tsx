@@ -1,17 +1,11 @@
 import React from 'react';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
-
 import { PromoCode } from '../../../../../../components/PromoCode';
+
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
 import { usePopup } from '../../../../../../hooks/usePopup';
-import { usePreloadImages } from '../../../../../../hooks/usePreloadImages';
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../../../../hooks/useStateContext';
-
-import couponButtonAppliedSrc from './coupon-btn-ELITEPRO-active.svg';
-import couponButtonSrc from './coupon-btn-ELITEPRO.svg';
-
-const preloadImages = [ couponButtonAppliedSrc ];
 
 type Props = {
   date: Date;
@@ -23,8 +17,6 @@ export const Promo20211001: React.FC<Props> = ({ date }) => {
   const screenWidth = useScreenWidthContext();
   const [ popup, togglePopup ] = usePopup(false);
 
-  usePreloadImages(preloadImages);
-
   const desktop = screenWidth > 514;
 
   let image: string;
@@ -33,15 +25,15 @@ export const Promo20211001: React.FC<Props> = ({ date }) => {
 
   if (date.getTime() >= Date.UTC(2021, 9, 29, 4)) { // October 29 at 00:00 (04:00 UTC)
     if (desktop) {
-      image = require('./desktop-ends.jpg').default;
+      image = price?.promoCode === 'ELITEPRO' ? require('./desktop-ends-active.jpg').default : require('./desktop-ends.jpg').default;
     } else {
-      image = require('./mobile-ends.jpg').default;
+      image = price?.promoCode === 'ELITEPRO' ? require('./mobile-ends-active.jpg').default : require('./mobile-ends.jpg').default;
     }
   } else {
     if (desktop) {
-      image = require('./desktop.jpg').default;
+      image = price?.promoCode === 'ELITEPRO' ? require('./desktop-active.jpg').default : require('./desktop.jpg').default;
     } else {
-      image = require('./mobile.jpg').default;
+      image = price?.promoCode === 'ELITEPRO' ? require('./mobile-active.jpg').default : require('./mobile.jpg').default;
     }
   }
 
@@ -65,14 +57,16 @@ export const Promo20211001: React.FC<Props> = ({ date }) => {
       <section id="promoSection" style={{ backgroundColor: '#8e765a', padding: 0 }}>
         <div className="container px-0">
           <div className="text-center">
-            <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={togglePopup}>
+            <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={buttonClick}>
               <img src={image} width={width} height={height} className="img-fluid d-block mx-auto" alt="Special Offer" />
             </button>
           </div>
         </div>
         <Modal size="lg" isOpen={popup} toggle={togglePopup}>
-          <ModalHeader toggle={togglePopup}>60% Off Skincare</ModalHeader>
+          <ModalHeader toggle={togglePopup}>Special Offer</ModalHeader>
           <ModalBody>
+            <p>Enroll in <strong>Master Makeup Artistry</strong> and use promo code <PromoCode>ELITEPRO</PromoCode> to get the <strong>Pro Makeup Workshop</strong> FREE!</p>
+            <p>You&apos;ll also get the Elite Makeup Kit.</p>
             <img src={require('./enrollment-pop-up.jpg').default} />
           </ModalBody>
           <ModalFooter>
@@ -82,10 +76,7 @@ export const Promo20211001: React.FC<Props> = ({ date }) => {
       </section>
       <div className="text-white" style={{ backgroundColor: '#8e765a' }}>
         <div className="container py-3 d-flex justify-content-center">
-          {price?.promoCode === 'ELITEPRO'
-            ? <img src={couponButtonAppliedSrc} width="297" height="40" className="img-fluid" alt="Promo Code" />
-            : <button onClick={buttonClick} className="btn btn-link p-0 border-0 btn-no-hover-shadow"><img src={couponButtonSrc} width="297" height="40" className="img-fluid" alt="Promo Code" /></button>
-          }
+          <button onClick={togglePopup} className="btn btn-secondary">VIEW OFFER DETAILS</button>
         </div>
       </div>
     </>
