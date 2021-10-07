@@ -67,7 +67,7 @@ export const Promo20211001: React.FC<Props> = ({ date }) => {
           <ModalBody>
             <p>Enroll in <strong>Master Makeup Artistry</strong> and use promo code <PromoCode>ELITEPRO</PromoCode> to get the <strong>Pro Makeup Workshop</strong> FREE!</p>
             <p>You&apos;ll also get the Elite Makeup Kit.</p>
-            <img src={require('./enrollment-pop-up.jpg').default} />
+            <img src={require('./enrollment-pop-up.jpg').default} className="img-fluid" />
           </ModalBody>
           <ModalFooter>
             <div>The kit pictured above is included only when you enroll in the <strong>Master Makeup Artistry</strong> course. You will receive a different, course-specific makeup starter kit with all other QC Makeup Academy courses instead of the one shown.</div>
