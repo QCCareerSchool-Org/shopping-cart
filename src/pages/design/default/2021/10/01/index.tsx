@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
+import { PromoCode } from '../../../../../../components/PromoCode';
 
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
 import { usePopup } from '../../../../../../hooks/usePopup';
@@ -8,8 +9,8 @@ import { usePreloadImages } from '../../../../../../hooks/usePreloadImages';
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../../../../hooks/useStateContext';
 
-import couponButtonAppliedSrc from './button-SPECIALIST-active.svg';
-import couponButtonSrc from './button-SPECIALIST.svg';
+import couponButtonAppliedSrc from './coupon-btn-TREAT-active.svg';
+import couponButtonSrc from './coupon-btn-TREAT.svg';
 
 const preloadImages = [ couponButtonAppliedSrc ];
 
@@ -17,7 +18,7 @@ type Props = {
   date: Date;
 };
 
-export const Promo20211001 = ({ date }: Props): ReactElement => {
+export const Promo20211001: React.FC<Props> = ({ date }) => {
   const { price } = useStateContext();
   const dispatch = useDispatchContext();
   const screenWidth = useScreenWidthContext();
@@ -33,34 +34,33 @@ export const Promo20211001 = ({ date }: Props): ReactElement => {
 
   if (date.getTime() >= Date.UTC(2021, 9, 29, 4)) { // October 29 at 00:00 (04:00 UTC)
     if (desktop) {
-      image = price?.promoCode === 'SPECIALIST' ? require('./desktop-ends-active.jpg').default : require('./desktop-ends.jpg').default;
+      image = price?.promoCode === 'TREAT' ? require('./desktop-ends-active.jpg').default : require('./desktop-ends.jpg').default;
     } else {
-      image = price?.promoCode === 'SPECIALIST' ? require('./mobile-ends-active.jpg').default : require('./mobile-ends.jpg').default;
+      image = price?.promoCode === 'TREAT' ? require('./mobile-ends-active.jpg').default : require('./mobile-ends.jpg').default;
     }
   } else {
     if (desktop) {
-      image = price?.promoCode === 'SPECIALIST' ? require('./desktop-active.jpg').default : require('./desktop.jpg').default;
+      image = price?.promoCode === 'TREAT' ? require('./desktop-active.jpg').default : require('./desktop.jpg').default;
     } else {
-      image = price?.promoCode === 'SPECIALIST' ? require('./mobile-active.jpg').default : require('./mobile.jpg').default;
+      image = price?.promoCode === 'TREAT' ? require('./mobile-active.jpg').default : require('./mobile.jpg').default;
     }
   }
 
   if (desktop) {
-    width = 976;
-    height = 476;
+    width = 1257;
+    height = 503;
   } else {
-    width = 440;
-    height = 391;
+    width = 514;
+    height = 614;
   }
 
   const buttonClick = (): void => {
-    dispatch({ type: 'SET_PROMO_CODE', payload: 'SPECIALIST' });
-    dispatch({ type: 'ADD_COURSE', payload: { courseCode: 'EP', internal: false } });
+    dispatch({ type: 'SET_PROMO_CODE', payload: 'TREAT' });
   };
 
   return (
     <>
-      <section id="promoSection" style={{ backgroundColor: '#ffe3c2', padding: 0 }}>
+      <section id="promoSection" style={{ backgroundColor: '#000', padding: 0 }}>
         <div className="container px-0">
           <div className="text-center">
             <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={buttonClick}>
@@ -69,13 +69,15 @@ export const Promo20211001 = ({ date }: Props): ReactElement => {
           </div>
         </div>
         <Modal size="lg" isOpen={popup} toggle={togglePopup}>
-          <ModalHeader toggle={togglePopup}>FREE Specialty Course</ModalHeader>
+          <ModalHeader toggle={togglePopup}>Special Offer</ModalHeader>
           <ModalBody>
-            <p>Until October 31st, you can take advantage of a scary good deal: Enroll in <strong>Event &amp; Wedding Planning</strong> and get a <strong>FREE specialty course</strong>. You can choose from 8 courses&mdash;{price?.currency.code === 'GBP' ? 'and save hundreds on your tuition' : 'and save up to $1039'}!</p>
+            <h5>Get a FREE Certification Course!</h5>
+            <p>Enroll in ANY of QC&apos;s online design courses and use promo code <PromoCode>TREAT</PromoCode> to get any 2nd course for FREE. This means you could save up to $1498!</p>
+            <p>Plus, you&apos;ll receive the NEW easy-to-use laser &ldquo;tape&rdquo; measure. It makes measuring rooms an absolute breeze.</p>
           </ModalBody>
         </Modal>
       </section>
-      <div className="text-white" style={{ backgroundColor: '#ffe3c2' }}>
+      <div className="text-white" style={{ backgroundColor: '#000' }}>
         <div className="container py-3 d-flex justify-content-center">
           <button onClick={togglePopup} className="btn btn-secondary">View Offer Details</button>
         </div>
