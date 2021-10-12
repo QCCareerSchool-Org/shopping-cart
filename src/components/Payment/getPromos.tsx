@@ -199,9 +199,9 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/event/coupon-WEDDING21.jpg').default,
       mobileImageSrc: require('./images/event/coupon-mobile-WEDDING21.jpg').default,
       altText: 'Enroll in Event & Wedding Planning and get two free specialty courses',
-      startDate: new Date(Date.UTC(2021, 5, 14, 13)), // June 14 at 09:00
-      endDate: new Date(Date.UTC(2021, 5, 28, 13)), // June 28 at 09:00
-      displayEndDate: new Date(2021, 5, 25), // June 11
+      startDate: new Date(Date.UTC(2021, 9, 12, 13, 30)), // October 12 at 09:30 (13:30 UTC)
+      endDate: new Date(Date.UTC(2021, 9, 16, 4)), // October 16 at 00:00 (04:00 UTC)
+      displayEndDate: new Date(2021, 9, 15), // October 15
     },
     {
       schools: [ 'QC Event School' ],

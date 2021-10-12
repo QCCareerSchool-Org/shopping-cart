@@ -1,30 +1,23 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
-import React from 'react';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { ReactElement } from 'react';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
-import { PromoCode } from '../../../../../../components/PromoCode';
 
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
 import { usePopup } from '../../../../../../hooks/usePopup';
-import { usePreloadImages } from '../../../../../../hooks/usePreloadImages';
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../../../../hooks/useStateContext';
-
-import couponButtonAppliedSrc from './coupon-btn-TREAT-active.svg';
-import couponButtonSrc from './coupon-btn-TREAT.svg';
-
-const preloadImages = [ couponButtonAppliedSrc ];
 
 type Props = {
   date: Date;
 };
 
-export const Promo20211001: React.FC<Props> = ({ date }) => {
+export const Promo20211012 = ({ date }: Props): ReactElement => {
   const { price } = useStateContext();
   const dispatch = useDispatchContext();
   const screenWidth = useScreenWidthContext();
   const [ popup, togglePopup ] = usePopup(false);
-
-  usePreloadImages(preloadImages);
 
   const desktop = screenWidth > 514;
 
@@ -32,7 +25,7 @@ export const Promo20211001: React.FC<Props> = ({ date }) => {
   let width: number;
   let height: number;
 
-  if (date.getTime() >= Date.UTC(2021, 9, 29, 4)) { // October 29 at 00:00 (04:00 UTC)
+  if (date.getTime() >= Date.UTC(2021, 10, 15, 4)) { // October 15 at 00:00 (04:00 UTC)
     if (desktop) {
       image = require('./desktop-ends.jpg').default;
     } else {
@@ -47,20 +40,25 @@ export const Promo20211001: React.FC<Props> = ({ date }) => {
   }
 
   if (desktop) {
-    width = 1257;
-    height = 503;
+    width = 976;
+    height = 500;
   } else {
     width = 514;
-    height = 614;
+    height = 652;
   }
 
   const buttonClick = (): void => {
-    dispatch({ type: 'SET_PROMO_CODE', payload: 'TREAT' });
+    dispatch({ type: 'SET_PROMO_CODE', payload: 'WEDDING21' });
+    dispatch({ type: 'REMOVE_COURSE', payload: { courseCode: 'CE', internal: false } });
+    dispatch({ type: 'REMOVE_COURSE', payload: { courseCode: 'WP', internal: false } });
+    dispatch({ type: 'ADD_COURSE', payload: { courseCode: 'EP', internal: false } });
+    dispatch({ type: 'ADD_COURSE', payload: { courseCode: 'DW', internal: false } });
+    dispatch({ type: 'ADD_COURSE', payload: { courseCode: 'LW', internal: false } });
   };
 
   return (
     <>
-      <section id="promoSection" style={{ backgroundColor: '#000', padding: 0 }}>
+      <section id="promoSection" style={{ backgroundColor: 'white', padding: 0 }}>
         <div className="container px-0">
           <div className="text-center">
             <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={togglePopup}>
@@ -69,19 +67,17 @@ export const Promo20211001: React.FC<Props> = ({ date }) => {
           </div>
         </div>
         <Modal size="lg" isOpen={popup} toggle={togglePopup}>
-          <ModalHeader toggle={togglePopup}>Special Offer</ModalHeader>
+          <ModalHeader toggle={togglePopup}>FREE Specialty Course</ModalHeader>
           <ModalBody>
-            <h5>Get a FREE Certification Course!</h5>
-            <p>Enroll in ANY of QC&apos;s online design courses and use promo code <PromoCode>TREAT</PromoCode> to get any 2nd course for FREE. This means you could save up to $1498!</p>
-            <p>Plus, you&apos;ll receive the NEW easy-to-use laser &ldquo;tape&rdquo; measure. It makes measuring rooms an absolute breeze.</p>
+            <p>Until Friday, October 15th, you can enroll in <strong>Event &amp; Wedding Planning</strong> and get 2 FREE Specialization Courses: QC&apos;s <strong>Luxury Wedding</strong> course and <strong>Destination Wedding Planning</strong> course. With the upcoming wave of rescheduled weddings, you&apos;ll take the industry by storm!</p>
           </ModalBody>
         </Modal>
       </section>
-      <div className="text-white" style={{ backgroundColor: '#000' }}>
+      <div className="text-white" style={{ backgroundColor: 'white' }}>
         <div className="container py-3 d-flex justify-content-center">
-          {price?.promoCode === 'TREAT'
-            ? <img src={couponButtonAppliedSrc} width="297" height="40" className="img-fluid" alt="Promo Code" />
-            : <button onClick={buttonClick} className="btn btn-link p-0 border-0 btn-no-hover-shadow"><img src={couponButtonSrc} width="297" height="40" className="img-fluid" alt="Promo Code" /></button>
+          {price?.promoCode === 'WEDDING21'
+            ? <button className="btn btn-primary" disabled>Promo Code Applied <FontAwesomeIcon icon={faCheck} /></button>
+            : <button onClick={buttonClick} className="btn btn-primary">Apply Promo Code: WEDDING21</button>
           }
         </div>
       </div>
