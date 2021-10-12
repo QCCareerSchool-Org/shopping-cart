@@ -65,7 +65,7 @@ export const Promo20211001: React.FC<Props> = ({ date }) => {
         <Modal size="lg" isOpen={popup} toggle={togglePopup}>
           <ModalHeader toggle={togglePopup}>Special Offer</ModalHeader>
           <ModalBody>
-            <p>Enroll in <strong>Master Makeup Artistry</strong> and use promo code <PromoCode>ELITEPRO</PromoCode> to get the <strong>Pro Makeup Workshop</strong> FREE!</p>
+            <p>Enroll in <strong>Master Makeup Artistry</strong> and use promo code <PromoCode>ELITEPRO</PromoCode> to get the <strong>Pro Makeup Workshop</strong>{date.getTime() <= Date.UTC(2021, 9, 16, 4) && <> and <u>an extra set of false eyelashes</u></>} FREE!</p>
             <p>You&apos;ll also get the Elite Makeup Kit.</p>
             <img src={require('./enrollment-pop-up.jpg').default} className="img-fluid" />
           </ModalBody>
