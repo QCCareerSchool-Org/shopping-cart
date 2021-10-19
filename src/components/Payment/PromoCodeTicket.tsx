@@ -3,8 +3,8 @@ import { faChevronUp, faTag } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Card, CardBody } from 'reactstrap';
-import { useDateContext } from '../../hooks/useDateContext';
 
+import { useDateContext } from '../../hooks/useDateContext';
 import { useScreenWidthContext } from '../../hooks/useScreenWidthContext';
 import { dateOverride } from '../../lib/dateOverride';
 import { PromoCode } from '../PromoCode';

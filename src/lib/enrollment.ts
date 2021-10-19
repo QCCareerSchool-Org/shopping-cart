@@ -50,7 +50,7 @@ export const addEnrollment = async (data: EnrollmentPayload): Promise<AddEnrollm
       headers: { 'X-API-Version': apiVersion },
     });
     return response.data;
-  } catch (err) {
+  } catch (err: any) {
     if (err.isAxiosError) {
       const axiosError = err as AxiosError;
       if (typeof axiosError.response !== 'undefined') {
@@ -69,15 +69,15 @@ export const addEnrollment = async (data: EnrollmentPayload): Promise<AddEnrollm
  * @param {EnrollmentPayload} data the request payload
  * @throws {AxiosError}
  */
-export const updateEnrollment = async (id: number, data: EnrollmentPayload): Promise<void> => {
+export const updateEnrollment = async (id: number, data: EnrollmentPayload): Promise<AddEnrollmentResponse> => {
   const url = `${baseUrl}/${id}`;
   try {
     const apiVersion = 2;
-    const response = await axios.put(url, data, {
+    const response = await axios.put<AddEnrollmentResponse>(url, data, {
       headers: { 'X-API-Version': apiVersion },
     });
     return response.data;
-  } catch (err) {
+  } catch (err: any) {
     if (err.isAxiosError) {
       const axiosError = err as AxiosError;
       if (typeof axiosError.response !== 'undefined') {
@@ -108,7 +108,7 @@ export const chargeEnrollment = async (id: number, token: string, company: 'CA' 
       headers: { 'X-API-Version': apiVersion },
     });
     return response.data;
-  } catch (err) {
+  } catch (err: any) {
     if (err.isAxiosError) {
       const axiosError = err as AxiosError;
       if (typeof axiosError.response !== 'undefined') {
