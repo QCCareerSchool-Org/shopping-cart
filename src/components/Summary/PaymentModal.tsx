@@ -71,6 +71,7 @@ export const PaymentModal: React.FC<Props> = ({ company, isOpen, toggle, charge 
   });
   const [ initialized, setInitialized ] = useState(false);
   const [ submitting, setSubmitting ] = useState(false);
+  const [ success, setSuccess ] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
@@ -118,7 +119,7 @@ export const PaymentModal: React.FC<Props> = ({ company, isOpen, toggle, charge 
 
   const submit = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault();
-    if (submitting) {
+    if (submitting || success) {
       return;
     }
     setSubmitting(true);
@@ -159,6 +160,8 @@ export const PaymentModal: React.FC<Props> = ({ company, isOpen, toggle, charge 
       const chargeResult = await charge(token, company);
       if (chargeResult === false) {
         toggle();
+      } else {
+        setSuccess(true);
       }
     } catch (err: any) {
       setStatus(s => ({ ...s, errors: err }));
@@ -167,7 +170,7 @@ export const PaymentModal: React.FC<Props> = ({ company, isOpen, toggle, charge 
     }
   };
 
-  const buttonDisabled = submitting || !status.panValid || !status.expValid || !status.cvvValid;
+  const buttonDisabled = submitting || !status.panValid || !status.expValid || !status.cvvValid || success;
 
   return (
     <Modal size="sm" isOpen={isOpen} toggle={toggle} unmountOnClose={false}>
