@@ -68,7 +68,7 @@ type Props = {
   additionalOptions?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
   /** a function that determines whether we should show a confirmation message before proceeding to payment */
   showSubmitMessage?: () => boolean;
-  /** a component for the confirmation message (will appear in a popup)  */
+  /** a component for the confirmation message (will appear in a popup) */
   submitMessage?: () => JSX.Element;
   /** the title of the confirmation popup */
   submitTitle?: string;
@@ -189,7 +189,8 @@ export const Form: React.FC<Props> = props => {
     dispatch({ type: 'CLEAR_ENROLLMENT_ERRORS' });
     try {
       if (enrollment) {
-        await updateEnrollment(enrollment.id, createEnrollmentPayload());
+        const { id, code } = await updateEnrollment(enrollment.id, createEnrollmentPayload());
+        setEnrollment({ id, code });
       } else {
         const { id, code } = await addEnrollment(createEnrollmentPayload());
         setEnrollment({ id, code });
@@ -219,7 +220,7 @@ export const Form: React.FC<Props> = props => {
       window.sessionStorage.removeItem('form');
       window.location.href = `${props.successLink}?enrollmentId=${enrollment.id}&code=${enrollment.code}`;
       return true;
-    } catch (err) {
+    } catch (err: any) {
       setEnrollment(null); // we'll start over with a new enrollment record if the user tries again
       let errorMessage: JSX.Element;
       let errorTitle: string;

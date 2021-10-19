@@ -160,7 +160,7 @@ export const PaymentModal: React.FC<Props> = ({ company, isOpen, toggle, charge 
       if (chargeResult === false) {
         toggle();
       }
-    } catch (err) {
+    } catch (err: any) {
       setStatus(s => ({ ...s, errors: err }));
     } finally {
       setSubmitting(false);
