@@ -18,8 +18,6 @@ const Default: React.FC = () => (
       courseGroups={courseGroups}
       school="QC Pet Studies"
       guarantee={() => <Guarantee />}
-      shippingOption={true}
-      noShippingTitle="Use Your Own Tools"
       agreementLink="https://www.doggroomingcourse.com/enrollment-agreement.html"
       agreementLinkGB="https://www.doggroomingcourse.com/enrollment-agreement-gb.html"
       successLink="https://www.doggroomingcourse.com/welcome-to-the-school/"
