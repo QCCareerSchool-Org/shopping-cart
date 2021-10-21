@@ -125,6 +125,16 @@ h3, .h3 { font-size: 1.25rem; }
   .w-lg-100 { width: 100% !important; }
 }
 
+#countDownTimerWrapper {
+  text-align: center;
+  z-index: 100;
+  &.sticky {
+    position: sticky;
+    top: 0;
+  }
+}
+
+
 .countdownTimer {
   .countdownDigitGroup {
     display: inline-block;
