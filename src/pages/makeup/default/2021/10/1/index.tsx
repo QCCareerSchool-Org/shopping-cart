@@ -26,7 +26,8 @@ export const Promo20211001: React.FC<Props> = ({ date }) => {
     const scrollListener = (): void => {
       const element = countDownTimerWrapper.current;
       if (element instanceof HTMLElement) {
-        if (element.offsetTop > document.body.scrollTop) {
+        console.log(element.offsetTop, window.pageYOffset);
+        if (element.offsetTop <= window.pageYOffset) {
           setStickyTimer(true);
         } else {
           setStickyTimer(false);
@@ -94,7 +95,7 @@ export const Promo20211001: React.FC<Props> = ({ date }) => {
           </ModalFooter>
         </Modal>
       </section>
-      <div id="countDownTimerWrapper" ref={countDownTimerWrapper} className={`text-white ${stickyTimer ? 'sticky' : ''}`} style={{ backgroundColor: '#8e765a' }}>
+      <div id="countDownTimerWrapper" ref={countDownTimerWrapper} className={`text-white ${stickyTimer ? 'stuck' : ''}`} style={{ backgroundColor: '#8e765a' }}>
         <CountDownTimer endDate={new Date(Date.UTC(2021, 9, 31, 4))} />
       </div>
       <div className="text-white" style={{ backgroundColor: '#8e765a' }}>
