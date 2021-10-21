@@ -78,7 +78,7 @@ export const Promo20211001: React.FC<Props> = ({ date }) => {
           </ModalBody>
         </Modal>
       </section>
-      <CountDownTimerWrapper date={date} endDate={new Date(Date.UTC(2021, 9, 31, 4))} className="bg-black text-white" />
+      <CountDownTimerWrapper date={date} endDate={new Date(Date.UTC(2021, 9, 31, 4))} className="text-white" style={{ backgroundColor: 'black' }} />
       <div className="text-white" style={{ backgroundColor: '#000' }}>
         <div className="container py-3 d-flex justify-content-center">
           <button onClick={togglePopup} className="btn btn-secondary">View Offer Details</button>
