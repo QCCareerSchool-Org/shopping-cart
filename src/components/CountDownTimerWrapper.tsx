@@ -17,8 +17,8 @@ export const CountDownTimerWrapper = ({ date, endDate, className, style }: Props
     const element = ref.current;
     if (element instanceof HTMLElement) {
       const scrollListener = (): void => {
-        console.log('scroll', element.offsetTop, window.pageYOffset, element.offsetTop <= window.pageYOffset);
-        if (element.offsetTop <= window.pageYOffset) {
+        console.log('scroll', element.offsetTop, window.pageYOffset + 1, element.offsetTop <= window.pageYOffset + 1);
+        if (element.offsetTop <= window.pageYOffset + 1) {
           setStuck(true);
         } else {
           setStuck(false);
