@@ -13,9 +13,11 @@ export const CountDownTimerWrapper = ({ date, endDate, className, style }: Props
   const [ stuck, setStuck ] = useState(false);
 
   useEffect(() => {
+    console.log('wrapper effect');
     const element = ref.current;
     if (element instanceof HTMLElement) {
       const scrollListener = (): void => {
+        console.log('scroll', element.offsetTop, window.pageYOffset, element.offsetTop <= window.pageYOffset);
         if (element.offsetTop <= window.pageYOffset) {
           setStuck(true);
         } else {
@@ -29,6 +31,8 @@ export const CountDownTimerWrapper = ({ date, endDate, className, style }: Props
   }, [ ref ]);
 
   const showTimer = date.getTime() >= endDate.getTime() - (1000 * 60 * 60 * 24 * 7) && date < endDate;
+
+  console.log('render');
 
   if (!showTimer) {
     return null;
