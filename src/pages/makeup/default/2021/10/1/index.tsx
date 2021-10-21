@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import { CountDownTimer } from '../../../../../../components/CountDownTimer';
+import { CountDownTimerWrapper } from '../../../../../../components/CountDownTimerWrapper';
 import { PromoCode } from '../../../../../../components/PromoCode';
 
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
@@ -17,26 +18,6 @@ export const Promo20211001: React.FC<Props> = ({ date }) => {
   const dispatch = useDispatchContext();
   const screenWidth = useScreenWidthContext();
   const [ popup, togglePopup ] = usePopup(false);
-
-  const countDownTimerWrapper = useRef<any>(null);
-  const [ stickyTimer, setStickyTimer ] = useState(false);
-
-  useEffect(() => {
-    console.log('effect!');
-    const scrollListener = (): void => {
-      const element = countDownTimerWrapper.current;
-      if (element instanceof HTMLElement) {
-        console.log(element.offsetTop, window.pageYOffset);
-        if (element.offsetTop <= window.pageYOffset) {
-          setStickyTimer(true);
-        } else {
-          setStickyTimer(false);
-        }
-      }
-    };
-    window.addEventListener('scroll', scrollListener);
-    return () => window.removeEventListener('scroll', scrollListener);
-  }, [ countDownTimerWrapper ]);
 
   const desktop = screenWidth > 514;
 
@@ -95,9 +76,7 @@ export const Promo20211001: React.FC<Props> = ({ date }) => {
           </ModalFooter>
         </Modal>
       </section>
-      <div id="countDownTimerWrapper" ref={countDownTimerWrapper} className={`text-white ${stickyTimer ? 'stuck' : ''}`} style={{ backgroundColor: '#8e765a' }}>
-        <CountDownTimer endDate={new Date(Date.UTC(2021, 9, 31, 4))} />
-      </div>
+      <CountDownTimerWrapper date={date} endDate={new Date(Date.UTC(2021, 9, 31, 4))} className="text-white" style={{ backgroundColor: '#8e765a' }} />
       <div className="text-white" style={{ backgroundColor: '#8e765a' }}>
         <div className="container py-3 d-flex justify-content-center">
           <button onClick={togglePopup} className="btn btn-secondary">VIEW OFFER DETAILS</button>
