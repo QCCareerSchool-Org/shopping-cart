@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import { CountDownTimer } from '../../../../../../components/CountDownTimer';
+import { CountDownTimerWrapper } from '../../../../../../components/CountDownTimerWrapper';
 import { PromoCode } from '../../../../../../components/PromoCode';
 
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
@@ -75,6 +76,7 @@ export const Promo20211001: React.FC<Props> = ({ date }) => {
           </ModalFooter>
         </Modal>
       </section>
+      <CountDownTimerWrapper date={date} endDate={new Date(Date.UTC(2021, 9, 31, 4))} className="text-white" style={{ backgroundColor: '#8e765a' }} />
       <div className="text-white" style={{ backgroundColor: '#8e765a' }}>
         <div className="container py-3 d-flex justify-content-center">
           <button onClick={togglePopup} className="btn btn-secondary">VIEW OFFER DETAILS</button>

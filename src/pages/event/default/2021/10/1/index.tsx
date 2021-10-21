@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import React, { ReactElement } from 'react';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
+import { CountDownTimerWrapper } from '../../../../../../components/CountDownTimerWrapper';
 
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
 import { usePopup } from '../../../../../../hooks/usePopup';
@@ -9,7 +10,6 @@ import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthCon
 import { useStateContext } from '../../../../../../hooks/useStateContext';
 
 import couponButtonAppliedSrc from './button-SPECIALIST-active.svg';
-import couponButtonSrc from './button-SPECIALIST.svg';
 
 const preloadImages = [ couponButtonAppliedSrc ];
 
@@ -75,6 +75,7 @@ export const Promo20211001 = ({ date }: Props): ReactElement => {
           </ModalBody>
         </Modal>
       </section>
+      <CountDownTimerWrapper date={date} endDate={new Date(Date.UTC(2021, 9, 31, 4))} style={{ backgroundColor: '#ffe3c2' }} />
       <div className="text-white" style={{ backgroundColor: '#ffe3c2' }}>
         <div className="container py-3 d-flex justify-content-center">
           <button onClick={togglePopup} className="btn btn-secondary">View Offer Details</button>

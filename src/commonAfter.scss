@@ -125,11 +125,27 @@ h3, .h3 { font-size: 1.25rem; }
   .w-lg-100 { width: 100% !important; }
 }
 
+#countDownTimerWrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  text-align: center;
+  padding: 0.5rem 0;
+  &.stuck {
+    -webkit-box-shadow: 0 .125rem .25rem rgba(0,0,0,.15)!important;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.15)!important;
+  }
+}
+
+
 .countdownTimer {
   .countdownDigitGroup {
     display: inline-block;
     text-align: center;
     margin: 0 12px;
+    .countdownDigitWrapper {
+      margin-bottom: -3px;
+    }
     .countdownDigit {
       display: inline-block;
       width: 23px;

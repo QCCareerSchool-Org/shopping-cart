@@ -75,7 +75,7 @@ type DigitsProps = {
 
 const Digits = ({ label, value }: DigitsProps): ReactElement => (
   <div className="countdownDigitGroup">
-    <div>
+    <div className="countdownDigitWrapper">
       <div className="countdownDigit">{firstDigit(value)}</div>
       <div className="countdownDigit">{secondDigit(value)}</div>
     </div>
