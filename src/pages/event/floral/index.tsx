@@ -34,7 +34,6 @@ const Floral: React.FC<Props> = ({ currencyCode }) => (
       school="QC Event School"
       courseOverride={courseOverride}
       guarantee={() => <Guarantee />}
-      shippingOption={true}
       agreementLink="https://www.qceventplanning.com/enrollment-agreement.html"
       agreementLinkGB="https://www.qceventplanning.com/enrollment-agreement-gb.html"
       successLink="https://www.qceventplanning.com/welcome-to-the-school/"
