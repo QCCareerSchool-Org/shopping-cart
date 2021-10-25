@@ -77,7 +77,7 @@ export const Promo20211012: React.FC<Props> = ({ date }) => {
       <CountDownTimerWrapper
         date={date}
         endDate={endDate}
-        message={<span style={{ textTransform: 'uppercase' }}>The <strong>free course and Deluxe Design Kit</strong> offer <strong style={{ background: 'red', padding: '0 6px 2px', marginLeft: '1px' }}>ends {date.getTime() >= endDate.getTime() - (1000 * 60 * 60 * 24) ? 'today' : 'soon'}</strong></span>}
+        message={<span style={{ textTransform: 'uppercase' }}>The <strong>free course and Deluxe Design Kit</strong> offer <strong style={{ whiteSpace: 'nowrap', background: 'red', padding: '0 6px 2px', marginLeft: '1px' }}>ends {date.getTime() >= endDate.getTime() - (1000 * 60 * 60 * 24) ? 'today' : 'soon'}</strong></span>}
         className="text-white"
         style={{ backgroundColor: 'black' }}
       />
