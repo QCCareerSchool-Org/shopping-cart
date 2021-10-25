@@ -10,6 +10,7 @@ type Props = {
 };
 
 export const CountDownTimerWrapper = ({ date, endDate, message, className, style }: Props): ReactElement | null => {
+  const [ closed, setClosed ] = useState(false);
   const ref = useRef<any>(null);
   const [ stuck, setStuck ] = useState(false);
 
@@ -31,14 +32,13 @@ export const CountDownTimerWrapper = ({ date, endDate, message, className, style
 
   const showTimer = date.getTime() >= endDate.getTime() - (1000 * 60 * 60 * 24 * 7) && date < endDate;
 
-  console.log('render');
-
   if (!showTimer) {
     return null;
   }
 
   return (
-    <div id="countDownTimerWrapper" ref={ref} className={`${className} ${stuck ? 'stuck' : ''}`} style={style}>
+    <div id="countDownTimerWrapper" ref={ref} className={`${className} ${stuck ? 'stuck' : ''} ${closed ? 'closed' : ''}`} style={style}>
+      <button onClick={() => setClosed(true)} style={{ position: 'absolute', top: 8, right: 16 }} className="close" aria-label="Close"><span aria-hidden="true">×</span></button>
       {stuck && message && <>{message}</>}
       <CountDownTimer endDate={endDate} />
     </div>

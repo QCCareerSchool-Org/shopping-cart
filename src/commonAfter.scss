@@ -131,10 +131,13 @@ h3, .h3 { font-size: 1.25rem; }
   z-index: 100;
   text-align: center;
   padding: 0.5rem 0;
+  .close { display: none; }
   &.stuck {
     -webkit-box-shadow: 0 .125rem .25rem rgba(0,0,0,.15)!important;
     box-shadow: 0 .125rem .25rem rgba(0,0,0,.15)!important;
-  }
+    .close { display: block; }
+  }  
+  &.stuck.closed { visibility: hidden; }
 }
 
 

@@ -13,6 +13,8 @@ import couponButtonAppliedSrc from './button-SPECIALIST-active.svg';
 
 const preloadImages = [ couponButtonAppliedSrc ];
 
+const endDate = new Date(Date.UTC(2021, 9, 31, 4));
+
 type Props = {
   date: Date;
 };
@@ -75,7 +77,12 @@ export const Promo20211001 = ({ date }: Props): ReactElement => {
           </ModalBody>
         </Modal>
       </section>
-      <CountDownTimerWrapper date={date} endDate={new Date(Date.UTC(2021, 9, 31, 4))} style={{ backgroundColor: '#ffe3c2' }} />
+      <CountDownTimerWrapper
+        date={date}
+        endDate={endDate}
+        style={{ backgroundColor: '#ffe3c2' }}
+        message={<span style={{ textTransform: 'uppercase' }}>The <strong>free bonus course</strong> offer <strong style={{ background: 'rgb(255, 96, 96)', padding: '0 6px 2px', marginLeft: '1px' }}>ends {date.getTime() >= endDate.getTime() - (1000 * 60 * 60 * 24) ? 'today' : 'soon'}</strong></span>}
+      />
       <div className="text-white" style={{ backgroundColor: '#ffe3c2' }}>
         <div className="container py-3 d-flex justify-content-center">
           <button onClick={togglePopup} className="btn btn-secondary">View Offer Details</button>
