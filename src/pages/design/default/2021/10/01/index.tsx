@@ -13,6 +13,8 @@ import { useStateContext } from '../../../../../../hooks/useStateContext';
 import couponButtonAppliedSrc from './coupon-btn-TREAT-active.svg';
 import couponButtonSrc from './coupon-btn-TREAT.svg';
 
+const endDate = new Date(Date.UTC(2021, 9, 31, 4));
+
 const preloadImages = [ couponButtonAppliedSrc ];
 
 type Props = {
@@ -80,8 +82,8 @@ export const Promo20211001: React.FC<Props> = ({ date }) => {
       </section>
       <CountDownTimerWrapper
         date={date}
-        endDate={new Date(Date.UTC(2021, 9, 31, 4))}
-        message="This offer ends in…"
+        endDate={endDate}
+        message={<span style={{ textTransform: 'uppercase' }}>The <strong>free course and laser tape measure</strong> offer <strong style={{ background: 'red', padding: '0 6px 2px', marginLeft: '1px' }}>ends {date.getTime() >= endDate.getTime() - (1000 * 60 * 60 * 24) ? 'today' : 'soon'}</strong></span>}
         className="text-white"
         style={{ backgroundColor: 'black' }}
       />

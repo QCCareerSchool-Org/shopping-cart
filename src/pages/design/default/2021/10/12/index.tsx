@@ -15,6 +15,8 @@ type Props = {
   date: Date;
 };
 
+const endDate = new Date(Date.UTC(2021, 9, 30, 4));
+
 export const Promo20211012: React.FC<Props> = ({ date }) => {
   const { price } = useStateContext();
   const dispatch = useDispatchContext();
@@ -74,8 +76,8 @@ export const Promo20211012: React.FC<Props> = ({ date }) => {
       </section>
       <CountDownTimerWrapper
         date={date}
-        endDate={new Date(Date.UTC(2021, 9, 30, 4))}
-        message="The FREE Deluxe Design Kit offer ends in"
+        endDate={endDate}
+        message={<span style={{ textTransform: 'uppercase' }}>The <strong>free course and Deluxe Design Kit</strong> offer <strong style={{ background: 'red', padding: '0 6px 2px', marginLeft: '1px' }}>ends {date.getTime() >= endDate.getTime() - (1000 * 60 * 60 * 24) ? 'today' : 'soon'}</strong></span>}
         className="text-white"
         style={{ backgroundColor: 'black' }}
       />

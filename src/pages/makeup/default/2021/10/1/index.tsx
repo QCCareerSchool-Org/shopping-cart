@@ -9,6 +9,8 @@ import { usePopup } from '../../../../../../hooks/usePopup';
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../../../../hooks/useStateContext';
 
+const endDate = new Date(Date.UTC(2021, 9, 30, 4));
+
 type Props = {
   date: Date;
 };
@@ -78,10 +80,10 @@ export const Promo20211001: React.FC<Props> = ({ date }) => {
       </section>
       <CountDownTimerWrapper
         date={date}
-        endDate={new Date(Date.UTC(2021, 9, 30, 4))}
+        endDate={endDate}
         className="text-white"
         style={{ backgroundColor: '#8e765a' }}
-        message="The FREE Elite Kit offer ends in"
+        message={<span style={{ textTransform: 'uppercase' }}>The <strong>free Pro Makeup Workshop and Elite Kit</strong> offer <strong style={{ background: 'red', padding: '0 6px 2px', marginLeft: '1px' }}>ends {date.getTime() >= endDate.getTime() - (1000 * 60 * 60 * 24) ? 'today' : 'soon'}</strong></span>}
       />
       <div className="text-white" style={{ backgroundColor: '#8e765a' }}>
         <div className="container py-3 d-flex justify-content-center">
