@@ -80,7 +80,7 @@ export const Promo20211012 = ({ date }: Props): ReactElement => {
         date={date}
         endDate={endDate}
         className="bg-white"
-        message={<span style={{ textTransform: 'uppercase' }}>The <strong>free bonus course</strong> offer <strong style={{ whiteSpace: 'nowrap', background: 'red', color: 'white', padding: '0 6px 2px', marginLeft: '1px' }}>ends {date.getTime() >= endDate.getTime() - (1000 * 60 * 60 * 24) ? 'today' : 'soon'}</strong></span>}
+        message={<span style={{ textTransform: 'uppercase' }}>The <strong>free bonus course</strong> offer <strong className="endHighlight">ends {date.getTime() >= endDate.getTime() - (1000 * 60 * 60 * 24) ? 'today' : 'soon'}</strong></span>}
       />
       <div className="text-white" style={{ backgroundColor: 'white' }}>
         <div className="container py-3 d-flex justify-content-center">

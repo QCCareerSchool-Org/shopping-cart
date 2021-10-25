@@ -83,7 +83,7 @@ export const Promo20211001: React.FC<Props> = ({ date }) => {
         endDate={endDate}
         className="text-white"
         style={{ backgroundColor: '#8e765a' }}
-        message={<span style={{ textTransform: 'uppercase' }}>The <strong>free Pro Makeup Workshop and Elite Kit</strong> offer <strong style={{ whiteSpace: 'nowrap', background: 'red', padding: '0 6px 2px', marginLeft: '1px' }}>ends {date.getTime() >= endDate.getTime() - (1000 * 60 * 60 * 24) ? 'today' : 'soon'}</strong></span>}
+        message={<span style={{ textTransform: 'uppercase' }}>The <strong>free Pro Makeup Workshop and Elite Kit</strong> offer <strong className="endHighlight">ends {date.getTime() >= endDate.getTime() - (1000 * 60 * 60 * 24) ? 'today' : 'soon'}</strong></span>}
       />
       <div className="text-white" style={{ backgroundColor: '#8e765a' }}>
         <div className="container py-3 d-flex justify-content-center">
