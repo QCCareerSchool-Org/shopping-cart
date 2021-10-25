@@ -7,14 +7,8 @@ import { CountDownTimerWrapper } from '../../../../../../components/CountDownTim
 
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
 import { usePopup } from '../../../../../../hooks/usePopup';
-import { usePreloadImages } from '../../../../../../hooks/usePreloadImages';
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../../../../hooks/useStateContext';
-
-import couponButtonAppliedSrc from './coupon-btn-TREAT-active.svg';
-import couponButtonSrc from './coupon-btn-TREAT.svg';
-
-const preloadImages = [ couponButtonAppliedSrc ];
 
 type Props = {
   date: Date;
@@ -25,8 +19,6 @@ export const Promo20211012 = ({ date }: Props): ReactElement => {
   const dispatch = useDispatchContext();
   const screenWidth = useScreenWidthContext();
   const [ popup, togglePopup ] = usePopup(false);
-
-  usePreloadImages(preloadImages);
 
   const desktop = screenWidth > 514;
 
@@ -90,8 +82,8 @@ export const Promo20211012 = ({ date }: Props): ReactElement => {
       <div className="text-white" style={{ backgroundColor: 'white' }}>
         <div className="container py-3 d-flex justify-content-center">
           {price?.promoCode === 'WEDDING21'
-            ? <button className="btn btn-primary" disabled>Promo Code Applied!</button>
-            : <button onClick={buttonClick} className="btn btn-primary">Apply Promo Code: WEDDING21</button>
+            ? <button className="btn btn-primary" disabled><FontAwesomeIcon icon={faCheck} /> Promo Code Applied</button>
+            : <button onClick={buttonClick} className="btn btn-primary">Apply Promo Code: <strong>WEDDING21</strong></button>
           }
         </div>
       </div>
