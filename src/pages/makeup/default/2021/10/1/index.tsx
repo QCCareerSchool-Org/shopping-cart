@@ -76,7 +76,13 @@ export const Promo20211001: React.FC<Props> = ({ date }) => {
           </ModalFooter>
         </Modal>
       </section>
-      <CountDownTimerWrapper date={date} endDate={new Date(Date.UTC(2021, 9, 30, 4))} className="text-white" style={{ backgroundColor: '#8e765a' }} />
+      <CountDownTimerWrapper
+        date={date}
+        endDate={new Date(Date.UTC(2021, 9, 30, 4))}
+        className="text-white"
+        style={{ backgroundColor: '#8e765a' }}
+        message="The FREE Elite Kit offer ends in"
+      />
       <div className="text-white" style={{ backgroundColor: '#8e765a' }}>
         <div className="container py-3 d-flex justify-content-center">
           <button onClick={togglePopup} className="btn btn-secondary">VIEW OFFER DETAILS</button>

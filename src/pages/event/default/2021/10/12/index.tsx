@@ -78,6 +78,7 @@ export const Promo20211012 = ({ date }: Props): ReactElement => {
         date={date}
         endDate={new Date(Date.UTC(2021, 9, 30, 4))}
         className="bg-white"
+        message="The FREE bonus course offer ends in"
       />
       <div className="text-white" style={{ backgroundColor: 'white' }}>
         <div className="container py-3 d-flex justify-content-center">
