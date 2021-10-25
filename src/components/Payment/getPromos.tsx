@@ -1,12 +1,23 @@
 import React from 'react';
 
 import { School } from '../../lib/enrollment';
-import { StateContext } from '../../providers/StateProvider';
 import { PriceState } from '../../state/price';
 import { Promo } from './PromoCodeInput';
 
 export const getPromos = (now: Date, price: PriceState, school: School, student: boolean): Promo[] => {
   const promos: Promo[] = [
+    {
+      schools: [ 'QC Event School' ],
+      student: 'DENIED',
+      code: 'WEDDING21',
+      description: <>Enroll in <strong>Event &amp; Wedding Planning</strong> and get both <strong>Luxury Wedding Planning</strong> and <strong>Destination Wedding Planning</strong> free.</>,
+      desktopImageSrc: require('./images/event/coupon-WEDDING21.jpg').default,
+      mobileImageSrc: require('./images/event/coupon-mobile-WEDDING21.jpg').default,
+      altText: 'Enroll in Event & Wedding Planning and get two free specialty courses',
+      startDate: new Date(Date.UTC(2021, 9, 25, 13, 30)), // October 25 at 09:30 (13:30 UTC)
+      endDate: new Date(Date.UTC(2021, 9, 30, 4)), // October 30 at 00:00 (04:00 UTC)
+      displayEndDate: new Date(2021, 9, 29), // October 29
+    },
     {
       schools: [ 'QC Makeup Academy' ],
       student: 'DENIED',
@@ -190,18 +201,6 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       startDate: new Date(Date.UTC(2021, 5, 1, 13)), // June 1 at 09:00
       endDate: new Date(Date.UTC(2021, 5, 12, 4)), // June 12 at 00:00
       displayEndDate: new Date(2021, 5, 11), // June 11
-    },
-    {
-      schools: [ 'QC Event School' ],
-      student: 'DENIED',
-      code: 'WEDDING21',
-      description: <>Enroll in <strong>Event &amp; Wedding Planning</strong> and get both <strong>Luxury Wedding Planning</strong> and <strong>Destination Wedding Planning</strong> free.</>,
-      desktopImageSrc: require('./images/event/coupon-WEDDING21.jpg').default,
-      mobileImageSrc: require('./images/event/coupon-mobile-WEDDING21.jpg').default,
-      altText: 'Enroll in Event & Wedding Planning and get two free specialty courses',
-      startDate: new Date(Date.UTC(2021, 9, 12, 13, 30)), // October 12 at 09:30 (13:30 UTC)
-      endDate: new Date(Date.UTC(2021, 9, 16, 4)), // October 16 at 00:00 (04:00 UTC)
-      displayEndDate: new Date(2021, 9, 15), // October 15
     },
     {
       schools: [ 'QC Event School' ],
@@ -804,7 +803,7 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/event/coupon-SPECIALIST-event.jpg').default,
       mobileImageSrc: require('./images/event/coupon-mobile-SPECIALIST-event.jpg').default,
       altText: 'FREE specialty course',
-      startDate: new Date(Date.UTC(2021, 9, 1, 13, 30)), // October 1 at 09:30 (13:30 UTC)
+      startDate: new Date(Date.UTC(2021, 9, 30, 4)), // October 30 at 00:00 (04:00 UTC)
       endDate: new Date(Date.UTC(2021, 10, 1, 13, 30)), // November 1 at 09:30 (13:30 UTC)
       displayEndDate: new Date(2021, 9, 31), // October 31
     },

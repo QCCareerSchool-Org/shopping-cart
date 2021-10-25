@@ -3,6 +3,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
+import { CountDownTimerWrapper } from '../../../../../../components/CountDownTimerWrapper';
 import { PromoCode } from '../../../../../../components/PromoCode';
 
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
@@ -26,7 +27,7 @@ export const Promo20211012: React.FC<Props> = ({ date }) => {
   let width: number;
   let height: number;
 
-  if (date.getTime() >= Date.UTC(2021, 10, 15, 4)) { // October 15 at 00:00 (04:00 UTC)
+  if (date.getTime() >= Date.UTC(2021, 9, 29, 4)) { // October 29 at 00:00 (04:00 UTC)
     if (desktop) {
       image = require('./desktop-ends.jpg').default;
     } else {
@@ -71,6 +72,13 @@ export const Promo20211012: React.FC<Props> = ({ date }) => {
           </ModalBody>
         </Modal>
       </section>
+      <CountDownTimerWrapper
+        date={date}
+        endDate={new Date(Date.UTC(2021, 9, 30, 4))}
+        message="The FREE Deluxe Design Kit offer ends in…"
+        className="text-white"
+        style={{ backgroundColor: 'black' }}
+      />
       <div className="text-white" style={{ backgroundColor: '#000' }}>
         <div className="container py-3 d-flex justify-content-center">
           {price?.promoCode === 'TREAT'

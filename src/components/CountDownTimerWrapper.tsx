@@ -4,20 +4,19 @@ import { CountDownTimer } from './CountDownTimer';
 type Props = {
   date: Date;
   endDate: Date;
+  message?: string | ReactElement;
   className?: string;
   style?: CSSProperties;
 };
 
-export const CountDownTimerWrapper = ({ date, endDate, className, style }: Props): ReactElement | null => {
+export const CountDownTimerWrapper = ({ date, endDate, message, className, style }: Props): ReactElement | null => {
   const ref = useRef<any>(null);
   const [ stuck, setStuck ] = useState(false);
 
   useEffect(() => {
-    console.log('wrapper effect');
     const element = ref.current;
     if (element instanceof HTMLElement) {
       const scrollListener = (): void => {
-        console.log('scroll', element.offsetTop, window.pageYOffset + 1, element.offsetTop <= window.pageYOffset + 1);
         if (element.offsetTop <= window.pageYOffset + 1) {
           setStuck(true);
         } else {
@@ -40,6 +39,7 @@ export const CountDownTimerWrapper = ({ date, endDate, className, style }: Props
 
   return (
     <div id="countDownTimerWrapper" ref={ref} className={`${className} ${stuck ? 'stuck' : ''}`} style={style}>
+      {stuck && message && <>{message}</>}
       <CountDownTimer endDate={endDate} />
     </div>
   );
