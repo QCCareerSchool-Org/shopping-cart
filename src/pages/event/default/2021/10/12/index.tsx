@@ -90,8 +90,8 @@ export const Promo20211012 = ({ date }: Props): ReactElement => {
       <div className="text-white" style={{ backgroundColor: 'white' }}>
         <div className="container py-3 d-flex justify-content-center">
           {price?.promoCode === 'WEDDING21'
-            ? <img src={couponButtonAppliedSrc} width="297" height="40" className="img-fluid" alt="Promo Code" />
-            : <button onClick={buttonClick} className="btn btn-link p-0 border-0 btn-no-hover-shadow"><img src={couponButtonSrc} width="297" height="40" className="img-fluid" alt="Promo Code" /></button>
+            ? <button className="btn btn-primary" disabled>Promo Code Applied!</button>
+            : <button onClick={buttonClick} className="btn btn-primary">Apply Promo Code: WEDDING21</button>
           }
         </div>
       </div>
