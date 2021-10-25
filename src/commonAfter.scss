@@ -129,7 +129,7 @@ h3, .h3 { font-size: 1.25rem; }
   white-space: nowrap;
   background: red;
   color: white;
-  padding: 0 6px 1px;
+  padding: 0 6px;
   margin: 0 1px;
 }
 
@@ -147,7 +147,7 @@ h3, .h3 { font-size: 1.25rem; }
   }  
   &.stuck.closed { visibility: hidden; }
   #countDownTimerMessage {
-    margin: 0 48px 4px;
+    margin: 0 48px 6px;
     @media (min-width: 768px) {
       margin-bottom: 0;
     }
