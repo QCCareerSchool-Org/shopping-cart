@@ -75,7 +75,7 @@ export const Promo20211012: React.FC<Props> = ({ date }) => {
       <CountDownTimerWrapper
         date={date}
         endDate={new Date(Date.UTC(2021, 9, 30, 4))}
-        message="The FREE Deluxe Design Kit offer ends in…"
+        message="The FREE Deluxe Design Kit offer ends in"
         className="text-white"
         style={{ backgroundColor: 'black' }}
       />
