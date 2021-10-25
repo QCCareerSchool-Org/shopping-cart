@@ -9,10 +9,8 @@ type Props = {
 
 export const DefaultPromo = ({ date }: Props): ReactElement => {
   const time = date.getTime();
-  if (time >= Date.UTC(2021, 9, 16, 4)) { // October 16 at 00:00 (04:00 UTC)
+  if (time >= Date.UTC(2021, 9, 30, 4)) { // October 30 at 00:00 (04:00 UTC)
     return <Promo20211001 date={date} />;
-  } else if (time >= Date.UTC(2021, 9, 12, 13, 30)) { // October 12 at 09:30 (13:30 UTC)
-    return <Promo20211012 date={date} />;
   }
-  return <Promo20211001 date={date} />;
+  return <Promo20211012 date={date} />;
 };

@@ -3,11 +3,18 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { ReactElement } from 'react';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
+import { CountDownTimerWrapper } from '../../../../../../components/CountDownTimerWrapper';
 
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
 import { usePopup } from '../../../../../../hooks/usePopup';
+import { usePreloadImages } from '../../../../../../hooks/usePreloadImages';
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../../../../hooks/useStateContext';
+
+import couponButtonAppliedSrc from './coupon-btn-TREAT-active.svg';
+import couponButtonSrc from './coupon-btn-TREAT.svg';
+
+const preloadImages = [ couponButtonAppliedSrc ];
 
 type Props = {
   date: Date;
@@ -19,13 +26,15 @@ export const Promo20211012 = ({ date }: Props): ReactElement => {
   const screenWidth = useScreenWidthContext();
   const [ popup, togglePopup ] = usePopup(false);
 
+  usePreloadImages(preloadImages);
+
   const desktop = screenWidth > 514;
 
   let image: string;
   let width: number;
   let height: number;
 
-  if (date.getTime() >= Date.UTC(2021, 10, 15, 4)) { // October 15 at 00:00 (04:00 UTC)
+  if (date.getTime() >= Date.UTC(2021, 10, 29, 4)) { // October 29 at 00:00 (04:00 UTC)
     if (desktop) {
       image = require('./desktop-ends.jpg').default;
     } else {
@@ -69,15 +78,20 @@ export const Promo20211012 = ({ date }: Props): ReactElement => {
         <Modal size="lg" isOpen={popup} toggle={togglePopup}>
           <ModalHeader toggle={togglePopup}>FREE Specialty Course</ModalHeader>
           <ModalBody>
-            <p>Until Friday, October 15th, you can enroll in <strong>Event &amp; Wedding Planning</strong> and get 2 FREE Specialization Courses: QC&apos;s <strong>Luxury Wedding</strong> course and <strong>Destination Wedding Planning</strong> course. With the upcoming wave of rescheduled weddings, you&apos;ll take the industry by storm!</p>
+            <p>Until Friday, October 29th, you can enroll in <strong>Event &amp; Wedding Planning</strong> and get 2 FREE Specialization Courses: QC&apos;s <strong>Luxury Wedding</strong> course and <strong>Destination Wedding Planning</strong> course. With the upcoming wave of rescheduled weddings, you&apos;ll take the industry by storm!</p>
           </ModalBody>
         </Modal>
       </section>
+      <CountDownTimerWrapper
+        date={date}
+        endDate={new Date(Date.UTC(2021, 9, 30, 4))}
+        className="bg-white"
+      />
       <div className="text-white" style={{ backgroundColor: 'white' }}>
         <div className="container py-3 d-flex justify-content-center">
           {price?.promoCode === 'WEDDING21'
-            ? <button className="btn btn-primary" disabled>Promo Code Applied <FontAwesomeIcon icon={faCheck} /></button>
-            : <button onClick={buttonClick} className="btn btn-primary">Apply Promo Code: WEDDING21</button>
+            ? <img src={couponButtonAppliedSrc} width="297" height="40" className="img-fluid" alt="Promo Code" />
+            : <button onClick={buttonClick} className="btn btn-link p-0 border-0 btn-no-hover-shadow"><img src={couponButtonSrc} width="297" height="40" className="img-fluid" alt="Promo Code" /></button>
           }
         </div>
       </div>
