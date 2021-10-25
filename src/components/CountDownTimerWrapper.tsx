@@ -39,7 +39,7 @@ export const CountDownTimerWrapper = ({ date, endDate, message, className, style
   return (
     <div id="countDownTimerWrapper" ref={ref} className={`${className} ${stuck ? 'stuck' : ''} ${closed ? 'closed' : ''}`} style={style}>
       <button onClick={() => setClosed(true)} style={{ position: 'absolute', top: 8, right: 16 }} className="close" aria-label="Close"><span aria-hidden="true">×</span></button>
-      {stuck && message && <>{message}</>}
+      {stuck && message && <div id="countDownTimerMessage">{message}</div>}
       <CountDownTimer endDate={endDate} />
     </div>
   );

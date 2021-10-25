@@ -58,11 +58,15 @@ export const CountDownTimer = ({ endDate }: Props): ReactElement => {
 
   const { days, hours, minutes, seconds } = calculateParts(timeRemaining);
 
+  const daysMuted = days === 0;
+  const hoursMuted = daysMuted && hours === 0;
+  const minutesMuted = hoursMuted && minutes === 0;
+
   return (
     <div className="countdownTimer">
-      <Digits label="Days" value={days} />
-      <Digits label="Hours" value={hours} />
-      <Digits label="Minutes" value={minutes} />
+      <Digits label="Days" value={days} muted={daysMuted} />
+      <Digits label="Hours" value={hours} muted={hoursMuted} />
+      <Digits label="Minutes" value={minutes} muted={minutesMuted} />
       <Digits label="Seconds" value={seconds} />
     </div>
   );
@@ -71,11 +75,12 @@ export const CountDownTimer = ({ endDate }: Props): ReactElement => {
 type DigitsProps = {
   label: string;
   value: number;
+  muted?: boolean;
 };
 
-const Digits = ({ label, value }: DigitsProps): ReactElement => (
+const Digits = ({ label, value, muted = false }: DigitsProps): ReactElement => (
   <div className="countdownDigitGroup">
-    <div className="countdownDigitWrapper">
+    <div className={`countdownDigitWrapper ${muted ? 'muted' : ''}`}>
       <div className="countdownDigit">{firstDigit(value)}</div>
       <div className="countdownDigit">{secondDigit(value)}</div>
     </div>

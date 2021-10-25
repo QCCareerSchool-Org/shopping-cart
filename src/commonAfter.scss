@@ -138,6 +138,9 @@ h3, .h3 { font-size: 1.25rem; }
     .close { display: block; }
   }  
   &.stuck.closed { visibility: hidden; }
+  #countDownTimerMessage {
+    margin: 0 48px
+  }
 }
 
 
@@ -148,6 +151,9 @@ h3, .h3 { font-size: 1.25rem; }
     margin: 0 12px;
     .countdownDigitWrapper {
       margin-bottom: -3px;
+      &.muted {
+        opacity: 0.5;
+      }
     }
     .countdownDigit {
       display: inline-block;
