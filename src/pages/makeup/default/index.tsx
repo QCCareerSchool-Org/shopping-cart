@@ -7,13 +7,14 @@ import { dateOverride } from '../../../lib/dateOverride';
 import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
 import { DefaultPromo } from './DefaultPromo';
+import { DynamicMessage } from './DynamicMessage';
 
 type Props = {
   currencyCode: string;
   courses: string[];
 };
 
-const Default: React.FC<Props> = ({ currencyCode }) => {
+const Default: React.FC<Props> = ({ courses, currencyCode }) => {
   const serverDate = useDateContext();
   const date = dateOverride() ?? serverDate;
 
@@ -27,8 +28,9 @@ const Default: React.FC<Props> = ({ currencyCode }) => {
         agreementLink="https://www.qcmakeupacademy.com/enrollment-agreement.html"
         agreementLinkGB="https://www.qcmakeupacademy.com/enrollment-agreement-gb.html"
         successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
-        showPromoCodeInput={true}
+        promoCodeDefault="LUMINOUS"
         showDynamicCourseDescriptions={true}
+        dynamicCourseMessages={[ () => <DynamicMessage date={date} courses={courses} /> ]}
       />
     </>
   );

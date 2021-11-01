@@ -14,6 +14,7 @@ import couponButtonAppliedSrc from './button-SPECIALIST-active.svg';
 const preloadImages = [ couponButtonAppliedSrc ];
 
 const endDate = new Date(Date.UTC(2021, 9, 31, 4));
+const showDate = new Date(Date.UTC(2021, 9, 14, 4));
 
 type Props = {
   date: Date;
@@ -79,6 +80,7 @@ export const Promo20211001 = ({ date }: Props): ReactElement => {
       </section>
       <CountDownTimerWrapper
         date={date}
+        showDate={showDate}
         endDate={endDate}
         style={{ backgroundColor: '#ffe3c2' }}
         message={<span style={{ textTransform: 'uppercase' }}>The <strong>free bonus course</strong> offer <strong className="endHighlight">ends {date.getTime() >= endDate.getTime() - (1000 * 60 * 60 * 24) ? 'today' : 'soon'}</strong></span>}

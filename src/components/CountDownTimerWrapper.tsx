@@ -3,26 +3,23 @@ import { CountDownTimer } from './CountDownTimer';
 
 type Props = {
   date: Date;
+  showDate: Date;
   endDate: Date;
   message?: string | ReactElement;
   className?: string;
   style?: CSSProperties;
 };
 
-export const CountDownTimerWrapper = ({ date, endDate, message, className, style }: Props): ReactElement | null => {
+export const CountDownTimerWrapper = ({ date, showDate, endDate, message, className, style }: Props): ReactElement | null => {
   const [ closed, setClosed ] = useState(false);
   const ref = useRef<any>(null);
-  const [ stuck, setStuck ] = useState(false);
+  const [ fixed, setFixed ] = useState(false);
 
   useEffect(() => {
     const element = ref.current;
     if (element instanceof HTMLElement) {
       const scrollListener = (): void => {
-        if (element.offsetTop <= window.pageYOffset + 1) {
-          setStuck(true);
-        } else {
-          setStuck(false);
-        }
+        setFixed(element.offsetTop <= window.pageYOffset + 1);
       };
       scrollListener();
       window.addEventListener('scroll', scrollListener);
@@ -30,16 +27,16 @@ export const CountDownTimerWrapper = ({ date, endDate, message, className, style
     }
   }, [ ref ]);
 
-  const showTimer = date.getTime() >= endDate.getTime() - (1000 * 60 * 60 * 24 * 7) && date < endDate;
+  const showTimer = date >= showDate && date < endDate && !closed;
 
   if (!showTimer) {
     return null;
   }
 
   return (
-    <div id="countDownTimerWrapper" ref={ref} className={`${className} ${stuck ? 'stuck' : ''} ${closed ? 'closed' : ''}`} style={style}>
+    <div id="countDownTimerWrapper" ref={ref} className={`${className} ${fixed ? 'fixed' : ''} ${closed ? 'closed' : ''}`} style={style}>
       <button onClick={() => setClosed(true)} style={{ position: 'absolute', top: 8, right: 16 }} className="close" aria-label="Close"><span aria-hidden="true">×</span></button>
-      {stuck && message && <div id="countDownTimerMessage">{message}</div>}
+      {fixed && message && <div id="countDownTimerMessage">{message}</div>}
       <CountDownTimer endDate={endDate} />
     </div>
   );

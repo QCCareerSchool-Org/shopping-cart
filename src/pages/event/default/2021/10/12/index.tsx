@@ -3,14 +3,15 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { ReactElement } from 'react';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
-import { CountDownTimerWrapper } from '../../../../../../components/CountDownTimerWrapper';
 
+import { CountDownTimerWrapper } from '../../../../../../components/CountDownTimerWrapper';
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
 import { usePopup } from '../../../../../../hooks/usePopup';
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../../../../hooks/useStateContext';
 
 const endDate = new Date(Date.UTC(2021, 9, 30, 4));
+const showDate = new Date(Date.UTC(2021, 9, 13, 4));
 
 type Props = {
   date: Date;
@@ -78,6 +79,7 @@ export const Promo20211012 = ({ date }: Props): ReactElement => {
       </section>
       <CountDownTimerWrapper
         date={date}
+        showDate={showDate}
         endDate={endDate}
         className="bg-white"
         message={<span style={{ textTransform: 'uppercase' }}>The <strong>free bonus course</strong> offer <strong className="endHighlight">ends {date.getTime() >= endDate.getTime() - (1000 * 60 * 60 * 24) ? 'today' : 'soon'}</strong></span>}
