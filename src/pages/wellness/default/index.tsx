@@ -20,6 +20,13 @@ const additionalOptions = {
   discountSignature: 'ZEWLbuphTH4oLBZyyu4/iuASSVgRnykmXjeZOMNbgOl75TYgW9YaO7NyaYkqfcHYVFv2kTAwxZ+PPUxxx2tnsq+LysBHqhSoslgY+JVDO5ETDymqhcMo9IIuwTGlZ8Cwxu2BScM3RBMQ1f30jXYis1wwXmcaYv5urpM9jQ794gVLlBIsrDYoHDe3BO0IUaOk1a2JtMyLntprcde1rXf9GkDsUujWqTuSDyKKNqwiqnRksGNu3LWA9swEdL8mP6SoPKJyv8NkWHZVsseWRzqS/W9rYS6FiJx6+PiiL61pU2Zj1Ai1l5NkrEvxaKBOjkYmWG1gOjgMsf3DcciXmPTdhQ==',
 };
 
+const additionalOptions50 = {
+  discount: {
+    default: 50,
+  },
+  discountSignature: 'IMAuLJd5/CAdMYA8xwD03ca3dSGR+Yi24+9QK5Rn6O44BwkPAojr6IMZMmFVt0yC24iI0N37R4gJj8+N9XTS1aywyFRYwVH4nNcil11xPNNhIygCkjXyGd+uE09LsLnYpEwt8Q0eS6LieMsyr7tDjUztKdI5AWd5dLNobMkAptrDeCALzvNbtg5NiGrD6Fv844Q4EEuXk8WOTpjqLqI86UKn4JECgGSntN8fwQXCEU0GqWXXxwUaWytDkMGi3KE+Ffm9fLx/ZVQSUHFWVbgcxlU0r2LVBVKeoBHnsrVxVEh6FZOfdHfj/SE1l3fs1ZsD9XDHH6EJGO0LVKW6VuBISA==',
+};
+
 const Default: React.FC<Props> = ({ currencyCode }) => {
   const serverDate = useDateContext();
   const date = dateOverride() ?? serverDate;
@@ -34,7 +41,7 @@ const Default: React.FC<Props> = ({ currencyCode }) => {
         agreementLink="https://www.qcwellnessstudies.com/enrollment-agreement"
         agreementLinkGB="https://www.qcwellnessstudies.com/enrollment-agreement-gb"
         successLink="https://www.qcwellnessstudies.com/welcome-to-the-school/"
-        additionalOptions={additionalOptions}
+        additionalOptions={additionalOptions50}
       />
     </>
   );
