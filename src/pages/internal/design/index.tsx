@@ -14,6 +14,7 @@ const Design: React.FC = () => <Form
   successLink="https://www.qcdesignschool.com/welcome-to-the-school/"
   internal={true}
   allowOverrides={true}
+  showPromoCodeInput={true}
 />;
 
 export default Design;
