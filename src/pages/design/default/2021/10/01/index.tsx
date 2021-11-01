@@ -14,6 +14,7 @@ import couponButtonAppliedSrc from './coupon-btn-TREAT-active.svg';
 import couponButtonSrc from './coupon-btn-TREAT.svg';
 
 const endDate = new Date(Date.UTC(2021, 9, 31, 4));
+const showDate = new Date(Date.UTC(2021, 9, 24, 4));
 
 const preloadImages = [ couponButtonAppliedSrc ];
 
@@ -82,6 +83,7 @@ export const Promo20211001: React.FC<Props> = ({ date }) => {
       </section>
       <CountDownTimerWrapper
         date={date}
+        showDate={showDate}
         endDate={endDate}
         message={<span style={{ textTransform: 'uppercase' }}>The <strong>free course and laser tape measure</strong> offer <strong className="endHighlight">ends {date.getTime() >= endDate.getTime() - (1000 * 60 * 60 * 24) ? 'today' : 'soon'}</strong></span>}
         className="text-white"

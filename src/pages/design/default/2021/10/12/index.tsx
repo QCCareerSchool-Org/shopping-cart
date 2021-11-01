@@ -16,6 +16,7 @@ type Props = {
 };
 
 const endDate = new Date(Date.UTC(2021, 9, 30, 4));
+const showDate = new Date(Date.UTC(2021, 9, 13, 4));
 
 export const Promo20211012: React.FC<Props> = ({ date }) => {
   const { price } = useStateContext();
@@ -76,6 +77,7 @@ export const Promo20211012: React.FC<Props> = ({ date }) => {
       </section>
       <CountDownTimerWrapper
         date={date}
+        showDate={showDate}
         endDate={endDate}
         message={<span style={{ textTransform: 'uppercase' }}>The <strong>free course and Deluxe Design Kit</strong> offer <strong className="endHighlight">ends {date.getTime() >= endDate.getTime() - (1000 * 60 * 60 * 24) ? 'today' : 'soon'}</strong></span>}
         className="text-white"

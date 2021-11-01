@@ -10,6 +10,7 @@ import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthCon
 import { useStateContext } from '../../../../../../hooks/useStateContext';
 
 const endDate = new Date(Date.UTC(2021, 9, 30, 4));
+const showDate = new Date(Date.UTC(2021, 9, 13, 4));
 
 type Props = {
   date: Date;
@@ -80,6 +81,7 @@ export const Promo20211001: React.FC<Props> = ({ date }) => {
       </section>
       <CountDownTimerWrapper
         date={date}
+        showDate={showDate}
         endDate={endDate}
         className="text-white"
         style={{ backgroundColor: '#8e765a' }}

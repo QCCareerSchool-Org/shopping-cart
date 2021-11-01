@@ -276,6 +276,7 @@ export const Form: React.FC<Props> = props => {
         showSubmitMessage={props.showSubmitMessage}
         submitMessage={props.submitMessage}
         submitTitle={props.submitTitle}
+        showPromoCodeInput={!!props.showPromoCodeInput}
       />
       <ErrorModal toggle={toggleErrorModal} isOpen={errorModal.open} title={errorModal.title} message={errorModal.message} />
     </>

@@ -21,6 +21,7 @@ type Props = {
   showSubmitMessage?: () => boolean;
   submitMessage?: () => JSX.Element;
   submitTitle?: string;
+  showPromoCodeInput: boolean;
 };
 
 const getCompany = (currencyCode: string): PaysafeCompany => {
@@ -84,7 +85,7 @@ export const Summary: React.FC<Props> = props => {
           <div className="col-12 col-md-6 col-lg-8 mb-4 mb-md-0">
             <Notes />
             {price.courses.length >= 2 && <p><button type="button" className="btn btn-link p-0 btn-no-hover-shadow" onClick={detailsToggle}>Detailed Payment Breakdown</button></p>}
-            {(price.disclaimers.length > 0 || price.promoWarnings.length > 0 || price.noShippingMessage) && <Disclaimers price={price} />}
+            {(price.disclaimers.length > 0 || (props.showPromoCodeInput && price.promoWarnings.length > 0) || price.noShippingMessage) && <Disclaimers price={price} showPromoCodeInput={props.showPromoCodeInput} />}
             <p>By clicking &quot;Proceed to Payment&quot; below, you agree to the terms of the <a rel="noopener noreferrer" target="_blank" href={enrollmentAgreementUrl}>Enrollment Agreement</a>.</p>
             <div className="text-center text-sm-left">
               <div className="mb-4">
@@ -122,7 +123,7 @@ export const Summary: React.FC<Props> = props => {
   );
 };
 
-const Disclaimers: React.FC<{ price: PriceResult }> = ({ price }) => (
+const Disclaimers: React.FC<{ price: PriceResult; showPromoCodeInput: boolean }> = ({ price, showPromoCodeInput }) => (
   <div className="alert alert-info">
     <h6 className={price.disclaimers.length > 1 ? 'mb-3' : ''}>Please Note</h6>
     {price.disclaimers.map((d, i) => <p
@@ -130,7 +131,7 @@ const Disclaimers: React.FC<{ price: PriceResult }> = ({ price }) => (
       className="mt-3 mb-0"
       dangerouslySetInnerHTML={{ __html: d }}
     ></p>)}
-    {price.promoWarnings.map((d, i) => <p
+    {showPromoCodeInput && price.promoWarnings.map((d, i) => <p
       key={i}
       className="mt-3 mb-0"
       dangerouslySetInnerHTML={{ __html: d }}
