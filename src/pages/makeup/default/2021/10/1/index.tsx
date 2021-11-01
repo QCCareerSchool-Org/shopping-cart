@@ -3,7 +3,6 @@ import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
 import { CountDownTimerWrapper } from '../../../../../../components/CountDownTimerWrapper';
 import { PromoCode } from '../../../../../../components/PromoCode';
-
 import { useDispatchContext } from '../../../../../../hooks/useDispatchContext';
 import { usePopup } from '../../../../../../hooks/usePopup';
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
