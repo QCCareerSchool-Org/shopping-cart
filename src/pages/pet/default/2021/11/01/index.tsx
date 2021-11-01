@@ -13,7 +13,7 @@ type Props = {
 
 const timerEndDate = new Date(Date.UTC(2021, 10, 12, 5)); // November 12 at 00:00 (05:00 UTC)
 const timerShowDate = new Date(Date.UTC(2021, 10, 5, 4)); // November 5 at 00:00 (04:00 UTC)
-const timerLastChanceDate = new Date(Date.UTC(2021, 10, 11, 4)); // November 11 at 00:00 (04:00 UTC)
+const timerLastChanceDate = new Date(Date.UTC(2021, 10, 11, 5)); // November 11 at 00:00 (05:00 UTC)
 
 export const Promo20211101: React.FC<Props> = ({ date }) => {
   const [ popup, togglePopup ] = usePopup(false);
@@ -26,7 +26,7 @@ export const Promo20211101: React.FC<Props> = ({ date }) => {
   let width: number;
   let height: number;
 
-  if (date.getTime() >= Date.UTC(2021, 10, 11, 5)) { // November 12 at 00:00 (05:00 UTC)
+  if (date.getTime() >= Date.UTC(2021, 10, 11, 5)) { // November 11 at 00:00 (05:00 UTC)
     image = desktop
       ? price?.currency.code === 'GBP' ? require('./desktop-uk-ends.jpg').default : require('./desktop-ends.jpg').default
       : price?.currency.code === 'GBP' ? require('./mobile-uk-ends.jpg').default : require('./mobile-ends.jpg').default;
@@ -40,8 +40,8 @@ export const Promo20211101: React.FC<Props> = ({ date }) => {
     width = 960;
     height = 400;
   } else {
-    width = 418;
-    height = 626;
+    width = 518;
+    height = 566;
   }
 
   return (
@@ -49,7 +49,9 @@ export const Promo20211101: React.FC<Props> = ({ date }) => {
       <section id="promoSection" style={{ backgroundColor: '#f6a029', padding: 0 }}>
         <div className="container px-0">
           <div className="text-center">
-            <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={togglePopup}><img src={image} width={width} height={height} className="img-fluid d-block mx-auto" alt="Special Offer" /></button>
+            <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={togglePopup}>
+              <img src={image} width={width} height={height} className="img-fluid d-block mx-auto" alt="Special Offer" />
+            </button>
           </div>
         </div>
         <Modal size="lg" isOpen={popup} toggle={togglePopup}>

@@ -6,7 +6,7 @@ import { useStateContext } from '../../../../../../hooks/useStateContext';
 
 const timerEndDate = new Date(Date.UTC(2021, 10, 12, 5)); // November 12 at 00:00 (05:00 UTC)
 const timerShowDate = new Date(Date.UTC(2021, 10, 5, 4)); // November 5 at 00:00 (04:00 UTC)
-const timerLastChanceDate = new Date(Date.UTC(2021, 10, 11, 4)); // November 11 at 00:00 (04:00 UTC)
+const timerLastChanceDate = new Date(Date.UTC(2021, 10, 11, 5)); // November 11 at 00:00 (05:00 UTC)
 
 type Props = {
   date: Date;

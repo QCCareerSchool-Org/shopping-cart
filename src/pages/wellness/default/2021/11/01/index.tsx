@@ -1,28 +1,29 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
-
 import { CountDownTimerWrapper } from '../../../../../../components/CountDownTimerWrapper';
+
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../../../../hooks/useStateContext';
-
-const timerEndDate = new Date(Date.UTC(2021, 10, 12, 5)); // November 12 at 00:00 (05:00 UTC)
-const timerShowDate = new Date(Date.UTC(2021, 10, 5, 4)); // November 5 at 00:00 (04:00 UTC)
-const timerLastChanceDate = new Date(Date.UTC(2021, 10, 11, 5)); // November 11 at 00:00 (05:00 UTC)
 
 type Props = {
   date: Date;
 };
 
-export const Promo20211101: React.FC<Props> = ({ date }) => {
-  const { price } = useStateContext();
-  const screenWidth = useScreenWidthContext();
+const timerEndDate = new Date(Date.UTC(2021, 10, 12, 5)); // November 12 at 00:00 (05:00 UTC)
+const timerShowDate = new Date(Date.UTC(2021, 10, 5, 4)); // November 5 at 00:00 (04:00 UTC)
+const timerLastChanceDate = new Date(Date.UTC(2021, 10, 11, 5)); // November 11 at 00:00 (05:00 UTC)
 
-  const desktop = screenWidth >= 576;
+export const Promo20211101: React.FC<Props> = ({ date }) => {
+  const screenWidth = useScreenWidthContext();
+  const { price } = useStateContext();
+
+  const desktop = screenWidth > 371;
 
   let image: string;
   let width: number;
   let height: number;
 
-  if (date.getTime() >= Date.UTC(2021, 10, 11, 5)) { // November 11 at 00:00 (05:00 UTC)
+  if (date.getTime() >= Date.UTC(2021, 9, 29, 4)) { // November 11 at 00:00 (05:00 UTC)
     if (desktop) {
       image = price?.currency.code === 'GBP' ? require('./desktop-uk-ends.jpg').default : require('./desktop-ends.jpg').default;
     } else {
@@ -37,29 +38,29 @@ export const Promo20211101: React.FC<Props> = ({ date }) => {
   }
 
   if (desktop) {
-    width = 976;
-    height = 500;
+    width = 960;
+    height = 469;
   } else {
-    width = 440;
-    height = 401;
+    width = 532;
+    height = 502;
   }
 
   return (
     <>
-      <section id="promoSection" style={{ backgroundColor: '#030a19', padding: 0 }}>
-        <div className="container text-center px-0">
-          <img src={image} width={width} height={height} className="img-fluid d-block mx-auto" alt="Special Offer" />
+      <section id="promoSection" style={{ backgroundColor: '#f1e3bb', padding: 0 }}>
+        <div className="container px-0">
+          <div className="text-center">
+            <img src={image} width={width} height={height} className="img-fluid d-block mx-auto" alt="Special Offer" />
+          </div>
         </div>
       </section>
       <CountDownTimerWrapper
         date={date}
         showDate={timerShowDate}
         endDate={timerEndDate}
-        className="text-white"
-        style={{ backgroundColor: '#030a19' }}
-        message={<span style={{ textTransform: 'uppercase' }}>The <strong>free 2<sup>nd</sup> course</strong> offer <strong className="endHighlight">ends {date >= timerLastChanceDate ? 'today' : 'soon'}</strong></span>}
+        style={{ backgroundColor: '#071f39', color: 'white' }}
+        message={<span style={{ textTransform: 'uppercase' }}>The <strong>{price?.currency.code === 'GBP' ? '£' : '$'}50 discount</strong> offer <strong className="endHighlight">ends {date >= timerLastChanceDate ? 'today' : 'soon'}</strong></span>}
       />
-      {date >= timerShowDate && date < timerEndDate && <div style={{ backgroundColor: '#030a19', height: 24 }} />}
     </>
   );
 };
