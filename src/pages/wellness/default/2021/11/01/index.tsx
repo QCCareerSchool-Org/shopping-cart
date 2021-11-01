@@ -23,7 +23,7 @@ export const Promo20211101: React.FC<Props> = ({ date }) => {
   let width: number;
   let height: number;
 
-  if (date.getTime() >= Date.UTC(2021, 9, 29, 4)) { // November 11 at 00:00 (05:00 UTC)
+  if (date.getTime() >= Date.UTC(2021, 10, 11, 5)) { // November 11 at 00:00 (05:00 UTC)
     if (desktop) {
       image = price?.currency.code === 'GBP' ? require('./desktop-uk-ends.jpg').default : require('./desktop-ends.jpg').default;
     } else {
@@ -42,7 +42,7 @@ export const Promo20211101: React.FC<Props> = ({ date }) => {
     height = 469;
   } else {
     width = 532;
-    height = 502;
+    height = 498;
   }
 
   return (
