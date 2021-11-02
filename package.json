@@ -1,6 +1,6 @@
 {
   "name": "shopping-cart",
-  "version": "1.7.19",
+  "version": "1.7.20",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
