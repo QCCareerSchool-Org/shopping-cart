@@ -25,17 +25,21 @@ export const CountDownTimerWrapper = ({ date, showDate, endDate, message, classN
       window.addEventListener('scroll', scrollListener);
       return () => window.removeEventListener('scroll', scrollListener);
     }
-  }, [ ref ]);
+  }, []);
 
-  const showTimer = date >= showDate && date < endDate && !closed;
+  const showTimer = date >= showDate && date < endDate;
 
   if (!showTimer) {
     return null;
   }
 
   return (
-    <div id="countDownTimerWrapper" ref={ref} className={`${className} ${fixed ? 'fixed' : ''} ${closed ? 'closed' : ''}`} style={style}>
-      <button onClick={() => setClosed(true)} style={{ position: 'absolute', top: 8, right: 16 }} className="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+    <div id="countDownTimerWrapper" ref={ref} className={`${className} ${fixed && !closed ? 'fixed' : ''}`} style={style}>
+      {fixed && (
+        <div style={{ position: 'absolute', top: 8, right: 16, width: 26, height: 26, borderRadius: 13, background: 'rgba(255, 255, 255, 0.2)' }}>
+          <button onClick={() => setClosed(true)} style={{ position: 'relative', top: -2, left: -4 }} className="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+      )}
       {fixed && message && <div id="countDownTimerMessage">{message}</div>}
       <CountDownTimer endDate={endDate} />
     </div>
