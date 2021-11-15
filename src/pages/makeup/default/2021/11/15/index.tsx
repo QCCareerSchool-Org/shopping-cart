@@ -56,8 +56,9 @@ export const Promo20211115 = ({ date }: Props): ReactElement => {
           </button>
         </div>
         <Modal size="lg" isOpen={popup} toggle={togglePopup}>
-          <ModalHeader toggle={togglePopup}>FREE Luminous Collection</ModalHeader>
+          <ModalHeader toggle={togglePopup}>FREE Luminous Collection and FREE 2nd Course</ModalHeader>
           <ModalBody>
+            <p>Enroll in Master Makeup Artistry and get a FREE 2nd Course. You&apos;ll save up to {price?.currency.code === 'GBP' ? '£1100' : '$1500'}! With two professional certificates, you&apos;ll take the industry by storm.</p>
             <p>The Luminous Collection includes 11 luxury products to jumpstart your professional makeup career!</p>
             <img src={require('./enrollment-pop-up.jpg').default} className="img-fluid" />
           </ModalBody>
