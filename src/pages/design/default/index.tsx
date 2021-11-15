@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import { Form } from '../../../components/Form';
 import { useDateContext } from '../../../hooks/useDateContext';
@@ -14,7 +14,7 @@ type Props = {
   currencyCode: string;
 };
 
-const Default: React.FC<Props> = ({ courses, currencyCode }) => {
+const Default = ({ courses, currencyCode }: Props): ReactElement => {
   const serverDate = useDateContext();
   const date = dateOverride() ?? serverDate;
 
@@ -29,7 +29,7 @@ const Default: React.FC<Props> = ({ courses, currencyCode }) => {
         agreementLinkGB="https://www.qcdesignschool.com/enrollment-agreement-gb.html"
         successLink="https://www.qcdesignschool.com/welcome-to-the-school/"
         dynamicCourseMessages={[ () => <DynamicMessage date={date} courses={courses} /> ]}
-        promoCodeDefault="BOGO"
+        promoCodeDefault={date.getTime() >= Date.UTC(2021, 10, 15, 14) ? 'BLACK FRIDAY' : 'BOGO'}
       />
     </>
   );

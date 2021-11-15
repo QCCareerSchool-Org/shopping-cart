@@ -16,7 +16,7 @@ export const courseGroups: CourseGroup[] = [
           </p>
         ),
       },
-      { code: 'MS', name: 'Staging For Designers' },
+      { code: 'MS', name: 'Staging for Designers' },
       {
         code: 'ST',
         name: 'Home Staging',

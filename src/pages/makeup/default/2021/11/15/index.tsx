@@ -1,0 +1,80 @@
+import React, { ReactElement } from 'react';
+import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
+
+import { CountDownTimerWrapper } from '../../../../../../components/CountDownTimerWrapper';
+import { usePopup } from '../../../../../../hooks/usePopup';
+import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
+import { useStateContext } from '../../../../../../hooks/useStateContext';
+
+const timerShowDate = new Date(Date.UTC(2021, 10, 20, 5)); // November 26 at 00:00 (05:00 UTC)
+const timerLastChanceDate = new Date(Date.UTC(2021, 10, 26, 5)); // November 20 at 00:00 (05:00 UTC)
+const timerEndDate = new Date(Date.UTC(2021, 10, 27, 5)); // November 27 at 00:00 (05:00 UTC)
+
+type Props = {
+  date: Date;
+};
+
+export const Promo20211115 = ({ date }: Props): ReactElement => {
+  const { price } = useStateContext();
+  const screenWidth = useScreenWidthContext();
+  const [ popup, togglePopup ] = usePopup(false);
+
+  const desktop = screenWidth >= 576;
+
+  let image: string;
+  let width: number;
+  let height: number;
+
+  if (date.getTime() >= Date.UTC(2021, 10, 24, 5)) { // November 24 at 00:00 (05:00 UTC)
+    if (desktop) {
+      image = price?.currency.code === 'GBP' ? require('./desktop-uk-ends.jpg').default : require('./desktop-ends.jpg').default;
+    } else {
+      image = require('./mobile-ends.jpg').default;
+    }
+  } else {
+    if (desktop) {
+      image = price?.currency.code === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default;
+    } else {
+      image = price?.currency.code === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
+    }
+  }
+
+  if (desktop) {
+    width = 1060;
+    height = 633;
+  } else {
+    width = 600;
+    height = 669;
+  }
+
+  return (
+    <>
+      <section id="promoSection" style={{ backgroundColor: '#000', padding: 0 }}>
+        <div className="container text-center px-0">
+          <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={togglePopup}>
+            <img src={image} width={width} height={height} className="img-fluid d-block mx-auto" alt="Special Offer" />
+          </button>
+        </div>
+        <Modal size="lg" isOpen={popup} toggle={togglePopup}>
+          <ModalHeader toggle={togglePopup}>FREE Luminous Collection and FREE 2nd Course</ModalHeader>
+          <ModalBody>
+            <p>Enroll in Master Makeup Artistry and get a FREE 2nd Course. You&apos;ll save up to {price?.currency.code === 'GBP' ? '£1100' : '$1500'}! With two professional certificates, you&apos;ll take the industry by storm.</p>
+            <p>The Luminous Collection includes 11 luxury products to jumpstart your professional makeup career!</p>
+            <img src={require('./enrollment-pop-up.jpg').default} className="img-fluid" />
+          </ModalBody>
+          <ModalFooter>
+            <div>The kit pictured above is included only when you enroll in the <strong>Master Makeup Artistry</strong> course. You will receive a different, course-specific makeup starter kit with all other QC Makeup Academy courses instead of the one shown.</div>
+          </ModalFooter>
+        </Modal>
+      </section>
+      <CountDownTimerWrapper
+        date={date}
+        showDate={timerShowDate}
+        endDate={timerEndDate}
+        className="text-white"
+        style={{ backgroundColor: '#000' }}
+        message={<span style={{ textTransform: 'uppercase' }}>The <strong>Luminous Collection</strong> offer <strong className="endHighlight">ends {date >= timerLastChanceDate ? 'today' : 'soon'}</strong></span>}
+      />
+    </>
+  );
+};

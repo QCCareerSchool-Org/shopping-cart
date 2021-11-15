@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import { Form } from '../../../components/Form';
 import { useDateContext } from '../../../hooks/useDateContext';
@@ -14,7 +14,7 @@ type Props = {
   courses: string[];
 };
 
-const Default: React.FC<Props> = ({ courses, currencyCode }) => {
+const Default = ({ courses, currencyCode }: Props): ReactElement => {
   const serverDate = useDateContext();
   const date = dateOverride() ?? serverDate;
 
