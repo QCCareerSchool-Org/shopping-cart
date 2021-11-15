@@ -49,7 +49,7 @@ export const Promo20211115 = ({ date }: Props): ReactElement => {
 
   return (
     <>
-      <section id="promoSection" style={{ backgroundColor: '#010411', padding: 0 }}>
+      <section id="promoSection" style={{ backgroundColor: '#000', padding: 0 }}>
         <div className="container text-center px-0">
           <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={togglePopup}>
             <img src={image} width={width} height={height} className="img-fluid d-block mx-auto" alt="Special Offer" />
@@ -72,10 +72,9 @@ export const Promo20211115 = ({ date }: Props): ReactElement => {
         showDate={timerShowDate}
         endDate={timerEndDate}
         className="text-white"
-        style={{ backgroundColor: '#010411' }}
+        style={{ backgroundColor: '#000' }}
         message={<span style={{ textTransform: 'uppercase' }}>The <strong>Luminous Collection</strong> offer <strong className="endHighlight">ends {date >= timerLastChanceDate ? 'today' : 'soon'}</strong></span>}
       />
-      {date >= timerShowDate && date < timerEndDate && <div style={{ backgroundColor: '#010411', height: 24 }} />}
     </>
   );
 };
