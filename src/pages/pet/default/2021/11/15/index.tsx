@@ -72,7 +72,7 @@ export const Promo20211115 = ({ date }: Props): ReactElement => {
         showDate={timerShowDate}
         endDate={timerEndDate}
         style={{ backgroundColor: '#0e1037', color: 'white' }}
-        message={<span style={{ textTransform: 'uppercase' }}>The <strong>{price?.currency.code === 'GBP' ? '£100' : '$150'} discount</strong> offer <strong className="endHighlight">ends {date >= timerLastChanceDate ? 'today' : 'soon'}</strong></span>}
+        message={<span style={{ textTransform: 'uppercase' }}>The <strong>{price?.currency.code === 'GBP' ? '£220' : '$300'} discount</strong> offer <strong className="endHighlight">ends {date >= timerLastChanceDate ? 'today' : 'soon'}</strong></span>}
       />
     </>
   );
