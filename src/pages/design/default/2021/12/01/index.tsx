@@ -58,9 +58,12 @@ export const Promo20211201 = ({ date }: Props): ReactElement => {
         <Modal size="lg" isOpen={popup} toggle={togglePopup}>
           <ModalHeader toggle={togglePopup}>Your Holiday Gift!</ModalHeader>
           <ModalBody>
-            <p>Until December 17th, you can enroll in any design course and get QC&apos;s <strong>Color Consultant Course</strong> FREE. Valued at $1048, this extra certificate will help you add a lucrative revenue stream to your business.</p>
-            <p>In QC&apos;s Color Consultant Course, award-winning interior designer, Jane Lockhart, teaches you how to choose the right colors for your clients. You&apos;ll learn color coordination and psychology. You&apos;ll discover how to use color to completely transform spaces.</p>
-            <p>PLUS, you&apos;ll receive The Deluxe Design Kit! Don&apos;t miss your chance to get the NEW easy-to-use laser &ldquo;tape&rdquo; measure.</p>
+            <p>Start your design career with two professional certifications! Until December 17th, you can enroll in any design course and you&apos;ll get a FREE second course of your choice!</p>
+            <p>Plus, you&apos;ll receive the Deluxe Design Kit as an exclusive holiday gift! Don&apos;t miss your chance to get the NEW easy-to-use laser &ldquo;tape&rdquo; measure.</p>
+            <p>This Week&apos;s Featured Course: Color Consultant Course</p>
+            <p><strong>Learn How to Train Your Eye for Color!</strong></p>
+            <p>Color sensei, Jane Lockhart, will teach you how to work with color psychology. You&apos;ll transform dull rooms into head-turning and inviting spaces.</p>
+            <p>Valued at $1048, this extra certificate will help you add a lucrative revenue stream to your business.</p>
             <img src={require('./pop-up-deluxe-kit.jpg').default} className="img-fluid" alt="Deluxe Design Kit" />
           </ModalBody>
         </Modal>
