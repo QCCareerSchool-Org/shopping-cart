@@ -49,7 +49,7 @@ const Default: React.FC<Props> = ({ currencyCode }) => {
         agreementLink="https://www.qcwellnessstudies.com/enrollment-agreement"
         agreementLinkGB="https://www.qcwellnessstudies.com/enrollment-agreement-gb"
         successLink="https://www.qcwellnessstudies.com/welcome-to-the-school/"
-        additionalOptions={additionalOptions150}
+        additionalOptions={additionalOptions}
       />
     </>
   );
