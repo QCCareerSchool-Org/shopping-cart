@@ -10,6 +10,8 @@ export interface Props {
 export const DynamicMessage20211201: React.FC<Props> = ({ courses }) => {
   if (courses.length === 0) {
     return null;
+  } else if (!courses.includes('EP')) {
+    return <p className="mt-4 alert alert-warning"><FontAwesomeIcon icon={faInfoCircle} /> Enroll in the <strong>Event &amp; Wedding Planning</strong> course and get a free second course.</p>;
   } else if (courses.length === 1) {
     return <p className="mt-4 alert alert-warning"><FontAwesomeIcon icon={faInfoCircle} /> Don&apos;t forget to select your free second course</p>;
   }
