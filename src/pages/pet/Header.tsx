@@ -8,9 +8,10 @@ import { useScreenWidthContext } from '../../hooks/useScreenWidthContext';
 
 type Props = {
   countryCode: string;
+  link?: boolean;
 };
 
-export const Header: React.FC<Props> = ({ countryCode }) => {
+export const Header: React.FC<Props> = ({ countryCode, link = true }) => {
   const screenWidth = useScreenWidthContext();
   const tel = telephoneNumber(countryCode);
 
@@ -18,7 +19,12 @@ export const Header: React.FC<Props> = ({ countryCode }) => {
     <header id="header">
       <div className="container my-3 my-sm-4">
         <div className="row">
-          <div className="col-9 col-sm-12 text-left text-sm-center"><a href="https://www.doggroomingcourse.com/"><img id="logo" src={require('./logo.svg').default} width="465" height="44" alt="QC Pet Studies" /></a></div>
+          <div className="col-9 col-sm-12 text-left text-sm-center">
+            {link
+              ? <a href="https://www.doggroomingcourse.com/"><img id="logo" src={require('./logo.svg').default} width="465" height="44" alt="QC Pet Studies" /></a>
+              : <img id="logo" src={require('./logo.svg').default} width="465" height="44" alt="QC Pet Studies" />
+            }
+          </div>
           <div className="col-3 d-block d-sm-none text-right"><a title="Click to Call" href={'tel:' + tel}><FontAwesomeIcon style={{ fontSize: screenWidth < 360 ? 24 : 30 }} icon={faPhone} /></a></div>
         </div>
       </div>

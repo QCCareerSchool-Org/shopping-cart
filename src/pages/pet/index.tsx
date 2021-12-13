@@ -39,7 +39,7 @@ const Pet: React.FC = () => {
         <link rel="shortcut icon" href="/pet/favicon.ico?v=QEMKdlwA73" />
         <meta name="msapplication-TileColor" content="#000000" />
       </Helmet>
-      <Header countryCode={address.countryCode} />
+      <Header countryCode={address.countryCode} link={false} />
       <BrowserRouter>
         <Suspense fallback={<></>}>
           <Switch>
