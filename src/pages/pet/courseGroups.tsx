@@ -39,6 +39,7 @@ export const courseGroups: CourseGroup[] = [
         //   </>
         // ),
       },
+      { code: 'DT', name: 'Dog Training' },
     ],
   },
 ];
