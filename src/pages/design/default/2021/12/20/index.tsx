@@ -58,9 +58,15 @@ export const Promo20211220 = ({ date }: Props): ReactElement => {
         <Modal size="lg" isOpen={popup} toggle={togglePopup}>
           <ModalHeader toggle={togglePopup}>Your Special Holiday Offer</ModalHeader>
           <ModalBody>
-            <p>Enroll in any Design course and get your second course FREE! This means you can save up to {price?.currency.code === 'GBP' ? '£1098' : '$1498'}.</p>
-            <p>Plus, we&apos;re giving you an exclusive gift to celebrate the Holiday season. As soon as you enroll, we&apos;ll send you <cite>The Interior Design Handbook</cite>, filled with bonus content to help you wow your next client!</p>
-            <img src={require('./new-years-gift.jpg').default} className="img-fluid" alt="Deluxe Design Kit" />
+            <div className="row">
+              <div className="col-12 col-lg-6 mb-4 mb-lg-0">
+                <p>Enroll in any design course and get your second course FREE! This means you can save up to {price?.currency.code === 'GBP' ? '£1098' : '$1498'}.</p>
+                <p className="mb-0">Plus, we&apos;re giving you an exclusive gift to celebrate the Holiday season. As soon as you enroll, we&apos;ll send you <cite>The Interior Design Handbook</cite>, filled with bonus content to help you wow your next client!</p>
+              </div>
+              <div className="col-12 col-lg-6">
+                <img src={require('./new-years-gift.jpg').default} className="img-fluid" alt="Deluxe Design Kit" />
+              </div>
+            </div>
           </ModalBody>
         </Modal>
       </section>
