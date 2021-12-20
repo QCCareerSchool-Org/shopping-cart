@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import React, { ReactElement } from 'react';
 
-import { DynamicMessage20211201 } from './2021/12/01/DynamicMessage';
+import { DynamicMessage20211220 } from './2021/12/20/DynamicMessage';
 
 type Props = {
   date: Date;
@@ -10,5 +10,5 @@ type Props = {
 
 export const DynamicMessage = ({ date, courses }: Props): ReactElement => {
   // const time = date.getTime();
-  return <DynamicMessage20211201 courses={courses} />;
+  return <DynamicMessage20211220 courses={courses} />;
 };
