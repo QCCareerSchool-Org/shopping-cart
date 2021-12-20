@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import React, { ReactElement } from 'react';
 
-import { Promo20211201 } from './2021/12/01';
+import { Promo20211220 } from './2021/12/20';
 
 type Props = {
   date: Date;
@@ -9,5 +9,5 @@ type Props = {
 
 export const DefaultPromo = ({ date }: Props): ReactElement => {
   // const time = date.getTime();
-  return <Promo20211201 date={date} />;
+  return <Promo20211220 date={date} />;
 };

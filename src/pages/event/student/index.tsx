@@ -7,7 +7,7 @@ import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
 
 const additionalOptions = {
-  // studentDiscount: true,
+  studentDiscount: true,
 };
 
 const Student: React.FC = () => {
