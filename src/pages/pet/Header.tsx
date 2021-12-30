@@ -21,7 +21,7 @@ export const Header: React.FC<Props> = ({ countryCode, link = true }) => {
         <div className="row">
           <div className="col-9 col-sm-12 text-left text-sm-center">
             {link
-              ? <a href="https://www.doggroomingcourse.com/"><img id="logo" src={require('./logo.svg').default} width="465" height="44" alt="QC Pet Studies" /></a>
+              ? <a href="https://www.qcpetstudies.com/"><img id="logo" src={require('./logo.svg').default} width="465" height="44" alt="QC Pet Studies" /></a>
               : <img id="logo" src={require('./logo.svg').default} width="465" height="44" alt="QC Pet Studies" />
             }
           </div>
