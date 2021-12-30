@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { Helmet } from 'react-helmet';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, useLocation } from 'react-router-dom';
 import { LiveChat } from '../../components/LiveChat';
 
 import { useStateContext } from '../../hooks/useStateContext';
@@ -20,9 +20,14 @@ const Training300Off = React.lazy(async () => import('./training-300-off'));
 const Training200Off = React.lazy(async () => import('./training-200-off'));
 const Training150Off = React.lazy(async () => import('./training-150-off'));
 
+const headerLink = (path: string): boolean => {
+  return !/^\/(grooming|trainging)-\d{3}-off/u.test(path);
+};
+
 const Pet: React.FC = () => {
   const { address, price } = useStateContext();
   const currencyCode = price?.currency.code ?? 'USD';
+  const location = useLocation();
 
   return (
     <>
@@ -39,7 +44,7 @@ const Pet: React.FC = () => {
         <link rel="shortcut icon" href="/pet/favicon.ico?v=QEMKdlwA73" />
         <meta name="msapplication-TileColor" content="#000000" />
       </Helmet>
-      <Header countryCode={address.countryCode} link={false} />
+      <Header countryCode={address.countryCode} link={headerLink(location.pathname)} />
       <BrowserRouter>
         <Suspense fallback={<></>}>
           <Switch>
