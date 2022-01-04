@@ -7,7 +7,7 @@ type Props = {
 
 export const Footer: React.FC<Props> = ({ countryCode }) => {
   const tel = telephoneNumber(countryCode);
-  const termsLink = gbpCountry(countryCode) ? 'https://www.doggroomingcourse.com/terms-gb.html' : 'https://www.doggroomingcourse.com/terms.html';
+  const termsLink = gbpCountry(countryCode) ? 'https://www.qcpetstudies.com/terms-gb' : 'https://www.qcpetstudies.com/terms';
 
   return (
     <footer id="footer">
