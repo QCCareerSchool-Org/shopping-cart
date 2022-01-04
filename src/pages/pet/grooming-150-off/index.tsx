@@ -19,9 +19,9 @@ const Grooming150Off = (): ReactElement => (
       courseGroups={courseGroups}
       school="QC Pet Studies"
       guarantee={() => <Guarantee />}
-      agreementLink="https://www.doggroomingcourse.com/enrollment-agreement.html"
-      agreementLinkGB="https://www.doggroomingcourse.com/enrollment-agreement-gb.html"
-      successLink="https://www.doggroomingcourse.com/welcome-to-the-school/"
+      agreementLink="https://www.qcpetstudies.com/enrollment-agreement"
+      agreementLinkGB="https://www.qcpetstudies.com/enrollment-agreement-gb"
+      successLink="https://www.qcpetstudies.com/welcome-to-the-school"
       additionalOptions={additionalOptions}
     />
   </>
