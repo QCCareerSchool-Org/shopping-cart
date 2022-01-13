@@ -18,7 +18,7 @@ export const DefaultPromo: React.FC = () => (
           </ul>
         </div>
         <div className="col-12 col-lg-6 mb-4 mb-lg-0 text-left text-lg-center order-lg-1">
-          <img className="img-fluid" src={require('./bonus-books.jpg').default} width="464" height="218" alt="Six free books" />
+          <img className="img-fluid" src={require('./bonus-books.jpg')} width="464" height="218" alt="Six free books" />
         </div>
       </div>
     </div>

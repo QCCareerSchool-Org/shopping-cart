@@ -27,15 +27,15 @@ export const Promo20211101: React.FC<Props> = ({ date }) => {
 
   if (date.getTime() >= Date.UTC(2021, 10, 11, 5)) { // November 11 at 00:00 (05:00 UTC)
     if (desktop) {
-      image = require('./desktop-ends.jpg').default;
+      image = require('./desktop-ends.jpg');
     } else {
-      image = require('./mobile-ends.jpg').default;
+      image = require('./mobile-ends.jpg');
     }
   } else {
     if (desktop) {
-      image = require('./desktop.jpg').default;
+      image = require('./desktop.jpg');
     } else {
-      image = require('./mobile.jpg').default;
+      image = require('./mobile.jpg');
     }
   }
 
@@ -59,7 +59,7 @@ export const Promo20211101: React.FC<Props> = ({ date }) => {
           <ModalHeader toggle={togglePopup}>FREE Luminous Collection</ModalHeader>
           <ModalBody>
             <p>The Luminous Collection includes 11 luxury products to jumpstart your professional makeup career!</p>
-            <img src={require('./enrollment-pop-up.jpg').default} className="img-fluid" />
+            <img src={require('./enrollment-pop-up.jpg')} className="img-fluid" />
           </ModalBody>
           <ModalFooter>
             <div>The kit pictured above is included only when you enroll in the <strong>Master Makeup Artistry</strong> course. You will receive a different, course-specific makeup starter kit with all other QC Makeup Academy courses instead of the one shown.</div>

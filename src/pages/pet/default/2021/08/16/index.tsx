@@ -23,12 +23,12 @@ export const Promo20210816: React.FC<Props> = ({ date }) => {
 
   if (date.getTime() >= Date.UTC(2021, 7, 25, 4)) { // August 25 at 00:00 (04:00 UTC)
     image = desktop
-      ? price?.currency.code === 'GBP' ? require('./desktop-ends-uk.jpg').default : require('./desktop-ends.jpg').default
-      : price?.currency.code === 'GBP' ? require('./mobile-ends-uk.jpg').default : require('./mobile-ends.jpg').default;
+      ? price?.currency.code === 'GBP' ? require('./desktop-ends-uk.jpg') : require('./desktop-ends.jpg')
+      : price?.currency.code === 'GBP' ? require('./mobile-ends-uk.jpg') : require('./mobile-ends.jpg');
   } else {
     image = desktop
-      ? price?.currency.code === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default
-      : price?.currency.code === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
+      ? price?.currency.code === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg')
+      : price?.currency.code === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
   }
 
   if (desktop) {
@@ -53,7 +53,7 @@ export const Promo20210816: React.FC<Props> = ({ date }) => {
             <p>Enroll in QC&apos;s Dog Grooming Course and get a FREE Back-to-School Kit. Plus, get {price?.currency.code === 'GBP' ? '£150' : '$200'} off your tuition! This kit includes an eco-friendly notebook and a QC tote bag. Kit is valued at {price?.currency.code === 'GBP' ? '£40' : '$50'}.</p>
             <p>After you submit your Unit B, we&apos;ll also ship you a toolkit with the essential items you need to get started. Your kit includes a WAHL ARCO 5-in-1 Cordless Clipper, a stainless steel attachment guide comb kit, professional-grade grooming scissors, brushes, combs, and nail clippers.</p>
           </div>
-          <img src={require('./pop-up.jpg').default} className="img-fluid" alt="promotion details" />
+          <img src={require('./pop-up.jpg')} className="img-fluid" alt="promotion details" />
         </ModalBody>
       </Modal>
     </section>

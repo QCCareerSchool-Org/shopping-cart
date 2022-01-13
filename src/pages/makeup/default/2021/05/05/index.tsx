@@ -38,7 +38,7 @@ export const Promo20210505: React.FC<Props> = ({ date }) => {
             <Card
               code="MOTHERSDAY"
               description="Free 6-piece makeup kit"
-              imgSrc={require('./MOTHERSDAY-card.jpg').default}
+              imgSrc={require('./MOTHERSDAY-card.jpg')}
               onClick={button1Click}
             />
           </div>
@@ -46,7 +46,7 @@ export const Promo20210505: React.FC<Props> = ({ date }) => {
             <Card
               code="SKINCARE60"
               description="Free advanced course"
-              imgSrc={require('./SKINCARE60-card.jpg').default}
+              imgSrc={require('./SKINCARE60-card.jpg')}
               onClick={button2Click}
             />
           </div>
@@ -71,8 +71,8 @@ const Card: React.FC<CardProps> = ({ code, description, imgSrc, onClick }) => {
       <img src={imgSrc} width="518" height="463" className="img-fluid" alt={description} />
       <div style={{ position: 'absolute', width: '100%', bottom: '2rem' }}>
         {price?.promoCode === code
-          ? <img src={require('./choose-offer-btn-active.png').default} width="172" height="36" className="img-fluid" alt={`${code} Promo Code Applied`} />
-          : <button onClick={onClick} className="btn btn-link p-0 border-0 btn-no-hover-shadow"><img src={require('./choose-offer-btn.png').default} width="172" height="36" className="img-fluid" alt={`Apply ${code} Promo Code`} /></button>
+          ? <img src={require('./choose-offer-btn-active.png')} width="172" height="36" className="img-fluid" alt={`${code} Promo Code Applied`} />
+          : <button onClick={onClick} className="btn btn-link p-0 border-0 btn-no-hover-shadow"><img src={require('./choose-offer-btn.png')} width="172" height="36" className="img-fluid" alt={`Apply ${code} Promo Code`} /></button>
         }
       </div>
     </div>

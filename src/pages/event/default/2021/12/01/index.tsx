@@ -27,15 +27,15 @@ export const Promo20211201 = ({ date }: Props): ReactElement => {
 
   if (date.getTime() >= Date.UTC(2021, 11, 16, 5)) { // December 16 at 00:00 (05:00 UTC)
     if (desktop) {
-      image = price?.currency.code === 'GBP' ? require('./desktop-uk-ends.jpg').default : require('./desktop-ends.jpg').default;
+      image = price?.currency.code === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg');
     } else {
-      image = price?.currency.code === 'GBP' ? require('./mobile-uk-ends.jpg').default : require('./mobile-ends.jpg').default;
+      image = price?.currency.code === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
     }
   } else {
     if (desktop) {
-      image = price?.currency.code === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default;
+      image = price?.currency.code === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
     } else {
-      image = price?.currency.code === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
+      image = price?.currency.code === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
     }
   }
 
@@ -60,7 +60,7 @@ export const Promo20211201 = ({ date }: Props): ReactElement => {
           <ModalBody>
             <p>Enroll in <strong>Event &amp; Wedding Planning</strong> and get your second course free! This means you can save up to $1498.</p>
             <p>Plus, we&apos;re sending you an exclusive gift to celebrate the Holiday season! You&apos;ll receive <cite>The Little Book of Wedding Checklists</cite>. This portable wedding planner provides all the tools and tips you need to stay organized and stress free!</p>
-            <img src={require('./pop-up-book-image.jpg').default} className="img-fluid" alt="The Little Book of Wedding Checklists" />
+            <img src={require('./pop-up-book-image.jpg')} className="img-fluid" alt="The Little Book of Wedding Checklists" />
           </ModalBody>
         </Modal>
       </section>

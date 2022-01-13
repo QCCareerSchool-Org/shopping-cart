@@ -19,12 +19,12 @@ export const FloralPromo: React.FC<Props> = ({ currencyCode }) => {
   let image: string;
   if (date.getTime() >= Date.UTC(2021, 4, 17, 13)) { // May 17 at 09:00
     image = desktop
-      ? currencyCode === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default
-      : currencyCode === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
+      ? currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg')
+      : currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
   } else {
     image = desktop
-      ? currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg').default : require('./desktop-ends.jpg').default
-      : currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg').default : require('./mobile-ends.jpg').default;
+      ? currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg')
+      : currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
   }
 
   return (

@@ -18,8 +18,8 @@ export const Promo20211220 = ({ date }: Props): ReactElement => {
   let height: number;
 
   const image = desktop
-    ? price?.currency.code === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default
-    : price?.currency.code === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
+    ? price?.currency.code === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg')
+    : price?.currency.code === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
 
   if (desktop) {
     width = 960;

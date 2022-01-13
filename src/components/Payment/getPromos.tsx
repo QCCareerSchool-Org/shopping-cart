@@ -11,8 +11,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'WEDDING21',
       description: <>Enroll in <strong>Event &amp; Wedding Planning</strong> and get both <strong>Luxury Wedding Planning</strong> and <strong>Destination Wedding Planning</strong> free.</>,
-      desktopImageSrc: require('./images/event/coupon-WEDDING21.jpg').default,
-      mobileImageSrc: require('./images/event/coupon-mobile-WEDDING21.jpg').default,
+      desktopImageSrc: require('./images/event/coupon-WEDDING21.jpg'),
+      mobileImageSrc: require('./images/event/coupon-mobile-WEDDING21.jpg'),
       altText: 'Enroll in Event & Wedding Planning and get two free specialty courses',
       startDate: new Date(Date.UTC(2021, 9, 25, 13, 30)), // October 25 at 09:30 (13:30 UTC)
       endDate: new Date(Date.UTC(2021, 9, 30, 4)), // October 30 at 00:00 (04:00 UTC)
@@ -23,8 +23,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'FOUNDIT',
       description: <>Get the <strong>Virtual Makeup</strong> course free when you enroll in <strong>Master Makeup Artistry</strong></>,
-      desktopImageSrc: require('./images/makeup/coupon-FOUNDIT.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-mobile-FOUNDIT.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-FOUNDIT.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-mobile-FOUNDIT.jpg'),
       altText: 'Get the Virtual Makeup course free when you enroll in Master Makeup Artistry',
       startDate: new Date(Date.UTC(2021, 2, 29, 13)),
       endDate: new Date(Date.UTC(2021, 3, 6, 4)),
@@ -34,8 +34,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'SAVE50',
       description: 'Enroll in one course and get 50% off each additional course of equal or lesser value',
-      desktopImageSrc: require('./images/makeup/coupon-SAVE50.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-mobile-SAVE50.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-SAVE50.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-mobile-SAVE50.jpg'),
       altText: 'Get 50% off additional courses of equal or lesser value',
       displayEndDate: new Date(2021, 5, 11),
     },
@@ -44,8 +44,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'SAVE50',
       description: 'Enroll in one course and get 50% off each additional course of equal or lesser value',
-      desktopImageSrc: require('./images/design/coupon-SAVE50.jpg').default,
-      mobileImageSrc: require('./images/design/coupon-mobile-SAVE50.jpg').default,
+      desktopImageSrc: require('./images/design/coupon-SAVE50.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-SAVE50.jpg'),
       altText: 'Get 50% off additional courses of equal or lesser value',
     },
     {
@@ -53,8 +53,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'SAVE50',
       description: 'Enroll in one course and get 50% off each additional course of equal or lesser value',
-      desktopImageSrc: require('./images/event/coupon-SAVE50.jpg').default,
-      mobileImageSrc: require('./images/event/coupon-mobile-SAVE50.jpg').default,
+      desktopImageSrc: require('./images/event/coupon-SAVE50.jpg'),
+      mobileImageSrc: require('./images/event/coupon-mobile-SAVE50.jpg'),
       altText: 'Get 50% off additional courses of equal or lesser value',
     },
     {
@@ -62,8 +62,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'ADVANCED100',
       description: `Get ${price?.currency.code === 'GBP' ? '£100' : '$100'} off any advanced makeup course`,
-      desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-uk-ADVANCED100.jpg').default : require('./images/makeup/coupon-ADVANCED100.jpg').default,
-      mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-mobile-uk-ADVANCED100.jpg').default : require('./images/makeup/coupon-mobile-ADVANCED100.jpg').default,
+      desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-uk-ADVANCED100.jpg') : require('./images/makeup/coupon-ADVANCED100.jpg'),
+      mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-mobile-uk-ADVANCED100.jpg') : require('./images/makeup/coupon-mobile-ADVANCED100.jpg'),
       altText: `Get ${price?.currency.code === 'GBP' ? '£100' : '$100'} off any advanced course`,
       startDate: new Date(Date.UTC(2021, 4, 17, 13)), // May 17 at 09:00
       endDate: new Date(Date.UTC(2021, 4, 29, 3, 59, 59)), // May 28 at 23:59:59
@@ -73,8 +73,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'SPRING21',
       description: 'Enroll in Master Makeup Artisty and get any advanced makeup course for FREE',
-      desktopImageSrc: require('./images/makeup/coupon-SPRING21.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-mobile-SPRING21.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-SPRING21.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-mobile-SPRING21.jpg'),
       altText: 'Get a FREE advanced course',
       startDate: new Date(Date.UTC(2021, 3, 19, 13)),
       endDate: new Date(Date.UTC(2021, 4, 1, 12)),
@@ -84,8 +84,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'ELITE',
       description: <>When you enroll in <strong>Master Makeup Artistry</strong>, get an <strong>elite makeup kit upgrade</strong> (includes a highlight palette, contour palette, eyebrow palette, 4-pack of false lashes, a makeup travel bag, and a stainless steel palette with spatula)</>,
-      desktopImageSrc: require('./images/makeup/coupon-ELITE.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-mobile-ELITE.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-ELITE.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-mobile-ELITE.jpg'),
       altText: 'Get an elite makeup kit upgrade',
       startDate: new Date(Date.UTC(2021, 6, 31, 12)), // July 31 at 08:00
     },
@@ -94,8 +94,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'HAPPYMAY',
       description: <>Get the <strong>Virtual Makeup</strong> course for FREE when you enroll in the <strong>Master Makeup Artistry</strong> course.<br /><br />Plus, get a FREE 11-piece elite makeup kit upgrade.</>,
-      desktopImageSrc: require('./images/makeup/coupon-HAPPYMAY.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-mobile-HAPPYMAY.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-HAPPYMAY.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-mobile-HAPPYMAY.jpg'),
       altText: 'Free Virtual Makeup course',
       startDate: new Date(Date.UTC(2021, 4, 1, 12)),
       endDate: new Date(Date.UTC(2021, 4, 3, 13)),
@@ -105,8 +105,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'SKINCARE60',
       description: <>Get the <strong>Skincare</strong> course at 60% off when you enroll in the <strong>Master Makeup Artisty</strong> course</>,
-      desktopImageSrc: require('./images/makeup/coupon-SKINCARE60.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-mobile-SKINCARE60.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-SKINCARE60.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-mobile-SKINCARE60.jpg'),
       altText: '60% off Skincare course',
       startDate: new Date(Date.UTC(2021, 8, 20, 13, 30)), // September 20 at 09:30 (13:30 UTC)
       endDate: new Date(Date.UTC(2021, 9, 1, 13, 30)), // October 1 at 09:30 (13:30 UTC)
@@ -117,8 +117,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
     //   student: 'DENIED',
     //   code: 'MOTHERSDAY',
     //   description: <>Get the <strong>Pro Makeup Workshop</strong> for FREE when you enroll in the <strong>Master Makeup Artisty</strong> course</>,
-    //   desktopImageSrc: require('./images/coupon-MOTHERSDAY.jpg').default,
-    //   mobileImageSrc: require('./images/coupon-mobile-MOTHERSDAY.jpg').default,
+    //   desktopImageSrc: require('./images/coupon-MOTHERSDAY.jpg'),
+    //   mobileImageSrc: require('./images/coupon-mobile-MOTHERSDAY.jpg'),
     //   altText: 'Free Pro Makeup Workshop',
     //   startDate: new Date(Date.UTC(2021, 4, 5, 4)),
     //   endDate: new Date(Date.UTC(2021, 4, 17, 13)), // May 17 at 09:00
@@ -128,8 +128,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'MAY21',
       description: <>Enroll in one of QC&apos;s design courses and receive your second course (of equal or lesser value) for free.</>,
-      desktopImageSrc: require('./images/makeup/coupon-MAY21.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-mobile-MAY21.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-MAY21.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-mobile-MAY21.jpg'),
       altText: 'Get any second course for free',
       startDate: new Date(Date.UTC(2021, 4, 17, 13)),
       endDate: new Date(Date.UTC(2021, 4, 29, 3, 59, 59)), // May 28 at 23:59:59 (but the promo code is still valid til June 1)
@@ -139,8 +139,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'SPRING100',
       description: <>Get {price?.currency.code === 'GBP' ? '£100' : '$100'} off your tutition</>,
-      desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-uk-SPRING100.jpg').default : require('./images/makeup/coupon-SPRING100.jpg').default,
-      mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-mobile-uk-SPRING100.jpg').default : require('./images/makeup/coupon-mobile-SPRING100.jpg').default,
+      desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-uk-SPRING100.jpg') : require('./images/makeup/coupon-SPRING100.jpg'),
+      mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-mobile-uk-SPRING100.jpg') : require('./images/makeup/coupon-mobile-SPRING100.jpg'),
       altText: `${price?.currency.code === 'GBP' ? '£100' : '$100'} off your tuition`,
       startDate: new Date(Date.UTC(2021, 5, 1, 13)), // June 1 at 09:00
       displayEndDate: new Date(2021, 5, 11), // June 11
@@ -151,8 +151,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'LEVELUP',
       description: <>Get the <strong>Virtual Makeup</strong> course free when you enroll in <strong>Master Makeup Artistry</strong></>,
-      desktopImageSrc: require('./images/makeup/coupon-LEVELUP.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-mobile-LEVELUP.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-LEVELUP.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-mobile-LEVELUP.jpg'),
       altText: 'Get the Virtual Makeup course free when you enroll in Master Makeup Artistry',
       startDate: new Date(Date.UTC(2021, 4, 15, 12)), // May 15 at 08:00
       endDate: new Date(Date.UTC(2021, 4, 17, 3, 59, 59)), // May 16 at 23:59:59
@@ -162,8 +162,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'WEEKEND',
       description: <>Get the <strong>Virtual Makeup</strong> course free when you enroll in <strong>Master Makeup Artistry</strong>. Also get an elite makeup kit upgrade</>,
-      desktopImageSrc: require('./images/makeup/coupon-WEEKEND.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-mobile-WEEKEND.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-WEEKEND.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-mobile-WEEKEND.jpg'),
       altText: 'Get the Virtual Makeup course free when you enroll in Master Makeup Artistry',
       startDate: new Date(Date.UTC(2021, 4, 29, 12)), // May 29 at 08:00
       endDate: new Date(Date.UTC(2021, 5, 1, 3, 59, 59)), // May 31 at 23:59:59
@@ -173,8 +173,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'WEEKEND',
       description: <>Enroll in one of QC&apos;s design courses and receive your second course (of equal or lesser value) for free. Also get a free Sherwin-Williams fan deck!</>,
-      desktopImageSrc: require('./images/design/coupon-WEEKEND.jpg').default,
-      mobileImageSrc: require('./images/design/coupon-mobile-WEEKEND.jpg').default,
+      desktopImageSrc: require('./images/design/coupon-WEEKEND.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-WEEKEND.jpg'),
       altText: 'Get any second course for free',
       startDate: new Date(Date.UTC(2021, 4, 29, 12)), // May 29 at 08:00
       endDate: new Date(Date.UTC(2021, 5, 1, 3, 59, 59)), // May 31 at 23:59:59
@@ -184,8 +184,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'FREEPRO',
       description: <>Enroll in the <strong>Master Makeup Artistry</strong> course and get the <strong>Pro Makeup Workshop</strong> for free!</>,
-      desktopImageSrc: require('./images/makeup/coupon-FREEPRO.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-mobile-FREEPRO.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-FREEPRO.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-mobile-FREEPRO.jpg'),
       altText: 'Get the Pro Makeup Workshop for free when you enroll in Master Makeup Artistry',
       startDate: new Date(Date.UTC(2021, 5, 1, 13)), // June 1 at 09:00
       endDate: new Date(Date.UTC(2021, 5, 12, 3, 59, 59)), // June 11 at 23:59:59
@@ -195,8 +195,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'JUNE21',
       description: <>Enroll in one course and get your second course (of equal or lesser value) for free.</>,
-      desktopImageSrc: require('./images/makeup/coupon-MAY21.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-mobile-MAY21.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-MAY21.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-mobile-MAY21.jpg'),
       altText: 'Enroll in one course and get your second course free',
       startDate: new Date(Date.UTC(2021, 5, 1, 13)), // June 1 at 09:00
       endDate: new Date(Date.UTC(2021, 5, 12, 4)), // June 12 at 00:00
@@ -207,8 +207,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'EXPERT',
       description: <>Enroll in a Foundation course and get any Specialty course free.</>,
-      desktopImageSrc: require('./images/event/coupon-EXPERT.jpg').default,
-      mobileImageSrc: require('./images/event/coupon-mobile-EXPERT.jpg').default,
+      desktopImageSrc: require('./images/event/coupon-EXPERT.jpg'),
+      mobileImageSrc: require('./images/event/coupon-mobile-EXPERT.jpg'),
       altText: 'Enroll in a Foundation course and get any Specialty course free',
       startDate: new Date(Date.UTC(2021, 5, 9, 13)), // June 9 at 09:00
       // endDate: new Date(Date.UTC(2021, 5, 14, 13)), // June 14 at 09:00
@@ -219,8 +219,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'BONUSGIFT',
       description: <>Enroll in <strong>Master Makeup Artisty</strong> and get the <strong>Pro Makeup Workshop</strong>. Plus, get a free 11-piece Elite Makeup Kit. </>,
-      desktopImageSrc: require('./images/makeup/coupon-BONUSGIFT.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-mobile-BONUSGIFT.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-BONUSGIFT.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-mobile-BONUSGIFT.jpg'),
       altText: 'Get the Pro Makeup Workshop for free and an 11-piece makeup kit',
       startDate: new Date(Date.UTC(2021, 5, 12, 12)), // June 12 at 08:00
       endDate: new Date(Date.UTC(2021, 5, 14, 13)), // June 14 at 09:00
@@ -231,8 +231,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'BONUSGIFT',
       description: <>Enroll in any <strong>Foundation course</strong> and get both <strong>Luxury Wedding Planning</strong> and <strong>Vitual Event Training</strong> free. Also get a free leather portfolio!</>,
-      desktopImageSrc: require('./images/event/coupon-BONUSGIFT-event.jpg').default,
-      mobileImageSrc: require('./images/event/coupon-mobile-BONUSGIFT-event.jpg').default,
+      desktopImageSrc: require('./images/event/coupon-BONUSGIFT-event.jpg'),
+      mobileImageSrc: require('./images/event/coupon-mobile-BONUSGIFT-event.jpg'),
       altText: 'Get two free specialty courses + leather portfolio',
       startDate: new Date(Date.UTC(2021, 7, 14, 12, 30)), // August 14 at 08:30 (12:30 UTC)
       endDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // Aug 16 at 9:30 (13:30 UTC)
@@ -243,8 +243,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'BONUSGIFT',
       description: <>Enroll in one course and get a second course of equal or lesser value FREE. Also get a free leather portfolio!</>,
-      desktopImageSrc: require('./images/design/coupon-BONUSGIFT.jpg').default,
-      mobileImageSrc: require('./images/design/coupon-mobile-BONUSGIFT.jpg').default,
+      desktopImageSrc: require('./images/design/coupon-BONUSGIFT.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-BONUSGIFT.jpg'),
       altText: 'Enroll one cours and get a second course free',
       startDate: new Date(Date.UTC(2021, 5, 12, 12)), // June 12 at 08:00
       endDate: new Date(Date.UTC(2021, 5, 14, 13)), // June 14 at 09:00
@@ -255,8 +255,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'SUMMER21',
       description: <>Enroll in any Foundation course and get any Advanced course free.</>,
-      desktopImageSrc: require('./images/makeup/coupon-SUMMER21.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-mobile-SUMMER21.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-SUMMER21.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-mobile-SUMMER21.jpg'),
       altText: 'Enroll in any Foundation course and get any Advanced course free',
       startDate: new Date(Date.UTC(2021, 5, 14, 13)), // June 14 at 09:00
       endDate: new Date(Date.UTC(2021, 5, 18, 13, 30)), // June 18 at 09:30
@@ -267,8 +267,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'SUMMER21',
       description: <>Enroll in a foundation course and get a specialty course + leather portfolio + $50 off</>,
-      desktopImageSrc: require('./images/event/coupon-EXPERT.jpg').default,
-      mobileImageSrc: require('./images/event/coupon-mobile-EXPERT.jpg').default,
+      desktopImageSrc: require('./images/event/coupon-EXPERT.jpg'),
+      mobileImageSrc: require('./images/event/coupon-mobile-EXPERT.jpg'),
       altText: 'Enroll in a foundation course and get a specialty course + leather portfolio + $50 off',
       startDate: new Date(Date.UTC(2021, 6, 17, 12)), // July 17 at 08:00
       endDate: new Date(Date.UTC(2021, 6, 19, 4)), // July 19 at 00:00
@@ -279,8 +279,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'SUMMER21',
       description: <>Enroll in any course and get your second course of equal or lesser value FREE!</>,
-      desktopImageSrc: require('./images/design/coupon-FREESECONDCOURSE.jpg').default,
-      mobileImageSrc: require('./images/design/coupon-mobile-FREESECONDCOURSE.jpg').default,
+      desktopImageSrc: require('./images/design/coupon-FREESECONDCOURSE.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-FREESECONDCOURSE.jpg'),
       altText: 'Get your second course FREE',
       startDate: new Date(Date.UTC(2021, 5, 14, 13)), // June 14 at 09:00
       endDate: new Date(Date.UTC(2021, 5, 18, 13, 30)), // June 18 at 09:30
@@ -291,8 +291,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'DESIGN100',
       description: <>Get {price?.currency.code === 'GBP' ? '£100' : '$100'} off your tuition</>,
-      desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/design/coupon-uk-100OFF.jpg').default : require('./images/design/coupon-100OFF.jpg').default,
-      mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/design/coupon-mobile-uk-100OFF.jpg').default : require('./images/design/coupon-mobile-100OFF.jpg').default,
+      desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/design/coupon-uk-100OFF.jpg') : require('./images/design/coupon-100OFF.jpg'),
+      mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/design/coupon-mobile-uk-100OFF.jpg') : require('./images/design/coupon-mobile-100OFF.jpg'),
       altText: `${price?.currency.code === 'GBP' ? '£100' : '$100'} off your tuition`,
       startDate: new Date(Date.UTC(2021, 5, 14, 13)), // June 14 at 09:00
     },
@@ -301,8 +301,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'FATHERSDAY',
       description: <>Get {price?.currency.code === 'GBP' ? '£50' : '$50'} off your tuition and get a FREE Advanced makeup course</>,
-      desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-FATHERSDAY-makeup-uk.jpg').default : require('./images/makeup/coupon-FATHERSDAY-makeup.jpg').default,
-      mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-mobile-FATHERSDAY-makeup-uk.jpg').default : require('./images/makeup/coupon-mobile-FATHERSDAY-makeup.jpg').default,
+      desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-FATHERSDAY-makeup-uk.jpg') : require('./images/makeup/coupon-FATHERSDAY-makeup.jpg'),
+      mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-mobile-FATHERSDAY-makeup-uk.jpg') : require('./images/makeup/coupon-mobile-FATHERSDAY-makeup.jpg'),
       altText: `${price?.currency.code === 'GBP' ? '£50' : '$50'} off your tuition + FREE Advanced course`,
       startDate: new Date(Date.UTC(2021, 5, 18, 13, 30)), // June 18 at 09:30
       endDate: new Date(2021, 5, 21), // June 20 at 00:00
@@ -313,8 +313,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'FATHERSDAY',
       description: <>Get a deluxe design kit, plus get a second course of equal or lesser value for FREE</>,
-      desktopImageSrc: require('./images/design/coupon-FATHERSDAY-design.jpg').default,
-      mobileImageSrc: require('./images/design/coupon-mobile-FATHERSDAY-design.jpg').default,
+      desktopImageSrc: require('./images/design/coupon-FATHERSDAY-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-FATHERSDAY-design.jpg'),
       altText: 'Deluxe design kit + second course FREE',
       startDate: new Date(Date.UTC(2021, 5, 18, 13, 30)), // June 18 at 09:30
       endDate: new Date(2021, 5, 21), // June 20 at 00:00
@@ -325,8 +325,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'FATHERSDAY',
       description: <>Get {price?.currency.code === 'GBP' ? '£50' : '$50'} off your tuition and get a FREE Advanced makeup course</>,
-      desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/event/coupon-FATHERSDAY-event-uk.jpg').default : require('./images/event/coupon-FATHERSDAY-event.jpg').default,
-      mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/event/coupon-mobile-FATHERSDAY-event-uk.jpg').default : require('./images/event/coupon-mobile-FATHERSDAY-event.jpg').default,
+      desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/event/coupon-FATHERSDAY-event-uk.jpg') : require('./images/event/coupon-FATHERSDAY-event.jpg'),
+      mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/event/coupon-mobile-FATHERSDAY-event-uk.jpg') : require('./images/event/coupon-mobile-FATHERSDAY-event.jpg'),
       altText: `${price?.currency.code === 'GBP' ? '£50' : '$50'} off your tuition + FREE Advanced course`,
       startDate: new Date(Date.UTC(2021, 5, 18, 13, 30)), // June 18 at 09:30
       endDate: new Date(2021, 5, 21), // June 21 at 00:00
@@ -338,8 +338,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'SUMMER21',
       description: <>Enroll in any Foundation course and get any Advanced course free.</>,
-      desktopImageSrc: require('./images/makeup/coupon-SUMMER21.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-mobile-SUMMER21.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-SUMMER21.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-mobile-SUMMER21.jpg'),
       altText: 'Enroll in any Foundation course and get any Advanced course free',
       startDate: new Date(2021, 5, 21, 0), // June 21 at 00:00
       endDate: new Date(2021, 5, 28, 9), // June 28 at 09:00
@@ -350,8 +350,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'SUMMER21',
       description: <>Enroll in any Foundation course and get any Specialty course free.</>,
-      desktopImageSrc: require('./images/event/coupon-EXPERT.jpg').default,
-      mobileImageSrc: require('./images/event/coupon-mobile-EXPERT.jpg').default,
+      desktopImageSrc: require('./images/event/coupon-EXPERT.jpg'),
+      mobileImageSrc: require('./images/event/coupon-mobile-EXPERT.jpg'),
       altText: 'Enroll in any Foundation course and get any Specialty course free',
       startDate: new Date(2021, 5, 21, 0), // June 21 at 00:00
       endDate: new Date(2021, 5, 28, 9), // June 28 at 09:00
@@ -362,8 +362,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'SUMMER21',
       description: <>Enroll in any course and get your second course of equal or lesser value FREE!</>,
-      desktopImageSrc: require('./images/design/coupon-FREESECONDCOURSE.jpg').default,
-      mobileImageSrc: require('./images/design/coupon-mobile-FREESECONDCOURSE.jpg').default,
+      desktopImageSrc: require('./images/design/coupon-FREESECONDCOURSE.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-FREESECONDCOURSE.jpg'),
       altText: 'Get your second course FREE',
       startDate: new Date(2021, 5, 21, 0), // June 21 at 00:00
       endDate: new Date(2021, 5, 28, 9), // June 28 at 09:00
@@ -374,8 +374,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'DIVEIN',
       description: <>Enroll in QC&apos;s Master Makeup Artistry Course and get a FREE leather portfolio! Plus get a FREE advanced course.</>,
-      desktopImageSrc: require('./images/makeup/coupon-DIVEIN.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-mobile-DIVEIN.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-DIVEIN.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-mobile-DIVEIN.jpg'),
       altText: 'Free leather portfolio and free advanced course',
       startDate: new Date(2021, 5, 30, 10), // June 30 at 10:00
       endDate: new Date(2021, 5, 30, 23, 59, 59, 999), // June 30 at 23:59:59.999
@@ -386,8 +386,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'DIVEIN',
       description: <>When you enroll in any design course, get any second course of equal or lesser value free. Also get a free color fan deck and free leather portfolio!</>,
-      desktopImageSrc: require('./images/design/coupon-WEEKEND-design.jpg').default,
-      mobileImageSrc: require('./images/design/coupon-mobile-WEEKEND-design.jpg').default,
+      desktopImageSrc: require('./images/design/coupon-WEEKEND-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-WEEKEND-design.jpg'),
       altText: 'Free second course, plus free color fan deck & free portfolio',
       startDate: new Date(2021, 5, 30, 10), // June 30 at 10:00
       endDate: new Date(2021, 5, 30, 23, 59, 59, 999), // June 30 at 23:59:59.999
@@ -398,8 +398,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'DIVEIN',
       description: <>Enroll in QC&apos;s Master Makeup Artistry Course and get a FREE leather portfolio! Plus get a FREE advanced course.</>,
-      desktopImageSrc: require('./images/makeup/coupon-DIVEIN.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-mobile-DIVEIN.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-DIVEIN.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-mobile-DIVEIN.jpg'),
       altText: 'Free leather portfolio and free advanced course',
       startDate: new Date(2021, 5, 30, 10), // June 30 at 10:00
       endDate: new Date(2021, 5, 30, 23, 59, 59, 999), // June 30 at 23:59:59.999
@@ -410,8 +410,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'CANADA154',
       description: <>Enroll in any online makeup course and get {price?.currency.code === 'GBP' ? '£' : '$'}154 off your tuition!</>,
-      desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-uk-CANADA154.jpg').default : require('./images/makeup/coupon-CANADA154.jpg').default,
-      mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-mobile-uk-CANADA154.jpg').default : require('./images/makeup/coupon-mobile-CANADA154.jpg').default,
+      desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-uk-CANADA154.jpg') : require('./images/makeup/coupon-CANADA154.jpg'),
+      mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-mobile-uk-CANADA154.jpg') : require('./images/makeup/coupon-mobile-CANADA154.jpg'),
       altText: `get ${price?.currency.code === 'GBP' ? '£' : '$'}154 off your tuition!`,
       startDate: new Date(2021, 5, 28, 9, 30), // June 26 at 08:00
       endDate: new Date(2021, 6, 6, 10, 30), // July 6 at 10:30
@@ -422,8 +422,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'CANADA154',
       description: <>Enroll in any online design course and get {price?.currency.code === 'GBP' ? '£' : '$'}154 off your tuition!</>,
-      desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-uk-CANADA154.jpg').default : require('./images/makeup/coupon-CANADA154.jpg').default,
-      mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-mobile-uk-CANADA154.jpg').default : require('./images/makeup/coupon-mobile-CANADA154.jpg').default,
+      desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-uk-CANADA154.jpg') : require('./images/makeup/coupon-CANADA154.jpg'),
+      mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-mobile-uk-CANADA154.jpg') : require('./images/makeup/coupon-mobile-CANADA154.jpg'),
       altText: `get ${price?.currency.code === 'GBP' ? '£' : '$'}154 off your tuition!`,
       startDate: new Date(2021, 5, 28, 9, 30), // June 26 at 08:00
       endDate: new Date(2021, 6, 6, 10, 30), // July 6 at 10:30
@@ -434,8 +434,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'CANADA154',
       description: <>Enroll in any online event course and get {price?.currency.code === 'GBP' ? '£' : '$'}154 off your tuition!</>,
-      desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-uk-CANADA154.jpg').default : require('./images/makeup/coupon-CANADA154.jpg').default,
-      mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-mobile-uk-CANADA154.jpg').default : require('./images/makeup/coupon-mobile-CANADA154.jpg').default,
+      desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-uk-CANADA154.jpg') : require('./images/makeup/coupon-CANADA154.jpg'),
+      mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/makeup/coupon-mobile-uk-CANADA154.jpg') : require('./images/makeup/coupon-mobile-CANADA154.jpg'),
       altText: `get ${price?.currency.code === 'GBP' ? '£' : '$'}154 off your tuition!`,
       startDate: new Date(2021, 5, 28, 9, 30), // June 26 at 08:00
       endDate: new Date(2021, 6, 6, 10, 30), // July 6 at 10:30
@@ -447,8 +447,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'WEDDING21',
       description: <>Enroll in the <strong>Master Makeup Artistry</strong> course and get 50% off the <strong>Hair Styling Essentials</strong> course, plus get a FREE a free five-piece bridal makeup kit and hair styling wand!</>,
-      desktopImageSrc: require('./images/makeup/coupon-WEDDING21.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-mobile-WEDDING21.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-WEDDING21.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-mobile-WEDDING21.jpg'),
       altText: '50% off the Hair Styling Essentials course, plus FREE 5-piece bridal makeup kit and hair styling wand',
       startDate: new Date(2021, 6, 6, 10, 30), // July 6 at 10:30
       endDate: new Date(2021, 6, 17, 23, 59, 59, 999), // July 17 at 23:59:59.999
@@ -459,8 +459,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'ONLY',
       code: 'WEDDING21',
       description: <>Enroll in any course and get a free six-piece makeup kit!</>,
-      desktopImageSrc: require('./images/makeup/coupon-WEDDING21.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-mobile-WEDDING21.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-WEDDING21.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-mobile-WEDDING21.jpg'),
       altText: 'free 6-piece makeup kit',
       startDate: new Date(2021, 6, 6, 10, 30), // July 6 at 10:30
       endDate: new Date(2021, 6, 17, 23, 59, 59, 999), // July 17 at 23:59:59.999
@@ -471,8 +471,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'DELUXE',
       description: <>Get a deluxe design kit, plus get a second course of equal or lesser value for FREE</>,
-      desktopImageSrc: require('./images/design/coupon-DELUXE-design.jpg').default,
-      mobileImageSrc: require('./images/design/coupon-mobile-DELUXE-design.jpg').default,
+      desktopImageSrc: require('./images/design/coupon-DELUXE-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-DELUXE-design.jpg'),
       altText: 'Deluxe design kit + second course FREE',
       startDate: new Date(Date.UTC(2021, 8, 20, 13, 30)), // September 20 at 09:30 (13:30 UTC)
       endDate: new Date(Date.UTC(2021, 9, 1, 13, 30)), // October 1 at 09:30 (13:30 UTC)
@@ -483,8 +483,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'WEDDINGSZN',
       description: <>Enroll in any Foundation course and get any Specialty course free.</>,
-      desktopImageSrc: require('./images/event/coupon-WEDDINGSZN.jpg').default,
-      mobileImageSrc: require('./images/event/coupon-mobile-WEDDINGSZN.jpg').default,
+      desktopImageSrc: require('./images/event/coupon-WEDDINGSZN.jpg'),
+      mobileImageSrc: require('./images/event/coupon-mobile-WEDDINGSZN.jpg'),
       altText: 'Enroll in any Foundation course and get any Specialty course free',
       startDate: new Date(2021, 6, 6, 10, 30), // July 6 at 10:30
       endDate: new Date(2021, 6, 17, 23, 59, 59, 999), // July 17 at 23:59:59.999
@@ -495,8 +495,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'DELUXE21',
       description: <>Enroll in any course &amp; get FREE 2nd course + Deluxe Design Kit + Sherwin-Williams Color Fan deck</>,
-      desktopImageSrc: require('./images/design/coupon-DELUXE21-design.jpg').default,
-      mobileImageSrc: require('./images/design/coupon-mobile-DELUXE21-design.jpg').default,
+      desktopImageSrc: require('./images/design/coupon-DELUXE21-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-DELUXE21-design.jpg'),
       altText: 'Enroll in any course & get FREE 2nd course + Deluxe Design Kit + Sherwin-Williams Color Fan deck',
       startDate: new Date(Date.UTC(2021, 6, 17, 12)), // July 17 at 08:00
       endDate: new Date(Date.UTC(2021, 6, 19, 4)), // July 19 at 00:00
@@ -507,8 +507,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'GLOWUP',
       description: <>Enroll in <strong>Master Makeup Artistry</strong> and get the <strong>Pro Makeup Workshop</strong> FREE. Also get a FREE elite makeup kit upgrade.</>,
-      desktopImageSrc: require('./images/makeup/coupon-GLOWUP-makeup.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-mobile-GLOWUP-makeup.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-GLOWUP-makeup.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-mobile-GLOWUP-makeup.jpg'),
       altText: 'FREE Pro Makeup Workshop + elite makeup kit upgrade',
       startDate: new Date(Date.UTC(2021, 6, 19, 13, 30)), // July 19 at 09:30
       endDate: new Date(Date.UTC(2021, 6, 31, 4)), // July 31 at 00:00
@@ -519,8 +519,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'FASTPASS',
       description: <>Enroll in any of QC&apos;s foundation courses and get both the <strong>Luxury Wedding Planning</strong> course and <strong>Virtual Event Training</strong> program FREE.</>,
-      desktopImageSrc: require('./images/event/coupon-FASTPASS-event.jpg').default,
-      mobileImageSrc: require('./images/event/coupon-mobile-FASTPASS-event.jpg').default,
+      desktopImageSrc: require('./images/event/coupon-FASTPASS-event.jpg'),
+      mobileImageSrc: require('./images/event/coupon-mobile-FASTPASS-event.jpg'),
       altText: 'FREE Luxury Wedding Planning course and Virtual Event Training program',
       startDate: new Date(Date.UTC(2021, 6, 19, 13, 30)), // July 19 at 09:30
       endDate: new Date(Date.UTC(2021, 6, 31, 4)), // July 31 at 00:00
@@ -531,8 +531,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'JULY21',
       description: <>Enroll any course and get a second course of equal or lesser value for FREE!</>,
-      desktopImageSrc: require('./images/design/coupon-JULY21-design.jpg').default,
-      mobileImageSrc: require('./images/design/coupon-mobile-JULY21-design.jpg').default,
+      desktopImageSrc: require('./images/design/coupon-JULY21-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-JULY21-design.jpg'),
       altText: 'FREE second course',
       startDate: new Date(Date.UTC(2021, 6, 19, 13, 30)), // July 19 at 09:30
       endDate: new Date(Date.UTC(2021, 6, 31, 4)), // July 31 at 00:00
@@ -543,8 +543,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'DESIGN21',
       description: <>Enroll any course and get a deluxe design kit and leather portfolio FREE!</>,
-      desktopImageSrc: require('./images/design/coupon-DESIGN21-design.jpg').default,
-      mobileImageSrc: require('./images/design/coupon-mobile-DESIGN21-design.jpg').default,
+      desktopImageSrc: require('./images/design/coupon-DESIGN21-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-DESIGN21-design.jpg'),
       altText: 'FREE deluxe kit + leather portfolio',
       startDate: new Date(Date.UTC(2021, 7, 14, 12, 30)), // August 14 at 08:30 (12:30 UTC)
       endDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // August 16 at 09:30 (13:30 UTC)
@@ -555,8 +555,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'VIP2021',
       description: <>Get the <strong>VIP Career Catalyst Workshop</strong> for FREE when you enroll in the <strong>Master Makeup Artistry</strong> course.</>,
-      desktopImageSrc: require('./images/makeup/coupon-VIP2021-makeup.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-mobile-VIP2021-makeup.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-VIP2021-makeup.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-mobile-VIP2021-makeup.jpg'),
       altText: 'Free VIP Career Catalyst Workshop',
       startDate: new Date(Date.UTC(2021, 7, 3, 16, 15)), // August 3 at 12:15 (16:15 UTC)
       endDate: new Date(Date.UTC(2021, 7, 14, 12)), // August 14 at 08:00 (12:00 UTC)
@@ -567,8 +567,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'TRIPLETHREAT',
       description: <>Get any two <strong>Specialty</strong> courses for FREE when you enroll in the <strong>Event &amp; Wedding Planning</strong> course.</>,
-      desktopImageSrc: require('./images/event/coupon-TRIPLETHREAT-event.jpg').default,
-      mobileImageSrc: require('./images/event/coupon-mobile-TRIPLETHREAT-event.jpg').default,
+      desktopImageSrc: require('./images/event/coupon-TRIPLETHREAT-event.jpg'),
+      mobileImageSrc: require('./images/event/coupon-mobile-TRIPLETHREAT-event.jpg'),
       altText: 'Two free Specialty courses',
       startDate: new Date(Date.UTC(2021, 8, 20, 13, 30)), // September 20 at 09:30 (13:30 UTC)
       endDate: new Date(Date.UTC(2021, 9, 1, 13, 30)), // October 1 at 09:30 (13:30 UTC)
@@ -579,8 +579,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'DELUXE200',
       description: <>Get {price?.currency.code === 'GBP' ? '£150' : '$200'} off your tuition, plus get a FREE <strong>deluxe design kit</strong>.</>,
-      desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/design/coupon-DELUXE200-design-uk.jpg').default : require('./images/design/coupon-DELUXE200-design.jpg').default,
-      mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/design/coupon-mobile-DELUXE200-design-uk.jpg').default : require('./images/design/coupon-mobile-DELUXE200-design.jpg').default,
+      desktopImageSrc: price?.currency.code === 'GBP' ? require('./images/design/coupon-DELUXE200-design-uk.jpg') : require('./images/design/coupon-DELUXE200-design.jpg'),
+      mobileImageSrc: price?.currency.code === 'GBP' ? require('./images/design/coupon-mobile-DELUXE200-design-uk.jpg') : require('./images/design/coupon-mobile-DELUXE200-design.jpg'),
       altText: `${price?.currency.code === 'GBP' ? '£150' : '$200'} off, plus free deluxe design kit`,
       startDate: new Date(Date.UTC(2021, 7, 3, 16, 15)), // August 3 at 12:15 (16:15 UTC)
       endDate: new Date(Date.UTC(2021, 7, 14, 12)), // August 14 at 08:00 (12:00 UTC)
@@ -591,8 +591,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'ELITEVIP',
       description: <>Get the <strong>VIP Career Catalyst</strong> session for FREE when you enroll in the <strong>Master Makeup Artistry</strong> course. Plus, get an elite makeup kit.</>,
-      desktopImageSrc: require('./images/makeup/coupon-ELITEVIP.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-mobile-ELITEVIP.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-ELITEVIP.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-mobile-ELITEVIP.jpg'),
       altText: 'Free VIP Career Catalyst session + elite makeup kit',
       startDate: new Date(Date.UTC(2021, 7, 14, 4)), // August 14 at 00:00 (04:00 UTC)
       endDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // August 16 at 09:30 (13:30 UTC)
@@ -604,8 +604,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'BACK2SCHOOL',
       description: <>Enroll in the <strong>Master Makeup Artistry</strong> course and get a <strong>Back-to-School Kit</strong> FREE!</>,
-      desktopImageSrc: require('./images/makeup/coupon-BACK2SCHOOL-makeup.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-BACK2SCHOOL-makeup-mobile.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-BACK2SCHOOL-makeup.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-BACK2SCHOOL-makeup-mobile.jpg'),
       altText: 'FREE Back-to-School Kit',
       startDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // August 16 at 09:30 (13:30 UTC)
       endDate: new Date(Date.UTC(2021, 7, 28, 12)), // August 28 at 08:00 (12:00 UTC)
@@ -616,8 +616,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'BACK2SCHOOL',
       description: <>Enroll in the <strong>Event &amp; Wedding Planning</strong> course and get any <strong>Specialty</strong> course FREE! Also get a free <strong>Back-to-School Kit</strong>!</>,
-      desktopImageSrc: require('./images/event/coupon-BACK2SCHOOL-event.jpg').default,
-      mobileImageSrc: require('./images/event/coupon-mobile-BACK2SCHOOL-event.jpg').default,
+      desktopImageSrc: require('./images/event/coupon-BACK2SCHOOL-event.jpg'),
+      mobileImageSrc: require('./images/event/coupon-mobile-BACK2SCHOOL-event.jpg'),
       altText: 'FREE Specialty course and Back-to-School Kit',
       startDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // August 16 at 09:30 (13:30 UTC)
       endDate: new Date(Date.UTC(2021, 7, 28, 12)), // August 28 at 08:00 (12:00 UTC)
@@ -628,8 +628,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'BACK2SCHOOL',
       description: <>Enroll in any course and get a second course of equal or lesser value FREE! Also get a free <strong>Back-to-School Kit</strong>!</>,
-      desktopImageSrc: require('./images/design/coupon-BACK2SCHOOL-design.jpg').default,
-      mobileImageSrc: require('./images/design/coupon-mobile-BACK2SCHOOL-design.jpg').default,
+      desktopImageSrc: require('./images/design/coupon-BACK2SCHOOL-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-BACK2SCHOOL-design.jpg'),
       altText: 'FREE second course and Back-to-School Kit',
       startDate: new Date(Date.UTC(2021, 7, 16, 13, 30)), // August 16 at 09:30 (13:30 UTC)
       endDate: new Date(Date.UTC(2021, 7, 28, 12)), // August 28 at 08:00 (12:00 UTC)
@@ -641,8 +641,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'SCHOOLKIT',
       description: <>Get the Back-to-School Kit (totebag and notebook) and elite makeup kit when you enroll in <strong>Master Makeup Artistry</strong></>,
-      desktopImageSrc: require('./images/makeup/coupon-SCHOOLKIT.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-mobile-SCHOOLKIT.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-SCHOOLKIT.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-mobile-SCHOOLKIT.jpg'),
       altText: 'FREE Back-to-School Kit and elite makeup kit',
       startDate: new Date(Date.UTC(2021, 7, 28, 12)), // August 28 at 08:00 (12:00 UTC)
       endDate: new Date(Date.UTC(2021, 7, 30, 13, 30)), // August 30 at 09:30 (13:30 UTC)
@@ -653,8 +653,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'SCHOOLKIT',
       description: <>Enroll in <strong>Event &amp; Wedding Planning</strong> and get a FREE specialty course. Plus, get the UPGRADED Back-to-School Kit!</>,
-      desktopImageSrc: require('./images/event/coupon-SCHOOLKIT-event.jpg').default,
-      mobileImageSrc: require('./images/event/coupon-mobile-SCHOOLKIT-event.jpg').default,
+      desktopImageSrc: require('./images/event/coupon-SCHOOLKIT-event.jpg'),
+      mobileImageSrc: require('./images/event/coupon-mobile-SCHOOLKIT-event.jpg'),
       altText: 'FREE specialty course + UPGRADED Back-to-School Kit',
       startDate: new Date(Date.UTC(2021, 7, 28, 12)), // August 28 at 08:00 (12:00 UTC)
       endDate: new Date(Date.UTC(2021, 7, 30, 13, 30)), // August 30 at 09:30 (13:30 UTC)
@@ -665,8 +665,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'SCHOOLKIT',
       description: <>Enroll in any course and get a <strong>FREE second course</strong> of equal or lesser value plus two gifts: the Back-to-School Kit and the Deluxe Design Kit.</>,
-      desktopImageSrc: require('./images/design/coupon-SCHOOLKIT-design.jpg').default,
-      mobileImageSrc: require('./images/design/coupon-mobile-SCHOOLKIT-design.jpg').default,
+      desktopImageSrc: require('./images/design/coupon-SCHOOLKIT-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-SCHOOLKIT-design.jpg'),
       altText: 'FREE 2nd Course + UPGRADED Back-to-School Kit',
       startDate: new Date(Date.UTC(2021, 7, 28, 12)), // August 28 at 08:00 (12:00 UTC)
       endDate: new Date(Date.UTC(2021, 7, 30, 13, 30)), // August 30 at 09:30 (13:30 UTC)
@@ -678,8 +678,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'BCK2S',
       description: <>Get the Grab-and-Go Kit and ANISA smokey eye makeup brush set when you enroll in <strong>Master Makeup Artistry</strong></>,
-      desktopImageSrc: require('./images/makeup/coupon-BCK2S-makeup.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-BCK2S-makeup-mobile.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-BCK2S-makeup.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-BCK2S-makeup-mobile.jpg'),
       altText: 'FREE Grab-and-Go Kit and ANISA smokey eye makeup brush set',
       startDate: new Date(Date.UTC(2021, 7, 30, 13, 30)), // August 30 at 09:30 (13:30 UTC)
       endDate: new Date(Date.UTC(2021, 8, 7, 13, 30)), // September 7 at 09:30 (13:30 UTC)
@@ -690,8 +690,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'BCK2S',
       description: <>Enroll in <strong>Event &amp; Wedding Planning</strong> a get a FREE specialty course. Plus, get the Grab-and-Go Kit!</>,
-      desktopImageSrc: require('./images/event/coupon-BCK2S-event.jpg').default,
-      mobileImageSrc: require('./images/event/coupon-mobile-BCK2S-event.jpg').default,
+      desktopImageSrc: require('./images/event/coupon-BCK2S-event.jpg'),
+      mobileImageSrc: require('./images/event/coupon-mobile-BCK2S-event.jpg'),
       altText: 'FREE specialty course + Grab-and-Go Kit',
       startDate: new Date(Date.UTC(2021, 7, 30, 13, 30)), // August 30 at 09:30 (13:30 UTC)
       endDate: new Date(Date.UTC(2021, 8, 7, 13, 30)), // September 7 at 09:30 (13:30 UTC)
@@ -702,8 +702,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'BCK2S',
       description: <>Enroll in any course and get a <strong>FREE second course</strong> of equal or lesser value plus the Grab-and-Go Kit!</>,
-      desktopImageSrc: require('./images/design/coupon-BCK2S-design.jpg').default,
-      mobileImageSrc: require('./images/design/coupon-mobile-BCK2S-design.jpg').default,
+      desktopImageSrc: require('./images/design/coupon-BCK2S-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-BCK2S-design.jpg'),
       altText: 'FREE 2nd Course + the Grab-and-Go Kit',
       startDate: new Date(Date.UTC(2021, 7, 30, 13, 30)), // August 30 at 09:30 (13:30 UTC)
       endDate: new Date(Date.UTC(2021, 8, 7, 13, 30)), // September 7 at 09:30 (13:30 UTC)
@@ -715,8 +715,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'GLOBALBTY',
       description: <>Enroll in <strong>Master Makeup Artistry</strong> a get the <strong>Global Beauty Workshop</strong> FREE (get started for {price?.currency.code === 'GBP' ? '£49' : '$89'}).</>,
-      desktopImageSrc: require('./images/makeup/coupon-GLOBALBTY-makeup.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-GLOBALBTY-makeup-mobile.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-GLOBALBTY-makeup.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-GLOBALBTY-makeup-mobile.jpg'),
       altText: 'FREE Global Beauty Workshop',
       startDate: new Date(Date.UTC(2021, 8, 7, 13, 30)), // September 7 at 09:30 (13:30 UTC)
       endDate: new Date(Date.UTC(2021, 8, 17, 12)), // September 18 at 08:00 (12:00 UTC)
@@ -727,8 +727,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'GREENGIFT',
       description: <>Enroll in any <strong>Foundation Course</strong> and get a FREE second course of equal or lesser value plus the Eco-Friendly Planner &amp; Pen!</>,
-      desktopImageSrc: require('./images/event/coupon-GREENGIFT-event.jpg').default,
-      mobileImageSrc: require('./images/event/coupon-mobile-GREENGIFT-event.jpg').default,
+      desktopImageSrc: require('./images/event/coupon-GREENGIFT-event.jpg'),
+      mobileImageSrc: require('./images/event/coupon-mobile-GREENGIFT-event.jpg'),
       altText: 'FREE 2nd course + eco-friendly planner and pen',
       startDate: new Date(Date.UTC(2021, 8, 7, 13, 30)), // September 7 at 09:30 (13:30 UTC)
       endDate: new Date(Date.UTC(2021, 8, 17, 12)), // September 18 at 08:00 (12:00 UTC)
@@ -739,8 +739,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'GREENGIFT',
       description: <>Enroll in any course and get a FREE second course of equal or lesser value plus the Eco-Friendly Planner &amp; Pen!</>,
-      desktopImageSrc: require('./images/design/coupon-GREENGIFT-design.jpg').default,
-      mobileImageSrc: require('./images/design/coupon-mobile-GREENGIFT-design.jpg').default,
+      desktopImageSrc: require('./images/design/coupon-GREENGIFT-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-GREENGIFT-design.jpg'),
       altText: 'FREE 2nd course + eco-friendly planner and pen',
       startDate: new Date(Date.UTC(2021, 8, 7, 13, 30)), // September 7 at 09:30 (13:30 UTC)
       endDate: new Date(Date.UTC(2021, 8, 17, 12)), // September 18 at 08:00 (12:00 UTC)
@@ -752,8 +752,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'PROBRUSHES',
       description: <>Get the <strong>Global Beauty Workshop</strong> and the Smokey Eye Brush Set FREE when you enroll in Master Makeup Artistry</>,
-      desktopImageSrc: require('./images/makeup/coupon-PROBRUSHES-makeup.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-PROBRUSHES-makeup-mobile.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-PROBRUSHES-makeup.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-PROBRUSHES-makeup-mobile.jpg'),
       altText: 'FREE The Global Beauty Workshop + Smokey Eye Brush Set!',
       startDate: new Date(Date.UTC(2021, 8, 18, 12)), // September 18 at 08:00 (12:00 UTC)
       endDate: new Date(Date.UTC(2021, 8, 20, 13, 30)), // September 20 at 09:30 (13:30 UTC)
@@ -764,8 +764,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'GIFTCODE',
       description: <>Enroll in any <strong>Foundation Course</strong> and get a FREE second course of equal or lesser value plus the eco-friendly planner &amp; QC tote bag!</>,
-      desktopImageSrc: require('./images/event/coupon-GIFTCODE-event.jpg').default,
-      mobileImageSrc: require('./images/event/coupon-mobile-GIFTCODE-event.jpg').default,
+      desktopImageSrc: require('./images/event/coupon-GIFTCODE-event.jpg'),
+      mobileImageSrc: require('./images/event/coupon-mobile-GIFTCODE-event.jpg'),
       altText: 'FREE 2nd Course + 2 Bonus Gifts!',
       startDate: new Date(Date.UTC(2021, 8, 18, 12)), // September 18 at 08:00 (12:00 UTC)
       endDate: new Date(Date.UTC(2021, 8, 20, 13, 30)), // September 20 at 09:30 (13:30 UTC)
@@ -776,8 +776,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'GIFTCODE',
       description: <>Enroll in any course and get a FREE second course of equal or lesser value plus the eco-friendly Planner &amp; Deluxe Design Kit!</>,
-      desktopImageSrc: require('./images/design/coupon-GIFTCODE-design.jpg').default,
-      mobileImageSrc: require('./images/design/coupon-mobile-GIFTCODE-design.jpg').default,
+      desktopImageSrc: require('./images/design/coupon-GIFTCODE-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-GIFTCODE-design.jpg'),
       altText: 'FREE 2nd course + 2 Bonus Gifts!',
       startDate: new Date(Date.UTC(2021, 8, 18, 12)), // September 18 at 08:00 (12:00 UTC)
       endDate: new Date(Date.UTC(2021, 8, 20, 13, 30)), // September 20 at 09:30 (13:30 UTC)
@@ -788,8 +788,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'ELITEPRO',
       description: <>Get the <strong>Pro Makeup Workshop</strong> FREE when you enroll in the <strong>Master Makeup Artistry</strong> course. Plus, get the Elite Makeup Kit!</>,
-      desktopImageSrc: require('./images/makeup/coupon-ELITEPRO.jpg').default,
-      mobileImageSrc: require('./images/makeup/coupon-mobile-ELITEPRO.jpg').default,
+      desktopImageSrc: require('./images/makeup/coupon-ELITEPRO.jpg'),
+      mobileImageSrc: require('./images/makeup/coupon-mobile-ELITEPRO.jpg'),
       altText: 'FREE Pro Makeup Workshop + the Elite Makeup Kit',
       startDate: new Date(Date.UTC(2021, 9, 1, 13, 30)), // October 1 at 09:30 (13:30 UTC)
       endDate: new Date(Date.UTC(2021, 10, 1, 13, 30)), // November 1 at 09:30 (13:30 UTC)
@@ -800,8 +800,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'SPECIALIST',
       description: <>Enroll in the <strong>Event &amp; Wedding Planning</strong> course and get a FREE specialty course!</>,
-      desktopImageSrc: require('./images/event/coupon-SPECIALIST-event.jpg').default,
-      mobileImageSrc: require('./images/event/coupon-mobile-SPECIALIST-event.jpg').default,
+      desktopImageSrc: require('./images/event/coupon-SPECIALIST-event.jpg'),
+      mobileImageSrc: require('./images/event/coupon-mobile-SPECIALIST-event.jpg'),
       altText: 'FREE specialty course',
       startDate: new Date(Date.UTC(2021, 9, 30, 4)), // October 30 at 00:00 (04:00 UTC)
       endDate: new Date(Date.UTC(2021, 10, 1, 13, 30)), // November 1 at 09:30 (13:30 UTC)
@@ -812,8 +812,8 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       student: 'DENIED',
       code: 'TREAT',
       description: <>Enroll in any course and get a FREE second course. Plus, get the NEW laser tape measure!</>,
-      desktopImageSrc: require('./images/design/coupon-TREAT-design.jpg').default,
-      mobileImageSrc: require('./images/design/coupon-mobile-TREAT-design.jpg').default,
+      desktopImageSrc: require('./images/design/coupon-TREAT-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-TREAT-design.jpg'),
       altText: 'FREE second course + laser tape measure',
       startDate: new Date(Date.UTC(2021, 9, 1, 13, 30)), // October 1 at 09:30 (13:30 UTC)
       endDate: new Date(Date.UTC(2021, 10, 1, 13, 30)), // November 1 at 09:30 (13:30 UTC)

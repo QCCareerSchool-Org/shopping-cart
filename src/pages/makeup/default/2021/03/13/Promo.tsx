@@ -21,15 +21,15 @@ export const Promo20210313: React.FC<Props> = ({ date }) => {
 
   if (date.getTime() >= Date.UTC(2021, 2, 14, 5)) {
     if (desktop) {
-      image = require('./desktop-ends.jpg').default;
+      image = require('./desktop-ends.jpg');
     } else {
-      image = require('./mobile-ends.jpg').default;
+      image = require('./mobile-ends.jpg');
     }
   } else {
     if (desktop) {
-      image = require('./desktop.jpg').default;
+      image = require('./desktop.jpg');
     } else {
-      image = require('./mobile.jpg').default;
+      image = require('./mobile.jpg');
     }
   }
 
@@ -52,7 +52,7 @@ export const Promo20210313: React.FC<Props> = ({ date }) => {
         <ModalHeader toggle={togglePopup}>Special Offer</ModalHeader>
         <ModalBody className="text-center p-0">
           <p className="mt-3">Get started today with our <strong>lowest deposit ever</strong>, followed by low monthly payments. Plus, receive a <strong>free Virtual Makeup Course</strong> and a <strong>free Elite Makeup Kit</strong> when you enroll in the <strong>Master Makeup Artistry Course</strong>.</p>
-          <img className="img-fluid" src={require('./popup-makeup-kit.jpg').default} alt="Makeup Kit" />
+          <img className="img-fluid" src={require('./popup-makeup-kit.jpg')} alt="Makeup Kit" />
         </ModalBody>
         <ModalFooter>
           <div>The kit pictured above is included only when you enroll in the <strong>Master Makeup Artistry</strong> course. You will receive a different, course-specific makeup starter kit with all other QC Makeup Academy courses instead of the one shown.</div>

@@ -30,15 +30,15 @@ export const Promo20210814: React.FC<Props> = ({ date }) => {
 
   if (date.getTime() >= Date.UTC(2021, 7, 15, 4)) { // August 15 at 00:00 (04:00 UTC)
     if (desktop) {
-      image = require('./desktop-ends.jpg').default;
+      image = require('./desktop-ends.jpg');
     } else {
-      image = require('./mobile-ends.jpg').default;
+      image = require('./mobile-ends.jpg');
     }
   } else {
     if (desktop) {
-      image = require('./desktop.jpg').default;
+      image = require('./desktop.jpg');
     } else {
-      image = require('./mobile.jpg').default;
+      image = require('./mobile.jpg');
     }
   }
 

@@ -23,12 +23,12 @@ export const Promo20210907: React.FC<Props> = ({ date }) => {
 
   if (date.getTime() >= Date.UTC(2021, 8, 17, 4)) { // September 17 at 00:00 (04:00 UTC)
     image = desktop
-      ? price?.currency.code === 'GBP' ? require('./desktop-ends-uk.jpg').default : require('./desktop-ends.jpg').default
-      : price?.currency.code === 'GBP' ? require('./mobile-ends-uk.jpg').default : require('./mobile-ends.jpg').default;
+      ? price?.currency.code === 'GBP' ? require('./desktop-ends-uk.jpg') : require('./desktop-ends.jpg')
+      : price?.currency.code === 'GBP' ? require('./mobile-ends-uk.jpg') : require('./mobile-ends.jpg');
   } else {
     image = desktop
-      ? price?.currency.code === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default
-      : price?.currency.code === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
+      ? price?.currency.code === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg')
+      : price?.currency.code === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
   }
 
   if (desktop) {
@@ -55,7 +55,7 @@ export const Promo20210907: React.FC<Props> = ({ date }) => {
             <hr />
             <p>After you submit your Unit B, we&apos;ll also ship you a toolkit with the essential items you need to get started. Your kit includes a WAHL ARCO 5-in-1 Cordless Clipper, a stainless steel attachment guide comb kit, professional-grade grooming scissors, brushes, combs, and nail clippers.</p>
           </div>
-          <img src={require('./pop-up.jpg').default} className="img-fluid" alt="promotion details" />
+          <img src={require('./pop-up.jpg')} className="img-fluid" alt="promotion details" />
         </ModalBody>
       </Modal>
     </section>

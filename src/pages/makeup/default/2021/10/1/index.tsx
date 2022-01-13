@@ -29,15 +29,15 @@ export const Promo20211001: React.FC<Props> = ({ date }) => {
 
   if (date.getTime() >= Date.UTC(2021, 9, 29, 4)) { // October 29 at 00:00 (04:00 UTC)
     if (desktop) {
-      image = price?.promoCode === 'ELITEPRO' ? require('./desktop-ends-active.jpg').default : require('./desktop-ends.jpg').default;
+      image = price?.promoCode === 'ELITEPRO' ? require('./desktop-ends-active.jpg') : require('./desktop-ends.jpg');
     } else {
-      image = price?.promoCode === 'ELITEPRO' ? require('./mobile-ends-active.jpg').default : require('./mobile-ends.jpg').default;
+      image = price?.promoCode === 'ELITEPRO' ? require('./mobile-ends-active.jpg') : require('./mobile-ends.jpg');
     }
   } else {
     if (desktop) {
-      image = price?.promoCode === 'ELITEPRO' ? require('./desktop-active.jpg').default : require('./desktop.jpg').default;
+      image = price?.promoCode === 'ELITEPRO' ? require('./desktop-active.jpg') : require('./desktop.jpg');
     } else {
-      image = price?.promoCode === 'ELITEPRO' ? require('./mobile-active.jpg').default : require('./mobile.jpg').default;
+      image = price?.promoCode === 'ELITEPRO' ? require('./mobile-active.jpg') : require('./mobile.jpg');
     }
   }
 
@@ -71,7 +71,7 @@ export const Promo20211001: React.FC<Props> = ({ date }) => {
           <ModalBody>
             <p>Enroll in <strong>Master Makeup Artistry</strong> and use promo code <PromoCode>ELITEPRO</PromoCode> to get the <strong>Pro Makeup Workshop</strong>{date.getTime() <= Date.UTC(2021, 9, 16, 4) && <> and <u>an extra set of false eyelashes</u></>} FREE!</p>
             <p>You&apos;ll also get the Elite Makeup Kit.</p>
-            <img src={require('./enrollment-pop-up.jpg').default} className="img-fluid" />
+            <img src={require('./enrollment-pop-up.jpg')} className="img-fluid" />
           </ModalBody>
           <ModalFooter>
             <div>The kit pictured above is included only when you enroll in the <strong>Master Makeup Artistry</strong> course. You will receive a different, course-specific makeup starter kit with all other QC Makeup Academy courses instead of the one shown.</div>

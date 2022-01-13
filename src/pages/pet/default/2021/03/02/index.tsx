@@ -22,20 +22,20 @@ export const Promo20210302: React.FC<Props> = ({ date, currencyCode }) => {
 
   if (date.getTime() >= Date.UTC(2021, 2, 24, 16)) { // March promotion ending
     image = desktop
-      ? currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg').default : require('./desktop-ends.jpg').default
-      : currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg').default : require('./mobile-ends.jpg').default;
+      ? currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg')
+      : currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
   } else if (date.getTime() >= Date.UTC(2021, 2, 15, 13)) { // March promotion
     image = desktop
-      ? currencyCode === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default
-      : currencyCode === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
+      ? currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg')
+      : currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
   } else if (date.getTime() >= Date.UTC(2021, 2, 10, 17)) { // March promotion ending
     image = desktop
-      ? currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg').default : require('./desktop-ends.jpg').default
-      : currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg').default : require('./mobile-ends.jpg').default;
+      ? currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg')
+      : currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
   } else {
     image = desktop
-      ? currencyCode === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default
-      : currencyCode === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
+      ? currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg')
+      : currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
   }
 
   if (desktop) {
@@ -60,7 +60,7 @@ export const Promo20210302: React.FC<Props> = ({ date, currencyCode }) => {
             <p>Enroll today and receive a toolkit with the essential items you need to get started, including professional-grade grooming scissors, brushes, combs, and nail clippers.</p>
             <p>After you submit your Unit B, we&apos;ll also ship you a WAHL ARCO 5-in-1 Cordless Clipper AND stainless steel attachment guide comb kit!</p>
           </div>
-          <img src={require('./pop-up.jpg').default} className="img-fluid" alt="promotion details" />
+          <img src={require('./pop-up.jpg')} className="img-fluid" alt="promotion details" />
         </ModalBody>
       </Modal>
     </section>

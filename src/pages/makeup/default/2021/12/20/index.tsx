@@ -27,15 +27,15 @@ export const Promo20211220 = ({ date }: Props): ReactElement => {
 
   if (date.getTime() >= Date.UTC(2022, 0, 4, 5)) { // January 4 at 00:00 (05:00 UTC)
     if (desktop) {
-      image = require('./desktop-ends.jpg').default;
+      image = require('./desktop-ends.jpg');
     } else {
-      image = require('./mobile-ends.jpg').default;
+      image = require('./mobile-ends.jpg');
     }
   } else {
     if (desktop) {
-      image = require('./desktop.jpg').default;
+      image = require('./desktop.jpg');
     } else {
-      image = require('./mobile.jpg').default;
+      image = require('./mobile.jpg');
     }
   }
 
@@ -61,7 +61,7 @@ export const Promo20211220 = ({ date }: Props): ReactElement => {
             <p>Enroll in <strong>Master Makeup Artistry</strong> and get QC&apos;s <strong>Pro Makeup Workshop</strong> for FREE!</p>
             <p>Plus, we&apos;re giving you an exclusive gift to celebrate the Holiday season. As soon as you enroll, we&apos;ll send you the 12-piece New Year Collection to jumpstart your makeup career.</p>
             <p>Graduate as a Master International Makeup Professional&trade; (MIMP&trade;) in just a few short months and build the beauty empire you&apos;ve always dreamed of.</p>
-            <img src={require('./enrollment-pop-up.jpg').default} className="img-fluid" />
+            <img src={require('./enrollment-pop-up.jpg')} className="img-fluid" />
           </ModalBody>
           <ModalFooter>
             <div>The kit pictured above is included only when you enroll in the <strong>Master Makeup Artistry</strong> course. You will receive a different, course-specific makeup starter kit with all other QC Makeup Academy courses instead of the one shown.</div>
