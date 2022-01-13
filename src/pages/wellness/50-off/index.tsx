@@ -12,12 +12,12 @@ type Props = {
 
 const additionalOptions = {
   discount: {
-    default: 150,
+    default: 50,
   },
-  discountSignature: 'lhcJe/OXekVqOTZZxqWElh/z87EXo5bUtZ2yccymbQQHvTrx2jGgbovb+JwmTP/IDmXumCVErzGG7S9I0BAVAUQX63Vi2eqN9i+864aVWwEgE1B7HKDGqOjHo7NuKgyZMUSQcIjATi15p/n6yUaR/ir7zxCqlAVdXRL9SyWxDc0E5nOqAagnjw+6U+KlQtLtyHehwnftb5C9CCM/I1m84hboURsKUVuNixTpOK5avnTnQtTqT+LEVzHI1XSKG+CzIy9bdHCHFEb9Cup9kRmb7biHyZkh/rltK4a6sUc2aURbVEWYWTwJE381FlFFTIHY7KsP3vyy1c5D36Ap8yrwdQ==',
+  discountSignature: 'IMAuLJd5/CAdMYA8xwD03ca3dSGR+Yi24+9QK5Rn6O44BwkPAojr6IMZMmFVt0yC24iI0N37R4gJj8+N9XTS1aywyFRYwVH4nNcil11xPNNhIygCkjXyGd+uE09LsLnYpEwt8Q0eS6LieMsyr7tDjUztKdI5AWd5dLNobMkAptrDeCALzvNbtg5NiGrD6Fv844Q4EEuXk8WOTpjqLqI86UKn4JECgGSntN8fwQXCEU0GqWXXxwUaWytDkMGi3KE+Ffm9fLx/ZVQSUHFWVbgcxlU0r2LVBVKeoBHnsrVxVEh6FZOfdHfj/SE1l3fs1ZsD9XDHH6EJGO0LVKW6VuBISA==',
 };
 
-const Wellness150Off = ({ currencyCode }: Props): ReactElement => {
+const Wellness50Off = ({ currencyCode }: Props): ReactElement => {
   return (
     <>
       <Promo />
@@ -34,4 +34,4 @@ const Wellness150Off = ({ currencyCode }: Props): ReactElement => {
   );
 };
 
-export default Wellness150Off;
+export default Wellness50Off;
