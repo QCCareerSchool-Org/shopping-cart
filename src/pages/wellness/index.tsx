@@ -11,6 +11,14 @@ import { Header } from './Header';
 
 import './style.scss';
 
+const Wellness150Off = React.lazy(async () => import('./150-off'));
+const Wellness100Off = React.lazy(async () => import('./100-off'));
+const Wellness50Off = React.lazy(async () => import('./50-off'));
+
+const headerLink = (path: string): boolean => {
+  return !/^\/\d{2,3}-off/u.test(path);
+};
+
 const Wellness: React.FC = () => {
   const { address, price } = useStateContext();
   const currencyCode = price?.currency.code ?? 'USD';
@@ -30,10 +38,13 @@ const Wellness: React.FC = () => {
         <link rel="shortcut icon" href="/wellness/favicon.ico?v=QEMKdlwA73" />
         <meta name="msapplication-TileColor" content="#000000" />
       </Helmet>
-      <Header countryCode={address.countryCode} />
+      <Header countryCode={address.countryCode} link={headerLink(location.pathname)} />
       <BrowserRouter>
         <Suspense fallback={<></>}>
           <Switch>
+            <Route path="/150-off" render={props => <Wellness150Off {...props} currencyCode={currencyCode} />} />
+            <Route path="/100-off" render={props => <Wellness100Off {...props} currencyCode={currencyCode} />} />
+            <Route path="/50-off" render={props => <Wellness50Off {...props} currencyCode={currencyCode} />} />
             <Route render={props => <Default {...props} currencyCode={currencyCode} />} />
           </Switch>
         </Suspense>

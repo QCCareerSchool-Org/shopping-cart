@@ -15,9 +15,9 @@ export const Promo = (): ReactElement => {
   let height: number;
 
   if (desktop) {
-    image = require('./desktop-150.jpg');
+    image = require('./desktop-100.jpg');
   } else {
-    image = require('./mobile-150.jpg');
+    image = require('./mobile-100.jpg');
   }
 
   if (desktop) {
