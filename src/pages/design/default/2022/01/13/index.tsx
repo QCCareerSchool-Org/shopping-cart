@@ -58,8 +58,8 @@ export const Promo20220113 = ({ date }: Props): ReactElement => {
         <Modal size="lg" isOpen={popup} toggle={togglePopup}>
           <ModalHeader toggle={togglePopup}>Your Special Holiday Offer</ModalHeader>
           <ModalBody>
-            <p>Enroll in any Design course and get started for only {price?.currency.code === 'GBP' ? '£30' : '$49'} followed by low monthly payments.</p>
-            <p>Prefer to pay in full? You&apos;ll save up to {price?.currency.code === 'GBP' ? '£300' : '$400'} off your tuition.</p>
+            <p>Enroll in any Design course and get started for only {price?.currency.code === 'GBP' ? '£30' : '$49'}, followed by low monthly payments.</p>
+            <p>Prefer to pay in full? You can save up to {price?.currency.code === 'GBP' ? '£300' : '$400'} off your tuition for our most popular courses.</p>
           </ModalBody>
         </Modal>
       </section>
