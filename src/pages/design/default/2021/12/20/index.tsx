@@ -27,15 +27,15 @@ export const Promo20211220 = ({ date }: Props): ReactElement => {
 
   if (date.getTime() >= Date.UTC(2022, 0, 4, 5)) { // January 4 at 00:00 (05:00 UTC)
     if (desktop) {
-      image = require('./desktop-ends.jpg').default;
+      image = require('./desktop-ends.jpg');
     } else {
-      image = require('./mobile-ends.jpg').default;
+      image = require('./mobile-ends.jpg');
     }
   } else {
     if (desktop) {
-      image = require('./desktop.jpg').default;
+      image = require('./desktop.jpg');
     } else {
-      image = require('./mobile.jpg').default;
+      image = require('./mobile.jpg');
     }
   }
 
@@ -64,7 +64,7 @@ export const Promo20211220 = ({ date }: Props): ReactElement => {
                 <p className="mb-0">Plus, we&apos;re giving you an exclusive gift to celebrate the Holiday season. As soon as you enroll, we&apos;ll send you <cite>The Interior Design Handbook</cite>, filled with bonus content to help you wow your next client!</p>
               </div>
               <div className="col-12 col-lg-6">
-                <img src={require('./new-years-gift.jpg').default} className="img-fluid" alt="Deluxe Design Kit" />
+                <img src={require('./new-years-gift.jpg')} className="img-fluid" alt="Deluxe Design Kit" />
               </div>
             </div>
           </ModalBody>

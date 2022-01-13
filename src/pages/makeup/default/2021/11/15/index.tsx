@@ -27,15 +27,15 @@ export const Promo20211115 = ({ date }: Props): ReactElement => {
 
   if (date.getTime() >= Date.UTC(2021, 10, 24, 5)) { // November 24 at 00:00 (05:00 UTC)
     if (desktop) {
-      image = price?.currency.code === 'GBP' ? require('./desktop-uk-ends.jpg').default : require('./desktop-ends.jpg').default;
+      image = price?.currency.code === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg');
     } else {
-      image = require('./mobile-ends.jpg').default;
+      image = require('./mobile-ends.jpg');
     }
   } else {
     if (desktop) {
-      image = price?.currency.code === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default;
+      image = price?.currency.code === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
     } else {
-      image = price?.currency.code === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
+      image = price?.currency.code === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
     }
   }
 
@@ -60,7 +60,7 @@ export const Promo20211115 = ({ date }: Props): ReactElement => {
           <ModalBody>
             <p>Enroll in Master Makeup Artistry and get a FREE 2nd Course. You&apos;ll save up to {price?.currency.code === 'GBP' ? '£1100' : '$1500'}! With two professional certificates, you&apos;ll take the industry by storm.</p>
             <p>The Luminous Collection includes 11 luxury products to jumpstart your professional makeup career!</p>
-            <img src={require('./enrollment-pop-up.jpg').default} className="img-fluid" />
+            <img src={require('./enrollment-pop-up.jpg')} className="img-fluid" />
           </ModalBody>
           <ModalFooter>
             <div>The kit pictured above is included only when you enroll in the <strong>Master Makeup Artistry</strong> course. You will receive a different, course-specific makeup starter kit with all other QC Makeup Academy courses instead of the one shown.</div>

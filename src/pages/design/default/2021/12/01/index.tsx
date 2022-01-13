@@ -27,15 +27,15 @@ export const Promo20211201 = ({ date }: Props): ReactElement => {
 
   if (date.getTime() >= Date.UTC(2021, 11, 16, 5)) { // December 16 at 00:00 (05:00 UTC)
     if (desktop) {
-      image = require('./desktop-ends.jpg').default;
+      image = require('./desktop-ends.jpg');
     } else {
-      image = require('./mobile-ends.jpg').default;
+      image = require('./mobile-ends.jpg');
     }
   } else {
     if (desktop) {
-      image = price?.currency.code === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default;
+      image = price?.currency.code === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
     } else {
-      image = price?.currency.code === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
+      image = price?.currency.code === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
     }
   }
 
@@ -64,7 +64,7 @@ export const Promo20211201 = ({ date }: Props): ReactElement => {
             <p><strong>Learn How to Train Your Eye for Color!</strong></p>
             <p>Color sensei, Jane Lockhart, will teach you how to work with color psychology. You&apos;ll transform dull rooms into head-turning and inviting spaces.</p>
             <p>Valued at $1048, this extra certificate will help you add a lucrative revenue stream to your business.</p>
-            <img src={require('./pop-up-deluxe-kit.jpg').default} className="img-fluid" alt="Deluxe Design Kit" />
+            <img src={require('./pop-up-deluxe-kit.jpg')} className="img-fluid" alt="Deluxe Design Kit" />
           </ModalBody>
         </Modal>
       </section>

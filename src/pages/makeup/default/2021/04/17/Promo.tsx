@@ -32,15 +32,15 @@ export const Promo20210417: React.FC<Props> = ({ date }) => {
 
   if (date.getTime() >= Date.UTC(2021, 3, 18, 4)) { // April 18 00:00
     if (desktop) {
-      image = require('./desktop-ends.jpg').default;
+      image = require('./desktop-ends.jpg');
     } else {
-      image = require('./mobile-ends.jpg').default;
+      image = require('./mobile-ends.jpg');
     }
   } else {
     if (desktop) {
-      image = require('./desktop.jpg').default;
+      image = require('./desktop.jpg');
     } else {
-      image = require('./mobile.jpg').default;
+      image = require('./mobile.jpg');
     }
   }
 
@@ -63,7 +63,7 @@ export const Promo20210417: React.FC<Props> = ({ date }) => {
         <meta property="og:title" content="Free Elite Makeup Kit" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://enroll.qcmakeupacademy.com/" />
-        <meta property="og:image" content={`https://enroll.qcmakeupacademy.com${require('./featured-image.jpg').default}`} />
+        <meta property="og:image" content={`https://enroll.qcmakeupacademy.com${require('./featured-image.jpg')}`} />
       </Helmet>
       <section id="promoSection" style={{ backgroundColor: '#000', padding: 0 }}>
         <div className="container px-0">

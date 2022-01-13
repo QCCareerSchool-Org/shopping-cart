@@ -33,15 +33,15 @@ export const Promo20210907: React.FC<Props> = ({ date }) => {
 
   if (date.getTime() >= Date.UTC(2021, 8, 17, 4)) { // September 17 at 00:00 (04:00 UTC)
     if (desktop) {
-      image = require('./desktop-ends.jpg').default;
+      image = require('./desktop-ends.jpg');
     } else {
-      image = require('./mobile-ends.jpg').default;
+      image = require('./mobile-ends.jpg');
     }
   } else {
     if (desktop) {
-      image = require('./desktop.jpg').default;
+      image = require('./desktop.jpg');
     } else {
-      image = require('./mobile.jpg').default;
+      image = require('./mobile.jpg');
     }
   }
 
@@ -77,7 +77,7 @@ export const Promo20210907: React.FC<Props> = ({ date }) => {
             <hr />
             <p>QC&apos;s Master Makeup Artistry course comes with a FREE makeup kit you&apos;ll use to excel in your course and your career.</p>
             <div className="text-center">
-              <img src={require('./popup-makeup-kit.jpg').default} alt="makeup kit" />
+              <img src={require('./popup-makeup-kit.jpg')} alt="makeup kit" />
             </div>
             <p>In the Global Beauty Workshop, you&apos;ll advance the  makeup skills you learned in your Master Makeup Artistry course!</p>
             <ul>

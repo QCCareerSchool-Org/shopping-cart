@@ -1,15 +1,10 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import React, { ReactElement } from 'react';
-import { CountDownTimerWrapper } from '../../../../../../components/CountDownTimerWrapper';
 
-import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
-import { useStateContext } from '../../../../../../hooks/useStateContext';
+import { useScreenWidthContext } from '../../../hooks/useScreenWidthContext';
+import { useStateContext } from '../../../hooks/useStateContext';
 
-type Props = {
-  date: Date;
-};
-
-export const Promo20220113 = ({ date }: Props): ReactElement => {
+export const Promo = (): ReactElement => {
   const screenWidth = useScreenWidthContext();
   const { price } = useStateContext();
 

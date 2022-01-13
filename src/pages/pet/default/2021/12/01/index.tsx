@@ -28,12 +28,12 @@ export const Promo20211201 = ({ date }: Props): ReactElement => {
 
   if (date.getTime() >= Date.UTC(2021, 11, 16, 5)) { // December 16 at 00:00 (05:00 UTC)
     image = desktop
-      ? price?.currency.code === 'GBP' ? require('./desktop-uk-ends.jpg').default : require('./desktop-ends.jpg').default
-      : price?.currency.code === 'GBP' ? require('./mobile-uk-ends.jpg').default : require('./mobile-ends.jpg').default;
+      ? price?.currency.code === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg')
+      : price?.currency.code === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
   } else {
     image = desktop
-      ? price?.currency.code === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default
-      : price?.currency.code === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
+      ? price?.currency.code === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg')
+      : price?.currency.code === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
   }
 
   if (desktop) {
@@ -63,7 +63,7 @@ export const Promo20211201 = ({ date }: Props): ReactElement => {
               <h5>Dog Grooming Kit</h5>
               <p>For students of the Dog Grooming Course, after you submit your Unit B we&apos;ll also ship you a toolkit with the essential items you need to get started. Your kit includes a WAHL ARCO 5-in-1 Cordless Clipper, a stainless steel attachment guide comb kit, professional-grade grooming scissors, brushes, combs, and nail clippers.</p>
             </div>
-            <img src={require('./pop-up.jpg').default} className="img-fluid" alt="promotion details" />
+            <img src={require('./pop-up.jpg')} className="img-fluid" alt="promotion details" />
           </ModalBody>
         </Modal>
       </section>

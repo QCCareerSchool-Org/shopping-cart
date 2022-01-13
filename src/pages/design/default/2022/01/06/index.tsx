@@ -27,15 +27,15 @@ export const Promo20220106 = ({ date }: Props): ReactElement => {
 
   if (date.getTime() >= Date.UTC(2022, 0, 4, 5)) { // January 4 at 00:00 (05:00 UTC)
     if (desktop) {
-      image = require('./desktop-ends.jpg').default;
+      image = require('./desktop-ends.jpg');
     } else {
-      image = require('./mobile-ends.jpg').default;
+      image = require('./mobile-ends.jpg');
     }
   } else {
     if (desktop) {
-      image = require('./desktop.jpg').default;
+      image = require('./desktop.jpg');
     } else {
-      image = require('./mobile.jpg').default;
+      image = require('./mobile.jpg');
     }
   }
 

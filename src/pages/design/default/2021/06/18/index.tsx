@@ -34,15 +34,15 @@ export const Promo20210618: React.FC<Props> = ({ date, currencyCode }) => {
 
   if (date.getTime() >= Date.UTC(2021, 5, 20, 3, 59)) { // June 19 at 23:59
     if (desktop) {
-      image = require('./desktop-ends.jpg').default;
+      image = require('./desktop-ends.jpg');
     } else {
-      image = require('./mobile-ends.jpg').default;
+      image = require('./mobile-ends.jpg');
     }
   } else {
     if (desktop) {
-      image = require('./desktop.jpg').default;
+      image = require('./desktop.jpg');
     } else {
-      image = require('./mobile.jpg').default;
+      image = require('./mobile.jpg');
     }
   }
 
@@ -71,7 +71,7 @@ export const Promo20210618: React.FC<Props> = ({ date, currencyCode }) => {
           <ModalBody className="text-center">
             <p>Enroll in any course and get a second course of equal or lesser value for FREE</p>
             <p>Also get a free deluxe design kit</p>
-            <img src={require('./laser-level-3.jpg').default} />
+            <img src={require('./laser-level-3.jpg')} />
           </ModalBody>
         </Modal>
       </section>

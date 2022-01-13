@@ -27,15 +27,15 @@ export const Promo20211201 = ({ date }: Props): ReactElement => {
 
   if (date.getTime() >= Date.UTC(2021, 11, 16, 5)) { // December 16 at 00:00 (05:00 UTC)
     if (desktop) {
-      image = price?.currency.code === 'GBP' ? require('./desktop-uk-ends.jpg').default : require('./desktop-ends.jpg').default;
+      image = price?.currency.code === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg');
     } else {
-      image = require('./mobile-ends.jpg').default;
+      image = require('./mobile-ends.jpg');
     }
   } else {
     if (desktop) {
-      image = price?.currency.code === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default;
+      image = price?.currency.code === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
     } else {
-      image = price?.currency.code === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
+      image = price?.currency.code === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
     }
   }
 
@@ -63,7 +63,7 @@ export const Promo20211201 = ({ date }: Props): ReactElement => {
             <p>QC&apos;s Skincare Course teaches you how to work with different skin types. You&apos;ll learn how to prepare your clients&apos; skin for flawless makeup applications. Plus, you&apos;ll be able to design skincare routines for them. This will add a huge revenue stream to your business!</p>
             <p>Graduate as both a Master International Makeup Professional&trade; (MIMP&trade;) and as a Certified Skincare Consultant&trade; in just a few months!</p>
             <p>Plus, you&apos;ll receive The 11-piece Luminous Collection to jumpstart your career.</p>
-            <img src={require('./enrollment-pop-up.jpg').default} className="img-fluid" />
+            <img src={require('./enrollment-pop-up.jpg')} className="img-fluid" />
           </ModalBody>
           <ModalFooter>
             <div>The kit pictured above is included only when you enroll in the <strong>Master Makeup Artistry</strong> course. You will receive a different, course-specific makeup starter kit with all other QC Makeup Academy courses instead of the one shown.</div>

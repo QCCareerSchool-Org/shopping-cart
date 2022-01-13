@@ -27,15 +27,15 @@ export const Promo20220113 = ({ date }: Props): ReactElement => {
 
   if (date.getTime() >= Date.UTC(2022, 0, 19, 5)) { // January 19 at 00:00 (05:00 UTC)
     if (desktop) {
-      image = price?.currency.code === 'GBP' ? require('./desktop-ends-uk.jpg').default : require('./desktop-ends.jpg').default;
+      image = price?.currency.code === 'GBP' ? require('./desktop-ends-uk.jpg') : require('./desktop-ends.jpg');
     } else {
-      image = price?.currency.code === 'GBP' ? require('./mobile-ends-uk.jpg').default : require('./mobile-ends.jpg').default;
+      image = price?.currency.code === 'GBP' ? require('./mobile-ends-uk.jpg') : require('./mobile-ends.jpg');
     }
   } else {
     if (desktop) {
-      image = price?.currency.code === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default;
+      image = price?.currency.code === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
     } else {
-      image = price?.currency.code === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
+      image = price?.currency.code === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
     }
   }
 
@@ -68,7 +68,7 @@ export const Promo20220113 = ({ date }: Props): ReactElement => {
               <li>and more!</li>
             </ul>
             <p>Graduate as a Master International Makeup Professional™ (MIMP™) in just a few short months and build the beauty empire of your dreams.</p>
-            <img src={require('./enrollment-pop-up.jpg').default} className="img-fluid" />
+            <img src={require('./enrollment-pop-up.jpg')} className="img-fluid" />
           </ModalBody>
           <ModalFooter>
             <div>The kit pictured above is included only when you enroll in the <strong>Master Makeup Artistry</strong> course. You will receive a different, course-specific makeup starter kit with all other QC Makeup Academy courses instead of the one shown.</div>

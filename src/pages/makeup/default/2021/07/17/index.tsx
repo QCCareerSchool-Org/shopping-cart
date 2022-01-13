@@ -34,15 +34,15 @@ export const Promo20210717: React.FC<Props> = ({ date, currencyCode }) => {
 
   if (date.getTime() >= Date.UTC(2021, 6, 18, 4)) { // July 18 at 00:00
     if (desktop) {
-      image = require('./desktop-ends.jpg').default;
+      image = require('./desktop-ends.jpg');
     } else {
-      image = require('./mobile-ends.jpg').default;
+      image = require('./mobile-ends.jpg');
     }
   } else {
     if (desktop) {
-      image = require('./desktop.jpg').default;
+      image = require('./desktop.jpg');
     } else {
-      image = require('./mobile.jpg').default;
+      image = require('./mobile.jpg');
     }
   }
 
@@ -71,7 +71,7 @@ export const Promo20210717: React.FC<Props> = ({ date, currencyCode }) => {
         <Modal size="lg" isOpen={popup} toggle={togglePopup}>
           <ModalHeader toggle={togglePopup}>Limited Time Offer</ModalHeader>
           <ModalBody className="text-center">
-            <img src={require('./enrollment-pop-up.jpg').default} alt="Makeup Kit" />
+            <img src={require('./enrollment-pop-up.jpg')} alt="Makeup Kit" />
           </ModalBody>
         </Modal>
       </section>

@@ -38,15 +38,15 @@ export const Promo20211001: React.FC<Props> = ({ date }) => {
 
   if (date.getTime() >= Date.UTC(2021, 9, 29, 4)) { // October 29 at 00:00 (04:00 UTC)
     if (desktop) {
-      image = price?.promoCode === 'TREAT' ? require('./desktop-ends-active.jpg').default : require('./desktop-ends.jpg').default;
+      image = price?.promoCode === 'TREAT' ? require('./desktop-ends-active.jpg') : require('./desktop-ends.jpg');
     } else {
-      image = price?.promoCode === 'TREAT' ? require('./mobile-ends-active.jpg').default : require('./mobile-ends.jpg').default;
+      image = price?.promoCode === 'TREAT' ? require('./mobile-ends-active.jpg') : require('./mobile-ends.jpg');
     }
   } else {
     if (desktop) {
-      image = price?.promoCode === 'TREAT' ? require('./desktop-active.jpg').default : require('./desktop.jpg').default;
+      image = price?.promoCode === 'TREAT' ? require('./desktop-active.jpg') : require('./desktop.jpg');
     } else {
-      image = price?.promoCode === 'TREAT' ? require('./mobile-active.jpg').default : require('./mobile.jpg').default;
+      image = price?.promoCode === 'TREAT' ? require('./mobile-active.jpg') : require('./mobile.jpg');
     }
   }
 

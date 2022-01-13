@@ -26,12 +26,12 @@ export const Promo20210517: React.FC<Props> = ({ date, currencyCode }) => {
 
   if (date.getTime() >= Date.UTC(2021, 4, 26, 16)) { // May 26 at 12:00
     image = desktop
-      ? currencyCode === 'GBP' ? require('./desktop-ends-uk.jpg').default : require('./desktop-ends.jpg').default
-      : currencyCode === 'GBP' ? require('./mobile-ends-uk.jpg').default : require('./mobile-ends.jpg').default;
+      ? currencyCode === 'GBP' ? require('./desktop-ends-uk.jpg') : require('./desktop-ends.jpg')
+      : currencyCode === 'GBP' ? require('./mobile-ends-uk.jpg') : require('./mobile-ends.jpg');
   } else {
     image = desktop
-      ? currencyCode === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default
-      : currencyCode === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
+      ? currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg')
+      : currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
   }
 
   if (desktop) {
@@ -56,7 +56,7 @@ export const Promo20210517: React.FC<Props> = ({ date, currencyCode }) => {
             <p>Enroll today at our lowest deposit ever! Plus, receive {currencyCode === 'GBP' ? '£75' : '$100'} off your tuition.</p>
             <p>After you submit your Unit B, we&apos;ll also ship you a toolkit with the essential items you need to get started. Your kit includes a WAHL ARCO 5-in-1 Cordless Clipper, a stainless steel attachment guide comb kit, professional-grade grooming scissors, brushes, combs, and nail clippers.</p>
           </div>
-          <img src={require('./pop-up.jpg').default} className="img-fluid" alt="promotion details" />
+          <img src={require('./pop-up.jpg')} className="img-fluid" alt="promotion details" />
         </ModalBody>
       </Modal>
     </section>

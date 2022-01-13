@@ -22,15 +22,15 @@ export const Promo20210201: React.FC<Props> = ({ date, currencyCode }) => {
 
   if (date.getTime() >= Date.UTC(2021, 1, 24, 17)) {
     if (desktop) {
-      image = currencyCode === 'GBP' ? require('./desktop-ends-uk.jpg').default : require('./desktop-ends.jpg').default;
+      image = currencyCode === 'GBP' ? require('./desktop-ends-uk.jpg') : require('./desktop-ends.jpg');
     } else {
-      image = currencyCode === 'GBP' ? require('./mobile-ends-uk.jpg').default : require('./mobile-ends.jpg').default;
+      image = currencyCode === 'GBP' ? require('./mobile-ends-uk.jpg') : require('./mobile-ends.jpg');
     }
   } else {
     if (desktop) {
-      image = currencyCode === 'GBP' ? require('./desktop-uk.jpg').default : require('./desktop.jpg').default;
+      image = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
     } else {
-      image = currencyCode === 'GBP' ? require('./mobile-uk.jpg').default : require('./mobile.jpg').default;
+      image = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
     }
   }
 
@@ -53,7 +53,7 @@ export const Promo20210201: React.FC<Props> = ({ date, currencyCode }) => {
         <ModalHeader toggle={togglePopup}>Special Offer</ModalHeader>
         <ModalBody className="text-center p-0">
           <p className="mt-3">Enroll in the Master Makeup Artistry Course and receive any Advanced Makeup Course for free. Plus, get a free makeup kit.</p>
-          <img className="img-fluid" src={require('./popup-makeup-kit.jpg').default} alt="Makeup Kit" />
+          <img className="img-fluid" src={require('./popup-makeup-kit.jpg')} alt="Makeup Kit" />
         </ModalBody>
         <ModalFooter>
           Enroll in the Master Makeup Artistry Course—with our lowest deposit ever—and receive QC&apos;s new Virtual Makeup Training Course for free. Plus, receive a free makeup starter kit.

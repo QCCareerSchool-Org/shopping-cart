@@ -11,8 +11,8 @@ export const Promo = (): ReactElement => {
   let height: number;
 
   const image = desktop
-    ? require('./desktop.jpg').default
-    : require('./mobile.jpg').default;
+    ? require('./desktop.jpg')
+    : require('./mobile.jpg');
 
   if (desktop) {
     width = 960;

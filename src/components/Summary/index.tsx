@@ -94,7 +94,7 @@ export const Summary: React.FC<Props> = props => {
               {price && price.courses.length === 0 && <div className="mb-4 alert alert-secondary" style={{ maxWidth: 520 }}>Please <button type="button" className="btn btn-link p-0 align-baseline btn-no-hover-shadow" onClick={() => scrollToPosition('courses')}>select one or more courses</button> before proceeding to payment.</div>}
               <img src={require('../../images/visa.svg').default} className="mr-2" style={{ height: 32 }} alt="Visa" />
               <img src={require('../../images/mastercard.svg').default} className="mr-2" style={{ height: 32 }} alt="Mastercard" />
-              <img src={require('../../images/trusted-site-seal.png').default} alt="Trusted Site Seal" />
+              <img src={require('../../images/trusted-site-seal.png')} alt="Trusted Site Seal" />
             </div>
           </div>
           <div className="col-12 col-md-6 col-lg-4">

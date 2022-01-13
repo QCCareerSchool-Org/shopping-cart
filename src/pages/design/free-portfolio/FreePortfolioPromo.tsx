@@ -12,7 +12,7 @@ export const FreePortfolioPromo: React.FC = () => {
     <section id="promoSection" style={{ backgroundColor: '#6f6b6a', padding: 0 }}>
       <div className="container px-0">
         <div className="text-center">
-          <img src={desktop ? require('./desktop.jpg').default : require('./mobile.jpg').default} className="img-fluid d-block mx-auto" alt="Special Offer" />
+          <img src={desktop ? require('./desktop.jpg') : require('./mobile.jpg')} className="img-fluid d-block mx-auto" alt="Special Offer" />
         </div>
       </div>
     </section>
