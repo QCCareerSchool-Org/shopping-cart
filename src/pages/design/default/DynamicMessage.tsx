@@ -8,7 +8,10 @@ type Props = {
   courses: string[];
 };
 
-export const DynamicMessage = ({ date, courses }: Props): ReactElement => {
-  // const time = date.getTime();
+export const DynamicMessage = ({ date, courses }: Props): ReactElement | null => {
+  const time = date.getTime();
+  if (time >= Date.UTC(2022, 0, 13, 14, 30)) { // January 13 at 09:30 (13:30 UTC)
+    return null;
+  }
   return <DynamicMessage20211220 courses={courses} />;
 };
