@@ -15,7 +15,7 @@ export const useGeoLocation = (): void => {
 
   // determine the visitor's geo location by ip address
   const geoLocationUrl = 'https://api.qccareerschool.com/geoLocation/ip';
-  const [ geoLocation ] = useFetchImproved<GeoLocation|undefined>(geoLocationUrl, undefined);
+  const [ geoLocation ] = useFetchImproved<GeoLocation | undefined>(geoLocationUrl, undefined);
 
   useEffect(() => {
     if (geoLocation !== undefined) {
