@@ -68,7 +68,7 @@ export const Promo20220113 = ({ date }: Props): ReactElement => {
         showDate={timerShowDate}
         endDate={timerEndDate}
         style={{ backgroundColor: '#866b55', color: '#e4e4e6' }}
-        message={<span style={{ textTransform: 'uppercase' }}>The <strong>holiday gift</strong> offer <strong className="endHighlight">ends {date >= timerLastChanceDate ? 'today' : 'soon'}</strong></span>}
+        message={<span style={{ textTransform: 'uppercase' }}>This special offer <strong className="endHighlight">ends {date >= timerLastChanceDate ? 'today' : 'soon'}</strong></span>}
       />
     </>
   );
