@@ -7,6 +7,15 @@ import { Promo } from './PromoCodeInput';
 export const getPromos = (now: Date, price: PriceState, school: School, student: boolean): Promo[] => {
   const promos: Promo[] = [
     {
+      schools: [ 'QC Makeup Academy', 'QC Event School', 'QC Design School' ],
+      student: 'DENIED',
+      code: 'BOGO',
+      description: <>Buy any course and get any second course of equal or lesser value free</>,
+      desktopImageSrc: require('./images/design/coupon-JULY21-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-JULY21-design.jpg'),
+      altText: 'Buy one course and get one free',
+    },
+    {
       schools: [ 'QC Event School' ],
       student: 'DENIED',
       code: 'WEDDING21',
