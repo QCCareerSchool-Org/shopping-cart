@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import React, { ReactElement } from 'react';
 
-import { DynamicMessage20211220 } from './2021/12/20/DynamicMessage';
+import { DynamicMessage20220124 } from './2022/01/24/DynamicMessage';
 
 type Props = {
   date: Date;
@@ -9,9 +9,6 @@ type Props = {
 };
 
 export const DynamicMessage = ({ date, courses }: Props): ReactElement | null => {
-  const time = date.getTime();
-  if (time >= Date.UTC(2022, 0, 13, 14, 30)) { // January 13 at 09:30 (13:30 UTC)
-    return null;
-  }
-  return <DynamicMessage20211220 courses={courses} />;
+  // const time = date.getTime();
+  return <DynamicMessage20220124 courses={courses} />;
 };
