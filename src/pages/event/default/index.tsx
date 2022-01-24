@@ -29,7 +29,7 @@ const Default = ({ courses, currencyCode }: Props): ReactElement => {
         agreementLinkGB="https://www.qceventplanning.com/enrollment-agreement-gb.html"
         successLink="https://www.qceventplanning.com/welcome-to-the-school/"
         dynamicCourseMessages={[ () => <DynamicMessage date={date} courses={courses} /> ]}
-        promoCodeDefault={date.getTime() >= Date.UTC(2022, 0, 13, 14, 30) ? 'EXPERT' : '2SPECIALTY'}
+        promoCodeDefault="2SPECIALTY"
       />
     </>
   );
