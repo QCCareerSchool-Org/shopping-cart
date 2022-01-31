@@ -1,6 +1,6 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import { LiveChat } from '../../components/LiveChat';
 import { useStateContext } from '../../hooks/useStateContext';
@@ -30,13 +30,9 @@ const Writing: React.FC = () => {
         <meta name="msapplication-TileColor" content="#000000" />
       </Helmet>
       <Header countryCode={address.countryCode} />
-      <BrowserRouter>
-        <Suspense fallback={<></>}>
-          <Switch>
-            <Route component={Default} />
-          </Switch>
-        </Suspense>
-      </BrowserRouter>
+      <Routes>
+        <Route path="*" element={<Default />} />
+      </Routes>
       <LiveChat license={1056788} group={13} gaVersion="gtag" />
       <Footer countryCode={address.countryCode} />
     </>
