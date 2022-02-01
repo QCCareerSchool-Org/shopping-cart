@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { useDateContext } from '../../hooks/useDateContext';
 
 import { useStateContext } from '../../hooks/useStateContext';
@@ -7,12 +7,13 @@ import { dateOverride } from '../../lib/dateOverride';
 import { School } from '../../lib/enrollment';
 import { getPromos } from './getPromos';
 
-import { NoShipping } from './NoShipping';
 import { PaymentOptions } from './PaymentOptions';
 import { PlanResult } from './PlanResult';
-import { PromoCodeInput } from './PromoCodeInput';
 import { Schedule } from './Schedule';
-import { Shipping } from './Shipping';
+
+const NoShipping = lazy(async () => import('./NoShipping'));
+const Shipping = lazy(async () => import('./Shipping'));
+const PromoCodeInput = lazy(async () => import('./PromoCodeInput'));
 
 type Props = {
   school: School;
@@ -36,8 +37,11 @@ export const Payment: React.FC<Props> = ({ school, shippingOption, shippingOptio
           <div className="col-12 col-sm-10 offset-sm-1 col-md-5 offset-md-0 mb-4 mb-md-0">
             <PaymentOptions />
             {payment.plan === 'part' && <Schedule />}
-            {showNoShipping && (shippingOptionReversed ? <Shipping school={school} /> : <NoShipping school={school} title={noShippingTitle} />)}
-            {showPromoCodeInput && <PromoCodeInput promos={promos} />}
+            {showNoShipping && (shippingOptionReversed
+              ? <Suspense fallback={<></>}><Shipping school={school} /></Suspense>
+              : <Suspense fallback={<></>}><NoShipping school={school} title={noShippingTitle} /></Suspense>
+            )}
+            {showPromoCodeInput && <Suspense fallback={<></>}><PromoCodeInput promos={promos} /></Suspense>}
           </div>
           <div className="col-12 col-sm-10 offset-sm-1 col-md-7 offset-md-0">
             <PlanResult shippingOptionReversed={shippingOptionReversed} />

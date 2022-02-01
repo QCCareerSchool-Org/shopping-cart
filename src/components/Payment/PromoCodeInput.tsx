@@ -30,7 +30,7 @@ type Props = {
   promos: Promo[];
 };
 
-export const PromoCodeInput: React.FC<Props> = ({ promos }) => {
+const PromoCodeInput: React.FC<Props> = ({ promos }) => {
   const [ popup, togglePopup ] = usePopup(false);
   const { price, meta: { promoCode, promoCodeInputValue } } = useStateContext();
   const dispatch = useDispatchContext();
@@ -87,3 +87,5 @@ export const PromoCodeInput: React.FC<Props> = ({ promos }) => {
     </div>
   );
 };
+
+export default PromoCodeInput;
