@@ -66,7 +66,7 @@ export const Promo20220201 = ({ date }: Props): ReactElement => {
             <h6 className="mb-3">Special February Offer</h6>
             <p>It&apos;s the season of love and we&apos;re celebrating with a special offer for new students!</p>
             <p>Enroll in any design course and get a second course absolutely free. This means you can graduate with two professional certifications and save up to {potentialSavings(address.countryCode)}.</p>
-            <p>Get started for only {price?.currency.code === 'GBP' ? '£75' : '$75'}.</p>
+            <p>Get started for only {price?.currency.code === 'GBP' ? '£40' : '$75'}.</p>
           </ModalBody>
         </Modal>
       </section>
