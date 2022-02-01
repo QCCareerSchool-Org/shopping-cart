@@ -1,3 +1,6 @@
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons/faCheckCircle';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { ReactElement } from 'react';
 
 import { Form } from '../../../components/Form';
@@ -5,14 +8,12 @@ import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
 import { Promo } from './promo';
 
-const additionalOptions = {
-  discount: {
-    default: 200,
-  },
-  discountSignature: 'Ylf/UJhKP1vd9vTfxx0mEMtQ5nNlPq2vF0AFRSyiZfq9Lphrx2t5mepA26R+dXzgLos+1E7wG0LH0ygEeDiL+BUWhxx18zHcZc2CXgmyQvsDycWh9jrTRqYasb7EtkxZDyiPLwzd4bsYC7fmm3+edzSNL6abUQAH4MHjhvF14jy0NTfxyCXuLR3RsZBMSHkZH5SvyaQSlp5pf3jeXIA56PWgdpP1Tvi+GaMMnI0N4Gx5NI7GlKdjljDt8JmGjZ6alWPPupjCzyPvM7dgBnKeTN7R86KBFbdNiRckSu8XND3b6Rtwj3NaoWx4+O+Q+cgIL1IZfEJITZyzfcmv4satfQ==',
+type Props = {
+  courses: string[];
+  currencyCode: string;
 };
 
-const Grooming200Off = (): ReactElement => (
+const Grooming200Off = ({ courses, currencyCode }: Props): ReactElement => (
   <>
     <Promo />
     <Form
@@ -22,9 +23,25 @@ const Grooming200Off = (): ReactElement => (
       agreementLink="https://www.qcpetstudies.com/enrollment-agreement"
       agreementLinkGB="https://www.qcpetstudies.com/enrollment-agreement-gb"
       successLink="https://www.qcpetstudies.com/welcome-to-the-school"
-      additionalOptions={additionalOptions}
+      promoCodeDefault="DG200"
+      dynamicCourseMessages={[ () => <DynamicMessage courses={courses} currencyCode={currencyCode} /> ]}
     />
   </>
 );
+
+interface DynamicMessageProps {
+  courses: string[];
+  currencyCode: string;
+}
+
+const DynamicMessage = ({ courses, currencyCode }: DynamicMessageProps): ReactElement | null => {
+  const discount = currencyCode === 'GBP' ? '£200' : '$200';
+  if (courses.length === 0) {
+    return null;
+  } else if (!courses.includes('DG')) {
+    return <p className="mt-4 alert alert-warning"><FontAwesomeIcon icon={faInfoCircle} /> Select the <strong>Dog Grooming</strong> course to get {discount} off your tuition</p>;
+  }
+  return <p className="mt-4 alert alert-success"><FontAwesomeIcon icon={faCheckCircle} /> Discount applied!</p>;
+};
 
 export default Grooming200Off;

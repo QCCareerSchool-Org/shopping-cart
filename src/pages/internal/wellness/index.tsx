@@ -13,6 +13,7 @@ const Wellness: React.FC = () => <Form
   successLink="https://www.qcwellnessstudies.com/welcome-to-the-school/"
   internal={true}
   allowOverrides={true}
+  showPromoCodeInput={true}
 />;
 
 export default Wellness;

@@ -6,6 +6,7 @@ import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
 import { usePopup } from '../../hooks/usePopup';
 import { useStateContext } from '../../hooks/useStateContext';
+import type { scrollToPosition } from '../../lib/scrollToPosition';
 import { PriceResult } from '../../state/price';
 import { DetailedBreakdown } from './DetailedBreakdown';
 import { Notes } from './Notes';
@@ -15,7 +16,7 @@ type Props = {
   addToDatabase: () => Promise<boolean>;
   charge: (token: string, company: PaysafeCompany) => Promise<boolean>;
   guarantee: () => JSX.Element;
-  scrollToPosition: (section: 'courses' | 'shipping' | 'plan') => void;
+  scrollToPosition: typeof scrollToPosition;
   agreementLink: string;
   agreementLinkGB: string;
   showSubmitMessage?: () => boolean;
