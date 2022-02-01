@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
 import { Promo } from './PromoCodeInput';
@@ -11,7 +11,7 @@ type Props = {
   promos: Promo[];
 };
 
-export const PromoPopup: React.FC<Props> = ({ popup, togglePopup, apply, promos }) => {
+export const PromoPopup = ({ popup, togglePopup, apply, promos }: Props): ReactElement => {
   const [ allExpanded, setAllExpanded ] = useState(Array(promos.length).fill(undefined).map(() => false));
 
   const setIndexExpanded = (index: number, value: boolean): void => {

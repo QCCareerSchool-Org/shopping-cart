@@ -10,7 +10,7 @@ type Props = {
   title?: string;
 };
 
-export const Shipping: React.FC<Props> = ({ school }) => {
+const Shipping: React.FC<Props> = ({ school }) => {
   const { payment: { noShipping }, price } = useStateContext();
   const dispatch = useDispatchContext();
 
@@ -30,3 +30,5 @@ export const Shipping: React.FC<Props> = ({ school }) => {
     </div>
   );
 };
+
+export default Shipping;
