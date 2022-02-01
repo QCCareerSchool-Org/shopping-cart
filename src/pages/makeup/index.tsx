@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { Helmet } from 'react-helmet';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { LiveChat } from '../../components/LiveChat';
 
 import { useSaveablePaths } from '../../hooks/useSaveablePaths';
@@ -47,18 +47,14 @@ const Makeup: React.FC = () => {
         <script src="/makeup/perfect-audience.js"></script>
       </Helmet>
       <Header countryCode={address.countryCode} />
-      <BrowserRouter>
-        <Suspense fallback={<></>}>
-          <Switch>
-            <Route path="/student/" component={Student} />
-            <Route path="/100-off/" render={props => <HundredOff {...props} currencyCode={currencyCode} />} />
-            <Route path="/deluxe-kit/" component={DeluxeKit} />
-            <Route path="/limited-time-offer/" component={LimitedTimeOffer} />
-            <Route path="/personal/" render={props => <Personal {...props} currencyCode={currencyCode} courses={courses.selected} />} />
-            <Route render={props => <Default {...props} currencyCode={currencyCode} courses={courses.selected} />} />
-          </Switch>
-        </Suspense>
-      </BrowserRouter>
+      <Routes>
+        <Route path="/student/" element={<Suspense fallback={<></>}><Student /></Suspense>} />
+        <Route path="/100-off/" element={<Suspense fallback={<></>}><HundredOff currencyCode={currencyCode} /></Suspense>} />
+        <Route path="/deluxe-kit/" element={<Suspense fallback={<></>}><DeluxeKit /></Suspense>} />
+        <Route path="/limited-time-offer/" element={<Suspense fallback={<></>}><LimitedTimeOffer /></Suspense>} />
+        <Route path="/personal/" element={<Suspense fallback={<></>}><Personal currencyCode={currencyCode} courses={courses.selected} /></Suspense>} />
+        <Route path="*" element={<Default currencyCode={currencyCode} courses={courses.selected} />} />
+      </Routes>
       <LiveChat license={1056788} group={14} gaVersion="gtag" />
       <Footer countryCode={address.countryCode} />
     </>

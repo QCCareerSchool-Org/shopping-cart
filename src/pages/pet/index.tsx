@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { Helmet } from 'react-helmet';
-import { BrowserRouter, Route, Switch, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { LiveChat } from '../../components/LiveChat';
 
 import { useStateContext } from '../../hooks/useStateContext';
@@ -45,20 +45,16 @@ const Pet: React.FC = () => {
         <meta name="msapplication-TileColor" content="#000000" />
       </Helmet>
       <Header countryCode={address.countryCode} link={headerLink(location.pathname)} />
-      <BrowserRouter>
-        <Suspense fallback={<></>}>
-          <Switch>
-            <Route path="/student/" component={Student} />
-            <Route path="/grooming-300-off/" component={Grooming300Off} />
-            <Route path="/grooming-200-off/" component={Grooming200Off} />
-            <Route path="/grooming-150-off/" component={Grooming150Off} />
-            <Route path="/training-300-off/" component={Training300Off} />
-            <Route path="/training-200-off/" component={Training200Off} />
-            <Route path="/training-150-off/" component={Training150Off} />
-            <Route render={props => <Default {...props} currencyCode={currencyCode} />} />
-          </Switch>
-        </Suspense>
-      </BrowserRouter>
+      <Routes>
+        <Route path="/student/" element={<Student />} />
+        <Route path="/grooming-300-off/" element={<Suspense fallback={<></>}><Grooming300Off /></Suspense>} />
+        <Route path="/grooming-200-off/" element={<Suspense fallback={<></>}><Grooming200Off /></Suspense>} />
+        <Route path="/grooming-150-off/" element={<Suspense fallback={<></>}><Grooming150Off /></Suspense>} />
+        <Route path="/training-300-off/" element={<Suspense fallback={<></>}><Training300Off /></Suspense>} />
+        <Route path="/training-200-off/" element={<Suspense fallback={<></>}><Training200Off /></Suspense>} />
+        <Route path="/training-150-off/" element={<Suspense fallback={<></>}><Training150Off /></Suspense>} />
+        <Route path="*" element={<Default currencyCode={currencyCode} />} />
+      </Routes>
       <LiveChat license={1056788} group={18} gaVersion="gtag" />
       <Footer countryCode={address.countryCode} />
     </>

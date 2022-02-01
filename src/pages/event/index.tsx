@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { Helmet } from 'react-helmet';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { LiveChat } from '../../components/LiveChat';
 
 import { useSaveablePaths } from '../../hooks/useSaveablePaths';
@@ -47,17 +47,13 @@ const Event: React.FC = () => {
         <script src="/event/perfect-audience.js"></script>
       </Helmet>
       <Header countryCode={address.countryCode} />
-      <BrowserRouter>
-        <Suspense fallback={<></>}>
-          <Switch>
-            <Route path="/student/" component={Student} />
-            <Route path="/free-portfolio/" component={FreePortfolio} />
-            <Route path="/tuition-discount/" render={props => <TuitionDiscount {...props} currencyCode={currencyCode} />} />
-            <Route path="/floral/" render={props => <Floral {...props} currencyCode={currencyCode} />} />
-            <Route render={props => <Default {...props} courses={courses.selected} currencyCode={currencyCode} />} />
-          </Switch>
-        </Suspense>
-      </BrowserRouter>
+      <Routes>
+        <Route path="/student/" element={<Suspense fallback={<></>}><Student /></Suspense>} />
+        <Route path="/free-portfolio/" element={<Suspense fallback={<></>}><FreePortfolio /></Suspense>} />
+        <Route path="/tuition-discount/" element={<Suspense fallback={<></>}><TuitionDiscount currencyCode={currencyCode} /></Suspense>} />
+        <Route path="/floral/" element={<Suspense fallback={<></>}><Floral currencyCode={currencyCode} /></Suspense>} />
+        <Route path="*" element={<Default courses={courses.selected} currencyCode={currencyCode} />} />
+      </Routes>
       <LiveChat license={1056788} group={1} gaVersion="gtag" />
       <Footer countryCode={address.countryCode} />
     </>

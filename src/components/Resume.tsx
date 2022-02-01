@@ -1,11 +1,11 @@
 import axios from 'axios';
 import qs from 'qs';
-import React, { useEffect } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 
 /**
  * Looks up a past enrollment in the back end, fills sessionStorage with the data, and redirects back to the original cart
  */
-export const Resume: React.FC = () => {
+const Resume = (): ReactElement => {
   useEffect(() => {
     const querystring = qs.parse(window.location.search.slice(1));
     if (typeof querystring.code !== 'string') {
@@ -38,3 +38,5 @@ export const Resume: React.FC = () => {
 
   return <></>;
 };
+
+export default Resume;

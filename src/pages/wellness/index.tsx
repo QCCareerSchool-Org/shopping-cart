@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { Helmet } from 'react-helmet';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import { LiveChat } from '../../components/LiveChat';
 import { useStateContext } from '../../hooks/useStateContext';
@@ -39,16 +39,12 @@ const Wellness: React.FC = () => {
         <meta name="msapplication-TileColor" content="#000000" />
       </Helmet>
       <Header countryCode={address.countryCode} link={headerLink(location.pathname)} />
-      <BrowserRouter>
-        <Suspense fallback={<></>}>
-          <Switch>
-            <Route path="/150-off" render={props => <Wellness150Off {...props} currencyCode={currencyCode} />} />
-            <Route path="/100-off" render={props => <Wellness100Off {...props} currencyCode={currencyCode} />} />
-            <Route path="/50-off" render={props => <Wellness50Off {...props} currencyCode={currencyCode} />} />
-            <Route render={props => <Default {...props} currencyCode={currencyCode} />} />
-          </Switch>
-        </Suspense>
-      </BrowserRouter>
+      <Routes>
+        <Route path="/150-off" element={<Suspense fallback={<></>}><Wellness150Off currencyCode={currencyCode} /></Suspense>} />
+        <Route path="/100-off" element={<Suspense fallback={<></>}><Wellness100Off currencyCode={currencyCode} /></Suspense>} />
+        <Route path="/50-off" element={<Suspense fallback={<></>}><Wellness50Off currencyCode={currencyCode} /></Suspense>} />
+        <Route path="*" element={<Default currencyCode={currencyCode} />} />
+      </Routes>
       <LiveChat license={1056788} group={19} gaVersion="gtag" />
       <Footer countryCode={address.countryCode} />
     </>

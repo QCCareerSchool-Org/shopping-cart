@@ -1,5 +1,5 @@
 import { useLocation } from '@qccareerschool/hooks';
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import { getSite } from '../lib/getSite';
 import { DateProvider } from '../providers/DateProvider';
@@ -26,7 +26,7 @@ export const Cart: React.FC = () => {
     <StateProvider>
       <ScreenWidthProvider>
         <DateProvider>
-          <React.Suspense fallback={<></>}>
+          <Suspense fallback={<></>}>
             {site === 'design' && <Design />}
             {site === 'event' && <Event />}
             {site === 'makeup' && <Makeup />}
@@ -34,7 +34,7 @@ export const Cart: React.FC = () => {
             {site === 'wellness' && <Wellness />}
             {site === 'writing' && <Writing />}
             {site === 'internal' && <Internal />}
-          </React.Suspense>
+          </Suspense>
         </DateProvider>
       </ScreenWidthProvider>
     </StateProvider>

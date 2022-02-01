@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Helmet } from 'react-helmet';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import { Footer } from './Footer';
 import { Header } from './Header';
@@ -30,17 +30,15 @@ const Internal: React.FC = () => {
         <meta name="msapplication-TileColor" content="#000000" />
       </Helmet>
       <Header />
-      <BrowserRouter>
-        <Switch>
-          <Route path="/enroll2/design/" component={Design} />
-          <Route path="/enroll2/event/" component={Event} />
-          <Route path="/enroll2/makeup/" component={Makeup} />
-          <Route path="/enroll2/pet/" component={Pet} />
-          <Route path="/enroll2/wellness/" component={Wellness} />
-          <Route path="/enroll2/writing/" component={Writing} />
-          <Route component={Menu} />
-        </Switch>
-      </BrowserRouter>
+      <Routes>
+        <Route path="/enroll2/design/" element={<Suspense fallback={<></>}><Design /></Suspense>} />
+        <Route path="/enroll2/event/" element={<Suspense fallback={<></>}><Event /></Suspense>} />
+        <Route path="/enroll2/makeup/" element={<Suspense fallback={<></>}><Makeup /></Suspense>} />
+        <Route path="/enroll2/pet/" element={<Suspense fallback={<></>}><Pet /></Suspense>} />
+        <Route path="/enroll2/wellness/" element={<Suspense fallback={<></>}><Wellness /></Suspense>} />
+        <Route path="/enroll2/writing/" element={<Suspense fallback={<></>}><Writing /></Suspense>} />
+        <Route path="*" element={<Menu />} />
+      </Routes>
       <Footer />
     </>
   );
