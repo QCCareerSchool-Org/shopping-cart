@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import React, { useEffect, useState } from 'react';
-import { scroller } from 'react-scroll';
 
 import { useDispatchContext } from '../hooks/useDispatchContext';
 import { useGeoLocation } from '../hooks/useGeoLocation';
@@ -11,6 +10,7 @@ import { useStateContext } from '../hooks/useStateContext';
 
 import { addEnrollment, chargeEnrollment, EnrollmentPayload, School, updateEnrollment } from '../lib/enrollment';
 import { EnrollmentError } from '../lib/enrollmentError';
+import { scrollToPosition } from '../lib/scrollToPosition';
 
 import { CourseGroup } from '../state/courses';
 
@@ -78,20 +78,6 @@ type Props = {
   promoCodeDefault?: string;
   /** whether to show the dynamic course descriptions */
   showDynamicCourseDescriptions?: boolean;
-};
-
-export const scrollToPosition = (section: 'courses' | 'shipping' | 'plan'): void => {
-  const scrollProps = {
-    duration: 500,
-    smooth: true,
-  };
-  if (section === 'courses') {
-    scroller.scrollTo('courses-section', scrollProps);
-  } else if (section === 'shipping') {
-    scroller.scrollTo('address-section', scrollProps);
-  } else if (section === 'plan') {
-    scroller.scrollTo('payment-section', scrollProps);
-  }
 };
 
 export const Form: React.FC<Props> = props => {

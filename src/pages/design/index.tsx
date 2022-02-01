@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { lazy, ReactElement, Suspense } from 'react';
 import { Helmet } from 'react-helmet';
 import { Route, Routes } from 'react-router-dom';
 import { LiveChat } from '../../components/LiveChat';
@@ -6,21 +6,20 @@ import { LiveChat } from '../../components/LiveChat';
 import { useSaveablePaths } from '../../hooks/useSaveablePaths';
 import { useStateContext } from '../../hooks/useStateContext';
 
+// don't lazily load the default cart to reduce CLS for most visitors
 import Default from './default';
 import { Footer } from './Footer';
 import { Header } from './Header';
 
-// don't lazily load the default cart to reduce CLS for most visitors
-
 import './style.scss';
 
 // lazily load the other carts because they're used less often
-const FreePortfolio = React.lazy(async () => import('./free-portfolio'));
-const Organizing = React.lazy(async () => import('./organizing'));
-const Student = React.lazy(async () => import('./student'));
-const TuitionDiscount = React.lazy(async () => import('./tuition-discount'));
+const FreePortfolio = lazy(async () => import('./free-portfolio'));
+const Organizing = lazy(async () => import('./organizing'));
+const Student = lazy(async () => import('./student'));
+const TuitionDiscount = lazy(async () => import('./tuition-discount'));
 
-const Design: React.FC = () => {
+const Design = (): ReactElement => {
   const { courses, address, price } = useStateContext();
   const currencyCode = price?.currency.code ?? 'USD';
 

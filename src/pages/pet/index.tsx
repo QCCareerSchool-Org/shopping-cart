@@ -25,7 +25,7 @@ const headerLink = (path: string): boolean => {
 };
 
 const Pet: React.FC = () => {
-  const { address, price } = useStateContext();
+  const { address, price, courses } = useStateContext();
   const currencyCode = price?.currency.code ?? 'USD';
   const location = useLocation();
 
@@ -47,12 +47,12 @@ const Pet: React.FC = () => {
       <Header countryCode={address.countryCode} link={headerLink(location.pathname)} />
       <Routes>
         <Route path="/student/" element={<Student />} />
-        <Route path="/grooming-300-off/" element={<Suspense fallback={<></>}><Grooming300Off /></Suspense>} />
-        <Route path="/grooming-200-off/" element={<Suspense fallback={<></>}><Grooming200Off /></Suspense>} />
-        <Route path="/grooming-150-off/" element={<Suspense fallback={<></>}><Grooming150Off /></Suspense>} />
-        <Route path="/training-300-off/" element={<Suspense fallback={<></>}><Training300Off /></Suspense>} />
-        <Route path="/training-200-off/" element={<Suspense fallback={<></>}><Training200Off /></Suspense>} />
-        <Route path="/training-150-off/" element={<Suspense fallback={<></>}><Training150Off /></Suspense>} />
+        <Route path="/grooming-300-off/" element={<Suspense fallback={<></>}><Grooming300Off courses={courses.selected} currencyCode={currencyCode} /></Suspense>} />
+        <Route path="/grooming-200-off/" element={<Suspense fallback={<></>}><Grooming200Off courses={courses.selected} currencyCode={currencyCode} /></Suspense>} />
+        <Route path="/grooming-150-off/" element={<Suspense fallback={<></>}><Grooming150Off courses={courses.selected} currencyCode={currencyCode} /></Suspense>} />
+        <Route path="/training-300-off/" element={<Suspense fallback={<></>}><Training300Off courses={courses.selected} currencyCode={currencyCode} /></Suspense>} />
+        <Route path="/training-200-off/" element={<Suspense fallback={<></>}><Training200Off courses={courses.selected} currencyCode={currencyCode} /></Suspense>} />
+        <Route path="/training-150-off/" element={<Suspense fallback={<></>}><Training150Off courses={courses.selected} currencyCode={currencyCode} /></Suspense>} />
         <Route path="*" element={<Default currencyCode={currencyCode} />} />
       </Routes>
       <LiveChat license={1056788} group={18} gaVersion="gtag" />

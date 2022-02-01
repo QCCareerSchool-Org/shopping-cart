@@ -829,6 +829,37 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       displayEndDate: new Date(2021, 9, 31), // October 31
     },
 
+    ...[ 150, 200, 300 ].map((d): Promo => ({
+      schools: [ 'QC Pet Studies' ],
+      student: 'DENIED',
+      code: `DG${d}`,
+      description: <>Get {price?.currency.code === 'GBP' ? '£' : '$' }{d} off the <strong>Dog Grooming</strong> course</>,
+      desktopImageSrc: require('./images/design/coupon-FATHERSDAY-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-FATHERSDAY-design.jpg'),
+      altText: `${price?.currency.code === 'GBP' ? '£' : '$'}${d} off the Dog Grooming course`,
+    })),
+
+    ...[ 150, 200, 300 ].map((d): Promo => ({
+      schools: [ 'QC Pet Studies' ],
+      student: 'DENIED',
+      code: `DT${d}`,
+      description: <>Get {price?.currency.code === 'GBP' ? '£' : '$' }{d} off the <strong>Dog Training</strong> course</>,
+      desktopImageSrc: require('./images/design/coupon-FATHERSDAY-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-FATHERSDAY-design.jpg'),
+      altText: `${price?.currency.code === 'GBP' ? '£' : '$'}${d} off the Dog Training course`,
+    })),
+
+    ...[ 50, 100, 200 ].map((d): Promo => {
+      return {
+        schools: [ 'QC Wellness Studies' ],
+        student: 'DENIED',
+        code: `${d}OFF`,
+        description: <>Get {price?.currency.code === 'GBP' ? '£' : '$' }{d} off your total tuition</>,
+        desktopImageSrc: require('./images/design/coupon-FATHERSDAY-design.jpg'),
+        mobileImageSrc: require('./images/design/coupon-mobile-FATHERSDAY-design.jpg'),
+        altText: `${price?.currency.code === 'GBP' ? '£' : '$'}${d} off your tuition`,
+      };
+    }),
   ];
   return promos.filter(p => p.schools.includes(school)
     && (p.student === 'ALLOWED' || (p.student === 'DENIED' && !student) || (p.student === 'ONLY' && student))

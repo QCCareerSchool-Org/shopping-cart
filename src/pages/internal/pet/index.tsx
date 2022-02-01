@@ -14,6 +14,7 @@ const Pet: React.FC = () => <Form
   successLink="https://www.doggroomingcourse.com/welcome-to-the-school/"
   internal={true}
   allowOverrides={true}
+  showPromoCodeInput={true}
 />;
 
 export default Pet;
