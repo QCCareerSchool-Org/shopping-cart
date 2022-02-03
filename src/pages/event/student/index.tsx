@@ -6,10 +6,6 @@ import { dateOverride } from '../../../lib/dateOverride';
 import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
 
-const additionalOptions = {
-  studentDiscount: true,
-};
-
 const Student: React.FC = () => {
   const serverDate = useDateContext();
   const date = dateOverride() ?? serverDate;
@@ -24,7 +20,6 @@ const Student: React.FC = () => {
       successLink="https://www.qceventplanning.com/welcome-to-the-school/"
       student={true}
       showPromoCodeInput={date.getTime() >= Date.UTC(2021, 5, 9, 13)}
-      additionalOptions={additionalOptions}
     />
   );
 };
