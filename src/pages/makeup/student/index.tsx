@@ -4,6 +4,10 @@ import { Form } from '../../../components/Form';
 import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
 
+const additionalOptions = {
+  studentDiscount: true,
+};
+
 const Student: React.FC = () => (
   <Form
     courseGroups={courseGroups}
@@ -15,6 +19,7 @@ const Student: React.FC = () => (
     successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
     showDynamicCourseDescriptions={true}
     showPromoCodeInput={true}
+    additionalOptions={additionalOptions}
   />
 );
 
