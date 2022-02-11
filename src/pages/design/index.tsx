@@ -18,6 +18,7 @@ const FreePortfolio = lazy(async () => import('./free-portfolio'));
 const Organizing = lazy(async () => import('./organizing'));
 const Student = lazy(async () => import('./student'));
 const TuitionDiscount = lazy(async () => import('./tuition-discount'));
+const Masterclass = lazy(async () => import('./masterclass-200-off'));
 
 const Design = (): ReactElement => {
   const { courses, address, price } = useStateContext();
@@ -51,6 +52,7 @@ const Design = (): ReactElement => {
         <Route path="/organizing/" element={<Suspense fallback={<></>}><Organizing currencyCode={currencyCode} /></Suspense>} />
         <Route path="/student/" element={<Suspense fallback={<></>}><Student /></Suspense>} />
         <Route path="/tuition-discount/" element={<Suspense fallback={<></>}><TuitionDiscount currencyCode={currencyCode} /></Suspense>} />
+        <Route path="/masterclass-200-off/" element={<Suspense fallback={<></>}><Masterclass /></Suspense>} />
         <Route path="*" element={<Default courses={courses.selected} currencyCode={currencyCode} />} />
       </Routes>
       <LiveChat license={1056788} group={3} gaVersion="gtag" />
