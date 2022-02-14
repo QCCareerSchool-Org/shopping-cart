@@ -81,7 +81,7 @@ type Props = {
 };
 
 export const Form: React.FC<Props> = props => {
-  const { courses, address, payment, meta } = useStateContext();
+  const { courses, address, payment, meta, overrides } = useStateContext();
   const dispatch = useDispatchContext();
 
   useGeoLocation(); // set initial country and province based on ip
@@ -118,35 +118,50 @@ export const Form: React.FC<Props> = props => {
     setErrorModal(prevState => ({ ...prevState, open: !prevState.open }));
   };
 
-  const createEnrollmentPayload = (): EnrollmentPayload => ({
-    courses: courses.selected,
-    title: address.title,
-    firstName: address.firstName,
-    lastName: address.lastName,
-    address1: address.address1,
-    address2: address.address2,
-    city: address.city,
-    provinceCode: address.provinceCode,
-    postalCode: address.postalCode,
-    countryCode: address.countryCode,
-    emailAddress: address.emailAddress,
-    telephoneNumber: address.telephoneNumber,
-    paymentPlan: payment.plan,
-    paymentDay: payment.day,
-    school: props.school,
-    url: window.location.pathname,
-    discountCode: '',
-    campaignId: null,
-    existingStudent: meta.student,
-    options: {
-      noShipping: payment.noShipping,
-      discountAll: meta.student,
-      studentDiscount: meta.studentDiscount,
+  const createEnrollmentPayload = (): EnrollmentPayload => {
+    const payload = {
+      courses: courses.selected,
+      title: address.title,
+      firstName: address.firstName,
+      lastName: address.lastName,
+      address1: address.address1,
+      address2: address.address2,
+      city: address.city,
+      provinceCode: address.provinceCode,
+      postalCode: address.postalCode,
+      countryCode: address.countryCode,
+      emailAddress: address.emailAddress,
+      telephoneNumber: address.telephoneNumber,
+      paymentPlan: payment.plan,
+      paymentDay: payment.day,
       school: props.school,
-      promoCode: props.promoCodeDefault ?? meta.promoCode,
-      ...props.additionalOptions,
-    },
-  });
+      url: window.location.pathname,
+      discountCode: '',
+      campaignId: null,
+      existingStudent: meta.student,
+      options: {
+        noShipping: payment.noShipping,
+        discountAll: meta.student,
+        studentDiscount: meta.studentDiscount,
+        school: props.school,
+        promoCode: props.promoCodeDefault ?? meta.promoCode,
+        ...props.additionalOptions,
+      },
+    };
+
+    if (props.allowOverrides) {
+      payload.options = {
+        ...payload.options,
+        installmentsOverride: Math.max(1, overrides.installments),
+        depositOverrides: overrides.courses.reduce<{ [key: string]: number }>((prev, cur) => {
+          prev[cur.code] = cur.value;
+          return prev;
+        }, {}),
+      };
+    }
+
+    return payload;
+  };
 
   const saveForm = (): void => {
     if (window.sessionStorage) {
