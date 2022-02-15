@@ -41,15 +41,15 @@ export const Promo20220215 = ({ date }: Props): ReactElement => {
 
   if (date.getTime() >= Date.UTC(2022, 1, 22, 5)) { // February 22 at 00:00 (05:00 UTC)
     if (desktop) {
-      image = require('./desktop-ends.jpg');
+      image = price?.currency.code === 'GBP' ? require('./desktop-ends-uk.jpg') : require('./desktop-ends.jpg');
     } else {
-      image = require('./mobile-ends.jpg');
+      image = price?.currency.code === 'GBP' ? require('./mobile-ends-uk.jpg') : require('./mobile-ends.jpg');
     }
   } else {
     if (desktop) {
-      image = require('./desktop.jpg');
+      image = price?.currency.code === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
     } else {
-      image = require('./mobile.jpg');
+      image = price?.currency.code === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
     }
   }
 
