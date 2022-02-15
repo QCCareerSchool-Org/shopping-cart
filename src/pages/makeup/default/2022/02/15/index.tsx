@@ -74,7 +74,7 @@ export const Promo20220215 = ({ date }: Props): ReactElement => {
           <ModalBody>
             <h6 className="mb-3">Special February Offer</h6>
             <p>It&apos;s the season of love and we&apos;re celebrating with an exclusive gift for new students!</p>
-            <p>This month only, get up to $200 off our most popular courses!</p>
+            <p>This month only, get up to {price?.currency.code === 'GBP' ? '£150' : '$200'} off our most popular courses!</p>
             <p>Plus, when you enroll in the <strong>Master Makeup Artistry</strong> course, you&apos;ll get the Luminous Collection FREE.</p>
             <p>This makeup kit comes with everything you need to start your career as a professional MUA including</p>
             <ul>
