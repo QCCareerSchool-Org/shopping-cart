@@ -5,19 +5,19 @@ import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
 import { Promo } from './Promo';
 
-const Student: React.FC = () => (
+const Default: React.FC = () => (
   <>
     <Promo />
     <Form
       courseGroups={courseGroups}
-      school="QC Design School"
+      school="QC Wellness Studies"
       guarantee={() => <Guarantee />}
-      agreementLink="https://www.qcdesignschool.com/enrollment-agreement.html"
-      agreementLinkGB="https://www.qcdesignschool.com/enrollment-agreement-gb.html"
-      successLink="https://www.qcdesignschool.com/welcome-to-the-school/"
+      agreementLink="https://www.qcwellnessstudies.com/enrollment-agreement"
+      agreementLinkGB="https://www.qcwellnessstudies.com/enrollment-agreement-gb"
+      successLink="https://www.qcwellnessstudies.com/welcome-to-the-school/"
       student={true}
     />
   </>
 );
 
-export default Student;
+export default Default;

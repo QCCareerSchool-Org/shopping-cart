@@ -11,6 +11,7 @@ import { Header } from './Header';
 
 import './style.scss';
 
+const Student = React.lazy(async () => import('./student'));
 const Wellness150Off = React.lazy(async () => import('./150-off'));
 const Wellness100Off = React.lazy(async () => import('./100-off'));
 const Wellness50Off = React.lazy(async () => import('./50-off'));
@@ -40,6 +41,7 @@ const Wellness: React.FC = () => {
       </Helmet>
       <Header countryCode={address.countryCode} link={headerLink(location.pathname)} />
       <Routes>
+        <Route path="/student/" element={<Student />} />
         <Route path="/150-off" element={<Suspense fallback={<></>}><Wellness150Off currencyCode={currencyCode} /></Suspense>} />
         <Route path="/100-off" element={<Suspense fallback={<></>}><Wellness100Off currencyCode={currencyCode} /></Suspense>} />
         <Route path="/50-off" element={<Suspense fallback={<></>}><Wellness50Off currencyCode={currencyCode} /></Suspense>} />
