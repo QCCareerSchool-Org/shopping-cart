@@ -1,6 +1,6 @@
 {
   "name": "shopping-cart",
-  "version": "1.8.11",
+  "version": "1.8.12",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
@@ -70,7 +70,7 @@
     "@typescript-eslint/eslint-plugin": "^5.10.2",
     "@typescript-eslint/parser": "^5.10.2",
     "eslint-plugin-jest": "^26.0.0",
-    "faker": "^5.5.3",
+    "faker": "5.5.3",
     "typescript": "^4.5.5"
   }
 }
