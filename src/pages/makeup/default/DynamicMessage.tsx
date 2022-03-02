@@ -1,7 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import { DynamicMessage20220201 } from './2022/02/01/DynamicMessage';
-import { DynamicMessage20220215 } from './2022/02/15/DynamicMessage';
+import { DynamicMessage20220301 } from './2022/03/01/DynamicMessage';
 
 type Props = {
   date: Date;
@@ -9,9 +8,6 @@ type Props = {
 };
 
 export const DynamicMessage = ({ date, courses }: Props): ReactElement => {
-  const time = date.getTime();
-  if (time >= Date.UTC(2022, 1, 15, 14, 30)) { // February 1 at 9:30 (14:30 UTC)
-    return <DynamicMessage20220215 courses={courses} />;
-  }
-  return <DynamicMessage20220201 courses={courses} />;
+  // const time = date.getTime();
+  return <DynamicMessage20220301 courses={courses} />;
 };
