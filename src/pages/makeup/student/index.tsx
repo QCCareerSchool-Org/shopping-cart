@@ -5,10 +5,6 @@ import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
 import { Promo } from './Promo';
 
-const additionalOptions = {
-  studentDiscount: true,
-};
-
 const Student: React.FC = () => (
   <>
     <Promo />
@@ -22,7 +18,6 @@ const Student: React.FC = () => (
       successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
       showDynamicCourseDescriptions={true}
       showPromoCodeInput={true}
-      additionalOptions={additionalOptions}
     />
   </>
 );
