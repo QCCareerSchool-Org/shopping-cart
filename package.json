@@ -1,6 +1,6 @@
 {
   "name": "shopping-cart",
-  "version": "1.8.14",
+  "version": "1.8.15",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
@@ -8,7 +8,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.11",
-    "@qccareerschool/helper-functions": "^1.4.0",
+    "@qccareerschool/helper-functions": "^1.5.2",
     "@qccareerschool/hooks": "^0.1.0",
     "@types/big.js": "^6.0.0",
     "@types/qs": "^6.9.6",
