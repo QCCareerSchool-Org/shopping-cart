@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import { DynamicMessage20220301 } from './2022/03/01/DynamicMessage';
+import { DynamicMessage20220315 } from './2022/03/15/DynamicMessage';
 
 type Props = {
   date: Date;
@@ -9,5 +9,5 @@ type Props = {
 
 export const DynamicMessage = ({ date, courses }: Props): ReactElement => {
   // const time = date.getTime();
-  return <DynamicMessage20220301 courses={courses} />;
+  return <DynamicMessage20220315 courses={courses} />;
 };

@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import { Promo20220301 } from './2022/03/01';
+import { Promo20220315 } from './2022/03/15';
 
 type Props = {
   date: Date;
@@ -8,5 +8,5 @@ type Props = {
 
 export const DefaultPromo = ({ date }: Props): ReactElement => {
   // const time = date.getTime();
-  return <Promo20220301 date={date} />;
+  return <Promo20220315 date={date} />;
 };

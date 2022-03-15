@@ -30,7 +30,6 @@ const Default = ({ courses, currencyCode }: Props): ReactElement => {
         successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
         showDynamicCourseDescriptions={true}
         dynamicCourseMessages={[ () => <DynamicMessage date={date} courses={courses} /> ]}
-        promoCodeDefault="FREEADVANCED"
       />
     </>
   );
