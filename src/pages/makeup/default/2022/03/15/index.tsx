@@ -51,7 +51,7 @@ export const Promo20220315 = ({ date }: Props): ReactElement => {
             <li>a 28-shade powder blush palette</li>
           </ul>
           <p>Graduate as a Master International Makeup Professional™ (MIMP™) in just a few short months and build your beauty empire!</p>
-          <div style={{ display: 'flex', justifyContent: 'center' }}><img src={require('./enrollment-pop-up.jpg')} className="img-fluid" /></div>
+          <div style={{ display: 'flex', justifyContent: 'center' }}><img src={require('./starter-makeup-kit.jpg')} className="img-fluid" /></div>
         </ModalBody>
         <ModalFooter>
           <div>The kit pictured above is included only when you enroll in the <strong>Master Makeup Artistry</strong> course. You will receive a different, course-specific makeup starter kit with all other QC Makeup Academy courses instead of the one shown.</div>
