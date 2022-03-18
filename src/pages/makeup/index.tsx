@@ -18,6 +18,10 @@ const HundredOff = React.lazy(async () => import('./100-off'));
 const LimitedTimeOffer = React.lazy(async () => import('./limited-time-offer'));
 const DeluxeKit = React.lazy(async () => import('./deluxe-kit'));
 const Personal = React.lazy(async () => import('./personal'));
+const ProPlusLuminousKit = React.lazy(async () => import('./pro-plus-luminous-kit'));
+const LuminousKit = React.lazy(async () => import('./luminous-kit'));
+const FreeSkincare = React.lazy(async () => import('./free-skincare'));
+const FreeAdvanced = React.lazy(async () => import('./free-advanced'));
 
 const Makeup: React.FC = () => {
   const { courses, address, price } = useStateContext();
@@ -48,6 +52,10 @@ const Makeup: React.FC = () => {
       </Helmet>
       <Header countryCode={address.countryCode} />
       <Routes>
+        <Route path="/luminous-kit/" element={<Suspense fallback={<></>}><LuminousKit /></Suspense>} />
+        <Route path="/pro-plus-luminous-kit/" element={<Suspense fallback={<></>}><ProPlusLuminousKit /></Suspense>} />
+        <Route path="/free-skincare/" element={<Suspense fallback={<></>}><FreeSkincare /></Suspense>} />
+        <Route path="/free-advanced/" element={<Suspense fallback={<></>}><FreeAdvanced /></Suspense>} />
         <Route path="/student/" element={<Suspense fallback={<></>}><Student /></Suspense>} />
         <Route path="/100-off/" element={<Suspense fallback={<></>}><HundredOff currencyCode={currencyCode} /></Suspense>} />
         <Route path="/deluxe-kit/" element={<Suspense fallback={<></>}><DeluxeKit /></Suspense>} />

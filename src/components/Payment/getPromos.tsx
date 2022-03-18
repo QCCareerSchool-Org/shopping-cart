@@ -7,6 +7,43 @@ import { Promo } from './PromoCodeInput';
 export const getPromos = (now: Date, price: PriceState, school: School, student: boolean): Promo[] => {
   const promos: Promo[] = [
     {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'LUMINOUS',
+      description: <>Enroll in <strong>Master Makeup Artistry</strong> and get the Luminous Collection free</>,
+      desktopImageSrc: require('./images/design/coupon-JULY21-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-JULY21-design.jpg'),
+      altText: 'Free Luminous Collection',
+    },
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'PROLUMINOUS',
+      description: <>Enroll in <strong>Master Makeup Artistry</strong> and get the <strong>Pro Makeup Workshop</strong> and the Luminous Collection free</>,
+      desktopImageSrc: require('./images/design/coupon-JULY21-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-JULY21-design.jpg'),
+      altText: 'Free Pro Makeup Workshop and Luminous Collection',
+    },
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'SKINCARE',
+      description: <>Enroll in <strong>Master Makeup Artistry</strong> and get the <strong>Skincare</strong> course free</>,
+      desktopImageSrc: require('./images/design/coupon-JULY21-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-JULY21-design.jpg'),
+      altText: 'Free Skincare',
+    },
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'FREEADVANCED',
+      description: <>Enroll in <strong>Master Makeup Artistry</strong> and any advanced course free</>,
+      desktopImageSrc: require('./images/design/coupon-JULY21-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-JULY21-design.jpg'),
+      altText: 'Free advanced course',
+    },
+
+    {
       schools: [ 'QC Makeup Academy', 'QC Event School', 'QC Design School' ],
       student: 'DENIED',
       code: 'BOGO',
