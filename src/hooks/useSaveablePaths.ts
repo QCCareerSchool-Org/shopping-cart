@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 export const useSaveablePaths = (saveablePaths: RegExp[]): void => {
 
   useEffect(() => {
-    if (window.localStorage) {
+    if (navigator.cookieEnabled && window.localStorage) {
       if (saveablePaths.some(path => path.test(window.location.pathname))) {
         window.localStorage.setItem('pathname', window.location.pathname);
         const days = 7;
