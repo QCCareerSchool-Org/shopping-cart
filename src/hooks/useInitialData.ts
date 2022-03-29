@@ -40,13 +40,13 @@ export const useInitialData = (internal: boolean): void => {
     };
 
     const loadSessionStorageData = (): void => {
-      if (window.sessionStorage) {
-        const storedData = window.sessionStorage.getItem('form');
-        if (storedData === null) {
-          return;
-        }
-
+      if (navigator.cookieEnabled && window.sessionStorage) {
         try {
+          const storedData = window.sessionStorage.getItem('form');
+          if (storedData === null) {
+            return;
+          }
+
           const form = JSON.parse(storedData);
 
           // country, province
