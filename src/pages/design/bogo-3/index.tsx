@@ -1,21 +1,15 @@
-/* eslint-disable @typescript-eslint/no-magic-numbers */
-import React, { ReactElement } from 'react';
+import React, { memo, ReactElement } from 'react';
 
 import { Form } from '../../../components/Form';
-import { useDateContext } from '../../../hooks/useDateContext';
-import { dateOverride } from '../../../lib/dateOverride';
 import { BogoDynamicMessage } from '../BogoDynamicMessage';
 import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
-import { DefaultPromo } from './DefaultPromo';
+import { Bogo3Promo } from './Bogo3Promo';
 
-const Default = (): ReactElement => {
-  const serverDate = useDateContext();
-  const date = dateOverride() ?? serverDate;
-
+const Bogo3 = memo((): ReactElement => {
   return (
     <>
-      <DefaultPromo date={date} />
+      <Bogo3Promo />
       <Form
         courseGroups={courseGroups}
         school="QC Design School"
@@ -23,9 +17,13 @@ const Default = (): ReactElement => {
         agreementLink="https://www.qcdesignschool.com/enrollment-agreement.html"
         agreementLinkGB="https://www.qcdesignschool.com/enrollment-agreement-gb.html"
         successLink="https://www.qcdesignschool.com/welcome-to-the-school/"
+        dynamicCourseMessages={[ () => <BogoDynamicMessage /> ]}
+        promoCodeDefault="BOGO"
       />
     </>
   );
-};
+});
 
-export default Default;
+Bogo3.displayName = 'Bogo3';
+
+export default Bogo3;
