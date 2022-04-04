@@ -9,12 +9,7 @@ import { Guarantee } from '../Guarantee';
 import { DefaultPromo } from './DefaultPromo';
 import { DynamicMessage } from './DynamicMessage';
 
-type Props = {
-  courses: string[];
-  currencyCode: string;
-};
-
-const Default = ({ courses, currencyCode }: Props): ReactElement => {
+const Default = (): ReactElement => {
   const serverDate = useDateContext();
   const date = dateOverride() ?? serverDate;
 
@@ -28,8 +23,7 @@ const Default = ({ courses, currencyCode }: Props): ReactElement => {
         agreementLink="https://www.qceventplanning.com/enrollment-agreement.html"
         agreementLinkGB="https://www.qceventplanning.com/enrollment-agreement-gb.html"
         successLink="https://www.qceventplanning.com/welcome-to-the-school/"
-        dynamicCourseMessages={[ () => <DynamicMessage date={date} courses={courses} /> ]}
-        promoCodeDefault="2SPECIALTY"
+        dynamicCourseMessages={[ () => <DynamicMessage date={date} /> ]}
       />
     </>
   );

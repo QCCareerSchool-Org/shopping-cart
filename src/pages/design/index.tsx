@@ -1,4 +1,4 @@
-import React, { lazy, ReactElement, Suspense } from 'react';
+import React, { lazy, memo, ReactElement, Suspense } from 'react';
 import { Helmet } from 'react-helmet';
 import { Route, Routes } from 'react-router-dom';
 import { LiveChat } from '../../components/LiveChat';
@@ -14,15 +14,19 @@ import { Header } from './Header';
 import './style.scss';
 
 // lazily load the other carts because they're used less often
+const Bogo1 = lazy(async () => import('./bogo-1'));
+const Bogo2 = lazy(async () => import('./bogo-2'));
+const Bogo3 = lazy(async () => import('./bogo-3'));
+const Bogo4 = lazy(async () => import('./bogo-4'));
+const Bogo5 = lazy(async () => import('./bogo-5'));
 const FreePortfolio = lazy(async () => import('./free-portfolio'));
 const Organizing = lazy(async () => import('./organizing'));
 const Student = lazy(async () => import('./student'));
 const TuitionDiscount = lazy(async () => import('./tuition-discount'));
 const Masterclass = lazy(async () => import('./masterclass-200-off'));
 
-const Design = (): ReactElement => {
-  const { courses, address, price } = useStateContext();
-  const currencyCode = price?.currency.code ?? 'USD';
+const Design = memo((): ReactElement => {
+  const { address } = useStateContext();
 
   useSaveablePaths([
     /^\/free-portfolio(\/.*)?$/u,
@@ -48,17 +52,24 @@ const Design = (): ReactElement => {
       </Helmet>
       <Header countryCode={address.countryCode} />
       <Routes>
+        <Route path="/bogo-1/" element={<Suspense fallback={<></>}><Bogo1 /></Suspense>} />
+        <Route path="/bogo-2/" element={<Suspense fallback={<></>}><Bogo2 /></Suspense>} />
+        <Route path="/bogo-3/" element={<Suspense fallback={<></>}><Bogo3 /></Suspense>} />
+        <Route path="/bogo-4/" element={<Suspense fallback={<></>}><Bogo4 /></Suspense>} />
+        <Route path="/bogo-5/" element={<Suspense fallback={<></>}><Bogo5 /></Suspense>} />
         <Route path="/free-portfolio/" element={<Suspense fallback={<></>}><FreePortfolio /></Suspense>} />
-        <Route path="/organizing/" element={<Suspense fallback={<></>}><Organizing currencyCode={currencyCode} /></Suspense>} />
+        <Route path="/organizing/" element={<Suspense fallback={<></>}><Organizing /></Suspense>} />
         <Route path="/student/" element={<Suspense fallback={<></>}><Student /></Suspense>} />
-        <Route path="/tuition-discount/" element={<Suspense fallback={<></>}><TuitionDiscount currencyCode={currencyCode} /></Suspense>} />
+        <Route path="/tuition-discount/" element={<Suspense fallback={<></>}><TuitionDiscount /></Suspense>} />
         <Route path="/masterclass-200-off/" element={<Suspense fallback={<></>}><Masterclass /></Suspense>} />
-        <Route path="*" element={<Default courses={courses.selected} currencyCode={currencyCode} />} />
+        <Route path="*" element={<Default />} />
       </Routes>
       <LiveChat license={1056788} group={3} gaVersion="gtag" />
       <Footer countryCode={address.countryCode} />
     </>
   );
-};
+});
+
+Design.displayName = 'Design';
 
 export default Design;

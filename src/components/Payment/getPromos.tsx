@@ -44,6 +44,34 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
     },
 
     {
+      schools: [ 'QC Event School' ],
+      student: 'DENIED',
+      code: 'EVENTFREECOURSE',
+      description: <>Enroll in a <strong>Foundation</strong> course and any second course free</>,
+      desktopImageSrc: require('./images/design/coupon-JULY21-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-JULY21-design.jpg'),
+      altText: 'Free second course',
+    },
+    {
+      schools: [ 'QC Event School' ],
+      student: 'DENIED',
+      code: 'SPECIALTY',
+      description: <>Enroll in a <strong>Foundation</strong> course and one free <strong>Specialty</strong> course</>,
+      desktopImageSrc: require('./images/design/coupon-JULY21-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-JULY21-design.jpg'),
+      altText: 'Free specialty course',
+    },
+    {
+      schools: [ 'QC Event School' ],
+      student: 'DENIED',
+      code: '2SPECIALTY',
+      description: <>Enroll in a <strong>Foundation</strong> course and two free <strong>Specialty</strong> courses</>,
+      desktopImageSrc: require('./images/design/coupon-JULY21-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-JULY21-design.jpg'),
+      altText: 'Two free specialty courses',
+    },
+
+    {
       schools: [ 'QC Makeup Academy', 'QC Event School', 'QC Design School' ],
       student: 'DENIED',
       code: 'BOGO',
@@ -870,9 +898,9 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       schools: [ 'QC Pet Studies' ],
       student: 'DENIED',
       code: `DG${d}`,
-      description: <>Get {price?.currency.code === 'GBP' ? '£' : '$' }{d} off the <strong>Dog Grooming</strong> course</>,
-      desktopImageSrc: require('./images/design/coupon-FATHERSDAY-design.jpg'),
-      mobileImageSrc: require('./images/design/coupon-mobile-FATHERSDAY-design.jpg'),
+      description: <>Get {price?.currency.code === 'GBP' ? '£' : '$'}{d} off the <strong>Dog Grooming</strong> course</>,
+      desktopImageSrc: require(`./images/${price?.currency.code === 'GBP' ? 'uk-' : ''}coupon-SAVE${d}.jpg`),
+      mobileImageSrc: require(`./images/${price?.currency.code === 'GBP' ? 'uk-' : ''}coupon-mobile-SAVE${d}.jpg`),
       altText: `${price?.currency.code === 'GBP' ? '£' : '$'}${d} off the Dog Grooming course`,
     })),
 
@@ -880,20 +908,20 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       schools: [ 'QC Pet Studies' ],
       student: 'DENIED',
       code: `DT${d}`,
-      description: <>Get {price?.currency.code === 'GBP' ? '£' : '$' }{d} off the <strong>Dog Training</strong> course</>,
-      desktopImageSrc: require('./images/design/coupon-FATHERSDAY-design.jpg'),
-      mobileImageSrc: require('./images/design/coupon-mobile-FATHERSDAY-design.jpg'),
+      description: <>Get {price?.currency.code === 'GBP' ? '£' : '$'}{d} off the <strong>Dog Training</strong> course</>,
+      desktopImageSrc: require(`./images/${price?.currency.code === 'GBP' ? 'uk-' : ''}coupon-SAVE${d}.jpg`),
+      mobileImageSrc: require(`./images/${price?.currency.code === 'GBP' ? 'uk-' : ''}coupon-mobile-SAVE${d}.jpg`),
       altText: `${price?.currency.code === 'GBP' ? '£' : '$'}${d} off the Dog Training course`,
     })),
 
-    ...[ 50, 100, 200 ].map((d): Promo => {
+    ...[ 50, 100, 150 ].map((d): Promo => {
       return {
         schools: [ 'QC Wellness Studies' ],
         student: 'DENIED',
         code: `${d}OFF`,
-        description: <>Get {price?.currency.code === 'GBP' ? '£' : '$' }{d} off your total tuition</>,
-        desktopImageSrc: require('./images/design/coupon-FATHERSDAY-design.jpg'),
-        mobileImageSrc: require('./images/design/coupon-mobile-FATHERSDAY-design.jpg'),
+        description: <>Get {price?.currency.code === 'GBP' ? '£' : '$'}{d} off your total tuition</>,
+        desktopImageSrc: require(`./images/${price?.currency.code === 'GBP' ? 'uk-' : ''}coupon-SAVE${d}.jpg`),
+        mobileImageSrc: require(`./images/${price?.currency.code === 'GBP' ? 'uk-' : ''}coupon-mobile-SAVE${d}.jpg`),
         altText: `${price?.currency.code === 'GBP' ? '£' : '$'}${d} off your tuition`,
       };
     }),

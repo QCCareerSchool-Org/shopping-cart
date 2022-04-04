@@ -1,15 +1,13 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import { useDateContext } from '../../../hooks/useDateContext';
 import { useScreenWidthContext } from '../../../hooks/useScreenWidthContext';
+import { useStateContext } from '../../../hooks/useStateContext';
 import { dateOverride } from '../../../lib/dateOverride';
 
-type Props = {
-  currencyCode: string;
-};
-
-export const OrganizingPromo: React.FC<Props> = ({ currencyCode }) => {
+export const OrganizingPromo = (): ReactElement => {
+  const { price } = useStateContext();
   const screenWidth = useScreenWidthContext();
   const serverDate = useDateContext();
 
@@ -21,11 +19,11 @@ export const OrganizingPromo: React.FC<Props> = ({ currencyCode }) => {
   let mobileImage;
 
   if (date.getTime() >= Date.UTC(2021, 4, 14, 17)) { // May 14 at 15:00
-    desktopImage = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
-    mobileImage = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
+    desktopImage = price?.currency.code === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
+    mobileImage = price?.currency.code === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
   } else {
-    desktopImage = currencyCode === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg');
-    mobileImage = currencyCode === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
+    desktopImage = price?.currency.code === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg');
+    mobileImage = price?.currency.code === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
   }
 
   return (
