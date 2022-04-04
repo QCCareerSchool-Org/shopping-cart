@@ -1,12 +1,10 @@
 import React, { ReactElement } from 'react';
 
-import { BogoDynamicMessage } from '../BogoDynamicMessage';
-
 type Props = {
   date: Date;
 };
 
-export const DynamicMessage = ({ date }: Props): ReactElement => {
+export const DynamicMessage = ({ date }: Props): ReactElement | null => {
   // const time = date.getTime();
-  return <BogoDynamicMessage />;
+  return null;
 };
