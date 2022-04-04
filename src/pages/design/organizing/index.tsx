@@ -1,15 +1,11 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import { Form } from '../../../components/Form';
 import { Course, CourseGroup } from '../../../state/courses';
 import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
 import { OrganizingPromo } from './OrganizingPromo';
-
-type Props = {
-  currencyCode: string;
-};
 
 const additionalOptions = {
   discount: {
@@ -45,9 +41,9 @@ export const getModifiedCourseGroups = (defaultCourseGroups: CourseGroup[]): Cou
 
 const modifiedCourseGroups = getModifiedCourseGroups(courseGroups);
 
-const Organizing: React.FC<Props> = ({ currencyCode }) => (
+const Organizing = (): ReactElement => (
   <>
-    <OrganizingPromo currencyCode={currencyCode} />
+    <OrganizingPromo />
     <Form
       courseGroups={modifiedCourseGroups}
       school="QC Design School"

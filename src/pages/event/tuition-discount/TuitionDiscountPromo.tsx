@@ -1,17 +1,15 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
+import { useStateContext } from '../../../hooks/useStateContext';
 
 import desktopGB from './desktop-gb.jpg';
 import desktop from './desktop.jpg';
 import mobileGB from './mobile-gb.jpg';
 import mobile from './mobile.jpg';
 
-type Props = {
-  currencyCode: string;
-};
-
-export const TuitionDiscountPromo: React.FC<Props> = ({ currencyCode }) => {
-  const desktopImage = currencyCode === 'GBP' ? desktopGB : desktop;
-  const mobileImage = currencyCode === 'GBP' ? mobileGB : mobile;
+export const TuitionDiscountPromo = (): ReactElement => {
+  const { price } = useStateContext();
+  const desktopImage = price?.currency.code === 'GBP' ? desktopGB : desktop;
+  const mobileImage = price?.currency.code === 'GBP' ? mobileGB : mobile;
 
   return (
     <section id="promoSection" style={{ padding: 0 }}>

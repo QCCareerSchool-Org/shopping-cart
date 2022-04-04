@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { ReactElement, Suspense } from 'react';
 import { Helmet } from 'react-helmet';
 import { Route, Routes } from 'react-router-dom';
 import { LiveChat } from '../../components/LiveChat';
@@ -15,14 +15,18 @@ import { Header } from './Header';
 import './style.scss';
 
 // lazily load the other carts because they're used less often
+const Bogo1 = React.lazy(async () => import('./bogo-1'));
+const Bogo2 = React.lazy(async () => import('./bogo-2'));
+const FreeSpecialty = React.lazy(async () => import('./free-specialty'));
+const FreeSpecialty2 = React.lazy(async () => import('./free-specialty-2'));
+const TwoFreeSpecialty = React.lazy(async () => import('./2-free-specialty'));
 const Student = React.lazy(async () => import('./student'));
 const FreePortfolio = React.lazy(async () => import('./free-portfolio'));
 const TuitionDiscount = React.lazy(async () => import('./tuition-discount'));
 const Floral = React.lazy(async () => import('./floral'));
 
-const Event: React.FC = () => {
-  const { courses, address, price } = useStateContext();
-  const currencyCode = price?.currency.code ?? 'USD';
+const Event = (): ReactElement => {
+  const { address } = useStateContext();
 
   useSaveablePaths([
     /^\/free-portfolio(\/.*)?$/u,
@@ -48,11 +52,16 @@ const Event: React.FC = () => {
       </Helmet>
       <Header countryCode={address.countryCode} />
       <Routes>
+        <Route path="/bogo-1/" element={<Suspense fallback={<></>}><Bogo1 /></Suspense>} />
+        <Route path="/bogo-2/" element={<Suspense fallback={<></>}><Bogo2 /></Suspense>} />
+        <Route path="/free-specialty/" element={<Suspense fallback={<></>}><FreeSpecialty /></Suspense>} />
+        <Route path="/free-specialty-2/" element={<Suspense fallback={<></>}><FreeSpecialty2 /></Suspense>} />
+        <Route path="/2-free-specialty/" element={<Suspense fallback={<></>}><TwoFreeSpecialty /></Suspense>} />
         <Route path="/student/" element={<Suspense fallback={<></>}><Student /></Suspense>} />
         <Route path="/free-portfolio/" element={<Suspense fallback={<></>}><FreePortfolio /></Suspense>} />
-        <Route path="/tuition-discount/" element={<Suspense fallback={<></>}><TuitionDiscount currencyCode={currencyCode} /></Suspense>} />
-        <Route path="/floral/" element={<Suspense fallback={<></>}><Floral currencyCode={currencyCode} /></Suspense>} />
-        <Route path="*" element={<Default courses={courses.selected} currencyCode={currencyCode} />} />
+        <Route path="/tuition-discount/" element={<Suspense fallback={<></>}><TuitionDiscount /></Suspense>} />
+        <Route path="/floral/" element={<Suspense fallback={<></>}><Floral /></Suspense>} />
+        <Route path="*" element={<Default />} />
       </Routes>
       <LiveChat license={1056788} group={1} gaVersion="gtag" />
       <Footer countryCode={address.countryCode} />

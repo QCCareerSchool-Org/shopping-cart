@@ -1,19 +1,16 @@
-/* eslint-disable @typescript-eslint/no-magic-numbers */
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import { useScreenWidthContext } from '../../../hooks/useScreenWidthContext';
+import { useStateContext } from '../../../hooks/useStateContext';
 
-type Props = {
-  currencyCode: string;
-};
-
-export const TuitionDiscountPromo: React.FC<Props> = ({ currencyCode }) => {
+export const TuitionDiscountPromo = (): ReactElement => {
+  const { price } = useStateContext();
   const screenWidth = useScreenWidthContext();
 
   const desktop = screenWidth > 480;
 
-  const desktopImage = currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
-  const mobileImage = currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
+  const desktopImage = price?.currency.code === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
+  const mobileImage = price?.currency.code === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
 
   return (
     <section id="promoSection" style={{ backgroundColor: 'black', padding: 0 }}>

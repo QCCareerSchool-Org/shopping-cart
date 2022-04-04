@@ -1,14 +1,10 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import { Form } from '../../../components/Form';
 import { CourseGroup } from '../../../state/courses';
 import { Guarantee } from '../Guarantee';
 import { FloralPromo } from './FloralPromo';
-
-type Props = {
-  currencyCode: string;
-};
 
 const additionalOptions = {
   discount: {
@@ -26,9 +22,9 @@ const courseGroups: CourseGroup[] = [
 
 const courseOverride = [ 'FD' ];
 
-const Floral: React.FC<Props> = ({ currencyCode }) => (
+const Floral = (): ReactElement => (
   <>
-    <FloralPromo currencyCode={currencyCode} />
+    <FloralPromo />
     <Form
       courseGroups={courseGroups}
       school="QC Event School"

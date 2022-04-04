@@ -44,6 +44,34 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
     },
 
     {
+      schools: [ 'QC Event School' ],
+      student: 'DENIED',
+      code: 'EVENTFREECOURSE',
+      description: <>Enroll in a <strong>Foundation</strong> course and any second course free</>,
+      desktopImageSrc: require('./images/design/coupon-JULY21-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-JULY21-design.jpg'),
+      altText: 'Free second course',
+    },
+    {
+      schools: [ 'QC Event School' ],
+      student: 'DENIED',
+      code: 'SPECIALTY',
+      description: <>Enroll in a <strong>Foundation</strong> course and one free <strong>Specialty</strong> course</>,
+      desktopImageSrc: require('./images/design/coupon-JULY21-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-JULY21-design.jpg'),
+      altText: 'Free specialty course',
+    },
+    {
+      schools: [ 'QC Event School' ],
+      student: 'DENIED',
+      code: '2SPECIALTY',
+      description: <>Enroll in a <strong>Foundation</strong> course and two free <strong>Specialty</strong> courses</>,
+      desktopImageSrc: require('./images/design/coupon-JULY21-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-JULY21-design.jpg'),
+      altText: 'Two free specialty courses',
+    },
+
+    {
       schools: [ 'QC Makeup Academy', 'QC Event School', 'QC Design School' ],
       student: 'DENIED',
       code: 'BOGO',

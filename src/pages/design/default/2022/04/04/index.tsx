@@ -38,7 +38,7 @@ export const Promo20220404 = (): ReactElement => {
         <ModalBody>
           <p>Ready to start your design career?</p>
           <p>Enroll in one of our internationally recognized programs and graduate with a professional certification in the home design industry!</p>
-          <p className="mb-1">Get started for {price?.currency.code === 'GBP' ? '£40' : '$75'} or save up to {price?.currency.code === 'GBP' ? '£350' : '$400'} when you pay your tuition in full.</p>
+          <p className="mb-1">Get started for {price?.currency.code === 'GBP' ? '£40' : '$75'}, or save up to {price?.currency.code === 'GBP' ? '£350' : '$400'} when you pay your tuition in full.</p>
         </ModalBody>
       </Modal>
     </section>

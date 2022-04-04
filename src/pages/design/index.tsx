@@ -26,8 +26,7 @@ const TuitionDiscount = lazy(async () => import('./tuition-discount'));
 const Masterclass = lazy(async () => import('./masterclass-200-off'));
 
 const Design = memo((): ReactElement => {
-  const { address, price } = useStateContext();
-  const currencyCode = price?.currency.code ?? 'USD';
+  const { address } = useStateContext();
 
   useSaveablePaths([
     /^\/free-portfolio(\/.*)?$/u,
@@ -59,9 +58,9 @@ const Design = memo((): ReactElement => {
         <Route path="/bogo-4/" element={<Suspense fallback={<></>}><Bogo4 /></Suspense>} />
         <Route path="/bogo-5/" element={<Suspense fallback={<></>}><Bogo5 /></Suspense>} />
         <Route path="/free-portfolio/" element={<Suspense fallback={<></>}><FreePortfolio /></Suspense>} />
-        <Route path="/organizing/" element={<Suspense fallback={<></>}><Organizing currencyCode={currencyCode} /></Suspense>} />
+        <Route path="/organizing/" element={<Suspense fallback={<></>}><Organizing /></Suspense>} />
         <Route path="/student/" element={<Suspense fallback={<></>}><Student /></Suspense>} />
-        <Route path="/tuition-discount/" element={<Suspense fallback={<></>}><TuitionDiscount currencyCode={currencyCode} /></Suspense>} />
+        <Route path="/tuition-discount/" element={<Suspense fallback={<></>}><TuitionDiscount /></Suspense>} />
         <Route path="/masterclass-200-off/" element={<Suspense fallback={<></>}><Masterclass /></Suspense>} />
         <Route path="*" element={<Default />} />
       </Routes>

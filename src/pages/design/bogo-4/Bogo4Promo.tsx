@@ -47,7 +47,7 @@ export const Bogo4Promo = memo((): ReactElement => {
           <ModalBody>
             <p>Ready to start your home design career?</p>
             <p>For a limited time only, enroll in any design course and get a second certification course for FREE! This means you could save up to {potentialSavings(price?.currency.code ?? 'USD')} on your tuition.</p>
-            <p className="mb-1">Get started for {price?.currency.code === 'GBP' ? '£40' : '$75'} or save up to {price?.currency.code === 'GBP' ? '£350' : '$400'} when you pay your tuition in full.</p>
+            <p className="mb-1">Get started for {price?.currency.code === 'GBP' ? '£40' : '$75'}, or save up to {price?.currency.code === 'GBP' ? '£350' : '$400'} when you pay your tuition in full.</p>
           </ModalBody>
         </Modal>
       </section>
