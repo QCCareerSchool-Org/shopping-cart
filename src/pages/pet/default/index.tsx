@@ -4,6 +4,7 @@ import React from 'react';
 import { Form } from '../../../components/Form';
 import { useDateContext } from '../../../hooks/useDateContext';
 import { dateOverride } from '../../../lib/dateOverride';
+import { BOGODynamicMessage } from '../BOGODynamicMessage';
 import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
 import { DefaultPromo } from './DefaultPromo';
@@ -26,6 +27,7 @@ const Default: React.FC<Props> = ({ currencyCode }) => {
         agreementLink="https://www.qcpetstudies.com/enrollment-agreement"
         agreementLinkGB="https://www.qcpetstudies.com/enrollment-agreement-gb"
         successLink="https://www.qcpetstudies.com/welcome-to-the-school"
+        dynamicCourseMessages={[ () => <BOGODynamicMessage /> ]}
       />
     </>
   );
