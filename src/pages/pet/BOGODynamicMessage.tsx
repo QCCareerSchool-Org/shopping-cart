@@ -6,7 +6,7 @@ export const BOGODynamicMessage = (): ReactElement | null => {
   if (courses.selected.length === 1) {
     return (
       <div className="alert alert-primary mt-3">
-        Save 50% on each additional course
+        Save 50% on each additional course of equal or lesser value
       </div>
     );
   }
