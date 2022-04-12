@@ -4,16 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { ReactElement } from 'react';
 
 import { Form } from '../../../components/Form';
+import { BOGODynamicMessage } from '../BOGODynamicMessage';
 import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
 import { Promo } from './promo';
 
-type Props = {
-  courses: string[];
-  currencyCode: string;
-};
-
-const Grooming150Off = ({ courses, currencyCode }: Props): ReactElement => (
+const Grooming150Off = (): ReactElement => (
   <>
     <Promo />
     <Form
@@ -24,7 +20,7 @@ const Grooming150Off = ({ courses, currencyCode }: Props): ReactElement => (
       agreementLinkGB="https://www.qcpetstudies.com/enrollment-agreement-gb"
       successLink="https://www.qcpetstudies.com/welcome-to-the-school"
       promoCodeDefault="DG150"
-      dynamicCourseMessages={[ () => <DynamicMessage courses={courses} currencyCode={currencyCode} /> ]}
+      dynamicCourseMessages={[ () => <BOGODynamicMessage /> ]}
     />
   </>
 );

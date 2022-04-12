@@ -23,7 +23,7 @@ export const Promo = (): ReactElement => {
   }
 
   return (
-    <section id="promoSection" style={{ backgroundColor: '#ebedea', padding: 0 }}>
+    <section id="promoSection" style={{ backgroundColor: '#aeaeae', padding: 0 }}>
       <div className="container px-0">
         <div className="text-center">
           <img src={image} width={width} height={height} className="img-fluid d-block mx-auto" alt="Special Offer" />
