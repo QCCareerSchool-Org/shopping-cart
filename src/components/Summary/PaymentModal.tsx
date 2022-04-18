@@ -154,6 +154,8 @@ export const PaymentModal: React.FC<Props> = ({ company, isOpen, toggle, charge 
             },
           },
         };
+      } else {
+        options = {};
       }
       setStatus(s => ({ ...s, submitted: true }));
       const token = await tokenize(status.instance, options);
