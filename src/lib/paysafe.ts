@@ -52,8 +52,15 @@ export interface TokenizeOptions {
   vault?: PaysafeVaultOptions;
 }
 
+type TokenizeCallback = (tokenInstance: unknown, err: unknown, result: { token: string }) => void;
+
+interface TokenizeFunction {
+  (options: TokenizeOptions, callback: TokenizeCallback): void;
+  (callback: TokenizeCallback): void;
+}
+
 export interface PaysafeInstance {
-  tokenize: (options: TokenizeOptions | undefined, callback: (tokenInstance: unknown, err: unknown, result: { token: string }) => void) => void;
+  tokenize: TokenizeFunction; // (optionsOrCallback: TokenizeOptions | TokenizeCallback, callback?: TokenizeCallback) => void;
   fields: (selector: string) => {
     valid: (callback: PaysafeFieldsCallback) => void;
     invalid: (callback: PaysafeFieldsCallback) => void;
@@ -83,12 +90,21 @@ export async function createInstance(apiKey: string, options: unknown): Promise<
  */
 export async function tokenize(instance: PaysafeInstance, options?: TokenizeOptions): Promise<string> {
   return new Promise((resolve, reject) => {
-    instance.tokenize(options, (tokenInstance, err, result) => {
-      if (err) {
-        return reject(err);
-      }
-      resolve(result.token);
-    });
+    if (typeof options === 'undefined') {
+      instance.tokenize((tokenInstance, err, result) => {
+        if (err) {
+          return reject(err);
+        }
+        resolve(result.token);
+      });
+    } else {
+      instance.tokenize(options, (tokenInstance, err, result) => {
+        if (err) {
+          return reject(err);
+        }
+        resolve(result.token);
+      });
+    }
   });
 }
 
