@@ -156,7 +156,13 @@ export const PaymentModal: React.FC<Props> = ({ company, isOpen, toggle, charge 
         };
       }
       setStatus(s => ({ ...s, submitted: true }));
-      const token = await tokenize(status.instance, options);
+      let token: string;
+      try {
+        token = await tokenize(status.instance, options);
+      } catch (err) {
+        console.error(err);
+        throw err;
+      }
       const chargeResult = await charge(token, company);
       if (chargeResult === false) {
         toggle();
