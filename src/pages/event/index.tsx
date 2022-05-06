@@ -20,6 +20,7 @@ const Bogo2 = React.lazy(async () => import('./bogo-2'));
 const FreeSpecialty = React.lazy(async () => import('./free-specialty'));
 const FreeSpecialty2 = React.lazy(async () => import('./free-specialty-2'));
 const TwoFreeSpecialty = React.lazy(async () => import('./2-free-specialty'));
+const TwoFreeSpecialtyMasterclass = React.lazy(async () => import('./2-free-specialty-masterclass').then(m => ({ default: m.TwoFreeSpecialtyMasterclass })));
 const Student = React.lazy(async () => import('./student'));
 const FreePortfolio = React.lazy(async () => import('./free-portfolio'));
 const TuitionDiscount = React.lazy(async () => import('./tuition-discount'));
@@ -57,6 +58,7 @@ const Event = (): ReactElement => {
         <Route path="/free-specialty/" element={<Suspense fallback={<></>}><FreeSpecialty /></Suspense>} />
         <Route path="/free-specialty-2/" element={<Suspense fallback={<></>}><FreeSpecialty2 /></Suspense>} />
         <Route path="/2-free-specialty/" element={<Suspense fallback={<></>}><TwoFreeSpecialty /></Suspense>} />
+        <Route path="/2-free-specialty-masterclass/" element={<Suspense fallback={<></>}><TwoFreeSpecialtyMasterclass /></Suspense>} />
         <Route path="/student/" element={<Suspense fallback={<></>}><Student /></Suspense>} />
         <Route path="/free-portfolio/" element={<Suspense fallback={<></>}><FreePortfolio /></Suspense>} />
         <Route path="/tuition-discount/" element={<Suspense fallback={<></>}><TuitionDiscount /></Suspense>} />
