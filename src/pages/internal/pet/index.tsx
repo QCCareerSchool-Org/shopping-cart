@@ -1,8 +1,19 @@
 import React from 'react';
 import { Form } from '../../../components/Form';
+import { CourseGroup } from '../../../state/courses';
 
-import { courseGroups } from '../../pet/courseGroups';
 import { Guarantee } from '../../pet/Guarantee';
+
+const courseGroups: CourseGroup[] = [
+  {
+    items: [
+      { code: 'DG', name: 'Dog Grooming' },
+      { code: 'DT', name: 'Dog Training' },
+      { code: 'FA', name: 'First Aid for Groomers' },
+      { code: 'DS', name: 'Breed Styling' },
+    ],
+  },
+];
 
 const Pet: React.FC = () => <Form
   courseGroups={courseGroups}
