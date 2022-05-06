@@ -1,7 +1,7 @@
 import React from 'react';
+
 import { Form } from '../../../components/Form';
 import { CourseGroup } from '../../../state/courses';
-
 import { Guarantee } from '../../pet/Guarantee';
 
 const courseGroups: CourseGroup[] = [
@@ -10,7 +10,7 @@ const courseGroups: CourseGroup[] = [
       { code: 'DG', name: 'Dog Grooming' },
       { code: 'DT', name: 'Dog Training' },
       { code: 'FA', name: 'First Aid for Groomers' },
-      { code: 'DS', name: 'Breed Styling' },
+      { code: 'DS', name: 'Dog Training' },
     ],
   },
 ];
