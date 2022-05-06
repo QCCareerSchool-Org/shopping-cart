@@ -61,15 +61,15 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       mobileImageSrc: require('./images/design/coupon-mobile-JULY21-design.jpg'),
       altText: 'Free specialty course',
     },
-    {
-      schools: [ 'QC Event School' ],
-      student: 'DENIED',
-      code: '2SPECIALTY',
+    ...([ '2SPECIALTY', 'MCSPECIALTY' ].map(code => ({
+      schools: [ 'QC Event School' as const ],
+      student: 'DENIED' as const,
+      code,
       description: <>Enroll in a <strong>Foundation</strong> course and two free <strong>Specialty</strong> courses</>,
       desktopImageSrc: require('./images/design/coupon-JULY21-design.jpg'),
       mobileImageSrc: require('./images/design/coupon-mobile-JULY21-design.jpg'),
       altText: 'Two free specialty courses',
-    },
+    }))),
 
     {
       schools: [ 'QC Makeup Academy', 'QC Event School', 'QC Design School' ],
