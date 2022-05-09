@@ -72,10 +72,19 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
     }))),
 
     {
-      schools: [ 'QC Makeup Academy', 'QC Event School', 'QC Design School' ],
+      schools: [ 'QC Event School', 'QC Design School' ],
       student: 'DENIED',
       code: 'BOGO',
       description: <>Buy any course and get any second course of equal or lesser value free</>,
+      desktopImageSrc: require('./images/design/coupon-JULY21-design.jpg'),
+      mobileImageSrc: require('./images/design/coupon-mobile-JULY21-design.jpg'),
+      altText: 'Buy one course and get one free',
+    },
+    {
+      schools: [ 'QC Makeup Academy' ],
+      student: 'DENIED',
+      code: 'BOGO',
+      description: <>Buy any course and get any* second course of equal or lesser value free<br />* excludes Airbrush Makeup Workshop, Special FX Makeup, and Hair Styling Essentials</>,
       desktopImageSrc: require('./images/design/coupon-JULY21-design.jpg'),
       mobileImageSrc: require('./images/design/coupon-mobile-JULY21-design.jpg'),
       altText: 'Buy one course and get one free',
