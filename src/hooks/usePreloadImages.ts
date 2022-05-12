@@ -6,9 +6,11 @@ declare global {
   }
 }
 
+const getRandomString = (): string => Math.random().toString(32).slice(2) + Date.now();
+
 export const usePreloadImages = (imageSrcs: string[]): void => {
   useEffect(() => {
-    const randomStr = Math.random().toString(32).slice(2) + Date.now();
+    const randomStr = getRandomString();
     window.usePreloadImagesData = window.usePreloadImagesData ?? {};
     window.usePreloadImagesData[randomStr] = [];
     for (const src of imageSrcs) {

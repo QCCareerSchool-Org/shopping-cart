@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
-export const usePopup = (initial: boolean): [boolean, () => void] => {
+export const usePopup = (initial: boolean): [ popup: boolean, toggle: () => void ] => {
   const [ popup, setPopup ] = useState(initial);
-  const togglePopup = (): void => {
+  const togglePopup = useCallback((): void => {
     setPopup(p => !p);
-  };
+  }, []);
   return [ popup, togglePopup ];
 };
