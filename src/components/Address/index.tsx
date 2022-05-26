@@ -2,6 +2,7 @@ import { needsPostal, needsProvince } from '@qccareerschool/helper-functions';
 import React from 'react';
 
 import { useStateContext } from '../../hooks/useStateContext';
+import { School } from '../../lib/enrollment';
 import { NoShippingAlert } from '../NoShippingAlert';
 import { Address1 } from './Address1';
 import { Address2 } from './Address2';
@@ -15,12 +16,16 @@ import { ProvinceCode } from './ProvinceCode';
 import { TelephoneNumber } from './TelephoneNumber';
 import { Title } from './Title';
 
-export const Address: React.FC = () => {
+type Props = {
+  school: School;
+};
+
+export const Address: React.FC<Props> = ({ school }) => {
   const { address: { countryCode } } = useStateContext();
   return (
     <section id="address-section">
       <div className="container">
-        <h2 className="h1">Shipping Information</h2>
+        <h2 className="h1">{school === 'QC Event School' || school === 'QC Wellness Studies' ? 'Billing Address' : 'Shipping Information' }</h2>
         <div className="row">
           <div className="col-12 col-md-6 col-lg-4 offset-lg-2">
             <Title />
