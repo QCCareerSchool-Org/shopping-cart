@@ -258,7 +258,7 @@ export const Form: React.FC<Props> = props => {
         shippingOptionReversed={!!props.shippingOptionReversed}
         showDynamicCourseDescriptions={!!props.showDynamicCourseDescriptions}
       />}
-      <Address />
+      <Address school={props.school} />
       <Payment
         school={props.school}
         shippingOption={!!props.shippingOption}
