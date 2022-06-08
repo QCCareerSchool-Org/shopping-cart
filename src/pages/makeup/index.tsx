@@ -37,7 +37,7 @@ const Makeup: React.FC = () => {
   return (
     <>
       <Helmet>
-        <script async src="/js/gtag.js"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3632503-9"></script>
         <script src="/makeup/gtag.js"></script>
         <title>Enroll Online - QC Makeup Academy</title>
         <link rel="canonical" href="https://enroll.qcmakeupacademy.com" />

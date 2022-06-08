@@ -27,7 +27,7 @@ const Wellness: React.FC = () => {
   return (
     <>
       <Helmet>
-        <script async src="/js/gtag.js"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3632503-32"></script>
         <script src="/wellness/gtag.js"></script>
         <title>Enroll Online - QC Wellness Studies</title>
         <link rel="canonical" href="https://enroll.qcwellnessstudies.com" />
