@@ -78,6 +78,8 @@ type Props = {
   promoCodeDefault?: string;
   /** whether to show the dynamic course descriptions */
   showDynamicCourseDescriptions?: boolean;
+  /** wether to reverse the order of the payment options */
+  paymentOptionsReverse?: boolean;
 };
 
 export const Form: React.FC<Props> = props => {
@@ -94,7 +96,7 @@ export const Form: React.FC<Props> = props => {
     dispatch({ type: 'SET_COURSE_GROUPS', payload: props.courseGroups });
   }, [ dispatch, props.courseGroups ]);
 
-  useInitialData(!!props.internal); // load initial data from sessionStorage and query string
+  useInitialData(!!props.internal, !!props.paymentOptionsReverse); // load initial data from sessionStorage and query string
 
   useEffect(() => {
     dispatch({ type: 'SET_STUDENT', payload: !!props.student });
@@ -265,6 +267,7 @@ export const Form: React.FC<Props> = props => {
         shippingOptionReversed={!!props.shippingOptionReversed}
         noShippingTitle={props.noShippingTitle}
         showPromoCodeInput={!!props.showPromoCodeInput && !props.promoCodeDefault}
+        paymentOptionsReverse={!!props.paymentOptionsReverse}
       />
       {props.allowOverrides && payment.plan === 'part' && <Overrides />}
       <Summary

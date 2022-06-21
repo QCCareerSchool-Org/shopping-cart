@@ -19,6 +19,7 @@ const LimitedTimeOffer: React.FC = () => (
       successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
       showDynamicCourseDescriptions={true}
       additionalOptions={additionalOptions}
+      paymentOptionsReverse={true}
     />
   </>
 );

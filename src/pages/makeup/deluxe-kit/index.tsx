@@ -19,6 +19,7 @@ const DeluxeKit: React.FC = () => (
       successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
       showDynamicCourseDescriptions={true}
       additionalOptions={deluxeKitOptions}
+      paymentOptionsReverse={true}
     />
   </>
 );

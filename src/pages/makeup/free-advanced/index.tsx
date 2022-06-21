@@ -19,6 +19,7 @@ const FreeAdvanced = (): ReactElement => (
       successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
       dynamicCourseMessages={[ () => <FreeAdvancedDynamicMessage /> ]}
       promoCodeDefault="FREEADVANCED"
+      paymentOptionsReverse={true}
     />
   </>
 );

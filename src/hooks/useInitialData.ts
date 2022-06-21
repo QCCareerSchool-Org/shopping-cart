@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 import { useDispatchContext } from './useDispatchContext';
 
-export const useInitialData = (internal: boolean): void => {
+export const useInitialData = (internal: boolean, paymentOptionsReverse: boolean): void => {
   const dispatch = useDispatchContext();
 
   useEffect(() => {
@@ -30,12 +30,17 @@ export const useInitialData = (internal: boolean): void => {
           dispatch({ type: 'SET_PROMO_CODE', payload: parsed.promoCode });
         }
       }
+      let planFound = false;
       if (parsed.plan) {
         if (typeof parsed.plan === 'string') {
           if (parsed.plan === 'full' || parsed.plan === 'part') {
+            planFound = true;
             dispatch({ type: 'SET_PAYMENT_PLAN', payload: parsed.plan });
           }
         }
+      }
+      if (!planFound) {
+        dispatch({ type: 'SET_PAYMENT_PLAN', payload: paymentOptionsReverse ? 'part' : 'full' });
       }
     };
 
@@ -109,5 +114,5 @@ export const useInitialData = (internal: boolean): void => {
     dispatch({ type: 'CLEAR_COURSES', payload: { internal } });
     loadSessionStorageData();
     loadQueryStringData();
-  }, [ dispatch, internal ]);
+  }, [ dispatch, internal, paymentOptionsReverse ]);
 };

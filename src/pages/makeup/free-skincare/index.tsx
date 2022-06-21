@@ -19,6 +19,7 @@ const FreeSkincare = (): ReactElement => (
       successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
       promoCodeDefault="SKINCARE"
       dynamicCourseMessages={[ () => <FreeSkincareDynamicMessage /> ]}
+      paymentOptionsReverse={true}
     />
   </>
 );
