@@ -8,7 +8,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.11",
-    "@qccareerschool/helper-functions": "^1.5.2",
+    "@qccareerschool/helper-functions": "^1.6.0",
     "@qccareerschool/hooks": "^0.1.0",
     "@types/axios": "^0.14.0",
     "@types/big.js": "^6.0.0",

@@ -97,7 +97,7 @@ describe('CountryCode', () => {
     const address: Partial<AddressState> = { countryCode: faker.address.countryCode() };
     const enrollmentErrors = { countryCode: true };
     (useStateContext as jest.Mock).mockReturnValue({ address, enrollmentErrors });
-
+    (useFetchImproved as jest.Mock).mockReturnValue([ undefined, undefined, true ]);
     const { getByLabelText } = render(<CountryCode />);
     expect(getByLabelText(/country/iu)).toHaveClass('is-invalid');
   });
@@ -107,9 +107,11 @@ describe('CountryCode', () => {
     const address: Partial<AddressState> = { countryCode: faker.address.countryCode() };
     const enrollmentErrors = { countryCode: false };
     (useStateContext as jest.Mock).mockReturnValue({ address, enrollmentErrors });
-
+    (useFetchImproved as jest.Mock).mockReturnValue([ undefined, undefined, true ]);
     const { getByLabelText } = render(<CountryCode />);
-    expect(getByLabelText(/country/iu)).not.toHaveClass('is-invalid');
+    const select = getByLabelText(/country/iu);
+    console.log('!', select);
+    expect(select).not.toHaveClass('is-invalid');
   });
 
   it('should not add the is-invalid class to the input when the address validity is undefined', () => {
@@ -117,7 +119,7 @@ describe('CountryCode', () => {
     const address: Partial<AddressState> = { countryCode: faker.address.countryCode() };
     const enrollmentErrors = {};
     (useStateContext as jest.Mock).mockReturnValue({ address, enrollmentErrors });
-
+    (useFetchImproved as jest.Mock).mockReturnValue([ undefined, undefined, true ]);
     const { getByLabelText } = render(<CountryCode />);
     expect(getByLabelText(/country/iu)).not.toHaveClass('is-invalid');
   });
