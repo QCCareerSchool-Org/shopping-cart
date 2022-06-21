@@ -19,6 +19,7 @@ const ProPlusLuminousKit = (): ReactElement => (
       successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
       dynamicCourseMessages={[ () => <ProPlusLuminousDynamicMessage /> ]}
       promoCodeDefault="PROLUMINOUS"
+      paymentOptionsReverse={true}
     />
   </>
 );

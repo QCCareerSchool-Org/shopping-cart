@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import React from 'react';
-import { Modal, ModalBody, ModalHeader } from 'reactstrap';
+import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
 import { usePopup } from '../../../hooks/usePopup';
 import { useScreenWidthContext } from '../../../hooks/useScreenWidthContext';
@@ -26,6 +26,9 @@ export const LimitedTimeOfferPromo: React.FC = () => {
         <ModalBody className="text-center">
           <img src={require('./popup.jpg')} className="img-fluid" alt="Makeup Kit" />
         </ModalBody>
+        <ModalFooter>
+          <div>The kit pictured above is included only when you enroll in the <strong>Master Makeup Artistry</strong> course. Your kit will be automatically sent to you after you have submitted Unit A of the course in the Online Student Center.</div>
+        </ModalFooter>
       </Modal>
     </section>
   );

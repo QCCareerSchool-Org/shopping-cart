@@ -21,9 +21,10 @@ type Props = {
   shippingOptionReversed: boolean;
   noShippingTitle?: string;
   showPromoCodeInput: boolean;
+  paymentOptionsReverse: boolean;
 };
 
-export const Payment: React.FC<Props> = ({ school, shippingOption, shippingOptionReversed, noShippingTitle, showPromoCodeInput }) => {
+export const Payment: React.FC<Props> = ({ school, shippingOption, shippingOptionReversed, noShippingTitle, showPromoCodeInput, paymentOptionsReverse }) => {
   const { payment, price, meta: { student } } = useStateContext();
   const serverDate = useDateContext();
   const date = dateOverride() ?? serverDate;
@@ -35,7 +36,7 @@ export const Payment: React.FC<Props> = ({ school, shippingOption, shippingOptio
         <h2 className="h1">Payment Plan</h2>
         <div className="row">
           <div className="col-12 col-sm-10 offset-sm-1 col-md-5 offset-md-0 mb-4 mb-md-0">
-            <PaymentOptions />
+            <PaymentOptions reverse={paymentOptionsReverse} />
             {payment.plan === 'part' && <Schedule />}
             {showNoShipping && (shippingOptionReversed
               ? <Suspense fallback={<></>}><Shipping school={school} /></Suspense>

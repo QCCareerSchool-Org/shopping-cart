@@ -65,6 +65,7 @@ const Personal: React.FC<Props> = ({ currencyCode }) => {
         successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
         showPromoCodeInput={true}
         showDynamicCourseDescriptions={true}
+        paymentOptionsReverse={true}
       />
     </>
   );

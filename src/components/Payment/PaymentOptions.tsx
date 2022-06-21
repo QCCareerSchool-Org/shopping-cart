@@ -1,17 +1,36 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { PlanFull } from './PlanFull';
 import { PlanPart } from './PlanPart';
 
-export const PaymentOptions: React.FC = () => {
+type Props = {
+  reverse: boolean;
+};
+
+export const PaymentOptions = memo(({ reverse }: Props) => {
   return (
     <>
       <h3>Payment Options</h3>
       <div className="form-group">
-        <PlanPart />
-        <div className="mt-2"></div>
-        <PlanFull />
+        {reverse ?
+          (
+            <>
+              <PlanPart />
+              <div className="mt-2"></div>
+              <PlanFull />
+            </>
+          )
+          : (
+            <>
+              <PlanFull />
+              <div className="mt-2"></div>
+              <PlanPart />
+            </>
+          )
+        }
       </div>
     </>
   );
-};
+});
+
+PaymentOptions.displayName = 'PaymentOptions';
