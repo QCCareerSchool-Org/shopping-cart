@@ -6,8 +6,7 @@ type Props = {
 
 type State = {
   hasError: boolean;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  error: any;
+  error: unknown;
 };
 
 export class ErrorBoundary extends Component<Props, State> {
@@ -17,12 +16,11 @@ export class ErrorBoundary extends Component<Props, State> {
     this.state = { hasError: false, error: null };
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  public static getDerivedStateFromError(error: any): Partial<State> {
+  public static getDerivedStateFromError(error: unknown): Partial<State> {
     return { hasError: true, error };
   }
 
-  public componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
+  public componentDidCatch(error: unknown, errorInfo: ErrorInfo): void {
     console.error('ErrorBoundary', error, errorInfo);
   }
 
@@ -31,7 +29,7 @@ export class ErrorBoundary extends Component<Props, State> {
       return (
         <section>
           <div className="container text-center">
-            <h1>Please bear with us..</h1>
+            <h1>Please bear with us...</h1>
             <p className="lead">Sorry for the inconvenience. We suggest you <strong>refresh the page</strong> to resolve the issue.</p>
             <button onClick={this.handleRefreshClick} className="btn btn-primary">Refresh</button>
           </div>
