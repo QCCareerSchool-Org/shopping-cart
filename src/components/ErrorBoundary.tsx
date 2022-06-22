@@ -41,21 +41,21 @@ export class ErrorBoundary extends Component<Props, State> {
     return this.props.children;
   }
 
-  private readonly unregisterServiceWorkers = async (): Promise<void | boolean[]> => {
+  private async unregisterServiceWorkers(): Promise<void | boolean[]> {
     if (!('navigator' in window && 'serviceWorker' in navigator)) {
       return;
     }
     const registrations = await window.navigator.serviceWorker.getRegistrations();
     return Promise.all(registrations.map(async r => r.unregister()));
-  };
+  }
 
-  private readonly clearCaches = async (): Promise<void | boolean[]> => {
+  private async clearCaches(): Promise<void | boolean[]> {
     if (!('caches' in window)) {
       return;
     }
     const keys = await window.caches.keys();
     return Promise.all(keys.map(async k => window.caches.delete(k)));
-  };
+  }
 
   private readonly handleRefreshClick: MouseEventHandler<HTMLButtonElement> = () => {
     Promise.all([
