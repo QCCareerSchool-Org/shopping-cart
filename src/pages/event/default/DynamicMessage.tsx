@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import { FreeSpecialtyDynamicMessage } from '../FreeSpecialtyDynamicMessage';
 
 type Props = {
   date: Date;
@@ -6,5 +7,5 @@ type Props = {
 
 export const DynamicMessage = ({ date }: Props): ReactElement | null => {
   // const time = date.getTime();
-  return null;
+  return <FreeSpecialtyDynamicMessage />;
 };

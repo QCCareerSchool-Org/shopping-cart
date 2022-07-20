@@ -40,7 +40,7 @@ export class ErrorBoundary extends Component<Props, State> {
   }
 
   private async unregisterServiceWorkers(): Promise<void | boolean[]> {
-    if (!('navigator' in window && 'serviceWorker' in navigator)) {
+    if (!('navigator' in window && 'serviceWorker' in navigator && window.isSecureContext)) {
       return;
     }
     const registrations = await window.navigator.serviceWorker.getRegistrations();
@@ -48,7 +48,7 @@ export class ErrorBoundary extends Component<Props, State> {
   }
 
   private async clearCaches(): Promise<void | boolean[]> {
-    if (!('caches' in window)) {
+    if (!('caches' in window && window.isSecureContext)) {
       return;
     }
     const keys = await window.caches.keys();
@@ -62,7 +62,7 @@ export class ErrorBoundary extends Component<Props, State> {
     ]).catch(err => {
       console.error('Refresh error', err);
     }).finally(() => {
-      location.reload();
+      window.location.reload();
     });
   };
 }
