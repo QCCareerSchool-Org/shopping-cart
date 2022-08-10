@@ -9,7 +9,7 @@ import { MasterClass150OffPromo } from './Promo';
 const filteredCourseGroups = [
   ...courseGroups.map(g => ({
     ...g,
-    items: g.items.filter(c => [ 'I2', 'ST', 'PO', 'DB' ].includes(c.code)),
+    items: g.items.filter(c => [ 'I2', 'MS', 'PO', 'DB' ].includes(c.code)),
   })),
 ];
 
@@ -24,6 +24,7 @@ const MasterClass150Off = (): ReactElement => (
       agreementLinkGB="https://www.qcdesignschool.com/enrollment-agreement-gb.html"
       successLink="https://www.qcdesignschool.com/welcome-to-the-school/"
       promoCodeDefault="MASTERCLASS150"
+      showMS={true}
     />
   </>
 );

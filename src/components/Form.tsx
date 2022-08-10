@@ -80,6 +80,8 @@ type Props = {
   showDynamicCourseDescriptions?: boolean;
   /** wether to reverse the order of the payment options */
   paymentOptionsReverse?: boolean;
+  /** whether MS should be shown regardless of I2 */
+  showMS?: boolean;
 };
 
 export const Form: React.FC<Props> = props => {
@@ -93,8 +95,8 @@ export const Form: React.FC<Props> = props => {
   const [ logCheckout ] = useGoogleAnalyticsBehaviour();
 
   useEffect(() => {
-    dispatch({ type: 'SET_COURSE_GROUPS', payload: props.courseGroups });
-  }, [ dispatch, props.courseGroups ]);
+    dispatch({ type: 'SET_COURSE_GROUPS', payload: { courseGroups: props.courseGroups, showMS: !!props.showMS } });
+  }, [ dispatch, props.courseGroups, props.showMS ]);
 
   useInitialData(!!props.internal, !!props.paymentOptionsReverse); // load initial data from sessionStorage and query string
 
