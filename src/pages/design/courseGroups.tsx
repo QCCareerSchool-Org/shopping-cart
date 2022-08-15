@@ -16,7 +16,13 @@ export const courseGroups: CourseGroup[] = [
           </p>
         ),
       },
-      { code: 'MS', name: 'Staging for Designers' },
+      {
+        code: 'MS',
+        name: 'Staging for Designers',
+        disabledMessage: (
+          <p><span className="text-primary">Staging for Designers</span> is an add-on to <span className="text-primary">Interior Decorating</span>. To enroll in <span className="text-primary">Staging for Designers</span>, please select <span className="text-primary">Interior Decorating</span> first.</p>
+        ),
+      },
       {
         code: 'ST',
         name: 'Home Staging',
