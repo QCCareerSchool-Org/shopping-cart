@@ -4,6 +4,7 @@ import React, { ReactElement } from 'react';
 import { Form } from '../../../components/Form';
 import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
+import { DynamicMessage } from './DynamicMessage';
 import { MasterClass150OffPromo } from './Promo';
 
 const filteredCourseGroups = [
@@ -23,6 +24,7 @@ const MasterClass150Off = (): ReactElement => (
       agreementLink="https://www.qcdesignschool.com/enrollment-agreement.html"
       agreementLinkGB="https://www.qcdesignschool.com/enrollment-agreement-gb.html"
       successLink="https://www.qcdesignschool.com/welcome-to-the-school/"
+      dynamicCourseMessages={[ DynamicMessage ]}
       promoCodeDefault="MASTERCLASS150"
       showMS={true}
     />
