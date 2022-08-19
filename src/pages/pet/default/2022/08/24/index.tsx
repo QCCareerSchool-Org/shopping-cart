@@ -64,8 +64,8 @@ export const Promo20220824 = ({ date }: Props): ReactElement => {
         <Modal size="md" isOpen={popup} toggle={togglePopup}>
           <ModalHeader toggle={togglePopup}>Back to School Offer</ModalHeader>
           <ModalBody>
-            <p className="lead">Save {price?.currency.code === 'GBP' ? '£' : '$'}100 on your tuition!</p>
-            <p className="lead">Start training for your dream career this fall! When you enroll, save {price?.currency.code === 'GBP' ? '£' : '$'}100 on Dog Grooming or Dog Training tuition.</p>
+            <p className="lead">Save {price?.currency.code === 'GBP' ? '£75' : '$100'} on your tuition!</p>
+            <p className="lead">Start training for your dream career this fall! When you enroll, save {price?.currency.code === 'GBP' ? '£75' : '$100'} on Dog Grooming or Dog Training tuition.</p>
           </ModalBody>
         </Modal>
       </section>
