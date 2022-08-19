@@ -28,6 +28,7 @@ const Default: React.FC<Props> = ({ currencyCode }) => {
         agreementLinkGB="https://www.qcpetstudies.com/enrollment-agreement-gb"
         successLink="https://www.qcpetstudies.com/welcome-to-the-school"
         dynamicCourseMessages={[ () => <BOGODynamicMessage /> ]}
+        promoCodeDefault={date.getTime() >= Date.UTC(2022, 7, 24, 13, 3) && date.getTime() < Date.UTC(2022, 8, 12, 13, 30) ? 'PET100OFF' : undefined}
       />
     </>
   );

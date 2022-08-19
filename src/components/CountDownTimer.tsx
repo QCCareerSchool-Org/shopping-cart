@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useState } from 'react';
+import React, { memo, ReactElement, useEffect, useState } from 'react';
 
 type Props = {
   endDate: Date;
@@ -41,18 +41,17 @@ const secondDigit = (n: number): number => {
   return n % 10;
 };
 
-export const CountDownTimer = ({ endDate }: Props): ReactElement => {
+export const CountDownTimer = memo(({ endDate }: Props): ReactElement => {
   const [ timeRemaining, setTimeRemaining ] = useState<number>();
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      const now = new Date();
-      setTimeRemaining(endDate.getTime() - now.getTime());
+      setTimeRemaining(endDate.getTime() - new Date().getTime());
     }, 1000);
     return () => clearInterval(intervalId);
   }, [ endDate ]);
 
-  if (timeRemaining === undefined || timeRemaining <= 0) {
+  if (typeof timeRemaining === 'undefined' || timeRemaining <= 0) {
     return <></>;
   }
 
@@ -70,7 +69,9 @@ export const CountDownTimer = ({ endDate }: Props): ReactElement => {
       <Digits label="Seconds" value={seconds} />
     </div>
   );
-};
+});
+
+CountDownTimer.displayName = 'CountDownTimer';
 
 type DigitsProps = {
   label: string;
