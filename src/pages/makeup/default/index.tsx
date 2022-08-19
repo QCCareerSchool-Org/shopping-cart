@@ -29,8 +29,9 @@ const Default = ({ courses, currencyCode }: Props): ReactElement => {
         agreementLinkGB="https://www.qcmakeupacademy.com/enrollment-agreement-gb.html"
         successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
         showDynamicCourseDescriptions={true}
-        dynamicCourseMessages={[ () => <DynamicMessage date={date} courses={courses} /> ]}
+        dynamicCourseMessages={[ () => <DynamicMessage date={date} /> ]}
         paymentOptionsReverse={true}
+        promoCodeDefault={date.getTime() >= Date.UTC(2022, 7, 24, 13, 3) && date.getTime() < Date.UTC(2022, 8, 12, 13, 30) ? 'SKINCARE' : undefined}
       />
     </>
   );

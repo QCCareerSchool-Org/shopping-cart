@@ -24,7 +24,7 @@ const Default = (): ReactElement => {
         agreementLinkGB="https://www.qceventplanning.com/enrollment-agreement-gb.html"
         successLink="https://www.qceventplanning.com/welcome-to-the-school/"
         dynamicCourseMessages={[ () => <DynamicMessage date={date} /> ]}
-        promoCodeDefault="SPECIALTY"
+        promoCodeDefault={date.getTime() >= Date.UTC(2022, 7, 24, 13, 30) && date.getTime() < Date.UTC(2022, 8, 12, 13, 30) ? '2SPECIALTY' : 'SPECIALTY'}
       />
     </>
   );
