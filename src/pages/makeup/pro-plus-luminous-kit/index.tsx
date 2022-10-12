@@ -4,7 +4,7 @@ import { Form } from '../../../components/Form';
 
 import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
-import { ProPlusLuminousDynamicMessage } from './ProPlusLuminousDynamicMessage';
+import { ProPlusLuminousDynamicMessage } from '../ProPlusLuminousDynamicMessage';
 import { ProPlusLuminousPromo } from './ProPlusLuminousPromo';
 
 const ProPlusLuminousKit = (): ReactElement => (

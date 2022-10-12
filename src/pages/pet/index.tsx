@@ -5,7 +5,7 @@ import { LiveChat } from '../../components/LiveChat';
 
 import { useStateContext } from '../../hooks/useStateContext';
 
-import Default from './default'; // don't lazily load the default cart to reduce CLS for most visitors
+import { PetDefault } from './default'; // don't lazily load the default cart to reduce CLS for most visitors
 import { Footer } from './Footer';
 import { Header } from './Header';
 
@@ -25,8 +25,7 @@ const headerLink = (path: string): boolean => {
 };
 
 const Pet: React.FC = () => {
-  const { address, price, courses } = useStateContext();
-  const currencyCode = price?.currency.code ?? 'USD';
+  const { address } = useStateContext();
   const location = useLocation();
 
   return (
@@ -53,7 +52,7 @@ const Pet: React.FC = () => {
         <Route path="/training-300-off/" element={<Suspense fallback={<></>}><Training300Off /></Suspense>} />
         <Route path="/training-200-off/" element={<Suspense fallback={<></>}><Training200Off /></Suspense>} />
         <Route path="/training-150-off/" element={<Suspense fallback={<></>}><Training150Off /></Suspense>} />
-        <Route path="*" element={<Default currencyCode={currencyCode} />} />
+        <Route path="*" element={<PetDefault />} />
       </Routes>
       <LiveChat license={1056788} group={18} gaVersion="gtag" />
       <Footer countryCode={address.countryCode} />

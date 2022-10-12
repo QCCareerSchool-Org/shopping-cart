@@ -22,7 +22,7 @@ export const TwoFreeSpecialtyDynamicMessage = memo((): ReactElement | null => {
   if (specialtyCount === 0) {
     return (
       <div className="alert alert-warning mt-4">
-        <FontAwesomeIcon icon={faInfoCircle} /> Don&apos;t forget to select your free specialty courses
+        <FontAwesomeIcon icon={faInfoCircle} /> Don&apos;t forget to select your two free specialty courses
       </div>
     );
   }

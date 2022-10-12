@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import { LiveChat } from '../../components/LiveChat';
 import { useStateContext } from '../../hooks/useStateContext';
 
-import Default from './default'; // don't lazily load the default cart to reduce CLS for most visitors
+import { WellnessDefault } from './default'; // don't lazily load the default cart to reduce CLS for most visitors
 import { Footer } from './Footer';
 import { Header } from './Header';
 
@@ -21,8 +21,7 @@ const headerLink = (path: string): boolean => {
 };
 
 const Wellness: React.FC = () => {
-  const { address, price } = useStateContext();
-  const currencyCode = price?.currency.code ?? 'USD';
+  const { address } = useStateContext();
 
   return (
     <>
@@ -42,10 +41,10 @@ const Wellness: React.FC = () => {
       <Header countryCode={address.countryCode} link={headerLink(location.pathname)} />
       <Routes>
         <Route path="/student/" element={<Student />} />
-        <Route path="/150-off" element={<Suspense fallback={<></>}><Wellness150Off currencyCode={currencyCode} /></Suspense>} />
-        <Route path="/100-off" element={<Suspense fallback={<></>}><Wellness100Off currencyCode={currencyCode} /></Suspense>} />
-        <Route path="/50-off" element={<Suspense fallback={<></>}><Wellness50Off currencyCode={currencyCode} /></Suspense>} />
-        <Route path="*" element={<Default currencyCode={currencyCode} />} />
+        <Route path="/150-off" element={<Suspense fallback={<></>}><Wellness150Off /></Suspense>} />
+        <Route path="/100-off" element={<Suspense fallback={<></>}><Wellness100Off /></Suspense>} />
+        <Route path="/50-off" element={<Suspense fallback={<></>}><Wellness50Off /></Suspense>} />
+        <Route path="*" element={<WellnessDefault />} />
       </Routes>
       <LiveChat license={1056788} group={19} gaVersion="gtag" />
       <Footer countryCode={address.countryCode} />

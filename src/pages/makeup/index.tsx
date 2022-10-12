@@ -6,7 +6,7 @@ import { LiveChat } from '../../components/LiveChat';
 import { useSaveablePaths } from '../../hooks/useSaveablePaths';
 import { useStateContext } from '../../hooks/useStateContext';
 
-import Default from './default'; // don't lazily load the default cart to reduce CLS for most visitors
+import { MakeupDefault } from './default'; // don't lazily load the default cart to reduce CLS for most visitors
 import { Footer } from './Footer';
 import { Header } from './Header';
 
@@ -17,15 +17,13 @@ const Student = React.lazy(async () => import('./student'));
 const HundredOff = React.lazy(async () => import('./100-off'));
 const LimitedTimeOffer = React.lazy(async () => import('./limited-time-offer'));
 const DeluxeKit = React.lazy(async () => import('./deluxe-kit'));
-const Personal = React.lazy(async () => import('./personal'));
 const ProPlusLuminousKit = React.lazy(async () => import('./pro-plus-luminous-kit'));
 const LuminousKit = React.lazy(async () => import('./luminous-kit'));
 const FreeSkincare = React.lazy(async () => import('./free-skincare'));
 const FreeAdvanced = React.lazy(async () => import('./free-advanced'));
 
 const Makeup: React.FC = () => {
-  const { courses, address, price } = useStateContext();
-  const currencyCode = price?.currency.code ?? 'USD';
+  const { address } = useStateContext();
 
   useSaveablePaths([
     /^\/limited-time-offer(\/.*)?$/u,
@@ -57,11 +55,10 @@ const Makeup: React.FC = () => {
         <Route path="/free-skincare/" element={<Suspense fallback={<></>}><FreeSkincare /></Suspense>} />
         <Route path="/free-advanced/" element={<Suspense fallback={<></>}><FreeAdvanced /></Suspense>} />
         <Route path="/student/" element={<Suspense fallback={<></>}><Student /></Suspense>} />
-        <Route path="/100-off/" element={<Suspense fallback={<></>}><HundredOff currencyCode={currencyCode} /></Suspense>} />
+        <Route path="/100-off/" element={<Suspense fallback={<></>}><HundredOff /></Suspense>} />
         <Route path="/deluxe-kit/" element={<Suspense fallback={<></>}><DeluxeKit /></Suspense>} />
         <Route path="/limited-time-offer/" element={<Suspense fallback={<></>}><LimitedTimeOffer /></Suspense>} />
-        <Route path="/personal/" element={<Suspense fallback={<></>}><Personal currencyCode={currencyCode} courses={courses.selected} /></Suspense>} />
-        <Route path="*" element={<Default currencyCode={currencyCode} courses={courses.selected} />} />
+        <Route path="*" element={<MakeupDefault />} />
       </Routes>
       <LiveChat license={1056788} group={14} gaVersion="gtag" />
       <Footer countryCode={address.countryCode} />
