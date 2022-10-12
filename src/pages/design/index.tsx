@@ -7,7 +7,7 @@ import { useSaveablePaths } from '../../hooks/useSaveablePaths';
 import { useStateContext } from '../../hooks/useStateContext';
 
 // don't lazily load the default cart to reduce CLS for most visitors
-import Default from './default';
+import { DesignDefault } from './default';
 import { Footer } from './Footer';
 import { Header } from './Header';
 
@@ -64,7 +64,7 @@ const Design = memo((): ReactElement => {
         <Route path="/tuition-discount/" element={<Suspense fallback={<></>}><TuitionDiscount /></Suspense>} />
         <Route path="/masterclass-200-off/" element={<Suspense fallback={<></>}><Masterclass /></Suspense>} />
         <Route path="/masterclass-offer-150-off/" element={<Suspense fallback={<></>}><Masterclass150 /></Suspense>} />
-        <Route path="*" element={<Default />} />
+        <Route path="*" element={<DesignDefault />} />
       </Routes>
       <LiveChat license={1056788} group={3} gaVersion="gtag" />
       <Footer countryCode={address.countryCode} />

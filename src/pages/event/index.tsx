@@ -6,11 +6,10 @@ import { LiveChat } from '../../components/LiveChat';
 import { useSaveablePaths } from '../../hooks/useSaveablePaths';
 import { useStateContext } from '../../hooks/useStateContext';
 
-import Default from './default';
+// don't lazily load the default cart to reduce CLS for most visitors
+import { EventDefault } from './default';
 import { Footer } from './Footer';
 import { Header } from './Header';
-
-// don't lazily load the default cart to reduce CLS for most visitors
 
 import './style.scss';
 
@@ -63,7 +62,7 @@ const Event = (): ReactElement => {
         <Route path="/free-portfolio/" element={<Suspense fallback={<></>}><FreePortfolio /></Suspense>} />
         <Route path="/tuition-discount/" element={<Suspense fallback={<></>}><TuitionDiscount /></Suspense>} />
         <Route path="/floral/" element={<Suspense fallback={<></>}><Floral /></Suspense>} />
-        <Route path="*" element={<Default />} />
+        <Route path="*" element={<EventDefault />} />
       </Routes>
       <LiveChat license={1056788} group={1} gaVersion="gtag" />
       <Footer countryCode={address.countryCode} />
