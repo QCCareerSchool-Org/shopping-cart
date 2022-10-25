@@ -4,8 +4,16 @@ import { Form } from '../../../components/Form';
 import { courseGroups } from '../../makeup/courseGroups';
 import { Guarantee } from '../../makeup/Guarantee';
 
+const modifiedCourseGroups = [
+  ...courseGroups,
+  {
+    name: 'Personal Makeup',
+    items: [ { code: 'PA', name: 'Personal Makeup' } ],
+  },
+];
+
 const Makeup: React.FC = () => <Form
-  courseGroups={courseGroups}
+  courseGroups={modifiedCourseGroups}
   school="QC Makeup Academy"
   guarantee={() => <Guarantee />}
   agreementLink="https://www.qcmakeupacademy.com/enrollment-agreement.html"
