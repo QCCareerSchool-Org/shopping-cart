@@ -6,7 +6,7 @@ import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthCon
 import { useStateContext } from '../../../../../../hooks/useStateContext';
 import { dateOverride } from '../../../../../../lib/dateOverride';
 
-const lastChanceGraphicsDate = new Date(Date.UTC(2022, 7, 18, 5)); // November 7 at 00:00 (05:00 UTC)
+const lastChanceGraphicsDate = new Date(Date.UTC(2022, 10, 7, 5)); // November 7 at 00:00 (05:00 UTC)
 const timerShowDate = new Date(Date.UTC(2022, 10, 7, 5)); // November 7 at 00:00 (05:00 UTC)
 const timerEndDate = new Date(Date.UTC(2022, 10, 12, 5)); // November 12 at 00:00 (05:00 UTC)
 
