@@ -10,10 +10,10 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       schools: [ 'QC Design School' ],
       student: 'DENIED',
       code: 'BOGO100',
-      description: <>Enroll in one course and get a second course free. You&apos;ll also get a {price?.currency.code === 'GBP' ? '£' : '$'}100 discount</>,
+      description: <>Enroll in one course and get a second course free. You&apos;ll also get a {price?.currency.code === 'GBP' ? '£75' : '$100'} discount</>,
       desktopImageSrc: require('./images/design/coupon-100OFF.jpg'),
       mobileImageSrc: require('./images/design/coupon-mobile-100OFF.jpg'),
-      altText: `BOGO + ${price?.currency.code === 'GBP' ? '£' : '$'}100 off`,
+      altText: `BOGO + ${price?.currency.code === 'GBP' ? '£75' : '$100'} off`,
     },
     {
       schools: [ 'QC Makeup Academy' ],
