@@ -6,7 +6,7 @@ import { dateOverride } from '../../../lib/dateOverride';
 const EventFallback = React.lazy(async () => import('./fallback').then(m => ({ default: m.EventFallback })));
 const Event20221013 = React.lazy(async () => import('./2022/10/13').then(m => ({ default: m.Event20221013 })));
 const Event20221103 = React.lazy(async () => import('./2022/11/03').then(m => ({ default: m.Event20221103 })));
-// const Event20221123 = React.lazy(async () => import('./2022/11/23').then(m => ({ default: m.Event20221123 })));
+const Event20221123 = React.lazy(async () => import('./2022/11/23').then(m => ({ default: m.Event20221123 })));
 // const Event20221212 = React.lazy(async () => import('./2022/12/12').then(m => ({ default: m.Event20221212 })));
 // const Event20221226 = React.lazy(async () => import('./2022/12/26').then(m => ({ default: m.Event20221226 })));
 // const Event20230118 = React.lazy(async () => import('./2023/01/18').then(m => ({ default: m.Event20230118 })));
@@ -25,9 +25,9 @@ export const EventDefault: FC = () => {
     return <Suspense fallback={null}><Event20221103 /></Suspense>;
   }
 
-  // if (time >= Date.UTC(2022, 10, 23, 14, 30) && time < Date.UTC(2022, 11, 3, 5)) { // 2022-11-23T09:30 (14:30 UTC) to 2022-12-03T00:00 (05:00 UTC)
-  //   return <Suspense fallback={null}><Event20221123 /></Suspense>;
-  // }
+  if (time >= Date.UTC(2022, 10, 23, 14, 30) && time < Date.UTC(2022, 11, 3, 5)) { // 2022-11-23T09:30 (14:30 UTC) to 2022-12-03T00:00 (05:00 UTC)
+    return <Suspense fallback={null}><Event20221123 /></Suspense>;
+  }
 
   // if (time >= Date.UTC(2022, 11, 12, 14, 30) && time < Date.UTC(2022, 11, 17, 5)) { // 2022-12-12T09:30 (14:30 UTC) to 2022-12-17T00:00 (05:00 UTC)
   //   return <Suspense fallback={null}><Event20221212 /></Suspense>;

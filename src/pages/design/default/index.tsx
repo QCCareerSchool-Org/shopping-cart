@@ -6,10 +6,10 @@ import { dateOverride } from '../../../lib/dateOverride';
 const DesignFallback = lazy(async () => import('./fallback').then(m => ({ default: m.DesignFallback })));
 const Design20221013 = lazy(async () => import('./2022/10/13').then(m => ({ default: m.Design20221013 })));
 const Design20221103 = lazy(async () => import('./2022/11/03').then(m => ({ default: m.Design20221103 })));
-// const Design20221123 = lazy(async () => import('./2022/11/23').then(m => ({ default: m.Design20221013 })));
-// const Design20221212 = lazy(async () => import('./2022/12/12').then(m => ({ default: m.Design20221013 })));
-// const Design20221226 = lazy(async () => import('./2022/12/26').then(m => ({ default: m.Design20221013 })));
-// const Design20230118 = lazy(async () => import('./2023/01/18').then(m => ({ default: m.Design20221013 })));
+const Design20221123 = lazy(async () => import('./2022/11/23').then(m => ({ default: m.Design20221123 })));
+const Design20221212 = lazy(async () => import('./2022/12/12').then(m => ({ default: m.Design20221212 })));
+const Design20221226 = lazy(async () => import('./2022/12/26').then(m => ({ default: m.Design20221226 })));
+const Design20230118 = lazy(async () => import('./2023/01/18').then(m => ({ default: m.Design20230118 })));
 
 export const DesignDefault = (): ReactElement => {
   const serverDate = useDateContext();
@@ -25,21 +25,21 @@ export const DesignDefault = (): ReactElement => {
     return <Suspense fallback={null}><Design20221103 /></Suspense>;
   }
 
-  // if (time >= Date.UTC(2022, 10, 23, 14, 30) && time < Date.UTC(2022, 11, 3, 5)) { // 2022-11-23T09:30 (14:30 UTC) to 2022-12-03T00:00 (05:00 UTC)
-  //   return <Suspense fallback={null}><Design20221123 /></Suspense>;
-  // }
+  if (time >= Date.UTC(2022, 10, 23, 14, 30) && time < Date.UTC(2022, 11, 3, 5)) { // 2022-11-23T09:30 (14:30 UTC) to 2022-12-03T00:00 (05:00 UTC)
+    return <Suspense fallback={null}><Design20221123 /></Suspense>;
+  }
 
-  // if (time >= Date.UTC(2022, 11, 12, 14, 30) && time < Date.UTC(2022, 11, 17, 5)) { // 2022-12-12T09:30 (14:30 UTC) to 2022-12-17T00:00 (05:00 UTC)
-  //   return <Suspense fallback={null}><Design20221212 /></Suspense>;
-  // }
+  if (time >= Date.UTC(2022, 11, 12, 14, 30) && time < Date.UTC(2022, 11, 17, 5)) { // 2022-12-12T09:30 (14:30 UTC) to 2022-12-17T00:00 (05:00 UTC)
+    return <Suspense fallback={null}><Design20221212 /></Suspense>;
+  }
 
-  // if (time >= Date.UTC(2022, 11, 26, 14, 30) && time < Date.UTC(2023, 0, 7, 5)) { // 2022-12-26T09:30 (14:30 UTC) to 2023-01-07T00:00 (05:00 UTC)
-  //   return <Suspense fallback={null}><Design20221226 /></Suspense>;
-  // }
+  if (time >= Date.UTC(2022, 11, 26, 14, 30) && time < Date.UTC(2023, 0, 7, 5)) { // 2022-12-26T09:30 (14:30 UTC) to 2023-01-07T00:00 (05:00 UTC)
+    return <Suspense fallback={null}><Design20221226 /></Suspense>;
+  }
 
-  // if (time >= Date.UTC(2023, 0, 18, 14, 30) && time < Date.UTC(2023, 0, 28, 5)) { // 2023-01-18T09:30 (14:30 UTC) to 2023-01-28T00:00 (05:00 UTC)
-  //   return <Suspense fallback={null}><Design20230118 /></Suspense>;
-  // }
+  if (time >= Date.UTC(2023, 0, 18, 14, 30) && time < Date.UTC(2023, 0, 28, 5)) { // 2023-01-18T09:30 (14:30 UTC) to 2023-01-28T00:00 (05:00 UTC)
+    return <Suspense fallback={null}><Design20230118 /></Suspense>;
+  }
 
   return <Suspense fallback={null}><DesignFallback /></Suspense>;
 };
