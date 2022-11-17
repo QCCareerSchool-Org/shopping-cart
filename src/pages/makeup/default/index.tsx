@@ -25,7 +25,7 @@ export const MakeupDefault: FC = () => {
     return <Suspense fallback={null}><Makeup20221103 /></Suspense>;
   }
 
-  if (time >= Date.UTC(2022, 10, 23, 14, 30) && time < Date.UTC(2022, 11, 3, 5)) { // 2022-11-23T09:30 (14:30 UTC) to 2022-12-03T00:00 (05:00 UTC)
+  if (time >= Date.UTC(2022, 10, 21, 14, 30) && time < Date.UTC(2022, 11, 3, 5)) { // 2022-11-23T09:30 (14:30 UTC) to 2022-12-03T00:00 (05:00 UTC)
     return <Suspense fallback={null}><Makeup20221123 /></Suspense>;
   }
 
