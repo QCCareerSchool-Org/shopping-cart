@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { BuyOneGetOne } from '../../../../components/BuyOneGetOne';
 
 import { Form } from '../../../../components/Form';
 import { courseGroups } from '../../courseGroups';
@@ -11,6 +12,7 @@ export const MakeupFallback: FC = () => (
     <Form
       courseGroups={courseGroups}
       school="QC Makeup Academy"
+      coursesSubtitle={() => <BuyOneGetOne />}
       guarantee={() => <Guarantee />}
       agreementLink="https://www.qcmakeupacademy.com/enrollment-agreement.html"
       agreementLinkGB="https://www.qcmakeupacademy.com/enrollment-agreement-gb.html"
