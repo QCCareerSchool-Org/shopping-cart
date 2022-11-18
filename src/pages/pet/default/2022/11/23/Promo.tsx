@@ -12,6 +12,8 @@ const lastChanceGraphicsDate = new Date(Date.UTC(2022, 10, 29, 5)); // November 
 const timerShowDate = new Date(Date.UTC(2022, 10, 29, 5)); // November 29 at 00:00 (05:00 UTC)
 const timerEndDate = new Date(Date.UTC(2022, 11, 3, 5)); // December 3 at 00:00 (05:00 UTC)
 
+const backgroundColor = 'black';
+
 export const PetPromo20221123: FC = () => {
   const serverDate = useDateContext();
   const date = dateOverride() ?? serverDate;
@@ -49,7 +51,7 @@ export const PetPromo20221123: FC = () => {
 
   return (
     <>
-      <section id="promoSection" style={{ backgroundColor: 'black', padding: 0 }}>
+      <section id="promoSection" style={{ backgroundColor, padding: 0 }}>
         <div className="container text-center px-0">
           <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={togglePopup}>
             <img src={image} width={width} height={height} className="img-fluid d-block mx-auto" alt="Special Offer" />
