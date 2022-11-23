@@ -12,7 +12,7 @@ const lastChanceGraphicsDate = new Date(Date.UTC(2022, 10, 29, 5)); // November 
 const timerShowDate = new Date(Date.UTC(2022, 10, 29, 5)); // November 29 at 00:00 (05:00 UTC)
 const timerEndDate = new Date(Date.UTC(2022, 11, 3, 5)); // December 3 at 00:00 (05:00 UTC)
 
-const backgroundColor = '#212121';
+const backgroundColor = '#313232';
 
 export const EventPromo20221123: FC = () => {
   const serverDate = useDateContext();
