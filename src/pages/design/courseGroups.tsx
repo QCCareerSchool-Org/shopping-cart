@@ -38,6 +38,7 @@ export const courseGroups: CourseGroup[] = [
       { code: 'FS', name: 'Feng Shui' },
       { code: 'CC', name: 'Color Consultant Course' },
       { code: 'FD', name: 'Floral Design' },
+      { code: 'ED', name: 'Event Decor' },
       { code: 'AP', name: 'Aging in Place' },
       { code: 'DB', name: 'Accelerate Your Design Business' },
       { code: 'VD', name: 'Virtual Design Training' },
