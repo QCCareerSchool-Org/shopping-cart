@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import { Modal, ModalBody, ModalHeader } from 'reactstrap';
+import React, { ReactElement } from 'react';
+import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import { CountDownTimerWrapper } from '../../../../../../components/CountDownTimerWrapper';
 import { useDateContext } from '../../../../../../hooks/useDateContext';
 
@@ -8,13 +8,13 @@ import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthCon
 import { useStateContext } from '../../../../../../hooks/useStateContext';
 import { dateOverride } from '../../../../../../lib/dateOverride';
 
-const lastChanceGraphicsDate = new Date(Date.UTC(2022, 11, 14, 5)); // December 14 at 00:00 (05:00 UTC)
+// const lastChanceGraphicsDate = new Date(Date.UTC(2022, 10, 29, 5)); // November 29 at 00:00 (05:00 UTC)
 const timerShowDate = new Date(Date.UTC(2022, 11, 14, 5)); // December 14 at 00:00 (05:00 UTC)
 const timerEndDate = new Date(Date.UTC(2022, 11, 17, 5)); // December 17 at 00:00 (05:00 UTC)
 
-const backgroundColor = '#060606';
+const backgroundColor = '#fff';
 
-export const EventPromo20221212: FC = () => {
+export const MakeupPromo20221212 = (): ReactElement => {
   const serverDate = useDateContext();
   const date = dateOverride() ?? serverDate;
   const { price } = useStateContext();
@@ -27,26 +27,18 @@ export const EventPromo20221212: FC = () => {
   let width: number;
   let height: number;
 
-  if (date.getTime() >= lastChanceGraphicsDate.getTime()) {
-    if (desktop) {
-      image = price?.currency.code === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg');
-    } else {
-      image = price?.currency.code === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
-    }
+  if (desktop) {
+    image = price?.currency.code === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
   } else {
-    if (desktop) {
-      image = price?.currency.code === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
-    } else {
-      image = price?.currency.code === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
-    }
+    image = price?.currency.code === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
   }
 
   if (desktop) {
-    width = 976;
-    height = 500;
+    width = 1060;
+    height = 633;
   } else {
-    width = 496;
-    height = 510;
+    width = 600;
+    height = 669;
   }
 
   return (
@@ -57,11 +49,16 @@ export const EventPromo20221212: FC = () => {
             <img src={image} width={width} height={height} className="img-fluid d-block mx-auto" alt="Special Offer" />
           </button>
         </div>
-        <Modal isOpen={popup} toggle={togglePopup}>
-          <ModalHeader toggle={togglePopup}>Start your event planning career!</ModalHeader>
+        <Modal size="lg" isOpen={popup} toggle={togglePopup}>
+          <ModalHeader toggle={togglePopup}>Special Offer!</ModalHeader>
           <ModalBody>
-            <p>Enroll in any one of our event planning courses and get {price?.currency.code === 'GBP' ? '£75' : '$100'} off your tuition!</p>
+            <p className="lead">Enroll in <strong>Master Makeup Artistry</strong> &amp; get the <strong>Skincare Consultant</strong> course free.</p>
+            <p className="lead">Plus, we&apos;ll also send you the ENTIRE Luminous makeup kit!</p>
+            <div style={{ display: 'flex', justifyContent: 'center' }}><img src={require('./enrollment-pop-up.jpg')} className="img-fluid" /></div>
           </ModalBody>
+          <ModalFooter>
+            <div>The kit pictured above is included only when you enroll in the <strong>Master Makeup Artistry</strong> course. Your kit will be automatically sent to you after you have submitted Unit A of the course in the Online Student Center. Items in the kit are subject to change.</div>
+          </ModalFooter>
         </Modal>
       </section>
       <CountDownTimerWrapper
