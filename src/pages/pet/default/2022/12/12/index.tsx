@@ -19,7 +19,7 @@ export const Pet20221212: FC = () => (
       agreementLinkGB="https://www.qcpetstudies.com/enrollment-agreement-gb"
       successLink="https://www.qcpetstudies.com/welcome-to-the-school"
       dynamicCourseMessages={[ () => <BOGODynamicMessage /> ]}
-      promoCodeDefault="PET150OFF"
+      promoCodeDefault="PET100OFF"
     />
   </>
 );
