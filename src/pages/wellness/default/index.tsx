@@ -7,7 +7,7 @@ const WellnessFallback = lazy(async () => import('./fallback').then(m => ({ defa
 const Wellness20221013 = lazy(async () => import('./2022/10/13').then(m => ({ default: m.Wellness20221013 })));
 const Wellness20221103 = lazy(async () => import('./2022/11/03').then(m => ({ default: m.Wellness20221103 })));
 const Wellness20221123 = lazy(async () => import('./2022/11/23').then(m => ({ default: m.Wellness20221123 })));
-// const Wellness20221212 = lazy(async () => import('./2022/12/12').then(m => ({ default: m.Wellness20221212 })));
+const Wellness20221212 = lazy(async () => import('./2022/12/12').then(m => ({ default: m.Wellness20221212 })));
 // const Wellness20221226 = lazy(async () => import('./2022/12/26').then(m => ({ default: m.Wellness20221226 })));
 // const Wellness20230118 = lazy(async () => import('./2023/01/18').then(m => ({ default: m.Wellness20230118 })));
 
@@ -29,9 +29,9 @@ export const WellnessDefault = (): ReactElement => {
     return <Suspense fallback={null}><Wellness20221123 /></Suspense>;
   }
 
-  // if (time >= Date.UTC(2022, 11, 12, 14, 30) && time < Date.UTC(2022, 11, 17, 5)) { // 2022-12-12T09:30 (14:30 UTC) to 2022-12-17T00:00 (05:00 UTC)
-  //   return <Suspense fallback={null}><Wellness20221212 /></Suspense>;
-  // }
+  if (time >= Date.UTC(2022, 11, 12, 14, 30) && time < Date.UTC(2022, 11, 17, 5)) { // 2022-12-12T09:30 (14:30 UTC) to 2022-12-17T00:00 (05:00 UTC)
+    return <Suspense fallback={null}><Wellness20221212 /></Suspense>;
+  }
 
   // if (time >= Date.UTC(2022, 11, 26, 14, 30) && time < Date.UTC(2023, 0, 7, 5)) { // 2022-12-26T09:30 (14:30 UTC) to 2023-01-07T00:00 (05:00 UTC)
   //   return <Suspense fallback={null}><Wellness20221226 /></Suspense>;
