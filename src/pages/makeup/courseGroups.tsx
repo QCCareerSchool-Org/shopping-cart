@@ -21,7 +21,7 @@ export const courseGroups: CourseGroup[] = [
       },
       {
         code: 'SK',
-        name: 'Skincare',
+        name: 'Skincare Consultant',
         description: 'Become a Skincare Consultant',
 
       },

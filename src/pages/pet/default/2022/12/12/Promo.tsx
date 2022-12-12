@@ -56,7 +56,7 @@ export const PetPromo20221212: FC = () => {
           </button>
         </div>
         <Modal size="md" isOpen={popup} toggle={togglePopup}>
-          <ModalHeader toggle={togglePopup}>Get {price?.currency.code === 'GBP' ? '£100' : '$150'} off your tuition!</ModalHeader>
+          <ModalHeader toggle={togglePopup}>Get {price?.currency.code === 'GBP' ? '£75' : '$100'} off your tuition!</ModalHeader>
           <ModalBody>
             <p className="lead">Enroll in QC&apos;s Dog Training or Dog Grooming certification course and save {price?.currency.code === 'GBP' ? '£100' : '$150'} on your tuition. Don&apos;t miss out!</p>
           </ModalBody>
