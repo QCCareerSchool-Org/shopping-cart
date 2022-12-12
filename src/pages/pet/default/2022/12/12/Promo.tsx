@@ -49,7 +49,7 @@ export const PetPromo20221212: FC = () => {
 
   return (
     <>
-      <section id="promoSection" style={{ backgroundColor: '#00c2e8', padding: 0 }}>
+      <section id="promoSection" style={{ backgroundColor: '#4dc0d5', padding: 0 }}>
         <div className="container text-center px-0">
           <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={togglePopup}>
             <img src={image} width={width} height={height} className="img-fluid d-block mx-auto" alt="Special Offer" />
