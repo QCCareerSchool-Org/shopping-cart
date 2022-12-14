@@ -11,7 +11,7 @@ export const SkincarePlusLuminousDynamicMessage = memo((): ReactElement | null =
   if (selected.length === 0) {
     return null;
   } else if (!selected.includes('MZ')) {
-    return <p className="mt-4 alert alert-danger"><FontAwesomeIcon icon={faExclamationCircle} /> Select the <strong>Master Makeup Artistry</strong> course to get a free <strong>Pro Makeup Workshop</strong> and the Luminous Collection</p>;
+    return <p className="mt-4 alert alert-danger"><FontAwesomeIcon icon={faExclamationCircle} /> Select the <strong>Master Makeup Artistry</strong> course to get a free <strong>Skincare Consultant</strong> and the Luminous Collection</p>;
   } else if (!selected.includes('SK')) {
     return <p className="mt-4 alert alert-warning"><FontAwesomeIcon icon={faInfoCircle} /> Don&apos;t forget to select your free <strong>Skincare Consultant</strong> course</p>;
   }
