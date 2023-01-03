@@ -23,6 +23,7 @@ interface PaysafeThreeDSOptions {
     endDate: string;
     frequency: number;
   };
+  requestorChallengePreference?: 'CHALLENGE_MANDATED' | 'CHALLENGE_REQUESTED' | 'NO_PREFERENCE';
 }
 
 interface PaysafeVaultOptions {

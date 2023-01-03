@@ -30,7 +30,6 @@ export const courseGroups: CourseGroup[] = [
   {
     name: 'Specialty Courses',
     items: [
-      { code: 'AB', name: 'Airbrush Makeup Workshop' },
       { code: 'SF', name: 'Special FX Makeup' },
       { code: 'HS', name: 'Hair Styling Essentials' },
       { code: 'PF', name: 'Fashion Styling' },
@@ -40,6 +39,7 @@ export const courseGroups: CourseGroup[] = [
   {
     name: 'Advanced Courses',
     items: [
+      { code: 'AB', name: 'Airbrush Makeup Workshop' },
       {
         code: 'MW',
         name: 'Pro Makeup Workshop',
