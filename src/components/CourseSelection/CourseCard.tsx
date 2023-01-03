@@ -20,7 +20,7 @@ type CourseCardData = {
   description: string;
 };
 
-const hasImage = (courseCode?: string): boolean => typeof courseCode !== 'undefined' && [ 'MZ', 'AB', 'HS', 'SF' ].includes(courseCode);
+const hasImage = (courseCode?: string): boolean => typeof courseCode !== 'undefined' && [ 'MZ', 'HS', 'SF' ].includes(courseCode);
 
 export const CourseCard: React.FC<Props> = ({ courseCode }) => {
   const { address: { countryCode, provinceCode } } = useStateContext();
