@@ -139,21 +139,42 @@ export const PaymentModal: React.FC<Props> = ({ company, isOpen, toggle, charge 
             currency: price.currency.code,
             accountId,
             useThreeDSecureVersion2: true,
+            requestorChallengePreference: 'CHALLENGE_MANDATED',
           },
           vault: {
             holderName: `${address.firstName} ${address.lastName}`,
+            billingAddress: {
+              country: address.countryCode,
+              zip: address.postalCode || '0',
+              city: address.city,
+              street: address.address1,
+            },
             shippingAddress: {
               recipientName: `${address.firstName} ${address.lastName}`,
               street: address.address1,
-              street2: address.address2 || undefined,
               city: address.city,
               country: address.countryCode,
               zip: address.postalCode || '0',
-              state: address.provinceCode ?? undefined,
               shipMethod: 'S',
             },
           },
         };
+        if (address.address2) {
+          if (options.vault?.billingAddress) {
+            options.vault.billingAddress.street2 = address.address2;
+          }
+          if (options.vault?.shippingAddress) {
+            options.vault.shippingAddress.street2 = address.address2;
+          }
+        }
+        if (address.provinceCode) {
+          if (options.vault?.billingAddress) {
+            options.vault.billingAddress.state = address.provinceCode;
+          }
+          if (options.vault?.shippingAddress) {
+            options.vault.shippingAddress.state = address.provinceCode;
+          }
+        }
       }
       setStatus(s => ({ ...s, submitted: true }));
       let token: string;
