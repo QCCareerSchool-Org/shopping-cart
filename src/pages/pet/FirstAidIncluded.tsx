@@ -8,7 +8,7 @@ export const FirstAidIncluded: FC = () => {
   return (
     <div className="text-uppercase d-flex justify-content-center" style={{ color: '#e9213e' }}>
       <img src={FirstAidLogo} className="mr-2" />
-      <div className="text-center"><strong>Free first aid</strong> training{screenWidth < 576 ? <br /> : ' '}included with all courses</div>
+      <div className="text-center"><strong>Free first aid training</strong>{screenWidth < 576 ? <br /> : ' '}included with all courses</div>
     </div>
   );
 };
