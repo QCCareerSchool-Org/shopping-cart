@@ -16,7 +16,7 @@ const Student: React.FC = () => (
       agreementLink="https://www.qcmakeupacademy.com/enrollment-agreement.html"
       agreementLinkGB="https://www.qcmakeupacademy.com/enrollment-agreement-gb.html"
       successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
-      showDynamicCourseDescriptions={true}
+      dynamicCourseDescriptions="REPLACE"
       showPromoCodeInput={true}
       paymentOptionsReverse={true}
     />

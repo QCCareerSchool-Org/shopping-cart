@@ -19,6 +19,7 @@ export const PetFallback: React.FC = () => (
       agreementLink="https://www.qcpetstudies.com/enrollment-agreement"
       agreementLinkGB="https://www.qcpetstudies.com/enrollment-agreement-gb"
       successLink="https://www.qcpetstudies.com/welcome-to-the-school"
+      dynamicCourseDescriptions="SHOW"
       dynamicCourseMessages={[ () => <BOGODynamicMessage /> ]}
     />
   </>

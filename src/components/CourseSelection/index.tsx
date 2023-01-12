@@ -5,16 +5,18 @@ import { CheckBox } from './CheckBox';
 import { CourseCard } from './CourseCard';
 import { CourseTable } from './CourseTable';
 
+export type DynamicCourseDescriptions = 'SHOW' | 'HIDE' | 'REPLACE';
+
 type Props = {
   internal: boolean;
   coursesSubtitle?: () => JSX.Element;
   dynamicCourseMessages?: Array<() => JSX.Element | null>;
   courseOverride: boolean;
   shippingOptionReversed: boolean;
-  showDynamicCourseDescriptions: boolean;
+  dynamicCourseDescriptions?: DynamicCourseDescriptions;
 };
 
-export const CourseSelection: React.FC<Props> = ({ internal, coursesSubtitle, dynamicCourseMessages, courseOverride, shippingOptionReversed, showDynamicCourseDescriptions }) => {
+export const CourseSelection: React.FC<Props> = ({ internal, coursesSubtitle, dynamicCourseMessages, courseOverride, shippingOptionReversed, dynamicCourseDescriptions }) => {
   const { courses, price, enrollmentErrors } = useStateContext();
   const [ courseCode, setCourseCode ] = useState<string | undefined>();
 
@@ -43,8 +45,9 @@ export const CourseSelection: React.FC<Props> = ({ internal, coursesSubtitle, dy
                   {dynamicCourseMessages?.map((DynamicCourseMessage, i) => (
                     <DynamicCourseMessage key={i} />
                   ))}
+                  {!!price && dynamicCourseDescriptions === 'SHOW' && <div className="mt-4"><CourseTable price={price} showBuyOneGetOne={false} shippingOptionReversed={shippingOptionReversed} /></div>}
                 </div>
-                {showDynamicCourseDescriptions
+                {(dynamicCourseDescriptions === 'SHOW' || dynamicCourseDescriptions === 'REPLACE')
                   ? (
                     <div className="d-none d-md-block col-12 col-md-6">
                       <CourseCard courseCode={courseCode} />
