@@ -18,7 +18,7 @@ export const Makeup20221212: FC = () => (
       agreementLink="https://www.qcmakeupacademy.com/enrollment-agreement.html"
       agreementLinkGB="https://www.qcmakeupacademy.com/enrollment-agreement-gb.html"
       successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
-      showDynamicCourseDescriptions={true}
+      dynamicCourseDescriptions="REPLACE"
       paymentOptionsReverse={true}
       promoCodeDefault="SKINCARELUMINOUS"
       dynamicCourseMessages={[ () => <SkincarePlusLuminousDynamicMessage /> ]}

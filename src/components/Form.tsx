@@ -15,7 +15,7 @@ import { scrollToPosition } from '../lib/scrollToPosition';
 import { CourseGroup } from '../state/courses';
 
 import { Address } from './Address';
-import { CourseSelection } from './CourseSelection';
+import { CourseSelection, DynamicCourseDescriptions } from './CourseSelection';
 import { ErrorModal } from './ErrorModal';
 import { Internal } from './Internal';
 import { Overrides } from './Overrides';
@@ -77,7 +77,7 @@ type Props = {
   /** a default promo code */
   promoCodeDefault?: string;
   /** whether to show the dynamic course descriptions */
-  showDynamicCourseDescriptions?: boolean;
+  dynamicCourseDescriptions?: DynamicCourseDescriptions;
   /** wether to reverse the order of the payment options */
   paymentOptionsReverse?: boolean;
   /** whether MS should be shown regardless of I2 */
@@ -260,7 +260,7 @@ export const Form: React.FC<Props> = props => {
         dynamicCourseMessages={props.dynamicCourseMessages}
         courseOverride={!!props.courseOverride}
         shippingOptionReversed={!!props.shippingOptionReversed}
-        showDynamicCourseDescriptions={!!props.showDynamicCourseDescriptions}
+        dynamicCourseDescriptions={props.dynamicCourseDescriptions}
       />}
       <Address school={props.school} />
       <Payment
