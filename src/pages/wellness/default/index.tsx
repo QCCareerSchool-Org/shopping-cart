@@ -37,7 +37,7 @@ export const WellnessDefault = (): ReactElement => {
     return <Suspense fallback={null}><Wellness20221226 /></Suspense>;
   }
 
-  if (time >= Date.UTC(2023, 0, 18, 14, 30) && time < Date.UTC(2023, 0, 28, 5)) { // 2023-01-18T09:30 (14:30 UTC) to 2023-01-28T00:00 (05:00 UTC)
+  if (time >= Date.UTC(2023, 0, 16, 14, 30) && time < Date.UTC(2023, 0, 28, 5)) { // 2023-01-16T09:30 (14:30 UTC) to 2023-01-28T00:00 (05:00 UTC)
     return <Suspense fallback={null}><Wellness20230118 /></Suspense>;
   }
 
