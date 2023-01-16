@@ -41,7 +41,7 @@ export const PetPromo20230118: FC = () => {
 
   if (desktop) {
     width = 960;
-    height = 400;
+    height = 430;
   } else {
     width = 518;
     height = 566;
