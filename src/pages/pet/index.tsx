@@ -47,7 +47,7 @@ const Pet: React.FC = () => {
       <Header countryCode={address.countryCode} link={headerLink(location.pathname)} />
       <Routes>
         <Route path="/student/" element={<Student />} />
-        <Route path="/woof-gang-bakery" element={<Suspense fallback={<></>}><WoofGang /></Suspense>} />
+        <Route path="/woof-gang-bakery/" element={<Suspense fallback={<></>}><WoofGang /></Suspense>} />
         <Route path="/grooming-300-off/" element={<Suspense fallback={<></>}><Grooming300Off /></Suspense>} />
         <Route path="/grooming-200-off/" element={<Suspense fallback={<></>}><Grooming200Off /></Suspense>} />
         <Route path="/grooming-150-off/" element={<Suspense fallback={<></>}><Grooming150Off /></Suspense>} />
