@@ -13,6 +13,7 @@ import './style.scss';
 
 // lazily load the other carts because they're used less often
 const Student = React.lazy(async () => import('./student'));
+const WoofGang = React.lazy(async () => import('./woof-gang'));
 const Grooming300Off = React.lazy(async () => import('./grooming-300-off'));
 const Grooming200Off = React.lazy(async () => import('./grooming-200-off'));
 const Grooming150Off = React.lazy(async () => import('./grooming-150-off'));
@@ -46,6 +47,7 @@ const Pet: React.FC = () => {
       <Header countryCode={address.countryCode} link={headerLink(location.pathname)} />
       <Routes>
         <Route path="/student/" element={<Student />} />
+        <Route path="/woof-gang-bakery" element={<Suspense fallback={<></>}><WoofGang /></Suspense>} />
         <Route path="/grooming-300-off/" element={<Suspense fallback={<></>}><Grooming300Off /></Suspense>} />
         <Route path="/grooming-200-off/" element={<Suspense fallback={<></>}><Grooming200Off /></Suspense>} />
         <Route path="/grooming-150-off/" element={<Suspense fallback={<></>}><Grooming150Off /></Suspense>} />
