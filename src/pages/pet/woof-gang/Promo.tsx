@@ -39,7 +39,7 @@ export const WoofGangPromo: FC = () => {
         <Modal size="md" isOpen={popup} toggle={togglePopup}>
           <ModalHeader toggle={togglePopup}>Get $500 off your tuition!</ModalHeader>
           <ModalBody>
-            <p className="lead">$500 As a Woof Gang Bakery employee, manager or store owner you&apos;re eligible to receive an exclusive $500 discount off your Dog Grooming course tuition. This discount will automatically be applied to the pay in full and installment payment plans. No proof of employment with WGB is currently required to enroll.</p>
+            <p className="lead">As a Woof Gang Bakery employee, manager or store owner you&apos;re eligible to receive an exclusive $500 discount off your Dog Grooming course tuition. This discount will automatically be applied to the pay in full and installment payment plans. No proof of employment with WGB is currently required to enroll.</p>
           </ModalBody>
         </Modal>
       </section>
