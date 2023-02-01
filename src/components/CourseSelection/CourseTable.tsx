@@ -9,9 +9,10 @@ type Props = {
   price: PriceResult;
   showBuyOneGetOne?: boolean;
   shippingOptionReversed: boolean;
+  discountName?: string;
 };
 
-export const CourseTable: React.FC<Props> = ({ price, showBuyOneGetOne, shippingOptionReversed }) => {
+export const CourseTable: React.FC<Props> = ({ price, showBuyOneGetOne, shippingOptionReversed, discountName }) => {
   const screenWidth = useScreenWidthContext();
   return (
     <>
@@ -43,7 +44,7 @@ export const CourseTable: React.FC<Props> = ({ price, showBuyOneGetOne, shipping
                 <>
                   <tr><td colSpan={2}><hr /></td></tr>
                   <tr>
-                    <td>Promotional Discount</td>
+                    <td>{discountName ?? 'Promotional Discount'}</td>
                     <td className="text-right text-nowrap align-bottom">&minus; {price.currency.symbol}{price.promoDiscount.toFixed(2)}</td>
                   </tr>
                 </>

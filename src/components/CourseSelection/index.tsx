@@ -14,9 +14,10 @@ type Props = {
   courseOverride: boolean;
   shippingOptionReversed: boolean;
   dynamicCourseDescriptions?: DynamicCourseDescriptions;
+  discountName?: string;
 };
 
-export const CourseSelection: React.FC<Props> = ({ internal, coursesSubtitle, dynamicCourseMessages, courseOverride, shippingOptionReversed, dynamicCourseDescriptions }) => {
+export const CourseSelection: React.FC<Props> = ({ internal, coursesSubtitle, dynamicCourseMessages, courseOverride, shippingOptionReversed, dynamicCourseDescriptions, discountName }) => {
   const { courses, price, enrollmentErrors } = useStateContext();
   const [ courseCode, setCourseCode ] = useState<string | undefined>();
 
@@ -45,7 +46,7 @@ export const CourseSelection: React.FC<Props> = ({ internal, coursesSubtitle, dy
                   {dynamicCourseMessages?.map((DynamicCourseMessage, i) => (
                     <DynamicCourseMessage key={i} />
                   ))}
-                  {!!price && dynamicCourseDescriptions === 'SHOW' && <div className="mt-4"><CourseTable price={price} showBuyOneGetOne={false} shippingOptionReversed={shippingOptionReversed} /></div>}
+                  {!!price && dynamicCourseDescriptions === 'SHOW' && <div className="mt-4"><CourseTable price={price} showBuyOneGetOne={false} shippingOptionReversed={shippingOptionReversed} discountName={discountName} /></div>}
                 </div>
                 {(dynamicCourseDescriptions === 'SHOW' || dynamicCourseDescriptions === 'REPLACE')
                   ? (
@@ -55,7 +56,7 @@ export const CourseSelection: React.FC<Props> = ({ internal, coursesSubtitle, dy
                   )
                   : (
                     <div className="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-0 mt-4 mt-md-0">
-                      {!!price && <CourseTable price={price} showBuyOneGetOne={false} shippingOptionReversed={shippingOptionReversed} />}
+                      {!!price && <CourseTable price={price} showBuyOneGetOne={false} shippingOptionReversed={shippingOptionReversed} discountName={discountName} />}
                     </div>
                   )
                 }
@@ -66,7 +67,7 @@ export const CourseSelection: React.FC<Props> = ({ internal, coursesSubtitle, dy
             <>
               <div className="row">
                 <div className="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3">
-                  {!!price && <CourseTable price={price} showBuyOneGetOne={false} shippingOptionReversed={shippingOptionReversed} />}
+                  {!!price && <CourseTable price={price} showBuyOneGetOne={false} shippingOptionReversed={shippingOptionReversed} discountName={discountName} />}
                 </div>
               </div>
             </>

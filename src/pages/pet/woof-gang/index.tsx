@@ -4,9 +4,11 @@ import { Form } from '../../../components/Form';
 import { courseGroups } from '../courseGroups';
 import { FirstAidIncluded } from '../FirstAidIncluded';
 import { Guarantee } from '../Guarantee';
+import { WoofGangPromo } from './Promo';
 
 const WoofGang: React.FC = () => (
   <>
+    <WoofGangPromo />
     <Form
       courseGroups={courseGroups}
       school="QC Pet Studies"
@@ -17,6 +19,7 @@ const WoofGang: React.FC = () => (
       successLink="https://www.qcpetstudies.com/welcome-to-the-school"
       dynamicCourseDescriptions="SHOW"
       promoCodeDefault="WOOFGANG"
+      discountName="WGB Discount"
     />
   </>
 );

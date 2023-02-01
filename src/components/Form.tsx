@@ -82,6 +82,8 @@ type Props = {
   paymentOptionsReverse?: boolean;
   /** whether MS should be shown regardless of I2 */
   showMS?: boolean;
+  /** special name to use for discount */
+  discountName?: string;
 };
 
 export const Form: React.FC<Props> = props => {
@@ -261,6 +263,7 @@ export const Form: React.FC<Props> = props => {
         courseOverride={!!props.courseOverride}
         shippingOptionReversed={!!props.shippingOptionReversed}
         dynamicCourseDescriptions={props.dynamicCourseDescriptions}
+        discountName={props.discountName}
       />}
       <Address school={props.school} />
       <Payment
