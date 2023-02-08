@@ -11,7 +11,7 @@ const lastChanceGraphicsDate = new Date(Date.UTC(2023, 1, 13, 5)); // February 1
 const timerShowDate = new Date(Date.UTC(2023, 1, 13, 5)); // February 13 at 00:00 (05:00 UTC)
 const timerEndDate = new Date(Date.UTC(2023, 1, 18, 5)); // February 18 at 00:00 (05:00 UTC)
 
-const backgroundColor = '#151a20';
+const backgroundColor = '#f58e9d';
 
 export const MakeupPromo20230208 = (): ReactElement => {
   const serverDate = useDateContext();
