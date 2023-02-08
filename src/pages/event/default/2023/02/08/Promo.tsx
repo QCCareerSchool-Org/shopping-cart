@@ -12,7 +12,7 @@ const lastChanceGraphicsDate = new Date(Date.UTC(2023, 1, 13, 5)); // February 1
 const timerShowDate = new Date(Date.UTC(2023, 1, 13, 5)); // February 13 at 00:00 (05:00 UTC)
 const timerEndDate = new Date(Date.UTC(2023, 1, 18, 5)); // February 18 at 00:00 (05:00 UTC)
 
-const backgroundColor = '#020d1f';
+const backgroundColor = '#f3f4f6';
 
 export const EventPromo20230208: FC = () => {
   const serverDate = useDateContext();
