@@ -46,7 +46,7 @@ export const EventPromo20230208: FC = () => {
     height = 500;
   } else {
     width = 440;
-    height = 500;
+    height = 535;
   }
 
   return (
