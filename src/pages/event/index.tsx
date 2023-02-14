@@ -24,6 +24,7 @@ const Student = React.lazy(async () => import('./student'));
 const FreePortfolio = React.lazy(async () => import('./free-portfolio'));
 const TuitionDiscount = React.lazy(async () => import('./tuition-discount'));
 const Floral = React.lazy(async () => import('./floral'));
+const Floral200 = React.lazy(async () => import('./floral-design-200-off').then(m => ({ default: m.Floral200 })));
 
 const Event = (): ReactElement => {
   const { address } = useStateContext();
@@ -62,6 +63,7 @@ const Event = (): ReactElement => {
         <Route path="/free-portfolio/" element={<Suspense fallback={<></>}><FreePortfolio /></Suspense>} />
         <Route path="/tuition-discount/" element={<Suspense fallback={<></>}><TuitionDiscount /></Suspense>} />
         <Route path="/floral/" element={<Suspense fallback={<></>}><Floral /></Suspense>} />
+        <Route path="/floral-design-200-off/" element={<Suspense fallback={<></>}><Floral200 /></Suspense>} />
         <Route path="*" element={<EventDefault />} />
       </Routes>
       <LiveChat license={1056788} group={1} gaVersion="gtag" />
