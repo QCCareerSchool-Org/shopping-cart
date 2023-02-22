@@ -6,6 +6,7 @@ import { dateOverride } from '../../../lib/dateOverride';
 const WellnessFallback = lazy(async () => import('./fallback').then(m => ({ default: m.WellnessFallback })));
 const Wellness20230118 = lazy(async () => import('./2023/01/18').then(m => ({ default: m.Wellness20230118 })));
 const Wellness20230208 = lazy(async () => import('./2023/02/08').then(m => ({ default: m.Wellness20230208 })));
+const Wellness20230222 = lazy(async () => import('./2023/02/22').then(m => ({ default: m.Wellness20230222 })));
 
 export const WellnessDefault = (): ReactElement => {
   const serverDate = useDateContext();
@@ -18,6 +19,10 @@ export const WellnessDefault = (): ReactElement => {
 
   if (time >= Date.UTC(2023, 1, 8, 14, 30) && time < Date.UTC(2023, 1, 18, 5)) { // 2023-02-08T09:30 (14:30 UTC) to 2023-02-17T00:00 (05:00 UTC)
     return <Suspense fallback={null}><Wellness20230208 /></Suspense>;
+  }
+
+  if (time >= Date.UTC(2023, 1, 22, 14, 30) && time < Date.UTC(2023, 2, 9, 5)) { // 2023-02-22T09:30 (14:30 UTC) to 2023-03-09T00:00 (05:00 UTC)
+    return <Suspense fallback={null}><Wellness20230222 /></Suspense>;
   }
 
   return <Suspense fallback={null}><WellnessFallback /></Suspense>;
