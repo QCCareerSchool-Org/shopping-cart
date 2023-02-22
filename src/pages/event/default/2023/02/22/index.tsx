@@ -3,7 +3,6 @@ import React, { FC } from 'react';
 import { BuyOneGetOne } from '../../../../../../components/BuyOneGetOne';
 import { Form } from '../../../../../../components/Form';
 import { courseGroups } from '../../../../courseGroups';
-import { FreeSpecialtyDynamicMessage } from '../../../../FreeSpecialtyDynamicMessage';
 import { Guarantee } from '../../../../Guarantee';
 import { EventPromo20230222 } from './Promo';
 
@@ -19,7 +18,6 @@ export const Event20230222: FC = () => (
       agreementLinkGB="https://www.qceventplanning.com/enrollment-agreement-gb.html"
       successLink="https://www.qceventplanning.com/welcome-to-the-school/"
       promoCodeDefault="EVENT100OFF"
-      dynamicCourseMessages={[ () => <FreeSpecialtyDynamicMessage /> ]}
     />
   </>
 );
