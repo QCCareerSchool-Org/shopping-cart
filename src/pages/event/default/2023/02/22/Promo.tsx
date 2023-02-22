@@ -12,9 +12,9 @@ const lastChanceGraphicsDate = new Date(Date.UTC(2023, 2, 2, 5)); // March 2 at 
 const timerShowDate = new Date(Date.UTC(2023, 2, 2, 5)); // March 2 at 00:00 (05:00 UTC)
 const timerEndDate = new Date(Date.UTC(2023, 2, 9, 5)); // March 9 at 00:00 (05:00 UTC)
 
-const backgroundColor = '#fff';
+const backgroundColor = '#060606';
 
-export const DesignPromo20230222: FC = () => {
+export const EventPromo20230222: FC = () => {
   const serverDate = useDateContext();
   const date = dateOverride() ?? serverDate;
   const { price } = useStateContext();
@@ -29,9 +29,9 @@ export const DesignPromo20230222: FC = () => {
 
   if (date.getTime() >= lastChanceGraphicsDate.getTime()) {
     if (desktop) {
-      image = require('./desktop-ends.jpg');
+      image = price?.currency.code === 'GBP' ? require('./desktop-uk-ends.jpg') : require('./desktop-ends.jpg');
     } else {
-      image = require('./mobile-ends.jpg');
+      image = price?.currency.code === 'GBP' ? require('./mobile-uk-ends.jpg') : require('./mobile-ends.jpg');
     }
   } else {
     if (desktop) {
@@ -42,11 +42,11 @@ export const DesignPromo20230222: FC = () => {
   }
 
   if (desktop) {
-    width = 1257;
-    height = 542;
+    width = 976;
+    height = 500;
   } else {
-    width = 514;
-    height = 486;
+    width = 496;
+    height = 510;
   }
 
   return (
@@ -58,10 +58,9 @@ export const DesignPromo20230222: FC = () => {
           </button>
         </div>
         <Modal isOpen={popup} toggle={togglePopup}>
-          <ModalHeader toggle={togglePopup}>Get a FREE 2nd course!</ModalHeader>
+          <ModalHeader toggle={togglePopup}>Get {price?.currency.code === 'GBP' ? '£75' : '$100'} off your tuition!</ModalHeader>
           <ModalBody>
-            <p>Enroll in any online design course and get a FREE second course of your choice.</p>
-            <p className="mb-0">You can get started today for only {price?.currency.code === 'GBP' ? '£40' : '$75'} or save up to {price?.currency.code === 'GBP' ? '£150' : '$300'} when you pay in full!</p>
+            <p className="mb-0">Enroll in any online event planning course and get {price?.currency.code === 'GBP' ? '£75' : '$100'} off your tuition! Get started today for only {price?.currency.code === 'GBP' ? '£49' : '$49'}.</p>
           </ModalBody>
         </Modal>
       </section>
@@ -72,7 +71,7 @@ export const DesignPromo20230222: FC = () => {
         buttonInverse={true}
         className="text-white"
         style={{ backgroundColor: 'black' }}
-        message={<><span style={{ textTransform: 'uppercase' }}>Last chance!</span> Get a FREE 2nd course when you enroll!</>}
+        message={<><span style={{ textTransform: 'uppercase' }}>Last chance!</span> Get {price?.currency.code === 'GBP' ? '£75' : '$100'} off your tuition!</>}
       />
     </>
   );

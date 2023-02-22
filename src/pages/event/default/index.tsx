@@ -6,6 +6,7 @@ import { dateOverride } from '../../../lib/dateOverride';
 const EventFallback = React.lazy(async () => import('./fallback').then(m => ({ default: m.EventFallback })));
 const Event20230118 = React.lazy(async () => import('./2023/01/18').then(m => ({ default: m.Event20230118 })));
 const Event20230208 = React.lazy(async () => import('./2023/02/08').then(m => ({ default: m.Event20230208 })));
+const Event20230222 = React.lazy(async () => import('./2023/02/22').then(m => ({ default: m.Event20230222 })));
 
 export const EventDefault: FC = () => {
   const serverDate = useDateContext();
@@ -18,6 +19,10 @@ export const EventDefault: FC = () => {
 
   if (time >= Date.UTC(2023, 1, 8, 14, 30) && time < Date.UTC(2023, 1, 18, 5)) { // 2023-02-08T09:30 (14:30 UTC) to 2023-02-17T00:00 (05:00 UTC)
     return <Suspense fallback={null}><Event20230208 /></Suspense>;
+  }
+
+  if (time >= Date.UTC(2023, 1, 22, 14, 30) && time < Date.UTC(2023, 2, 9, 5)) { // 2023-02-22T09:30 (14:30 UTC) to 2023-03-09T00:00 (05:00 UTC)
+    return <Suspense fallback={null}><Event20230222 /></Suspense>;
   }
 
   return <Suspense fallback={null}><EventFallback /></Suspense>;
