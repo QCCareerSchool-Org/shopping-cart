@@ -9,6 +9,61 @@ export const useInitialData = (internal: boolean, paymentOptionsReverse: boolean
   useEffect(() => {
     const loadQueryStringData = (): void => {
       const parsed = qs.parse(window.location.search.slice(1));
+
+      // country, province
+      if (typeof parsed.countryCode === 'string') {
+        if (typeof parsed.provinceCode === 'string') {
+          dispatch({ type: 'SET_COUNTRY_CODE', payload: { countryCode: parsed.countryCode, provinceCode: parsed.provinceCode, manual: true } });
+        } else {
+          dispatch({ type: 'SET_COUNTRY_CODE', payload: { countryCode: parsed.countryCode, provinceCode: undefined, manual: true } });
+        }
+      }
+
+      // sex
+      if (typeof parsed.sex === 'string') {
+        dispatch({ type: 'SET_TITLE', payload: parsed.sex === 'M' ? 'Mr.' : 'Mrs.' });
+      }
+
+      // first name
+      if (typeof parsed.firstName === 'string') {
+        dispatch({ type: 'SET_FIRST_NAME', payload: parsed.firstName });
+      }
+
+      // last name
+      if (typeof parsed.lastName === 'string') {
+        dispatch({ type: 'SET_LAST_NAME', payload: parsed.lastName });
+      }
+
+      // email address
+      if (typeof parsed.emailAddress === 'string') {
+        dispatch({ type: 'SET_EMAIL_ADDRESS', payload: parsed.emailAddress });
+      }
+
+      // telephone number
+      if (typeof parsed.telephoneNumber === 'string') {
+        dispatch({ type: 'SET_TELEPHONE_NUMBER', payload: parsed.telephoneNumber });
+      }
+
+      // address first line
+      if (typeof parsed.address1 === 'string') {
+        dispatch({ type: 'SET_ADDRESS1', payload: parsed.address1 });
+      }
+
+      // address first line
+      if (typeof parsed.address2 === 'string') {
+        dispatch({ type: 'SET_ADDRESS2', payload: parsed.address2 });
+      }
+
+      // city
+      if (typeof parsed.city === 'string') {
+        dispatch({ type: 'SET_CITY', payload: parsed.city });
+      }
+
+      // postal code
+      if (typeof parsed.postalCode === 'string') {
+        dispatch({ type: 'SET_POSTAL_CODE', payload: parsed.postalCode });
+      }
+
       if (parsed.c) {
         if (Array.isArray(parsed.c)) {
           parsed.c.forEach((c: string | qs.ParsedQs) => {

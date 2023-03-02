@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, lazy, Suspense } from 'react';
 import { Helmet } from 'react-helmet';
 import { Route, Routes } from 'react-router-dom';
 
@@ -9,9 +9,11 @@ import Default from './default'; // don't lazily load the default cart to reduce
 import { Footer } from './Footer';
 import { Header } from './Header';
 
+const ContinuedEducation = lazy(async () => import('./continued-education').then(m => ({ default: m.WritingContinuedEducation })));
+
 import './style.scss';
 
-const Writing: React.FC = () => {
+const Writing: FC = () => {
   const { address } = useStateContext();
 
   return (
@@ -31,6 +33,7 @@ const Writing: React.FC = () => {
       </Helmet>
       <Header countryCode={address.countryCode} />
       <Routes>
+        <Route path="/continued-education/" element={<Suspense fallback={<></>}><ContinuedEducation /></Suspense>} />
         <Route path="*" element={<Default />} />
       </Routes>
       <LiveChat license={1056788} group={13} gaVersion="gtag" />

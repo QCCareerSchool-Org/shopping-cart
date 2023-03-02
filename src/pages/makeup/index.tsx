@@ -21,6 +21,7 @@ const ProPlusLuminousKit = React.lazy(async () => import('./pro-plus-luminous-ki
 const LuminousKit = React.lazy(async () => import('./luminous-kit'));
 const FreeSkincare = React.lazy(async () => import('./free-skincare'));
 const FreeAdvanced = React.lazy(async () => import('./free-advanced'));
+const ContinuedEducation = React.lazy(async () => import('./continued-education').then(m => ({ default: m.MakeupContinuedEducation })));
 
 const Makeup: React.FC = () => {
   const { address } = useStateContext();
@@ -58,6 +59,7 @@ const Makeup: React.FC = () => {
         <Route path="/100-off/" element={<Suspense fallback={<></>}><HundredOff /></Suspense>} />
         <Route path="/deluxe-kit/" element={<Suspense fallback={<></>}><DeluxeKit /></Suspense>} />
         <Route path="/limited-time-offer/" element={<Suspense fallback={<></>}><LimitedTimeOffer /></Suspense>} />
+        <Route path="/continued-education/" element={<Suspense fallback={<></>}><ContinuedEducation /></Suspense>} />
         <Route path="*" element={<MakeupDefault />} />
       </Routes>
       <LiveChat license={1056788} group={14} gaVersion="gtag" />

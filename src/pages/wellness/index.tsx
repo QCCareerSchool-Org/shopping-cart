@@ -15,6 +15,7 @@ const Student = React.lazy(async () => import('./student'));
 const Wellness150Off = React.lazy(async () => import('./150-off'));
 const Wellness100Off = React.lazy(async () => import('./100-off'));
 const Wellness50Off = React.lazy(async () => import('./50-off'));
+const ContinuedEducation = React.lazy(async () => import('./continued-education').then(m => ({ default: m.WellnessContinuedEducation })));
 
 const headerLink = (path: string): boolean => {
   return !/^\/\d{2,3}-off/u.test(path);
@@ -44,6 +45,7 @@ const Wellness: React.FC = () => {
         <Route path="/150-off" element={<Suspense fallback={<></>}><Wellness150Off /></Suspense>} />
         <Route path="/100-off" element={<Suspense fallback={<></>}><Wellness100Off /></Suspense>} />
         <Route path="/50-off" element={<Suspense fallback={<></>}><Wellness50Off /></Suspense>} />
+        <Route path="/continued-education/" element={<Suspense fallback={<></>}><ContinuedEducation /></Suspense>} />
         <Route path="*" element={<WellnessDefault />} />
       </Routes>
       <LiveChat license={1056788} group={19} gaVersion="gtag" />
