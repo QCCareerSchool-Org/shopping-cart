@@ -25,6 +25,7 @@ const Student = lazy(async () => import('./student'));
 const TuitionDiscount = lazy(async () => import('./tuition-discount'));
 const Masterclass = lazy(async () => import('./masterclass-200-off'));
 const Masterclass150 = lazy(async () => import('./masterclass-offer-150-off'));
+const ContinuedEducation = lazy(async () => import('./continued-education').then(m => ({ default: m.DesignContinuedEducation })));
 
 const Design = memo((): ReactElement => {
   const { address } = useStateContext();
@@ -64,6 +65,7 @@ const Design = memo((): ReactElement => {
         <Route path="/tuition-discount/" element={<Suspense fallback={<></>}><TuitionDiscount /></Suspense>} />
         <Route path="/masterclass-200-off/" element={<Suspense fallback={<></>}><Masterclass /></Suspense>} />
         <Route path="/masterclass-offer-150-off/" element={<Suspense fallback={<></>}><Masterclass150 /></Suspense>} />
+        <Route path="/continued-education/" element={<Suspense fallback={<></>}><ContinuedEducation /></Suspense>} />
         <Route path="*" element={<DesignDefault />} />
       </Routes>
       <LiveChat license={1056788} group={3} gaVersion="gtag" />

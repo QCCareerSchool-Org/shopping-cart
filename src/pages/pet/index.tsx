@@ -21,6 +21,7 @@ const Training300Off = React.lazy(async () => import('./training-300-off'));
 const Training200Off = React.lazy(async () => import('./training-200-off'));
 const Training150Off = React.lazy(async () => import('./training-150-off'));
 const Webinar300Off = React.lazy(async () => import('./webinar-300-off'));
+const ContinuedEducation = React.lazy(async () => import('./continued-education').then(m => ({ default: m.PetContinuedEducation })));
 
 const headerLink = (path: string): boolean => {
   return !/^\/(grooming|trainging)-\d{3}-off/u.test(path);
@@ -56,6 +57,7 @@ const Pet: React.FC = () => {
         <Route path="/training-200-off/" element={<Suspense fallback={<></>}><Training200Off /></Suspense>} />
         <Route path="/training-150-off/" element={<Suspense fallback={<></>}><Training150Off /></Suspense>} />
         <Route path="/free-training-300-off/" element={<Suspense fallback={<></>}><Webinar300Off /></Suspense>} />
+        <Route path="/continued-education/" element={<Suspense fallback={<></>}><ContinuedEducation /></Suspense>} />
         <Route path="*" element={<PetDefault />} />
       </Routes>
       <LiveChat license={1056788} group={18} gaVersion="gtag" />
