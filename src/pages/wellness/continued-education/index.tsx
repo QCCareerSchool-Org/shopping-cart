@@ -1,8 +1,22 @@
 import React, { FC } from 'react';
 
 import { Form } from '../../../components/Form';
-import { courseGroups } from '../courseGroups';
+import { CourseGroup } from '../../../state/courses';
 import { Guarantee } from '../Guarantee';
+
+const courseGroups: CourseGroup[] = [
+  {
+    items: [
+      { code: 'SL', name: 'Sleep Consultant' },
+      { code: 'FC', name: 'Professional Caregiving' },
+      { code: 'IC', name: 'Personal Caregiving' },
+      { code: 'SK', name: 'Skincare' },
+      { code: 'AP', name: 'Aging in Place' },
+      { code: 'CC', name: 'Color Consultant' },
+      { code: 'PO', name: 'Professional Organizing' },
+    ],
+  },
+];
 
 export const WellnessContinuedEducation: FC = () => (
   <Form
