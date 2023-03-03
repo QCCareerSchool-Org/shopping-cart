@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import { useScreenWidthContext } from '../../../hooks/useScreenWidthContext';
 
-const backgroundColor = '#b3b4b8';
+const backgroundColor = '#03010b';
 
 export const ContinuedEducationPromo: FC = () => {
   const screenWidth = useScreenWidthContext();
