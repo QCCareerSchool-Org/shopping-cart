@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import { Form } from '../../../components/Form';
 import { CourseGroup } from '../../../state/courses';
 import { Guarantee } from '../Guarantee';
+import { ContinuedEducationPromo } from './Promo';
 
 const courseGroups: CourseGroup[] = [
   {
@@ -19,13 +20,16 @@ const courseGroups: CourseGroup[] = [
 ];
 
 export const WellnessContinuedEducation: FC = () => (
-  <Form
-    courseGroups={courseGroups}
-    school="QC Wellness Studies"
-    guarantee={() => <Guarantee />}
-    agreementLink="https://www.qcwellnessstudies.com/enrollment-agreement"
-    agreementLinkGB="https://www.qcwellnessstudies.com/enrollment-agreement-gb"
-    successLink="https://www.qcwellnessstudies.com/welcome-to-the-school/"
-    student={true}
-  />
+  <>
+    <ContinuedEducationPromo />
+    <Form
+      courseGroups={courseGroups}
+      school="QC Wellness Studies"
+      guarantee={() => <Guarantee />}
+      agreementLink="https://www.qcwellnessstudies.com/enrollment-agreement"
+      agreementLinkGB="https://www.qcwellnessstudies.com/enrollment-agreement-gb"
+      successLink="https://www.qcwellnessstudies.com/welcome-to-the-school/"
+      student={true}
+    />
+  </>
 );
