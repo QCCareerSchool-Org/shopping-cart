@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 import { CountDownTimerWrapper } from '../../../../../../components/CountDownTimerWrapper';
 import { useDateContext } from '../../../../../../hooks/useDateContext';
@@ -8,9 +8,8 @@ import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthCon
 import { useStateContext } from '../../../../../../hooks/useStateContext';
 import { dateOverride } from '../../../../../../lib/dateOverride';
 
-const lastChanceGraphicsDate = new Date(Date.UTC(2023, 2, 2, 5)); // March 2 at 00:00 (05:00 UTC)
+const lastChanceDate = new Date(Date.UTC(2023, 2, 2, 5)); // March 2 at 00:00 (05:00 UTC)
 const timerShowDate = new Date(Date.UTC(2023, 2, 2, 5)); // March 2 at 00:00 (05:00 UTC)
-const timerEndDate = new Date(Date.UTC(2023, 2, 9, 5)); // March 9 at 00:00 (05:00 UTC)
 
 const backgroundColor = '#fff';
 
@@ -21,13 +20,20 @@ export const DesignPromo20230222: FC = () => {
   const screenWidth = useScreenWidthContext();
   const [ popup, togglePopup ] = usePopup(false);
 
+  const timerEndDate = useMemo(() => {
+    if (date.getTime() >= Date.UTC(2023, 2, 9, 5)) { // March 9 at 00:00 (05:00 UTC)
+      return new Date(Date.UTC(2023, 2, 11, 5)); // March 11 at 00:00 (05:00 UTC)
+    }
+    return new Date(Date.UTC(2023, 2, 9, 5)); // March 9 at 00:00 (05:00 UTC)
+  }, [ date ]);
+
   const desktop = screenWidth >= 576;
 
   let image: string;
   let width: number;
   let height: number;
 
-  if (date.getTime() >= lastChanceGraphicsDate.getTime()) {
+  if (date.getTime() >= lastChanceDate.getTime()) {
     if (desktop) {
       image = require('./desktop-ends.jpg');
     } else {
