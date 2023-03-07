@@ -20,12 +20,16 @@ type Props = {
   school: School;
 };
 
+const noShip = (school: School): boolean => {
+  return school === 'QC Event School' || school === 'QC Wellness Studies' || school === 'QC Design School';
+};
+
 export const Address: React.FC<Props> = ({ school }) => {
   const { address: { countryCode } } = useStateContext();
   return (
     <section id="address-section">
       <div className="container">
-        <h2 className="h1">{school === 'QC Event School' || school === 'QC Wellness Studies' ? 'Billing Address' : 'Shipping Information' }</h2>
+        <h2 className="h1">{noShip(school) ? 'Billing Address' : 'Shipping Information' }</h2>
         <div className="row">
           <div className="col-12 col-md-6 col-lg-4 offset-lg-2">
             <Title />
