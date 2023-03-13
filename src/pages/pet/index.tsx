@@ -14,9 +14,11 @@ import './style.scss';
 // lazily load the other carts because they're used less often
 const Student = React.lazy(async () => import('./student'));
 const WoofGang = React.lazy(async () => import('./woof-gang'));
+const Grooming500Off = React.lazy(async () => import('./grooming-500-off'));
 const Grooming300Off = React.lazy(async () => import('./grooming-300-off'));
 const Grooming200Off = React.lazy(async () => import('./grooming-200-off'));
 const Grooming150Off = React.lazy(async () => import('./grooming-150-off'));
+const Training500Off = React.lazy(async () => import('./training-500-off'));
 const Training300Off = React.lazy(async () => import('./training-300-off'));
 const Training200Off = React.lazy(async () => import('./training-200-off'));
 const Training150Off = React.lazy(async () => import('./training-150-off'));
@@ -50,9 +52,11 @@ const Pet: React.FC = () => {
       <Routes>
         <Route path="/student/" element={<Student />} />
         <Route path="/woof-gang-bakery/" element={<Suspense fallback={<></>}><WoofGang /></Suspense>} />
+        <Route path="/grooming-500-off/" element={<Suspense fallback={<></>}><Grooming500Off /></Suspense>} />
         <Route path="/grooming-300-off/" element={<Suspense fallback={<></>}><Grooming300Off /></Suspense>} />
         <Route path="/grooming-200-off/" element={<Suspense fallback={<></>}><Grooming200Off /></Suspense>} />
         <Route path="/grooming-150-off/" element={<Suspense fallback={<></>}><Grooming150Off /></Suspense>} />
+        <Route path="/training-500-off/" element={<Suspense fallback={<></>}><Training500Off /></Suspense>} />
         <Route path="/training-300-off/" element={<Suspense fallback={<></>}><Training300Off /></Suspense>} />
         <Route path="/training-200-off/" element={<Suspense fallback={<></>}><Training200Off /></Suspense>} />
         <Route path="/training-150-off/" element={<Suspense fallback={<></>}><Training150Off /></Suspense>} />
