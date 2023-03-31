@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useMemo } from 'react';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import { CountDownTimerWrapper } from '../../../../../../components/CountDownTimerWrapper';
 import { useDateContext } from '../../../../../../hooks/useDateContext';
@@ -9,7 +9,6 @@ import { dateOverride } from '../../../../../../lib/dateOverride';
 
 const lastChanceDate = new Date(Date.UTC(2023, 2, 27, 4)); // March 27 at 00:00 (04:00 UTC)
 const timerShowDate = new Date(Date.UTC(2023, 2, 27, 4)); // March 27 at 00:00 (04:00 UTC)
-const timerEndDate = new Date(Date.UTC(2023, 3, 1, 4)); // April 1 at 00:00 (04:00 UTC)
 
 const backgroundColor = '#151a20';
 
@@ -29,6 +28,13 @@ export const MakeupPromo20230322 = (): ReactElement => {
   const date = dateOverride() ?? serverDate;
   const screenWidth = useScreenWidthContext();
   const [ popup, togglePopup ] = usePopup(false);
+
+  const timerEndDate = useMemo(() => {
+    if (date.getTime() >= Date.UTC(2023, 3, 1, 4)) {
+      return new Date(Date.UTC(2023, 3, 3, 4)); // April 3 at 00:00 (04:00 UTC)
+    }
+    return new Date(Date.UTC(2023, 3, 1, 4)); // April 1 at 00:00 (04:00 UTC)
+  }, [ date ]);
 
   const desktop = screenWidth >= 576;
 
