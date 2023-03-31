@@ -16,7 +16,7 @@ export const EventDefault: FC = () => {
     return <Suspense fallback={null}><Event20230222 /></Suspense>;
   }
 
-  if (time >= Date.UTC(2023, 2, 22, 13, 30) && time < Date.UTC(2023, 3, 1, 4)) { // 2023-03-22T09:30 (13:30 UTC) to 2023-04-01T00:00 (04:00 UTC)
+  if (time >= Date.UTC(2023, 2, 22, 13, 30) && time < Date.UTC(2023, 3, 3, 4)) { // 2023-03-22T09:30 (13:30 UTC) to 2023-04-03T00:00 (04:00 UTC)
     return <Suspense fallback={null}><Event20230322 /></Suspense>;
   }
 

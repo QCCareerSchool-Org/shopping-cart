@@ -8,7 +8,6 @@ import { dateOverride } from '../../../../../../lib/dateOverride';
 
 const lastChanceDate = new Date(Date.UTC(2023, 2, 27, 4)); // March 27 at 00:00 (04:00 UTC)
 const timerShowDate = new Date(Date.UTC(2023, 2, 27, 4)); // March 27 at 00:00 (04:00 UTC)
-const timerEndDate = new Date(Date.UTC(2023, 3, 1, 4)); // April 1 at 00:00 (04:00 UTC)
 
 const backgroundColor = '#d7d8dc';
 
@@ -32,6 +31,13 @@ export const WellnessPromo20230322: FC = () => {
   const date = dateOverride() ?? serverDate;
   const { price } = useStateContext();
   const screenWidth = useScreenWidthContext();
+
+  const timerEndDate = useMemo(() => {
+    if (date.getTime() >= Date.UTC(2023, 3, 1, 4)) {
+      return new Date(Date.UTC(2023, 3, 3, 4)); // April 3 at 00:00 (04:00 UTC)
+    }
+    return new Date(Date.UTC(2023, 3, 1, 4)); // April 1 at 00:00 (04:00 UTC)
+  }, [ date ]);
 
   const desktop = screenWidth > 532;
 
