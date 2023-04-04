@@ -14,7 +14,6 @@ const Bogo1 = memo((): ReactElement => (
       courseGroups={courseGroups}
       school="QC Design School"
       guarantee={() => <Guarantee />}
-      coursesSubtitle={() => <BuyOneGetOne />}
       agreementLink="https://www.qcdesignschool.com/enrollment-agreement.html"
       agreementLinkGB="https://www.qcdesignschool.com/enrollment-agreement-gb.html"
       successLink="https://www.qcdesignschool.com/welcome-to-the-school/"

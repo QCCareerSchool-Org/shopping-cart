@@ -22,7 +22,6 @@ const MasterClass150Off = (): ReactElement => (
       courseGroups={filteredCourseGroups}
       school="QC Design School"
       guarantee={() => <Guarantee />}
-      coursesSubtitle={() => <BuyOneGetOne />}
       agreementLink="https://www.qcdesignschool.com/enrollment-agreement.html"
       agreementLinkGB="https://www.qcdesignschool.com/enrollment-agreement-gb.html"
       successLink="https://www.qcdesignschool.com/welcome-to-the-school/"
