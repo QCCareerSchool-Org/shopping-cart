@@ -37,7 +37,7 @@ export const PetPromo20230406: FC = () => {
 
   const desktop = screenWidth >= 571;
 
-  const { image, width, height } = getImageData(desktop, lastChanceDate.getTime() >= date.getTime(), price?.currency.code);
+  const { image, width, height } = getImageData(desktop, date >= lastChanceDate, price?.currency.code);
 
   const [ promoDiscount, getStarted ] = price?.currency.code === 'GBP'
     ? [ '£150', '£99' ]
