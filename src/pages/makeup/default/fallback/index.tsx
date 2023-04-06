@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { BogoDynamicMessage } from '../../../../components/BogoDynamicMessage';
 import { BuyOneGetOne } from '../../../../components/BuyOneGetOne';
 
 import { Form } from '../../../../components/Form';
@@ -19,6 +20,7 @@ export const MakeupFallback: FC = () => (
       successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
       dynamicCourseDescriptions="REPLACE"
       paymentOptionsReverse={true}
+      dynamicCourseMessages={[ () => <BogoDynamicMessage /> ]}
     />
   </>
 );
