@@ -48,7 +48,7 @@ export const EventPromo20230406: FC = () => {
         <Modal isOpen={popup} toggle={togglePopup}>
           <ModalHeader toggle={togglePopup}>Upgrade your event planning skills!</ModalHeader>
           <ModalBody>
-            <p className="mb-0">Enroll in any foundation course and get any two free specialty courses. You can get started today for only {price?.currency.code === 'GBP' ? '£49' : '$49'}!</p>
+            <p className="mb-0">Enroll in any foundation course and get any specialty course for free. You can get started today for only {price?.currency.code === 'GBP' ? '£49' : '$49'}!</p>
           </ModalBody>
         </Modal>
       </section>
