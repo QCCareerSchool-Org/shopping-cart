@@ -21,6 +21,7 @@ export const MakeupFallback: FC = () => (
       dynamicCourseDescriptions="REPLACE"
       paymentOptionsReverse={true}
       dynamicCourseMessages={[ () => <BogoDynamicMessage /> ]}
+      visualPaymentPlans={true}
     />
   </>
 );

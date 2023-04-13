@@ -1,7 +1,22 @@
 $theme-colors: (
-  primary: #ec3e86,
+  primary: #ff0069,
   black: #000
 );
+
+// $border-radius:    .5rem;
+// $border-radius-lg: .6rem;
+// $border-radius-sm: .4rem;
+
+// $input-border-radius:    .25rem;
+// $input-border-radius-lg: .3rem;
+// $input-border-radius-sm: .2rem;
+
+$card-border-radius: .5rem;
+$alert-border-radius: .5rem;
+
+$btn-border-radius:    .5rem;
+$btn-border-radius-lg: .6rem;
+$btn-border-radius-sm: .4rem;
 
 @import "../../commonBefore.scss";
 

@@ -25,7 +25,7 @@
     "@types/styled-components": "^5.1.9",
     "axios": "^0.26.1",
     "big.js": "^6.1.1",
-    "bootstrap": "^4.5.3",
+    "bootstrap": "^4.6.2",
     "eslint-plugin-import": "^2.22.1",
     "node-sass": "^7.0.1",
     "qs": "^6.10.1",
