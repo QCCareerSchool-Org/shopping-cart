@@ -36,7 +36,7 @@ export const WellnessPromo20230406: FC = () => {
 
   const { image, width, height } = getImageData(desktop, date >= lastChanceDate, price?.currency.code);
 
-  const promoDiscount = price?.currency.code === 'GBP' ? '£75' : '$100';
+  const promoDiscount = price?.currency.code === 'GBP' ? '£50' : '$50';
 
   return (
     <>
