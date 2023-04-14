@@ -84,6 +84,8 @@ type Props = {
   showMS?: boolean;
   /** special name to use for discount */
   discountName?: string;
+  /** display the visual payment plans */
+  visualPaymentPlans?: boolean;
 };
 
 export const Form: React.FC<Props> = props => {
@@ -273,6 +275,7 @@ export const Form: React.FC<Props> = props => {
         noShippingTitle={props.noShippingTitle}
         showPromoCodeInput={!!props.showPromoCodeInput && !props.promoCodeDefault}
         paymentOptionsReverse={!!props.paymentOptionsReverse}
+        visualPaymentPlans={!!props.visualPaymentPlans}
       />
       {props.allowOverrides && payment.plan === 'part' && <Overrides />}
       <Summary

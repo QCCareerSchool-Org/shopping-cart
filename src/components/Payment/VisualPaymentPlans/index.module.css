@@ -1,0 +1,37 @@
+.rounded {
+  border-radius: 1.1875rem;
+}
+
+.box {
+  position: relative;
+  border-width: 1px;
+  border-style: solid;
+  padding: 0.75rem 0 1rem;
+  padding: calc(0.75rem + 2px) 2px calc(1rem + 2px);
+}
+
+.sidePadding {
+  padding: 0 1rem;
+}
+
+.fullBox {
+  background-color: black;
+  border-color: black;
+  color: #f0f0f0;
+}
+
+.partBox {
+  background-color: white;
+  border-color: #ccc;
+}
+
+.box.selected {
+  padding: 0.75rem 0 1rem;
+  box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.25);
+  border-width: 3px;
+  border-color: var(--primary);
+}
+
+.selected.fullBox {
+  box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.5);;
+}

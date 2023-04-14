@@ -90,7 +90,7 @@ export const Summary: React.FC<Props> = props => {
             <p>By clicking &quot;Proceed to Payment&quot; below, you agree to the terms of the <a rel="noopener noreferrer" target="_blank" href={enrollmentAgreementUrl}>Enrollment Agreement</a>.</p>
             <div className="text-center text-sm-left">
               <div className="mb-4">
-                <button onClick={submit} className="btn btn-primary"><FontAwesomeIcon icon={faLock} /> Proceed to Payment</button>
+                <button onClick={submit} className="btn btn-primary btn-lg"><FontAwesomeIcon icon={faLock} /> Proceed to Payment</button>
               </div>
               {price && price.courses.length === 0 && <div className="mb-4 alert alert-secondary" style={{ maxWidth: 520 }}>Please <button type="button" className="btn btn-link p-0 align-baseline btn-no-hover-shadow" onClick={() => scrollToPosition('courses')}>select one or more courses</button> before proceeding to payment.</div>}
               <img src={require('../../images/visa.svg').default} className="mr-2" style={{ height: 32 }} alt="Visa" />
