@@ -74,7 +74,7 @@ export const VisualPaymentPlans: FC = () => {
         <div className="col-5 col-lg-4 col-xl-3 mb-4 mb-lg-0">
           <div onClick={handlePartClick} style={{ cursor: 'pointer' }} className={`${styles.box} ${styles.partBox} ${styles.rounded} ${payment.plan !== 'full' ? styles.selected : ''}`}>
             <div className={styles.sidePadding}>
-              <h5>Pay by Installments</h5>
+              <h5>Installment Plan</h5>
               <ul className="p-0" style={{ listStyle: 'none' }}>
                 {price && price.plans.full.discount > 0 && <li><strong>Start for {price.currency.symbol}{formatCurrency(price.plans.part.deposit)}</strong></li>}
                 <li>Personalized support</li>
