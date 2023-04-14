@@ -3,10 +3,15 @@
 }
 
 .box {
-  padding: 0.75rem 1rem 1rem;
-  padding: calc(0.75rem + 2px) calc(1rem + 2px) calc(1rem + 2px);
+  position: relative;
   border-width: 1px;
   border-style: solid;
+  padding: 0.75rem 0 1rem;
+  padding: calc(0.75rem + 2px) 2px calc(1rem + 2px);
+}
+
+.sidePadding {
+  padding: 0 1rem;
 }
 
 .fullBox {
@@ -20,8 +25,8 @@
   border-color: #ccc;
 }
 
-.selected {
-  padding: 0.75rem 1rem 1rem;
+.box.selected {
+  padding: 0.75rem 0 1rem;
   box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.25);
   border-width: 3px;
   border-color: var(--primary);
