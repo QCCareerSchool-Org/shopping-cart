@@ -76,7 +76,7 @@ export const VisualPaymentPlansMobile: FC<Props> = ({ school }) => {
         </ul>
         {payment.plan === 'full'
           ? (
-            <div className={`${styles.box} ${styles.fullBox} ${cornerStyle} ${styles.roundedBottom}`} style={{ cursor: 'pointer', backgroundColor: courseKit !== false ? courseKit.images?.full.backgroundColor : undefined, color: courseKit !== false ? courseKit.images?.full.color : undefined, borderColor: courseKit !== false ? courseKit.images?.full.borderColor : undefined }}>
+            <div className={`${styles.box} ${styles.fullBox} ${cornerStyle} ${styles.roundedBottom}`} style={{ backgroundColor: courseKit !== false ? courseKit.images?.full.backgroundColor : undefined, color: courseKit !== false ? courseKit.images?.full.color : undefined, borderColor: courseKit !== false ? courseKit.images?.full.borderColor : undefined }}>
               <div className={styles.sidePadding}>
                 <h3>Pay in Full</h3>
                 <ul className={`${styles.planList} mb-0`}>
@@ -95,7 +95,7 @@ export const VisualPaymentPlansMobile: FC<Props> = ({ school }) => {
             </div>
           )
           : (
-            <div className={`${styles.box} ${styles.partBox} ${styles.roundedBottom}`} style={{ cursor: 'pointer', backgroundColor: courseKit !== false ? courseKit.images?.part.backgroundColor : undefined, color: courseKit !== false ? courseKit.images?.part.color : undefined, borderColor: courseKit !== false ? courseKit.images?.part.borderColor : undefined }}>
+            <div className={`${styles.box} ${styles.partBox} ${styles.roundedBottom}`} style={{ backgroundColor: courseKit !== false ? courseKit.images?.part.backgroundColor : undefined, color: courseKit !== false ? courseKit.images?.part.color : undefined, borderColor: courseKit !== false ? courseKit.images?.part.borderColor : undefined }}>
               <div className={styles.sidePadding}>
                 <h3>Installment Plan</h3>
                 <ul className={`${styles.planList} mb-0`}>

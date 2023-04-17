@@ -128,6 +128,11 @@ export const VisualPaymentPlansDesktop: FC<Props> = ({ school }) => {
               }
             </div>
           </div>
+          {courseKit !== false && courseKit.details && (
+            <div className="col-12 mt-2">
+              {courseKit.details}
+            </div>
+          )}
         </div>
       </div>
       <div className={`${styles.resultColumn} col-12 col-md-6 col-lg-4`}>
