@@ -48,24 +48,26 @@ const Pet: React.FC = () => {
         <link rel="shortcut icon" href="/pet/favicon.ico?v=QEMKdlwA73" />
         <meta name="msapplication-TileColor" content="#000000" />
       </Helmet>
-      <Header countryCode={address.countryCode} link={headerLink(location.pathname)} />
-      <Routes>
-        <Route path="/student/" element={<Student />} />
-        <Route path="/woof-gang-bakery/" element={<Suspense fallback={<></>}><WoofGang /></Suspense>} />
-        <Route path="/grooming-500-off/" element={<Suspense fallback={<></>}><Grooming500Off /></Suspense>} />
-        <Route path="/grooming-300-off/" element={<Suspense fallback={<></>}><Grooming300Off /></Suspense>} />
-        <Route path="/grooming-200-off/" element={<Suspense fallback={<></>}><Grooming200Off /></Suspense>} />
-        <Route path="/grooming-150-off/" element={<Suspense fallback={<></>}><Grooming150Off /></Suspense>} />
-        <Route path="/training-500-off/" element={<Suspense fallback={<></>}><Training500Off /></Suspense>} />
-        <Route path="/training-300-off/" element={<Suspense fallback={<></>}><Training300Off /></Suspense>} />
-        <Route path="/training-200-off/" element={<Suspense fallback={<></>}><Training200Off /></Suspense>} />
-        <Route path="/training-150-off/" element={<Suspense fallback={<></>}><Training150Off /></Suspense>} />
-        <Route path="/free-training-300-off/" element={<Suspense fallback={<></>}><Webinar300Off /></Suspense>} />
-        <Route path="/continued-education/" element={<Suspense fallback={<></>}><ContinuedEducation /></Suspense>} />
-        <Route path="*" element={<PetDefault />} />
-      </Routes>
-      <LiveChat license={1056788} group={18} gaVersion="gtag" />
-      <Footer countryCode={address.countryCode} />
+      <div className="pet">
+        <Header countryCode={address.countryCode} link={headerLink(location.pathname)} />
+        <Routes>
+          <Route path="/student/" element={<Student />} />
+          <Route path="/woof-gang-bakery/" element={<Suspense fallback={<></>}><WoofGang /></Suspense>} />
+          <Route path="/grooming-500-off/" element={<Suspense fallback={<></>}><Grooming500Off /></Suspense>} />
+          <Route path="/grooming-300-off/" element={<Suspense fallback={<></>}><Grooming300Off /></Suspense>} />
+          <Route path="/grooming-200-off/" element={<Suspense fallback={<></>}><Grooming200Off /></Suspense>} />
+          <Route path="/grooming-150-off/" element={<Suspense fallback={<></>}><Grooming150Off /></Suspense>} />
+          <Route path="/training-500-off/" element={<Suspense fallback={<></>}><Training500Off /></Suspense>} />
+          <Route path="/training-300-off/" element={<Suspense fallback={<></>}><Training300Off /></Suspense>} />
+          <Route path="/training-200-off/" element={<Suspense fallback={<></>}><Training200Off /></Suspense>} />
+          <Route path="/training-150-off/" element={<Suspense fallback={<></>}><Training150Off /></Suspense>} />
+          <Route path="/free-training-300-off/" element={<Suspense fallback={<></>}><Webinar300Off /></Suspense>} />
+          <Route path="/continued-education/" element={<Suspense fallback={<></>}><ContinuedEducation /></Suspense>} />
+          <Route path="*" element={<PetDefault />} />
+        </Routes>
+        <LiveChat license={1056788} group={18} gaVersion="gtag" />
+        <Footer countryCode={address.countryCode} />
+      </div>
     </>
   );
 };

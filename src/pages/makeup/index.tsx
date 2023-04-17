@@ -49,21 +49,23 @@ const Makeup: React.FC = () => {
         <meta name="msapplication-TileColor" content="#000000" />
         <script src="/makeup/perfect-audience.js"></script>
       </Helmet>
-      <Header countryCode={address.countryCode} />
-      <Routes>
-        <Route path="/luminous-kit/" element={<Suspense fallback={<></>}><LuminousKit /></Suspense>} />
-        <Route path="/pro-plus-luminous-kit/" element={<Suspense fallback={<></>}><ProPlusLuminousKit /></Suspense>} />
-        <Route path="/free-skincare/" element={<Suspense fallback={<></>}><FreeSkincare /></Suspense>} />
-        <Route path="/free-advanced/" element={<Suspense fallback={<></>}><FreeAdvanced /></Suspense>} />
-        <Route path="/student/" element={<Suspense fallback={<></>}><Student /></Suspense>} />
-        <Route path="/100-off/" element={<Suspense fallback={<></>}><HundredOff /></Suspense>} />
-        <Route path="/deluxe-kit/" element={<Suspense fallback={<></>}><DeluxeKit /></Suspense>} />
-        <Route path="/limited-time-offer/" element={<Suspense fallback={<></>}><LimitedTimeOffer /></Suspense>} />
-        <Route path="/continued-education/" element={<Suspense fallback={<></>}><ContinuedEducation /></Suspense>} />
-        <Route path="*" element={<MakeupDefault />} />
-      </Routes>
-      <LiveChat license={1056788} group={14} gaVersion="gtag" />
-      <Footer countryCode={address.countryCode} />
+      <div className="makeup">
+        <Header countryCode={address.countryCode} />
+        <Routes>
+          <Route path="/luminous-kit/" element={<Suspense fallback={<></>}><LuminousKit /></Suspense>} />
+          <Route path="/pro-plus-luminous-kit/" element={<Suspense fallback={<></>}><ProPlusLuminousKit /></Suspense>} />
+          <Route path="/free-skincare/" element={<Suspense fallback={<></>}><FreeSkincare /></Suspense>} />
+          <Route path="/free-advanced/" element={<Suspense fallback={<></>}><FreeAdvanced /></Suspense>} />
+          <Route path="/student/" element={<Suspense fallback={<></>}><Student /></Suspense>} />
+          <Route path="/100-off/" element={<Suspense fallback={<></>}><HundredOff /></Suspense>} />
+          <Route path="/deluxe-kit/" element={<Suspense fallback={<></>}><DeluxeKit /></Suspense>} />
+          <Route path="/limited-time-offer/" element={<Suspense fallback={<></>}><LimitedTimeOffer /></Suspense>} />
+          <Route path="/continued-education/" element={<Suspense fallback={<></>}><ContinuedEducation /></Suspense>} />
+          <Route path="*" element={<MakeupDefault />} />
+        </Routes>
+        <LiveChat license={1056788} group={14} gaVersion="gtag" />
+        <Footer countryCode={address.countryCode} />
+      </div>
     </>
   );
 };
