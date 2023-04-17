@@ -5,17 +5,17 @@ import React, { FC, MouseEventHandler, useMemo } from 'react';
 import { useDispatchContext } from '../../../hooks/useDispatchContext';
 import { useScreenWidthContext } from '../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../hooks/useStateContext';
+import { School } from '../../../lib/enrollment';
 import { formatCurrency } from '../../../lib/formatCurrency';
-import { Site } from '../../../lib/getSite';
 import { PlanResult } from '../PlanResult';
 import styles from './index.module.css';
 import { courseKits } from './kits';
 
 type Props = {
-  site: Site | null;
+  school: School;
 };
 
-export const VisualPaymentPlansMobile: FC<Props> = ({ site }) => {
+export const VisualPaymentPlansMobile: FC<Props> = ({ school }) => {
   const screenWidth = useScreenWidthContext();
   const { price, payment, courses } = useStateContext();
   const dispatch = useDispatchContext();
@@ -45,7 +45,17 @@ export const VisualPaymentPlansMobile: FC<Props> = ({ site }) => {
     return null;
   }
 
-  const cornerStyle = styles[`${site}Corner`];
+  const cornerStyle = school === 'QC Makeup Academy'
+    ? styles.makeupCorner
+    : school === 'QC Design School'
+      ? styles.designCorner
+      : school === 'QC Event School'
+        ? styles.eventCorner
+        : school === 'QC Pet Studies'
+          ? styles.petCorner
+          : school === 'QC Wellness Studies'
+            ? styles.wellnessCorner
+            : undefined;
 
   return (
     <div className="row justify-content-center">
