@@ -9,7 +9,7 @@ import { formatCurrency } from '../../../lib/formatCurrency';
 import { Site } from '../../../lib/getSite';
 import { PlanResult } from '../PlanResult';
 import styles from './index.module.css';
-import { CourseKit, courseKits } from './kits';
+import { courseKits } from './kits';
 
 type Props = {
   site: Site | null;
@@ -20,7 +20,6 @@ export const VisualPaymentPlansMobile: FC<Props> = ({ site }) => {
   const { price, payment, courses } = useStateContext();
   const dispatch = useDispatchContext();
 
-  const sm = screenWidth >= 576;
   const md = screenWidth >= 768;
 
   const handleFullClick: MouseEventHandler = e => {
@@ -50,7 +49,7 @@ export const VisualPaymentPlansMobile: FC<Props> = ({ site }) => {
 
   return (
     <div className="row justify-content-center">
-      <div className="col-12 col-sm-9 mb-4">
+      <div className="col-12 col-sm-9 mb-4" style={{ maxWidth: 405, margin: '0 auto' }}>
 
         <ul className={`nav ${styles.navTabs}`}>
           <li className={styles.navItem}>
@@ -79,7 +78,7 @@ export const VisualPaymentPlansMobile: FC<Props> = ({ site }) => {
               </div>
               {courseKit !== false && courseKit.images && (
                 <div className="mt-3">
-                  <img src={courseKit.images.full.lg} style={{ width: '100%' }} alt="kit" />
+                  <img src={courseKit.images.full.sm} style={{ width: '100%' }} alt="kit" />
                 </div>
               )}
             </div>
@@ -98,7 +97,7 @@ export const VisualPaymentPlansMobile: FC<Props> = ({ site }) => {
               </div>
               {courseKit !== false && courseKit.images && (
                 <div className="mt-3">
-                  <img src={courseKit.images.part.lg} style={{ width: '100%' }} alt="kit" />
+                  <img src={courseKit.images.part.sm} style={{ width: '100%' }} alt="kit" />
                 </div>
               )}
             </div>

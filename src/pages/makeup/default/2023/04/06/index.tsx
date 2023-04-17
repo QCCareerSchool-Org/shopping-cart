@@ -21,7 +21,6 @@ export const Makeup20230406: FC = () => (
       paymentOptionsReverse={true}
       promoCodeDefault="SKINCARE"
       dynamicCourseMessages={[ () => <SkincarePlusLuminousDynamicMessage />, () => <BogoDynamicMessage /> ]}
-      visualPaymentPlans={true}
     />
   </>
 );
