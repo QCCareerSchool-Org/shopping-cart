@@ -43,7 +43,7 @@ export const courseKits: CourseKit[] = [
       height: { md: 175, lg: 144 },
       buttonOffset: { md: 78, lg: 49 },
     },
-    fullBullets: [ <strong key={0}>Deluxe makeup kit</strong> ],
-    partBullets: [ <strong key={0}>Starter brush set</strong> ],
+    fullBullets: [ <strong key={0}>Bonus DELUXE Kit</strong> ],
+    partBullets: [ <strong key={0}>Bonus Starter brush set</strong> ],
   },
 ];
