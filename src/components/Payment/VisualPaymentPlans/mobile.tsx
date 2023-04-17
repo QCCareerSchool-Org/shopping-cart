@@ -114,6 +114,11 @@ export const VisualPaymentPlansMobile: FC<Props> = ({ school }) => {
             </div>
           )
         }
+        {courseKit !== false && courseKit.details && (
+          <div className="mt-2">
+            {courseKit.details}
+          </div>
+        )}
       </div>
       <div className="col-12 col-sm-10">
         <PlanResult shippingOptionReversed={false} />
