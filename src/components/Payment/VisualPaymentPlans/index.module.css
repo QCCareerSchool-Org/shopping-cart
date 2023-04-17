@@ -142,3 +142,5 @@
 .navLink:hover, .navLink:focus {
   text-decoration: none;
 }
+
+.muted { opacity: 0.25; }

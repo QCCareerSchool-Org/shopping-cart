@@ -1,4 +1,5 @@
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons/faCheckCircle';
+import { faCircle } from '@fortawesome/free-solid-svg-icons/faCircle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { FC, MouseEventHandler, useMemo } from 'react';
 
@@ -64,12 +65,12 @@ export const VisualPaymentPlansMobile: FC<Props> = ({ school }) => {
         <ul className={`nav ${styles.navTabs}`}>
           <li className={styles.navItem}>
             <a className={`${styles.navLink} ${styles.fullNavLink} ${styles.roundedTop} ${payment.plan === 'full' ? styles.active : ''}`} style={{ backgroundColor: courseKit !== false ? courseKit.images?.full.backgroundColor : undefined, color: courseKit !== false ? courseKit.images?.full.color : undefined, borderColor: courseKit !== false ? courseKit.images?.full.borderColor : undefined }} href="#" onClick={handleFullClick}>
-              {payment.plan === 'full' ? <FontAwesomeIcon icon={faCheckCircle} className="text-primary" /> : <span style={{ marginRight: 16 }} />}<span style={{ marginLeft: 8, marginRight: 20 }}>Pay in Full</span>
+              {payment.plan === 'full' ? <FontAwesomeIcon icon={faCheckCircle} className="text-primary" /> : <FontAwesomeIcon icon={faCircle} className={styles.muted} />}<span style={{ marginLeft: 8 }}>Pay in Full</span>
             </a>
           </li>
           <li className={styles.navItem}>
             <a className={`${styles.navLink} ${styles.partNavLink} ${styles.roundedTop} ${payment.plan !== 'full' ? styles.active : ''}`} style={{ backgroundColor: courseKit !== false ? courseKit.images?.part.backgroundColor : undefined, color: courseKit !== false ? courseKit.images?.part.color : undefined, borderColor: courseKit !== false ? courseKit.images?.part.borderColor : undefined }} href="#" onClick={handlePartClick}>
-              {payment.plan !== 'full' ? <FontAwesomeIcon icon={faCheckCircle} className="text-primary" /> : <span style={{ marginRight: 16 }} />}<span style={{ marginLeft: 8, marginRight: 20 }}>{screenWidth > 382 ? 'Installment Plan' : 'Installments'}</span>
+              {payment.plan !== 'full' ? <FontAwesomeIcon icon={faCheckCircle} className="text-primary" /> : <FontAwesomeIcon icon={faCircle} className={styles.muted} />}<span style={{ marginLeft: 8 }}>{screenWidth > 382 ? 'Installment Plan' : 'Installments'}</span>
             </a>
           </li>
         </ul>
