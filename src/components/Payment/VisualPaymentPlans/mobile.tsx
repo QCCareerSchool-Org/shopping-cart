@@ -79,7 +79,7 @@ export const VisualPaymentPlansMobile: FC<Props> = ({ site }) => {
               </div>
               {courseKit !== false && courseKit.images && (
                 <div className="mt-3">
-                  <img src={courseKit.images.full.md} style={{ width: '100%' }} alt="kit" />
+                  <img src={courseKit.images.full.lg} style={{ width: '100%' }} alt="kit" />
                 </div>
               )}
             </div>
@@ -98,7 +98,7 @@ export const VisualPaymentPlansMobile: FC<Props> = ({ site }) => {
               </div>
               {courseKit !== false && courseKit.images && (
                 <div className="mt-3">
-                  <img src={courseKit.images.part.md} style={{ width: '100%' }} alt="kit" />
+                  <img src={courseKit.images.part.lg} style={{ width: '100%' }} alt="kit" />
                 </div>
               )}
             </div>
