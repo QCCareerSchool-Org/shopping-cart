@@ -52,24 +52,26 @@ const Event = (): ReactElement => {
         <meta name="msapplication-TileColor" content="#000000" />
         <script src="/event/perfect-audience.js"></script>
       </Helmet>
-      <Header countryCode={address.countryCode} />
-      <Routes>
-        <Route path="/bogo-1/" element={<Suspense fallback={<></>}><Bogo1 /></Suspense>} />
-        <Route path="/bogo-2/" element={<Suspense fallback={<></>}><Bogo2 /></Suspense>} />
-        <Route path="/free-specialty/" element={<Suspense fallback={<></>}><FreeSpecialty /></Suspense>} />
-        <Route path="/free-specialty-2/" element={<Suspense fallback={<></>}><FreeSpecialty2 /></Suspense>} />
-        <Route path="/2-free-specialty/" element={<Suspense fallback={<></>}><TwoFreeSpecialty /></Suspense>} />
-        <Route path="/2-free-specialty-masterclass/" element={<Suspense fallback={<></>}><TwoFreeSpecialtyMasterclass /></Suspense>} />
-        <Route path="/student/" element={<Suspense fallback={<></>}><Student /></Suspense>} />
-        <Route path="/free-portfolio/" element={<Suspense fallback={<></>}><FreePortfolio /></Suspense>} />
-        <Route path="/tuition-discount/" element={<Suspense fallback={<></>}><TuitionDiscount /></Suspense>} />
-        <Route path="/floral/" element={<Suspense fallback={<></>}><Floral /></Suspense>} />
-        <Route path="/floral-design-200-off/" element={<Suspense fallback={<></>}><Floral200 /></Suspense>} />
-        <Route path="/continued-education/" element={<Suspense fallback={<></>}><ContinuedEducation /></Suspense>} />
-        <Route path="*" element={<EventDefault />} />
-      </Routes>
-      <LiveChat license={1056788} group={1} gaVersion="gtag" />
-      <Footer countryCode={address.countryCode} />
+      <div className="event">
+        <Header countryCode={address.countryCode} />
+        <Routes>
+          <Route path="/bogo-1/" element={<Suspense fallback={<></>}><Bogo1 /></Suspense>} />
+          <Route path="/bogo-2/" element={<Suspense fallback={<></>}><Bogo2 /></Suspense>} />
+          <Route path="/free-specialty/" element={<Suspense fallback={<></>}><FreeSpecialty /></Suspense>} />
+          <Route path="/free-specialty-2/" element={<Suspense fallback={<></>}><FreeSpecialty2 /></Suspense>} />
+          <Route path="/2-free-specialty/" element={<Suspense fallback={<></>}><TwoFreeSpecialty /></Suspense>} />
+          <Route path="/2-free-specialty-masterclass/" element={<Suspense fallback={<></>}><TwoFreeSpecialtyMasterclass /></Suspense>} />
+          <Route path="/student/" element={<Suspense fallback={<></>}><Student /></Suspense>} />
+          <Route path="/free-portfolio/" element={<Suspense fallback={<></>}><FreePortfolio /></Suspense>} />
+          <Route path="/tuition-discount/" element={<Suspense fallback={<></>}><TuitionDiscount /></Suspense>} />
+          <Route path="/floral/" element={<Suspense fallback={<></>}><Floral /></Suspense>} />
+          <Route path="/floral-design-200-off/" element={<Suspense fallback={<></>}><Floral200 /></Suspense>} />
+          <Route path="/continued-education/" element={<Suspense fallback={<></>}><ContinuedEducation /></Suspense>} />
+          <Route path="*" element={<EventDefault />} />
+        </Routes>
+        <LiveChat license={1056788} group={1} gaVersion="gtag" />
+        <Footer countryCode={address.countryCode} />
+      </div>
     </>
   );
 };

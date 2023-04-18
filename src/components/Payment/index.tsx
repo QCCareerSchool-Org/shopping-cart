@@ -6,7 +6,6 @@ import { useStateContext } from '../../hooks/useStateContext';
 import { dateOverride } from '../../lib/dateOverride';
 import { School } from '../../lib/enrollment';
 import { getPromos } from './getPromos';
-
 import { PaymentOptions } from './PaymentOptions';
 import { PlanResultCard } from './PlanResultCard';
 import { Schedule } from './Schedule';
@@ -37,7 +36,11 @@ export const Payment: React.FC<Props> = ({ school, shippingOption, shippingOptio
       <div className="container">
         <h2 className="h1">Payment Plan</h2>
         {visualPaymentPlans
-          ? <VisualPaymentPlans />
+          ? (
+            <>
+              <VisualPaymentPlans school={school} />
+            </>
+          )
           : (
             <div className="row">
               <div className="col-12 col-sm-10 offset-sm-1 col-md-5 offset-md-0 mb-4 mb-md-0">

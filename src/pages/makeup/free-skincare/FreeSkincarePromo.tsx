@@ -25,7 +25,7 @@ export const FreeSkinCarePromo = memo(() => {
           </button>
         </div>
       </div>
-      <Modal size="lg" isOpen={popup} toggle={togglePopup}>
+      <Modal isOpen={popup} toggle={togglePopup}>
         <ModalHeader toggle={togglePopup}>Limited-Time Offer</ModalHeader>
         <ModalBody>
           <p>When you enroll in <strong>Master Makeup Artistry</strong>, you&apos;ll get QC&apos;s <strong>Skincare course</strong> for free!</p>
@@ -39,10 +39,10 @@ export const FreeSkinCarePromo = memo(() => {
             <li>a 28-shade powder blush palette</li>
           </ul>
           <p>Graduate as a Master International Makeup Professional™ (MIMP™) in just a few short months and build your beauty empire!</p>
-          <div style={{ display: 'flex', justifyContent: 'center' }}><img src={require('./starter-makeup-kit.jpg')} className="img-fluid" /></div>
+          <div style={{ display: 'flex', justifyContent: 'center' }}><img src={require('./enrollment-pop-up.jpg')} className="img-fluid" /></div>
         </ModalBody>
         <ModalFooter>
-          <div>The kit pictured above is included only when you enroll in the <strong>Master Makeup Artistry</strong> course. Your kit will be automatically sent to you after you have submitted Unit A of the course in the Online Student Center. Items in the kit are subject to change.</div>
+          <small>The kit pictured above is included only when you enroll in the <strong>Master Makeup Artistry</strong> course. Your kit will be automatically sent to you after you have submitted Unit A of the course in the Online Student Center. Items in the kit are subject to change.</small>
         </ModalFooter>
       </Modal>
     </section>

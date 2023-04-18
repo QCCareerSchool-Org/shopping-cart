@@ -39,17 +39,19 @@ const Wellness: React.FC = () => {
         <link rel="shortcut icon" href="/wellness/favicon.ico?v=QEMKdlwA73" />
         <meta name="msapplication-TileColor" content="#000000" />
       </Helmet>
-      <Header countryCode={address.countryCode} link={headerLink(location.pathname)} />
-      <Routes>
-        <Route path="/student/" element={<Student />} />
-        <Route path="/150-off" element={<Suspense fallback={<></>}><Wellness150Off /></Suspense>} />
-        <Route path="/100-off" element={<Suspense fallback={<></>}><Wellness100Off /></Suspense>} />
-        <Route path="/50-off" element={<Suspense fallback={<></>}><Wellness50Off /></Suspense>} />
-        <Route path="/continued-education/" element={<Suspense fallback={<></>}><ContinuedEducation /></Suspense>} />
-        <Route path="*" element={<WellnessDefault />} />
-      </Routes>
-      <LiveChat license={1056788} group={19} gaVersion="gtag" />
-      <Footer countryCode={address.countryCode} />
+      <div className="wellness">
+        <Header countryCode={address.countryCode} link={headerLink(location.pathname)} />
+        <Routes>
+          <Route path="/student/" element={<Student />} />
+          <Route path="/150-off" element={<Suspense fallback={<></>}><Wellness150Off /></Suspense>} />
+          <Route path="/100-off" element={<Suspense fallback={<></>}><Wellness100Off /></Suspense>} />
+          <Route path="/50-off" element={<Suspense fallback={<></>}><Wellness50Off /></Suspense>} />
+          <Route path="/continued-education/" element={<Suspense fallback={<></>}><ContinuedEducation /></Suspense>} />
+          <Route path="*" element={<WellnessDefault />} />
+        </Routes>
+        <LiveChat license={1056788} group={19} gaVersion="gtag" />
+        <Footer countryCode={address.countryCode} />
+      </div>
     </>
   );
 };
