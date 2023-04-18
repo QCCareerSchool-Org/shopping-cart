@@ -21,7 +21,7 @@ type CourseCardData = {
   description: string;
 };
 
-const hasImage = (courseCode?: string): boolean => typeof courseCode !== 'undefined' && [ 'MZ', 'HS', 'SF', 'DG' ].includes(courseCode);
+const hasImage = (courseCode?: string): boolean => typeof courseCode !== 'undefined' && [ 'HS', 'SF', 'DG' ].includes(courseCode);
 
 const getCertification = (courseCode?: string): string | undefined => {
   switch (courseCode) {
