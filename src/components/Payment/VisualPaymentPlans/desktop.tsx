@@ -129,7 +129,7 @@ export const VisualPaymentPlansDesktop: FC<Props> = ({ school }) => {
             </div>
           </div>
           {courseKit !== false && courseKit.details && (
-            <div className="col-12 mt-2">
+            <div className="col-7 col-lg-12 col-xl-7 mt-2">
               {courseKit.details}
             </div>
           )}
