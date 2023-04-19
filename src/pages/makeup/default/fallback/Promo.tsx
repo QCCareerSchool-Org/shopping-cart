@@ -38,7 +38,7 @@ export const MakeupFallbackPromo = (): ReactElement => {
       <Modal isOpen={popup} toggle={togglePopup}>
         <ModalHeader toggle={togglePopup}>Deluxe Collection</ModalHeader>
         <ModalBody>
-          <p>Get the <strong>DELUXE Collection</strong> when you enroll in <strong>Master Makeup Artistry</strong> and pay in full. Master Makeup Artist students who choose the installment plan will receive the Starter Kit.</p>
+          <p>Get the <strong>DELUXE Collection</strong> when you enroll in <strong>Master Makeup Artistry</strong> and pay in full. Master Makeup Artist students who choose the installment plan will receive the starter brush set.</p>
           <p>Graduate as a Master International Makeup Professional™ (MIMP™) in just a few short months and build your beauty empire!</p>
           <div style={{ display: 'flex', justifyContent: 'center' }}><img src={require('./enrollment-pop-up.jpg')} className="img-fluid" /></div>
         </ModalBody>

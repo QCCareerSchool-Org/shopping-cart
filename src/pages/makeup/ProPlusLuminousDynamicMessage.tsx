@@ -11,11 +11,11 @@ export const ProPlusLuminousDynamicMessage = memo((): ReactElement | null => {
   if (selected.length === 0) {
     return null;
   } else if (!selected.includes('MZ')) {
-    return <p className="mt-4 alert alert-danger"><FontAwesomeIcon icon={faExclamationCircle} /> Select the <strong>Master Makeup Artistry</strong> course to get a free <strong>Pro Makeup Workshop</strong> and the Luminous Collection</p>;
+    return <p className="mt-4 alert alert-danger"><FontAwesomeIcon icon={faExclamationCircle} /> Select the <strong>Master Makeup Artistry</strong> course to get the <strong>Pro Makeup Workshop</strong> FREE</p>;
   } else if (!selected.includes('MW')) {
     return <p className="mt-4 alert alert-warning"><FontAwesomeIcon icon={faInfoCircle} /> Don&apos;t forget to select your free <strong>Pro Makeup Workshop</strong></p>;
   }
-  return <p className="mt-4 alert alert-success"><FontAwesomeIcon icon={faCheckCircle} /> Free Pro Makeup Workshop and Luminous Collection selected!</p>;
+  return <p className="mt-4 alert alert-success"><FontAwesomeIcon icon={faCheckCircle} /> You&apos;ll get the <strong>Pro Makeup Workshop</strong> FREE!</p>;
 });
 
 ProPlusLuminousDynamicMessage.displayName = 'ProPlusLuminousDynamicMessage';
