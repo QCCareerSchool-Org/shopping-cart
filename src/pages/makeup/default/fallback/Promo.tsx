@@ -38,12 +38,13 @@ export const MakeupFallbackPromo = (): ReactElement => {
       <Modal isOpen={popup} toggle={togglePopup}>
         <ModalHeader toggle={togglePopup}>Deluxe Collection</ModalHeader>
         <ModalBody>
-          <p>Get the <strong>DELUXE Collection</strong> when you enroll in <strong>Master Makeup Artistry</strong> and pay in full. Master Makeup Artist students who choose the installment plan will receive the starter brush set.</p>
+          <p>Get the entire <strong>DELUXE Kit with 17-piece brush set</strong> when you enroll in <strong>Master Makeup Artistry</strong> and pay in full. Master Makeup Artist students who choose the installment plan will receive the <strong>17-piece brush set</strong>.</p>
           <p>Graduate as a Master International Makeup Professional™ (MIMP™) in just a few short months and build your beauty empire!</p>
           <div style={{ display: 'flex', justifyContent: 'center' }}><img src={require('./enrollment-pop-up.jpg')} className="img-fluid" /></div>
         </ModalBody>
         <ModalFooter>
-          <small>The kit pictured above is included only when you enroll in the <strong>Master Makeup Artistry</strong> course. Your kit will be automatically sent to you after you have submitted Unit A of the course in the Online Student Center. Items in the kit are subject to change.</small>
+          <p className="small">Your items will be automatically sent to you after you have submitted Unit A of the course in the Online Student Center. Items in the kit are subject to change.</p>
+          <p className="small mb-0">The DELUXE kit is not required for you to complete your assignments and will not determine your success in the course.</p>
         </ModalFooter>
       </Modal>
     </section>
