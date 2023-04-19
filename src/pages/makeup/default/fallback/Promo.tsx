@@ -23,7 +23,7 @@ export const MakeupFallbackPromo = (): ReactElement => {
   } else {
     image = require('./mobile.jpg');
     width = 600;
-    height = 589;
+    height = 690;
   }
 
   return (
