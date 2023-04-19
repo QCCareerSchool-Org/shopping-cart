@@ -88,7 +88,7 @@ export const VisualPaymentPlansDesktop: FC<Props> = ({ school }) => {
                 : (
                   <div className="d-flex justify-content-center">
                     <button onClick={handleFullClick} className={`btn btn-primary ${styles.rounded}`} style={{ textTransform: 'uppercase', width: 130, pointerEvents: payment.plan === 'full' ? 'none' : 'auto' }}>
-                      {payment.plan === 'full' ? <><FontAwesomeIcon icon={faCheckCircle} className="text-primary" />&nbsp;Selected</> : 'Select Plan'}
+                      {payment.plan === 'full' ? <><FontAwesomeIcon icon={faCheckCircle} />&nbsp;Selected</> : 'Select Plan'}
                     </button>
                   </div>
                 )
