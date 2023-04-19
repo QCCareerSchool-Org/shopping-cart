@@ -4,17 +4,15 @@ import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
 import { usePopup } from '../../../hooks/usePopup';
 import { useScreenWidthContext } from '../../../hooks/useScreenWidthContext';
-import { useStateContext } from '../../../hooks/useStateContext';
 
 export const ProPlusLuminousPromo = memo(() => {
-  const { price } = useStateContext();
   const screenWidth = useScreenWidthContext();
   const [ popup, togglePopup ] = usePopup(false);
 
   const desktop = screenWidth > 500;
 
-  const desktopImage = price?.currency.code === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
-  const mobileImage = price?.currency.code === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
+  const desktopImage = require('./desktop.jpg');
+  const mobileImage = require('./mobile.jpg');
 
   return (
     <section id="promoSection" style={{ padding: 0, backgroundColor: '#131f2e' }}>
