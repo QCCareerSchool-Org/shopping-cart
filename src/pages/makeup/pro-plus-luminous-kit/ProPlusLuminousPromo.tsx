@@ -29,7 +29,7 @@ export const ProPlusLuminousPromo = memo(() => {
         <ModalHeader toggle={togglePopup}>Limited-Time Offer</ModalHeader>
         <ModalBody>
           <p>When you enroll in <strong>Master Makeup Artistry</strong>, you&apos;ll get QC&apos;s <strong>Pro Makeup Workshop</strong> for free!</p>
-          <p>That&apos;s not all: if you choose the pay-in-full payment plan we&apos;ll also send you the entire <strong>DELUXE Kit with 17-piece brush set</strong>. Part payers will receive a 17-piece brush set.</p>
+          <p>That&apos;s not all: if you choose the pay-in-full payment plan we&apos;ll also send you the entire <strong>DELUXE Kit with 17-piece brush set</strong>. Part payers will receive the <strong>17-piece brush set</strong>.</p>
           <p>Graduate as a Master International Makeup Professional™ (MIMP™) in just a few short months and build your beauty empire!</p>
           <div style={{ display: 'flex', justifyContent: 'center' }}><img src={require('./enrollment-pop-up.jpg')} className="img-fluid" /></div>
         </ModalBody>

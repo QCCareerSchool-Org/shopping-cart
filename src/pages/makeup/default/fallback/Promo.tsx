@@ -3,12 +3,10 @@ import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
 import { usePopup } from '../../../../hooks/usePopup';
 import { useScreenWidthContext } from '../../../../hooks/useScreenWidthContext';
-import { useStateContext } from '../../../../hooks/useStateContext';
 
 const backgroundColor = 'black';
 
 export const MakeupFallbackPromo = (): ReactElement => {
-  const { price } = useStateContext();
   const screenWidth = useScreenWidthContext();
   const [ popup, togglePopup ] = usePopup(false);
 
@@ -19,11 +17,11 @@ export const MakeupFallbackPromo = (): ReactElement => {
   let height: number;
 
   if (desktop) {
-    image = price?.currency.code === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
+    image = require('./desktop.jpg');
     width = 1060;
     height = 489;
   } else {
-    image = price?.currency.code === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
+    image = require('./mobile.jpg');
     width = 600;
     height = 589;
   }
@@ -36,7 +34,7 @@ export const MakeupFallbackPromo = (): ReactElement => {
         </button>
       </div>
       <Modal isOpen={popup} toggle={togglePopup}>
-        <ModalHeader toggle={togglePopup}>Deluxe Collection</ModalHeader>
+        <ModalHeader toggle={togglePopup}>DELUXE Collection</ModalHeader>
         <ModalBody>
           <p>Get the entire <strong>DELUXE Kit with 17-piece brush set</strong> when you enroll in <strong>Master Makeup Artistry</strong> and pay in full. Master Makeup Artist students who choose the installment plan will receive the <strong>17-piece brush set</strong>.</p>
           <p>Graduate as a Master International Makeup Professional™ (MIMP™) in just a few short months and build your beauty empire!</p>
