@@ -18,15 +18,6 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
     {
       schools: [ 'QC Makeup Academy' ],
       student: 'DENIED',
-      code: 'LUMINOUS',
-      description: <>Enroll in <strong>Master Makeup Artistry</strong> and get the Luminous Collection free</>,
-      desktopImageSrc: require('./images/design/coupon-JULY21-design.jpg'),
-      mobileImageSrc: require('./images/design/coupon-mobile-JULY21-design.jpg'),
-      altText: 'Free Luminous Collection',
-    },
-    {
-      schools: [ 'QC Makeup Academy' ],
-      student: 'DENIED',
       code: 'PROLUMINOUS',
       description: <>Enroll in <strong>Master Makeup Artistry</strong> and get the <strong>Pro Makeup Workshop</strong> and the Luminous Collection free</>,
       desktopImageSrc: require('./images/design/coupon-JULY21-design.jpg'),
@@ -41,15 +32,6 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       desktopImageSrc: require('./images/design/coupon-JULY21-design.jpg'),
       mobileImageSrc: require('./images/design/coupon-mobile-JULY21-design.jpg'),
       altText: 'Free Skincare',
-    },
-    {
-      schools: [ 'QC Makeup Academy' ],
-      student: 'DENIED',
-      code: 'FREEADVANCED',
-      description: <>Enroll in <strong>Master Makeup Artistry</strong> and any advanced course free</>,
-      desktopImageSrc: require('./images/design/coupon-JULY21-design.jpg'),
-      mobileImageSrc: require('./images/design/coupon-mobile-JULY21-design.jpg'),
-      altText: 'Free advanced course',
     },
 
     {

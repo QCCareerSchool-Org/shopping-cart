@@ -14,13 +14,8 @@ import './style.scss';
 
 // lazily load the other carts because they're used less often
 const Student = React.lazy(async () => import('./student'));
-const HundredOff = React.lazy(async () => import('./100-off'));
-const LimitedTimeOffer = React.lazy(async () => import('./limited-time-offer'));
-const DeluxeKit = React.lazy(async () => import('./deluxe-kit'));
 const ProPlusLuminousKit = React.lazy(async () => import('./pro-plus-luminous-kit'));
-const LuminousKit = React.lazy(async () => import('./luminous-kit'));
 const FreeSkincare = React.lazy(async () => import('./free-skincare'));
-const FreeAdvanced = React.lazy(async () => import('./free-advanced'));
 const ContinuedEducation = React.lazy(async () => import('./continued-education').then(m => ({ default: m.MakeupContinuedEducation })));
 
 const Makeup: React.FC = () => {
@@ -52,14 +47,9 @@ const Makeup: React.FC = () => {
       <div className="makeup">
         <Header countryCode={address.countryCode} />
         <Routes>
-          <Route path="/luminous-kit/" element={<Suspense fallback={<></>}><LuminousKit /></Suspense>} />
           <Route path="/pro-plus-luminous-kit/" element={<Suspense fallback={<></>}><ProPlusLuminousKit /></Suspense>} />
           <Route path="/free-skincare/" element={<Suspense fallback={<></>}><FreeSkincare /></Suspense>} />
-          <Route path="/free-advanced/" element={<Suspense fallback={<></>}><FreeAdvanced /></Suspense>} />
           <Route path="/student/" element={<Suspense fallback={<></>}><Student /></Suspense>} />
-          <Route path="/100-off/" element={<Suspense fallback={<></>}><HundredOff /></Suspense>} />
-          <Route path="/deluxe-kit/" element={<Suspense fallback={<></>}><DeluxeKit /></Suspense>} />
-          <Route path="/limited-time-offer/" element={<Suspense fallback={<></>}><LimitedTimeOffer /></Suspense>} />
           <Route path="/continued-education/" element={<Suspense fallback={<></>}><ContinuedEducation /></Suspense>} />
           <Route path="*" element={<MakeupDefault />} />
         </Routes>
