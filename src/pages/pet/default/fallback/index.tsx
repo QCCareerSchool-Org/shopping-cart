@@ -21,6 +21,7 @@ export const PetFallback: React.FC = () => (
       successLink="https://www.qcpetstudies.com/welcome-to-the-school"
       dynamicCourseDescriptions="SHOW"
       dynamicCourseMessages={[ () => <BOGODynamicMessage /> ]}
+      promoCodeDefault="100OFF"
     />
   </>
 );
