@@ -48,7 +48,7 @@ export const courseKits: CourseKit[] = [
     fullBullets: [ <strong key={0}>Bonus DELUXE Kit</strong>, <strong key={1}>Bonus 17-piece brush set</strong> ],
     partBullets: [ <strong key={0}>Bonus 17-piece brush set</strong> ],
     details: (
-      <DetailsPopup title="Deluxe Collection" footerText={<small>The kit pictured above is included only when you enroll in the <strong>Master Makeup Artistry</strong> course. Your kit will be automatically sent to you after you have submitted Unit A of the course in the Online Student Center. Items in the kit are subject to change.</small>}>
+      <DetailsPopup title="Deluxe Collection" footerText={<><p className="small">Your items will be automatically sent to you after you have submitted Unit A of the course in the Online Student Center. Items in the kit are subject to change.</p><p className="small mb-0">The DELUXE kit is not required for you to complete your assignments and will not determine your success in the course.</p></>}>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <img src={require('./images/mz/comparison.jpg')} className="img-fluid" />
         </div>
