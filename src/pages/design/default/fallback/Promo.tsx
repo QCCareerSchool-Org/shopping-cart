@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
 import { usePopup } from '../../../../hooks/usePopup';
@@ -28,6 +28,19 @@ export const DesignFallbackPromo: FC = () => {
     height = 486;
   }
 
+  const vdPrice = useMemo(() => {
+    switch (price?.currency.code) {
+      case 'GBP':
+        return '£250';
+      case 'AUD':
+        return '$450';
+      case 'NZD':
+        return '$500';
+      default:
+        return '$350';
+    }
+  }, [ price?.currency.code ]);
+
   return (
     <section id="promoSection" style={{ backgroundColor, padding: 0 }}>
       <div className="container text-center px-0">
@@ -39,7 +52,7 @@ export const DesignFallbackPromo: FC = () => {
         <ModalHeader toggle={togglePopup}>FREE Virtual Design Training</ModalHeader>
         <ModalBody>
           <p>Ready to start your home design career?</p>
-          <p>Enroll in ANY design course and receive <strong>Virtual Design Training</strong> for FREE. This offer is valued at $350!</p>
+          <p>Enroll in ANY design course and receive <strong>Virtual Design Training</strong> for FREE. This offer is valued at {vdPrice}!</p>
           <p>Get started for {price?.currency.code === 'GBP' ? '£40' : '$75'}, or save up to {price?.currency.code === 'GBP' ? '£350' : '$400'} when you pay your tuition in full.</p>
           <p className="mb-0">Why Learn Virtual Design? The market for virtual design has exploded! Benefit by learning this important skill and open your services up to a worldwide market. Plus, you&apos;ll receive an additional certification recognizing your efforts in this booming field of design.</p>
         </ModalBody>
