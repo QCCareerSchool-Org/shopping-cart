@@ -3,6 +3,8 @@ import React, { FC } from 'react';
 import { useScreenWidthContext } from '../../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../../hooks/useStateContext';
 
+const backgroundColor = '#57c3d7';
+
 export const PetFallbackPromo: FC = () => {
   const screenWidth = useScreenWidthContext();
   const { price } = useStateContext();
@@ -25,7 +27,7 @@ export const PetFallbackPromo: FC = () => {
   }
 
   return (
-    <section id="promoSection" style={{ backgroundColor: '#aeaeae', padding: 0 }}>
+    <section id="promoSection" style={{ backgroundColor, padding: 0 }}>
       <div className="container px-0">
         <div className="text-center">
           <img src={image} width={width} height={height} className="img-fluid d-block mx-auto" alt="Special Offer" />
