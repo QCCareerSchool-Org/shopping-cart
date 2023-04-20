@@ -139,6 +139,16 @@ export const getPromos = (now: Date, price: PriceState, school: School, student:
       // displayEndDate: new Date(2021, 5, 11), // June 11
     },
 
+    {
+      schools: [ 'QC Design School', 'QC Event School' ],
+      student: 'ALLOWED',
+      code: 'FREEVIRTUAL',
+      description: 'Get virtual training free when you enroll in any other course',
+      desktopImageSrc: require('./images/coupon-VIRTUAL.jpg'),
+      mobileImageSrc: require('./images/coupon-mobile-VIRTUAL.jpg'),
+      altText: 'Get virtual training for free',
+    },
+
     ...[ 150, 200, 300 ].map((d): Promo => ({
       schools: [ 'QC Pet Studies' ],
       student: 'DENIED',
