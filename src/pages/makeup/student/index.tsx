@@ -18,7 +18,6 @@ const Student: React.FC = () => (
       successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
       dynamicCourseDescriptions="REPLACE"
       showPromoCodeInput={true}
-      paymentOptionsReverse={true}
     />
   </>
 );

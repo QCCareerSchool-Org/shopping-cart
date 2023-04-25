@@ -18,7 +18,6 @@ export const Makeup20230424: FC = () => (
       agreementLinkGB="https://www.qcmakeupacademy.com/enrollment-agreement-gb.html"
       successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
       dynamicCourseDescriptions="REPLACE"
-      paymentOptionsReverse={true}
       promoCodeDefault="PROLUMINOUS"
       dynamicCourseMessages={[ () => <ProPlusLuminousDynamicMessage />, () => <BogoDynamicMessage /> ]}
       visualPaymentPlans={true}
