@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 
-import { BuyOneGetOne } from '../../../../components/BuyOneGetOne';
 import { Form } from '../../../../components/Form';
 import { courseGroups } from '../../courseGroups';
 import { FreeSpecialtyDynamicMessage } from '../../FreeSpecialtyDynamicMessage';

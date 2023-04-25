@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import React, { ReactElement } from 'react';
 
-import { BuyOneGetOne } from '../../../components/BuyOneGetOne';
 import { Form } from '../../../components/Form';
 import { courseGroups } from '../courseGroups';
 import { Guarantee } from '../Guarantee';
