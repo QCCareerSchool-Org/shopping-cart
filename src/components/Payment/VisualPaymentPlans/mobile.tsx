@@ -78,7 +78,7 @@ export const VisualPaymentPlansMobile: FC<Props> = ({ school }) => {
           ? (
             <div className={`${styles.box} ${styles.fullBox} ${cornerStyle} ${styles.roundedBottom}`} style={{ backgroundColor: courseKit !== false ? courseKit.images?.full.backgroundColor : undefined, color: courseKit !== false ? courseKit.images?.full.color : undefined, borderColor: courseKit !== false ? courseKit.images?.full.borderColor : undefined }}>
               <div className={styles.sidePadding}>
-                <h3>Pay in Full</h3>
+                <h3 className={styles.boxTitle}>Pay in Full</h3>
                 <ul className={`${styles.planList} mb-0`}>
                   {courseKit !== false && courseKit.fullBullets.map((b, i) => <li key={i}>{b}</li>)}
                   {price && price.plans.full.discount > 0 && <li><strong>Save {price.currency.symbol}{formatCurrency(price.plans.full.discount)}</strong></li>}
@@ -97,7 +97,7 @@ export const VisualPaymentPlansMobile: FC<Props> = ({ school }) => {
           : (
             <div className={`${styles.box} ${styles.partBox} ${styles.roundedBottom}`} style={{ backgroundColor: courseKit !== false ? courseKit.images?.part.backgroundColor : undefined, color: courseKit !== false ? courseKit.images?.part.color : undefined, borderColor: courseKit !== false ? courseKit.images?.part.borderColor : undefined }}>
               <div className={styles.sidePadding}>
-                <h3>Installment Plan</h3>
+                <h3 className={styles.boxTitle}>Installment Plan</h3>
                 <ul className={`${styles.planList} mb-0`}>
                   {courseKit !== false && courseKit.partBullets.map((b, i) => <li key={i}>{b}</li>)}
                   {price && price.plans.full.discount > 0 && <li><strong>Start for {price.currency.symbol}{formatCurrency(price.plans.part.deposit)}</strong></li>}
