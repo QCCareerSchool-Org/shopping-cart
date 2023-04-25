@@ -62,7 +62,7 @@ export const VisualPaymentPlansDesktop: FC<Props> = ({ school }) => {
       <div className={`${styles.selectionColumn} col-12 col-lg-8`}>
         <div className="row mb-4 mb-lg-0">
           <div className={`${styles.fullColumn} col-7 col-lg-6`}>
-            <div onClick={handleFullClick} className={`${styles.box} ${styles.fullBox} ${cornerStyle} ${styles.rounded} ${payment.plan === 'full' ? styles.selected : ''}`} style={{ cursor: 'pointer', backgroundColor: courseKit !== false ? courseKit.images?.full.backgroundColor : undefined, color: courseKit !== false ? courseKit.images?.full.color : undefined, borderColor: courseKit !== false ? courseKit.images?.full.borderColor : undefined }}>
+            <div onClick={handleFullClick} className={`${styles.box} ${styles.fullBox} ${cornerStyle} ${styles.rounded} ${payment.plan === 'full' ? styles.selected : styles.faded}`} style={{ cursor: 'pointer', backgroundColor: courseKit !== false ? courseKit.images?.full.backgroundColor : undefined, color: courseKit !== false ? courseKit.images?.full.color : undefined, borderColor: courseKit !== false ? courseKit.images?.full.borderColor : undefined }}>
               <div className={styles.sidePadding}>
                 <h3 className={styles.boxTitle}>Pay in Full{payment.plan === 'full' && <> ✓</>}</h3>
                 <ul className={styles.planList}>
@@ -95,7 +95,7 @@ export const VisualPaymentPlansDesktop: FC<Props> = ({ school }) => {
             </div>
           </div>
           <div className={`${styles.partColumn} col-5 col-lg-6`}>
-            <div onClick={handlePartClick} className={`${styles.box} ${styles.partBox} ${styles.rounded} ${payment.plan !== 'full' ? styles.selected : ''}`} style={{ cursor: 'pointer', backgroundColor: courseKit !== false ? courseKit.images?.part.backgroundColor : undefined, color: courseKit !== false ? courseKit.images?.part.color : undefined, borderColor: courseKit !== false ? courseKit.images?.part.borderColor : undefined }}>
+            <div onClick={handlePartClick} className={`${styles.box} ${styles.partBox} ${styles.rounded} ${payment.plan !== 'full' ? styles.selected : styles.faded}`} style={{ cursor: 'pointer', backgroundColor: courseKit !== false ? courseKit.images?.part.backgroundColor : undefined, color: courseKit !== false ? courseKit.images?.part.color : undefined, borderColor: courseKit !== false ? courseKit.images?.part.borderColor : undefined }}>
               <div className={styles.sidePadding}>
                 <h3 className={styles.boxTitle}>Installment Plan{payment.plan === 'part' && <> ✓</>}</h3>
                 <ul className={styles.planList}>
