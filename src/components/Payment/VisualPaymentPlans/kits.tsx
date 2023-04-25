@@ -9,6 +9,7 @@ type Image = {
   backgroundColor?: CSSProperties['backgroundColor'];
   color?: CSSProperties['color'];
   borderColor?: CSSProperties['borderColor'];
+  buttonVariant?: 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'black';
 };
 
 export type CourseKit = {
@@ -41,6 +42,7 @@ export const courseKits: CourseKit[] = [
         md: require('./images/mz/brush-set-264.jpg'),
         lg: require('./images/mz/brush-set-284.jpg'),
         backgroundColor: 'white',
+        buttonVariant: 'primary',
       },
       height: { md: 175, lg: 144 },
       buttonOffset: { md: 78, lg: 49 },

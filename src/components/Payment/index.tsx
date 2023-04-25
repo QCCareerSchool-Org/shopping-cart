@@ -34,7 +34,7 @@ export const Payment: React.FC<Props> = ({ school, shippingOption, shippingOptio
   return (
     <section id="payment-section">
       <div className="container">
-        <h2 className="h1">Payment Plan</h2>
+        <h2 className="h1">Payment Plans</h2>
         {visualPaymentPlans
           ? (
             <>

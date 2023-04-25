@@ -1,3 +1,7 @@
+:root {
+  --selection-border-width: 3px;
+}
+
 .fullColumn, .partColumn {
   display: flex;
   align-items: stretch;
@@ -49,7 +53,12 @@
   border-style: solid;
   border-color: #ccc;
   padding: 0.75rem 0 1rem;
-  padding: calc(0.75rem + 2px) 2px calc(1rem + 2px);
+  padding: calc(0.75rem + var(--selection-border-width) - 1px) calc(var(--selection-border-width) - 1px) calc(1rem + var(--selection-border-width) - 1px);
+  opacity: 0.8;
+}
+
+.boxTitle {
+  font-size: 1.6rem;
 }
 
 .sidePadding {
@@ -82,21 +91,16 @@
   background-color: #fafafa;
 }
 
-.partButton {
-  background-color: #333;
-  border-color: #333;
-}
-
 .box.selected {
   padding: 0.75rem 0 1rem;
-  box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.25);
-  border-width: 3px;
+  box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.4);
+  border-width: var(--selection-border-width);
   border-color: var(--primary) !important;
+  opacity: 1;
 }
 
 .fullBox.selected {
-  box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.5);
-  background-position: calc(100% + 2px) -2px !important;
+  background-position: calc(100% + var(--selection-border-width) - 1px) calc(1px - var(--selection-border-width)) !important;
 }
 
 

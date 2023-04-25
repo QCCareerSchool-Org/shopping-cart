@@ -7,7 +7,6 @@ import { useScreenWidthContext } from '../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../hooks/useStateContext';
 import { School } from '../../../lib/enrollment';
 import { formatCurrency } from '../../../lib/formatCurrency';
-import { Site } from '../../../lib/getSite';
 import { PlanResult } from '../PlanResult';
 import styles from './index.module.css';
 import { courseKits } from './kits';
@@ -65,7 +64,7 @@ export const VisualPaymentPlansDesktop: FC<Props> = ({ school }) => {
           <div className={`${styles.fullColumn} col-7 col-lg-6`}>
             <div onClick={handleFullClick} className={`${styles.box} ${styles.fullBox} ${cornerStyle} ${styles.rounded} ${payment.plan === 'full' ? styles.selected : ''}`} style={{ cursor: 'pointer', backgroundColor: courseKit !== false ? courseKit.images?.full.backgroundColor : undefined, color: courseKit !== false ? courseKit.images?.full.color : undefined, borderColor: courseKit !== false ? courseKit.images?.full.borderColor : undefined }}>
               <div className={styles.sidePadding}>
-                <h3>Pay in Full</h3>
+                <h3 className={styles.boxTitle}>Pay in Full{payment.plan === 'full' && <> ✓</>}</h3>
                 <ul className={styles.planList}>
                   {courseKit !== false && courseKit.fullBullets.map((b, i) => <li key={i}>{b}</li>)}
                   {price && price.plans.full.discount > 0 && <li><strong>Save {price.currency.symbol}{formatCurrency(price.plans.full.discount)}</strong></li>}
@@ -98,7 +97,7 @@ export const VisualPaymentPlansDesktop: FC<Props> = ({ school }) => {
           <div className={`${styles.partColumn} col-5 col-lg-6`}>
             <div onClick={handlePartClick} className={`${styles.box} ${styles.partBox} ${styles.rounded} ${payment.plan !== 'full' ? styles.selected : ''}`} style={{ cursor: 'pointer', backgroundColor: courseKit !== false ? courseKit.images?.part.backgroundColor : undefined, color: courseKit !== false ? courseKit.images?.part.color : undefined, borderColor: courseKit !== false ? courseKit.images?.part.borderColor : undefined }}>
               <div className={styles.sidePadding}>
-                <h3>Installment Plan</h3>
+                <h3 className={styles.boxTitle}>Installment Plan{payment.plan === 'part' && <> ✓</>}</h3>
                 <ul className={styles.planList}>
                   {courseKit !== false && courseKit.partBullets.map((b, i) => <li key={i}>{b}</li>)}
                   {price && price.plans.full.discount > 0 && <li><strong>Start for {price.currency.symbol}{formatCurrency(price.plans.part.deposit)}</strong></li>}
@@ -112,7 +111,7 @@ export const VisualPaymentPlansDesktop: FC<Props> = ({ school }) => {
                   <div style={{ height: (xl || !lg) ? courseKit.images.height.md : courseKit.images.height.lg, position: 'relative' }}>
                     <img src={(xl || !lg) ? courseKit.images.part.md : courseKit.images.part.lg} style={{ width: '100%' }} alt="kit" />
                     <div className="d-flex justify-content-center" style={{ position: 'absolute', left: 0, right: 0, top: (xl || !lg) ? courseKit.images.buttonOffset.md : courseKit.images.buttonOffset.lg, width: '100%' }}>
-                      <button onClick={handlePartClick} className={`btn btn-black ${styles.rounded} ${styles.partButton}`} style={{ textTransform: 'uppercase', width: 130, pointerEvents: payment.plan === 'full' ? 'none' : 'auto' }}>
+                      <button onClick={handlePartClick} className={`btn ${courseKit.images.part.buttonVariant ? `btn-${courseKit.images.part.buttonVariant}` : 'btn-dark-grey'} ${styles.rounded}`} style={{ textTransform: 'uppercase', width: 130, pointerEvents: payment.plan === 'full' ? 'none' : 'auto' }}>
                         {payment.plan !== 'full' ? <><FontAwesomeIcon icon={faCheckCircle} />&nbsp;Selected</> : 'Select Plan'}
                       </button>
                     </div>
@@ -120,7 +119,7 @@ export const VisualPaymentPlansDesktop: FC<Props> = ({ school }) => {
                 )
                 : (
                   <div className="d-flex justify-content-center">
-                    <button onClick={handlePartClick} className={`btn btn-black ${styles.rounded} ${styles.partButton}`} style={{ textTransform: 'uppercase', width: 130, pointerEvents: payment.plan === 'full' ? 'none' : 'auto' }}>
+                    <button onClick={handlePartClick} className={`btn btn-dark-grey ${styles.rounded}`} style={{ textTransform: 'uppercase', width: 130, pointerEvents: payment.plan === 'full' ? 'none' : 'auto' }}>
                       {payment.plan !== 'full' ? <><FontAwesomeIcon icon={faCheckCircle} />&nbsp;Selected</> : 'Select Plan'}
                     </button>
                   </div>
