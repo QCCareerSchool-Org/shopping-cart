@@ -2,11 +2,13 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { FC, MouseEventHandler, useMemo } from 'react';
 
+import { Card, CardBody } from 'reactstrap';
 import { useDispatchContext } from '../../../hooks/useDispatchContext';
 import { useScreenWidthContext } from '../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../hooks/useStateContext';
 import { School } from '../../../lib/enrollment';
 import { formatCurrency } from '../../../lib/formatCurrency';
+import { CanadaTaxCredits } from '../CanadaTaxCredits';
 import { PlanResult } from '../PlanResult';
 import styles from './index.module.css';
 import { courseKits } from './kits';
@@ -136,6 +138,15 @@ export const VisualPaymentPlansDesktop: FC<Props> = ({ school }) => {
       </div>
       <div className={`${styles.resultColumn} col-12 col-md-6 col-lg-4`}>
         <PlanResult shippingOptionReversed={false} />
+        {price && price.courses.length > 0 && price?.countryCode === 'CA' && (
+          <div>
+            <Card className="mt-4 text-center" style={{ marginLeft: 'auto' }}>
+              <CardBody>
+                <CanadaTaxCredits />
+              </CardBody>
+            </Card>
+          </div>
+        )}
       </div>
     </div>
   );

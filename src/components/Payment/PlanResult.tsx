@@ -5,6 +5,7 @@ import React from 'react';
 import { useStateContext } from '../../hooks/useStateContext';
 import { PriceResult } from '../../state/price';
 
+import { CanadaTaxCredits } from './CanadaTaxCredits';
 import styles from './PlanResult.module.css';
 
 type Props = {
