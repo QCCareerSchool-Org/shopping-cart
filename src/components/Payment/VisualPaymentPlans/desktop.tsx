@@ -10,6 +10,7 @@ import { School } from '../../../lib/enrollment';
 import { formatCurrency } from '../../../lib/formatCurrency';
 import { CanadaTaxCredits } from '../CanadaTaxCredits';
 import { PlanResult } from '../PlanResult';
+import { Checkmark } from './Checkmark';
 import styles from './index.module.css';
 import { courseKits } from './kits';
 
@@ -66,7 +67,7 @@ export const VisualPaymentPlansDesktop: FC<Props> = ({ school }) => {
           <div className={`${styles.fullColumn} col-7 col-lg-6`}>
             <div onClick={handleFullClick} className={`${styles.box} ${styles.fullBox} ${cornerStyle} ${styles.rounded} ${payment.plan === 'full' ? styles.selected : styles.faded}`} style={{ cursor: 'pointer', backgroundColor: courseKit !== false ? courseKit.images?.full.backgroundColor : undefined, color: courseKit !== false ? courseKit.images?.full.color : undefined, borderColor: courseKit !== false ? courseKit.images?.full.borderColor : undefined }}>
               <div className={styles.sidePadding}>
-                <h3 className={styles.boxTitle}>Pay in Full{payment.plan === 'full' && <> ✓</>}</h3>
+                <h3 className={styles.boxTitle}>Pay in Full{payment.plan === 'full' && <> <Checkmark /></>}</h3>
                 <ul className={styles.planList}>
                   {courseKit !== false && courseKit.fullBullets.map((b, i) => <li key={i}>{b}</li>)}
                   {price && price.plans.full.discount > 0 && <li><strong>Save {price.currency.symbol}{formatCurrency(price.plans.full.discount)}</strong></li>}
@@ -99,7 +100,7 @@ export const VisualPaymentPlansDesktop: FC<Props> = ({ school }) => {
           <div className={`${styles.partColumn} col-5 col-lg-6`}>
             <div onClick={handlePartClick} className={`${styles.box} ${styles.partBox} ${styles.rounded} ${payment.plan !== 'full' ? styles.selected : styles.faded}`} style={{ cursor: 'pointer', backgroundColor: courseKit !== false ? courseKit.images?.part.backgroundColor : undefined, color: courseKit !== false ? courseKit.images?.part.color : undefined, borderColor: courseKit !== false ? courseKit.images?.part.borderColor : undefined }}>
               <div className={styles.sidePadding}>
-                <h3 className={styles.boxTitle}>Installment Plan{payment.plan === 'part' && <> ✓</>}</h3>
+                <h3 className={styles.boxTitle}>Installment Plan{payment.plan === 'part' && <> <Checkmark /></>}</h3>
                 <ul className={styles.planList}>
                   {courseKit !== false && courseKit.partBullets.map((b, i) => <li key={i}>{b}</li>)}
                   {price && price.plans.full.discount > 0 && <li><strong>Start for {price.currency.symbol}{formatCurrency(price.plans.part.deposit)}</strong></li>}
