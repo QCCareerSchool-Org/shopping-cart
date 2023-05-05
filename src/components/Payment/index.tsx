@@ -22,10 +22,10 @@ type Props = {
   noShippingTitle?: string;
   showPromoCodeInput: boolean;
   paymentOptionsReverse: boolean;
-  visualPaymentPlans: boolean;
+  visualPaymentPlans?: boolean;
 };
 
-export const Payment: React.FC<Props> = ({ school, shippingOption, shippingOptionReversed, noShippingTitle, showPromoCodeInput, paymentOptionsReverse, visualPaymentPlans }) => {
+export const Payment: React.FC<Props> = ({ school, shippingOption, shippingOptionReversed, noShippingTitle, showPromoCodeInput, paymentOptionsReverse, visualPaymentPlans = true }) => {
   const { payment, price, meta: { student } } = useStateContext();
   const serverDate = useDateContext();
   const date = dateOverride() ?? serverDate;

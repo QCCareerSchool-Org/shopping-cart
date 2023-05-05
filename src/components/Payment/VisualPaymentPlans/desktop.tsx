@@ -1,6 +1,6 @@
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { FC, MouseEventHandler, useMemo } from 'react';
+import React, { CSSProperties, FC, MouseEventHandler, useMemo } from 'react';
 
 import { Card, CardBody } from 'reactstrap';
 import { useDispatchContext } from '../../../hooks/useDispatchContext';
@@ -12,7 +12,7 @@ import { CanadaTaxCredits } from '../CanadaTaxCredits';
 import { PlanResult } from '../PlanResult';
 import { Checkmark } from './Checkmark';
 import styles from './index.module.css';
-import { courseKits } from './kits';
+import { courseKits, schoolKits } from './kits';
 
 type Props = {
   school: School;
@@ -23,9 +23,12 @@ export const VisualPaymentPlansDesktop: FC<Props> = ({ school }) => {
   const { price, payment, courses } = useStateContext();
   const dispatch = useDispatchContext();
 
+  const sm = screenWidth >= 576;
   const md = screenWidth >= 768;
   const lg = screenWidth >= 992;
   const xl = screenWidth >= 1200;
+
+  const screenSize = xl ? 'xl' : lg ? 'lg' : md ? 'md' : sm ? 'sm' : 'xs' as const;
 
   const handleFullClick: MouseEventHandler = () => {
     dispatch({ type: 'SET_PAYMENT_PLAN', payload: 'full' });
@@ -34,6 +37,8 @@ export const VisualPaymentPlansDesktop: FC<Props> = ({ school }) => {
   const handlePartClick: MouseEventHandler = () => {
     dispatch({ type: 'SET_PAYMENT_PLAN', payload: 'part' });
   };
+
+  const schoolKit = schoolKits[school];
 
   const courseKit = useMemo(() => {
     for (const c of courseKits) {
@@ -58,75 +63,121 @@ export const VisualPaymentPlansDesktop: FC<Props> = ({ school }) => {
           ? styles.petCorner
           : school === 'QC Wellness Studies'
             ? styles.wellnessCorner
-            : undefined;
+            : school === 'Winghill Writing School'
+              ? styles.writingCorner
+              : undefined;
+
+  const fullStyle: CSSProperties = {
+    cursor: 'pointer',
+    backgroundColor: schoolKit?.images?.full.backgroundColor ?? (courseKit !== false ? courseKit.images?.full.backgroundColor : undefined),
+    color: schoolKit?.images?.full.color ?? (courseKit !== false ? courseKit.images?.full.color : undefined),
+    borderColor: schoolKit?.images?.full.borderColor ?? (courseKit !== false ? courseKit.images?.full.borderColor : undefined),
+  };
+
+  const partStyle: CSSProperties = {
+    cursor: 'pointer',
+    backgroundColor: schoolKit?.images?.part.backgroundColor ?? (courseKit !== false ? courseKit.images?.part.backgroundColor : undefined),
+    color: schoolKit?.images?.part.color ?? (courseKit !== false ? courseKit.images?.part.color : undefined),
+    borderColor: schoolKit?.images?.part.borderColor ?? (courseKit !== false ? courseKit.images?.part.borderColor : undefined),
+  };
 
   return (
     <div className="row justify-content-center">
-      <div className={`${styles.selectionColumn} col-12 col-lg-8`}>
+      <div className="col-12 col-lg-8">
         <div className="row mb-4 mb-lg-0">
-          <div className={`${styles.fullColumn} col-7 col-lg-6`}>
-            <div onClick={handleFullClick} className={`${styles.box} ${styles.fullBox} ${cornerStyle} ${styles.rounded} ${payment.plan === 'full' ? styles.selected : styles.faded}`} style={{ cursor: 'pointer', backgroundColor: courseKit !== false ? courseKit.images?.full.backgroundColor : undefined, color: courseKit !== false ? courseKit.images?.full.color : undefined, borderColor: courseKit !== false ? courseKit.images?.full.borderColor : undefined }}>
+          <div className={`${styles.fullColumn} col-6`}>
+            <div onClick={handleFullClick} className={`${styles.box} ${styles.fullBox} ${cornerStyle} ${styles.rounded} ${payment.plan === 'full' ? styles.selected : styles.faded}`} style={fullStyle}>
               <div className={styles.sidePadding}>
                 <h3 className={styles.boxTitle}>Pay in Full{payment.plan === 'full' && <> <Checkmark /></>}</h3>
                 <ul className={styles.planList}>
                   {courseKit !== false && courseKit.fullBullets.map((b, i) => <li key={i}>{b}</li>)}
                   {price && price.plans.full.discount > 0 && <li><strong>Save {price.currency.symbol}{formatCurrency(price.plans.full.discount)}</strong></li>}
-                  <li>Personalized support</li>
-                  <li>Lifetime course access</li>
-                  <li>Vibrant student community</li>
+                  {schoolKit?.bullets.map((b, i) => <li key={i}>{b}</li>)}
                 </ul>
               </div>
               {courseKit !== false && courseKit.images
                 ? (
-                  <div style={{ height: (xl || !lg) ? courseKit.images.height.md : courseKit.images.height.lg, position: 'relative' }}>
-                    <img src={(xl || !lg) ? courseKit.images.full.md : courseKit.images.full.lg} style={{ width: '100%' }} alt="kit" />
-                    <div className="d-flex justify-content-center" style={{ position: 'absolute', left: 0, right: 0, top: (xl || !lg) ? courseKit.images.buttonOffset.md : courseKit.images.buttonOffset.lg, width: '100%' }}>
+                  <div style={{ height: courseKit.images.height[screenSize], position: 'relative' }}>
+                    {courseKit.images.full.src
+                      ? <img src={courseKit.images.full.src} style={{ width: '100%' }} alt="kit" />
+                      : <></>
+                    }
+                    <div className="d-flex justify-content-center" style={{ position: 'absolute', left: 0, right: 0, top: courseKit.images.buttonOffset[screenSize], width: '100%' }}>
                       <button onClick={handleFullClick} className={`btn btn-primary ${styles.rounded}`} style={{ textTransform: 'uppercase', width: 130, pointerEvents: payment.plan === 'full' ? 'none' : 'auto' }}>
                         {payment.plan === 'full' ? <><FontAwesomeIcon icon={faCheckCircle} />&nbsp;Selected</> : 'Select Plan'}
                       </button>
                     </div>
                   </div>
                 )
-                : (
-                  <div className="d-flex justify-content-center">
-                    <button onClick={handleFullClick} className={`btn btn-primary ${styles.rounded}`} style={{ textTransform: 'uppercase', width: 130, pointerEvents: payment.plan === 'full' ? 'none' : 'auto' }}>
-                      {payment.plan === 'full' ? <><FontAwesomeIcon icon={faCheckCircle} />&nbsp;Selected</> : 'Select Plan'}
-                    </button>
-                  </div>
-                )
+                : schoolKit?.images
+                  ? (
+                    <div style={{ height: schoolKit.images.height[screenSize], position: 'relative' }}>
+                      {schoolKit.images.full.src
+                        ? <img src={schoolKit.images.full.src} style={{ width: '100%' }} alt="kit" />
+                        : <></>
+                      }
+                      <div className="d-flex justify-content-center" style={{ position: 'absolute', left: 0, right: 0, top: schoolKit.images.buttonOffset[screenSize], width: '100%' }}>
+                        <button onClick={handleFullClick} className={`btn btn-primary ${styles.rounded}`} style={{ textTransform: 'uppercase', width: 130, pointerEvents: payment.plan === 'full' ? 'none' : 'auto' }}>
+                          {payment.plan === 'full' ? <><FontAwesomeIcon icon={faCheckCircle} />&nbsp;Selected</> : 'Select Plan'}
+                        </button>
+                      </div>
+                    </div>
+                  )
+                  : (
+                    <div className="d-flex justify-content-center">
+                      <button onClick={handleFullClick} className={`btn btn-primary ${styles.rounded}`} style={{ textTransform: 'uppercase', width: 130, pointerEvents: payment.plan === 'full' ? 'none' : 'auto' }}>
+                        {payment.plan === 'full' ? <><FontAwesomeIcon icon={faCheckCircle} />&nbsp;Selected</> : 'Select Plan'}
+                      </button>
+                    </div>
+                  )
               }
             </div>
           </div>
-          <div className={`${styles.partColumn} col-5 col-lg-6`}>
-            <div onClick={handlePartClick} className={`${styles.box} ${styles.partBox} ${styles.rounded} ${payment.plan !== 'full' ? styles.selected : styles.faded}`} style={{ cursor: 'pointer', backgroundColor: courseKit !== false ? courseKit.images?.part.backgroundColor : undefined, color: courseKit !== false ? courseKit.images?.part.color : undefined, borderColor: courseKit !== false ? courseKit.images?.part.borderColor : undefined }}>
+          <div className={`${styles.partColumn} col-6`}>
+            <div onClick={handlePartClick} className={`${styles.box} ${styles.partBox} ${styles.rounded} ${payment.plan !== 'full' ? styles.selected : styles.faded}`} style={partStyle}>
               <div className={styles.sidePadding}>
                 <h3 className={styles.boxTitle}>Installment Plan{payment.plan === 'part' && <> <Checkmark /></>}</h3>
                 <ul className={styles.planList}>
                   {courseKit !== false && courseKit.partBullets.map((b, i) => <li key={i}>{b}</li>)}
                   {price && price.plans.full.discount > 0 && <li><strong>Start for {price.currency.symbol}{formatCurrency(price.plans.part.deposit)}</strong></li>}
-                  <li>Personalized support</li>
-                  <li>Lifetime course access</li>
-                  <li>Vibrant student community</li>
+                  {schoolKit?.bullets.map((b, i) => <li key={i}>{b}</li>)}
                 </ul>
               </div>
               {courseKit !== false && courseKit.images
                 ? (
-                  <div style={{ height: (xl || !lg) ? courseKit.images.height.md : courseKit.images.height.lg, position: 'relative' }}>
-                    <img src={(xl || !lg) ? courseKit.images.part.md : courseKit.images.part.lg} style={{ width: '100%' }} alt="kit" />
-                    <div className="d-flex justify-content-center" style={{ position: 'absolute', left: 0, right: 0, top: (xl || !lg) ? courseKit.images.buttonOffset.md : courseKit.images.buttonOffset.lg, width: '100%' }}>
+                  <div style={{ height: courseKit.images.height[screenSize], position: 'relative' }}>
+                    {courseKit.images.part.src
+                      ? <img src={courseKit.images.part.src} style={{ width: '100%' }} alt="kit" />
+                      : <></>
+                    }
+                    <div className="d-flex justify-content-center" style={{ position: 'absolute', left: 0, right: 0, top: courseKit.images.buttonOffset[screenSize], width: '100%' }}>
                       <button onClick={handlePartClick} className={`btn ${courseKit.images.part.buttonVariant ? `btn-${courseKit.images.part.buttonVariant}` : 'btn-dark-grey'} ${styles.rounded}`} style={{ textTransform: 'uppercase', width: 130, pointerEvents: payment.plan === 'full' ? 'none' : 'auto' }}>
                         {payment.plan !== 'full' ? <><FontAwesomeIcon icon={faCheckCircle} />&nbsp;Selected</> : 'Select Plan'}
                       </button>
                     </div>
                   </div>
                 )
-                : (
-                  <div className="d-flex justify-content-center">
-                    <button onClick={handlePartClick} className={`btn btn-dark-grey ${styles.rounded}`} style={{ textTransform: 'uppercase', width: 130, pointerEvents: payment.plan === 'full' ? 'none' : 'auto' }}>
-                      {payment.plan !== 'full' ? <><FontAwesomeIcon icon={faCheckCircle} />&nbsp;Selected</> : 'Select Plan'}
-                    </button>
-                  </div>
-                )
+                : schoolKit?.images
+                  ? (
+                    <div style={{ height: schoolKit.images.height[screenSize], position: 'relative' }}>
+                      {schoolKit.images.part.src
+                        ? <img src={schoolKit.images.part.src} style={{ width: '100%' }} alt="kit" />
+                        : <></>
+                      }
+                      <div className="d-flex justify-content-center" style={{ position: 'absolute', left: 0, right: 0, top: schoolKit.images.buttonOffset[screenSize], width: '100%' }}>
+                        <button onClick={handlePartClick} className={`btn ${schoolKit.images.part.buttonVariant ? `btn-${schoolKit.images.part.buttonVariant}` : 'btn-dark-grey'} ${styles.rounded}`} style={{ textTransform: 'uppercase', width: 130, pointerEvents: payment.plan === 'full' ? 'none' : 'auto' }}>
+                          {payment.plan !== 'full' ? <><FontAwesomeIcon icon={faCheckCircle} />&nbsp;Selected</> : 'Select Plan'}
+                        </button>
+                      </div>
+                    </div>
+                  )
+                  : (
+                    <div className="d-flex justify-content-center">
+                      <button onClick={handlePartClick} className={`btn btn-dark-grey ${styles.rounded}`} style={{ textTransform: 'uppercase', width: 130, pointerEvents: payment.plan === 'full' ? 'none' : 'auto' }}>
+                        {payment.plan !== 'full' ? <><FontAwesomeIcon icon={faCheckCircle} />&nbsp;Selected</> : 'Select Plan'}
+                      </button>
+                    </div>
+                  )
               }
             </div>
           </div>
@@ -137,7 +188,7 @@ export const VisualPaymentPlansDesktop: FC<Props> = ({ school }) => {
           )}
         </div>
       </div>
-      <div className={`${styles.resultColumn} col-12 col-md-6 col-lg-4`}>
+      <div className="col-12 col-md-6 col-lg-4">
         <PlanResult shippingOptionReversed={false} />
         {price && price.courses.length > 0 && price?.countryCode === 'CA' && (
           <div>
