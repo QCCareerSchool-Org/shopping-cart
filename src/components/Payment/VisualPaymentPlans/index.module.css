@@ -7,28 +7,6 @@
   align-items: stretch;
 }
 
-@media only screen and (min-width: 1200px) {
-  .selectionColumn {
-    flex: 0 0 720px;
-    max-width: 720px;
-  }
-  
-  .fullColumn {
-    flex: 0 0 420px;
-    max-width: 420px;
-  }
-
-  .partColumn {
-    flex: 0 0 300px;
-    max-width: 300px;
-  }
-  
-  .resultColumn {
-    flex: 0 0 420px;
-    max-width: 420px;
-  }
-}
-
 .planList {
   padding: 0 0 0 1rem;
 }
@@ -88,6 +66,9 @@
 }
 .wellnessCorner {
   background-image: url('/public/most-popular.svg'), url('/public/corner-wellness.svg');
+}
+.writingCorner {
+  background-image: url('/public/most-popular.svg'), url('/public/corner-writing.svg');
 }
 
 .partBox {

@@ -12,7 +12,7 @@ import { formatCurrency } from '../../../lib/formatCurrency';
 import { CanadaTaxCredits } from '../CanadaTaxCredits';
 import { PlanResult } from '../PlanResult';
 import styles from './index.module.css';
-import { courseKits } from './kits';
+import { courseKits, schoolKits } from './kits';
 
 type Props = {
   school: School;
@@ -34,6 +34,8 @@ export const VisualPaymentPlansMobile: FC<Props> = ({ school }) => {
     e.preventDefault();
     dispatch({ type: 'SET_PAYMENT_PLAN', payload: 'part' });
   };
+
+  const schoolKit = schoolKits[school];
 
   const courseKit = useMemo(() => {
     for (const c of courseKits) {
@@ -84,14 +86,12 @@ export const VisualPaymentPlansMobile: FC<Props> = ({ school }) => {
                 <ul className={`${styles.planList} mb-0`}>
                   {courseKit !== false && courseKit.fullBullets.map((b, i) => <li key={i}>{b}</li>)}
                   {price && price.plans.full.discount > 0 && <li><strong>Save {price.currency.symbol}{formatCurrency(price.plans.full.discount)}</strong></li>}
-                  <li>Personalized support</li>
-                  <li>Lifetime course access</li>
-                  <li>Vibrant student community</li>
+                  {schoolKit?.bullets.map((b, i) => <li key={i}>{b}</li>)}
                 </ul>
               </div>
-              {courseKit !== false && courseKit.images && (
+              {courseKit !== false && courseKit.images?.full.src && (
                 <div className="mt-3">
-                  <img src={courseKit.images.full.sm} style={{ width: '100%' }} alt="kit" />
+                  <img src={courseKit.images.full.src} style={{ width: '100%' }} alt="kit" />
                 </div>
               )}
             </div>
@@ -103,14 +103,12 @@ export const VisualPaymentPlansMobile: FC<Props> = ({ school }) => {
                 <ul className={`${styles.planList} mb-0`}>
                   {courseKit !== false && courseKit.partBullets.map((b, i) => <li key={i}>{b}</li>)}
                   {price && price.plans.full.discount > 0 && <li><strong>Start for {price.currency.symbol}{formatCurrency(price.plans.part.deposit)}</strong></li>}
-                  <li>Personalized support</li>
-                  <li>Lifetime course access</li>
-                  <li>Vibrant student community</li>
+                  {schoolKit?.bullets.map((b, i) => <li key={i}>{b}</li>)}
                 </ul>
               </div>
-              {courseKit !== false && courseKit.images && (
+              {courseKit !== false && courseKit.images?.part.src && (
                 <div className="mt-3">
-                  <img src={courseKit.images.part.sm} style={{ width: '100%' }} alt="kit" />
+                  <img src={courseKit.images.part.src} style={{ width: '100%' }} alt="kit" />
                 </div>
               )}
             </div>
