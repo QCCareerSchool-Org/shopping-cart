@@ -16,10 +16,10 @@ const backgroundColor = '#dae8f5';
 const getImageData = (desktop: boolean, lastChance: boolean, currencyCode?: string): { image: any; width: number; height: number } => {
   const [ width, height ] = desktop ? [ 1257, 542 ] : [ 514, 486 ];
 
-  if (lastChance) {
-    const image = desktop ? require('./desktop-ends.jpg') : require('./mobile-ends.jpg');
-    return { image, width, height };
-  }
+  // if (lastChance) {
+  //   const image = desktop ? require('./desktop-ends.jpg') : require('./mobile-ends.jpg');
+  //   return { image, width, height };
+  // }
   const image = desktop
     ? currencyCode === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg')
     : currencyCode === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
