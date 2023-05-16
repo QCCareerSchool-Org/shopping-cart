@@ -39,7 +39,10 @@ export const VisualPaymentPlansMobile: FC<Props> = ({ school }) => {
 
   const courseKit = useMemo(() => {
     for (const c of courseKits) {
-      if (courses.selected.includes(c.courseCode)) {
+      if (Array.isArray(c.courseCode) && c.courseCode.findIndex(f => courses.selected.includes(f))) {
+        return c;
+      }
+      if (typeof c.courseCode === 'string' && courses.selected.includes(c.courseCode)) {
         return c;
       }
     }

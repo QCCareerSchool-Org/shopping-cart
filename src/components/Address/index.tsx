@@ -21,7 +21,7 @@ type Props = {
 };
 
 const noShip = (school: School): boolean => {
-  return school === 'QC Event School' || school === 'QC Wellness Studies' || school === 'QC Design School';
+  return school === 'QC Event School' || school === 'QC Wellness Studies';
 };
 
 export const Address: React.FC<Props> = ({ school }) => {

@@ -19,6 +19,7 @@ export const DesignFallback: FC = () => (
       agreementLinkGB="https://www.qcdesignschool.com/enrollment-agreement-gb.html"
       successLink="https://www.qcdesignschool.com/welcome-to-the-school/"
       promoCodeDefault="FREEVIRTUAL"
+      dynamicCourseDescriptions="SHOW"
       dynamicCourseMessages={[ () => <FreeVDDynamicMessage /> ]}
     />
   </>

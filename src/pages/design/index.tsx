@@ -16,9 +16,6 @@ import './style.scss';
 // lazily load the other carts because they're used less often
 const Bogo1 = lazy(async () => import('./bogo-1'));
 const Bogo2 = lazy(async () => import('./bogo-2'));
-const Bogo3 = lazy(async () => import('./bogo-3'));
-const Bogo4 = lazy(async () => import('./bogo-4'));
-const Bogo5 = lazy(async () => import('./bogo-5'));
 const FreePortfolio = lazy(async () => import('./free-portfolio'));
 const Organizing = lazy(async () => import('./organizing'));
 const Student = lazy(async () => import('./student'));
@@ -57,9 +54,6 @@ const Design = memo((): ReactElement => {
         <Routes>
           <Route path="/bogo-1/" element={<Suspense fallback={<></>}><Bogo1 /></Suspense>} />
           <Route path="/bogo-2/" element={<Suspense fallback={<></>}><Bogo2 /></Suspense>} />
-          <Route path="/bogo-3/" element={<Suspense fallback={<></>}><Bogo3 /></Suspense>} />
-          <Route path="/bogo-4/" element={<Suspense fallback={<></>}><Bogo4 /></Suspense>} />
-          <Route path="/bogo-5/" element={<Suspense fallback={<></>}><Bogo5 /></Suspense>} />
           <Route path="/free-portfolio/" element={<Suspense fallback={<></>}><FreePortfolio /></Suspense>} />
           <Route path="/organizing/" element={<Suspense fallback={<></>}><Organizing /></Suspense>} />
           <Route path="/student/" element={<Suspense fallback={<></>}><Student /></Suspense>} />
