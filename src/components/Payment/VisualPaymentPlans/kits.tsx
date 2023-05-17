@@ -162,16 +162,16 @@ export const courseKits: CourseKit[] = [
   },
   {
     courseCode: [ 'I2', 'ST', 'LD', 'CC', 'FD', 'ED' ],
-    // images: {
-    //   full: {
-    //     src: require('./images/books.png'),
-    //   },
-    //   part: {
-    //     src: require('./images/books.png'),
-    //   },
-    //   height: { xs: undefined, sm: undefined, md: 271, lg: 271, xl: 271 },
-    //   buttonOffset: { xs: undefined, sm: undefined, md: 62, lg: 49, xl: 68 },
-    // },
+    images: {
+      full: {
+        src: require('./images/design-books.png'),
+      },
+      part: {
+        src: require('./images/design-books.png'),
+      },
+      height: { xs: undefined, sm: undefined, md: 140, lg: 122, xl: 148 },
+      buttonOffset: { xs: undefined, sm: undefined, md: 51, lg: 45, xl: 55 },
+    },
     fullBullets: [ <strong key={0}>Printed textbooks included</strong> ],
     partBullets: [ <strong key={0}>Printed textbooks included</strong> ],
   },
