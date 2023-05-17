@@ -38,7 +38,7 @@ export const DesignFallbackPromo: FC = () => {
       <Modal isOpen={popup} toggle={togglePopup}>
         <ModalHeader toggle={togglePopup}>Printed Textbooks Included</ModalHeader>
         <ModalBody>
-          <p className="mb-0">The following courses include printed books: Interior Decorating, Home Staging, Landscape Design, Color Consultant, Floral Design, and Event Decor. Textbooks will automatically be sent to you when you enroll.</p>
+          <p className="mb-0">The following courses also include printed books: Interior Decorating, Home Staging, Landscape Design, Color Consultant, Floral Design, and Event Decor. Textbooks will automatically be sent to you when you enroll.</p>
         </ModalBody>
       </Modal>
     </section>
