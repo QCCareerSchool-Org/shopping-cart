@@ -1,5 +1,5 @@
 import React, { memo, ReactElement } from 'react';
-import { Modal, ModalBody, ModalHeader } from 'reactstrap';
+import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
 import { usePopup } from '../../../hooks/usePopup';
 import { useScreenWidthContext } from '../../../hooks/useScreenWidthContext';
@@ -13,6 +13,8 @@ const potentialSavings = (currencyCode: string): string => {
       : '$1698';
 };
 
+const backgroundColor = '#090a0c';
+
 export const Bogo1Promo = memo((): ReactElement => {
   const { price } = useStateContext();
   const screenWidth = useScreenWidthContext();
@@ -25,18 +27,18 @@ export const Bogo1Promo = memo((): ReactElement => {
   let height: number;
 
   if (desktop) {
-    image = price?.currency.code === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
+    image = require('./desktop.jpg');
     width = 1257;
     height = 542;
   } else {
-    image = price?.currency.code === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
+    image = require('./mobile.jpg');
     width = 514;
     height = 486;
   }
 
   return (
     <>
-      <section id="promoSection" style={{ backgroundColor: '#fff', padding: 0 }}>
+      <section id="promoSection" style={{ backgroundColor, padding: 0 }}>
         <div className="container text-center px-0">
           <button className="btn btn-link p-0 border-0 btn-no-hover-shadow" onClick={togglePopup}>
             <img src={image} width={width} height={height} className="img-fluid d-block mx-auto" alt="Special Offer" />
@@ -49,6 +51,9 @@ export const Bogo1Promo = memo((): ReactElement => {
             <p>For a limited time only, enroll in any design course and get a second certification course for FREE! This means you could save up to {potentialSavings(price?.currency.code ?? 'USD')} on your tuition.</p>
             <p className="mb-1">Get started for {price?.currency.code === 'GBP' ? '£40' : '$75'}, or save up to {price?.currency.code === 'GBP' ? '£350' : '$400'} when you pay your tuition in full.</p>
           </ModalBody>
+          <ModalFooter>
+            <small>The following courses also include printed books: Interior Decorating, Home Staging, Landscape Design, Color Consultant, Floral Design, and Event Decor. Textbooks will automatically be sent to you when you enroll.</small>
+          </ModalFooter>
         </Modal>
       </section>
     </>

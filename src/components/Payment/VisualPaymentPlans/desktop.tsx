@@ -42,7 +42,10 @@ export const VisualPaymentPlansDesktop: FC<Props> = ({ school }) => {
 
   const courseKit = useMemo(() => {
     for (const c of courseKits) {
-      if (courses.selected.includes(c.courseCode)) {
+      if (Array.isArray(c.courseCode) && c.courseCode.some(f => courses.selected.includes(f))) {
+        return c;
+      }
+      if (typeof c.courseCode === 'string' && courses.selected.includes(c.courseCode)) {
         return c;
       }
     }
@@ -90,8 +93,8 @@ export const VisualPaymentPlansDesktop: FC<Props> = ({ school }) => {
               <div className={styles.sidePadding}>
                 <h3 className={styles.boxTitle}>Pay in Full{payment.plan === 'full' && <> <Checkmark /></>}</h3>
                 <ul className={styles.planList}>
-                  {courseKit !== false && courseKit.fullBullets.map((b, i) => <li key={i}>{b}</li>)}
                   {price && price.plans.full.discount > 0 && <li><strong>Save {price.currency.symbol}{formatCurrency(price.plans.full.discount)}</strong></li>}
+                  {courseKit !== false && courseKit.fullBullets.map((b, i) => <li key={i}>{b}</li>)}
                   {schoolKit?.bullets.map((b, i) => <li key={i}>{b}</li>)}
                 </ul>
               </div>
@@ -138,8 +141,8 @@ export const VisualPaymentPlansDesktop: FC<Props> = ({ school }) => {
               <div className={styles.sidePadding}>
                 <h3 className={styles.boxTitle}>Installment Plan{payment.plan === 'part' && <> <Checkmark /></>}</h3>
                 <ul className={styles.planList}>
-                  {courseKit !== false && courseKit.partBullets.map((b, i) => <li key={i}>{b}</li>)}
                   {price && price.plans.full.discount > 0 && <li><strong>Start for {price.currency.symbol}{formatCurrency(price.plans.part.deposit)}</strong></li>}
+                  {courseKit !== false && courseKit.partBullets.map((b, i) => <li key={i}>{b}</li>)}
                   {schoolKit?.bullets.map((b, i) => <li key={i}>{b}</li>)}
                 </ul>
               </div>
@@ -182,7 +185,7 @@ export const VisualPaymentPlansDesktop: FC<Props> = ({ school }) => {
             </div>
           </div>
           {courseKit !== false && courseKit.details && (
-            <div className="col-7 col-lg-12 col-xl-7 mt-2">
+            <div className="col-12 mt-2">
               {courseKit.details}
             </div>
           )}

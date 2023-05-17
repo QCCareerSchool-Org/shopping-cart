@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { CSSProperties } from 'styled-components';
 import { School } from '../../../lib/enrollment';
 import { DetailsPopup } from './DetailsPopup';
@@ -21,7 +22,7 @@ type Images = {
 };
 
 export type CourseKit = {
-  courseCode: string;
+  courseCode: string | string[];
   images?: Images;
   fullBullets: Array<string | JSX.Element>;
   partBullets: Array<string | JSX.Element>;
@@ -60,7 +61,7 @@ export const schoolKits: SchoolKits = {
       'Unlimited student support access',
       'VIP deals on continued learning',
       'BONUS business start-up training',
-      'Professional design certifiction',
+      'Professional design certification',
     ],
   },
   'QC Event School': {
@@ -158,5 +159,20 @@ export const courseKits: CourseKit[] = [
         </div>
       </DetailsPopup>
     ),
+  },
+  {
+    courseCode: [ 'I2', 'ST', 'LD', 'CC', 'FD', 'ED' ],
+    images: {
+      full: {
+        src: require('./images/design-books.png'),
+      },
+      part: {
+        src: require('./images/design-books.png'),
+      },
+      height: { xs: undefined, sm: undefined, md: 140, lg: 122, xl: 148 },
+      buttonOffset: { xs: undefined, sm: undefined, md: 51, lg: 45, xl: 55 },
+    },
+    fullBullets: [ <strong key={0}>Printed textbooks included</strong> ],
+    partBullets: [ <strong key={0}>Printed textbooks included</strong> ],
   },
 ];

@@ -5,7 +5,7 @@ import { usePopup } from '../../../../hooks/usePopup';
 import { useScreenWidthContext } from '../../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../../hooks/useStateContext';
 
-const backgroundColor = '#8d7960';
+const backgroundColor = '#615849';
 
 export const DesignFallbackPromo: FC = () => {
   const { price } = useStateContext();
@@ -19,27 +19,14 @@ export const DesignFallbackPromo: FC = () => {
   let height: number;
 
   if (desktop) {
-    image = price?.currency.code === 'GBP' ? require('./desktop-uk.jpg') : require('./desktop.jpg');
+    image = require('./desktop.jpg');
     width = 1257;
     height = 542;
   } else {
-    image = price?.currency.code === 'GBP' ? require('./mobile-uk.jpg') : require('./mobile.jpg');
+    image = require('./mobile.jpg');
     width = 514;
     height = 486;
   }
-
-  const vdPrice = useMemo(() => {
-    switch (price?.currency.code) {
-      case 'GBP':
-        return '£250';
-      case 'AUD':
-        return '$450';
-      case 'NZD':
-        return '$500';
-      default:
-        return '$350';
-    }
-  }, [ price?.currency.code ]);
 
   return (
     <section id="promoSection" style={{ backgroundColor, padding: 0 }}>
@@ -49,12 +36,9 @@ export const DesignFallbackPromo: FC = () => {
         </button>
       </div>
       <Modal isOpen={popup} toggle={togglePopup}>
-        <ModalHeader toggle={togglePopup}>FREE Virtual Design Training</ModalHeader>
+        <ModalHeader toggle={togglePopup}>Printed Textbooks Included</ModalHeader>
         <ModalBody>
-          <p>Ready to start your home design career?</p>
-          <p>Enroll in ANY design course and receive <strong>Virtual Design Training</strong> for FREE. This offer is valued at {vdPrice}!</p>
-          <p>Get started for {price?.currency.code === 'GBP' ? '£40' : '$75'}, or save up to {price?.currency.code === 'GBP' ? '£350' : '$400'} when you pay your tuition in full.</p>
-          <p className="mb-0">Why Learn Virtual Design? The market for virtual design has exploded! Benefit by learning this important skill and open your services up to a worldwide market. Plus, you&apos;ll receive an additional certification recognizing your efforts in this booming field of design.</p>
+          <p className="mb-0">The following courses also include printed books: Interior Decorating, Home Staging, Landscape Design, Color Consultant, Floral Design, and Event Decor. Textbooks will automatically be sent to you when you enroll.</p>
         </ModalBody>
       </Modal>
     </section>

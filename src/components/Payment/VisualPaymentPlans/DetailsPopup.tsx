@@ -4,11 +4,12 @@ import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import { usePopup } from '../../../hooks/usePopup';
 
 type Props = {
+  anchor?: string | JSX.Element;
   title: string;
   footerText?: string | JSX.Element;
 };
 
-export const DetailsPopup: FC<PropsWithChildren<Props>> = ({ title, footerText, children }) => {
+export const DetailsPopup: FC<PropsWithChildren<Props>> = ({ anchor, title, footerText, children }) => {
   const [ popup, togglePopup ] = usePopup(false);
 
   const handleClick: MouseEventHandler = e => {
@@ -19,7 +20,7 @@ export const DetailsPopup: FC<PropsWithChildren<Props>> = ({ title, footerText, 
   return (
     <>
       <div className="text-center">
-        <a href="#" onClick={handleClick}>View Kit Details</a>
+        <a href="#" onClick={handleClick}>{anchor ?? 'View Kit Details'}</a>
       </div>
       <Modal isOpen={popup} toggle={togglePopup}>
         <ModalHeader toggle={togglePopup}>{title}</ModalHeader>
