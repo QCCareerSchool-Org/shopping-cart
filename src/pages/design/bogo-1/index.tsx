@@ -18,6 +18,7 @@ const Bogo1 = memo((): ReactElement => (
       agreementLinkGB="https://www.qcdesignschool.com/enrollment-agreement-gb.html"
       successLink="https://www.qcdesignschool.com/welcome-to-the-school/"
       dynamicCourseMessages={[ () => <BogoDynamicMessage /> ]}
+      dynamicCourseDescriptions="SHOW"
       promoCodeDefault="BOGO"
     />
   </>
