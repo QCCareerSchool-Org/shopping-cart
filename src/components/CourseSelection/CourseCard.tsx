@@ -50,10 +50,6 @@ const getCertification = (courseCode?: string): string | undefined => {
       return 'International Event Decor Professional';
     case 'AP':
       return 'Aging in Place Design Professional';
-    case 'DB':
-      return 'Design Business Workshop Graduate';
-    case 'VD':
-      return 'Virtual Design Training Graduate';
   }
 };
 
