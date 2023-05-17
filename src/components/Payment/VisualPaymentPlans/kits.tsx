@@ -61,7 +61,7 @@ export const schoolKits: SchoolKits = {
       'Unlimited student support access',
       'VIP deals on continued learning',
       'BONUS business start-up training',
-      'Professional design certifiction',
+      'Professional design certification',
     ],
   },
   'QC Event School': {
