@@ -4,15 +4,15 @@ import { useDateContext } from '../../../hooks/useDateContext';
 import { dateOverride } from '../../../lib/dateOverride';
 
 const WellnessFallback = lazy(async () => import('./fallback').then(m => ({ default: m.WellnessFallback })));
-const Wellness20230505 = lazy(async () => import('./2023/05/05').then(m => ({ default: m.Wellness20230505 })));
+const Wellness20230522 = lazy(async () => import('./2023/05/22').then(m => ({ default: m.Wellness20230522 })));
 
 export const WellnessDefault = (): ReactElement => {
   const serverDate = useDateContext();
   const date = dateOverride() ?? serverDate;
   const time = date.getTime();
 
-  if (time >= Date.UTC(2023, 4, 5, 13, 30) && time < Date.UTC(2023, 4, 13, 4)) { // 2023-05-05T09:30 (13:30 UTC) to 2023-05-13T00:00 (04:00 UTC)
-    return <Suspense fallback={null}><Wellness20230505 /></Suspense>;
+  if (time >= Date.UTC(2023, 4, 22, 13, 30) && time < Date.UTC(2023, 4, 29, 4)) { // 2023-05-22T09:30 (13:30 UTC) to 2023-05-29T00:00 (04:00 UTC)
+    return <Suspense fallback={null}><Wellness20230522 /></Suspense>;
   }
 
   return <Suspense fallback={null}><WellnessFallback /></Suspense>;
