@@ -1,6 +1,5 @@
 import React, { memo, ReactElement } from 'react';
 
-import { BuyOneGetOne } from '../../../components/BuyOneGetOne';
 import { Form } from '../../../components/Form';
 import { BogoDynamicMessage } from '../BogoDynamicMessage';
 import { courseGroups } from '../courseGroups';
