@@ -1,6 +1,6 @@
 {
   "name": "shopping-cart",
-  "version": "1.13.45",
+  "version": "1.13.46",
   "private": true,
   "engines": {
     "node": "16.x"
