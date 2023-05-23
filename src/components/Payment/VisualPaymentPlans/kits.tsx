@@ -161,7 +161,7 @@ export const courseKits: CourseKit[] = [
     ),
   },
   {
-    courseCode: [ 'I2', 'ST', 'LD', 'CC', 'FD' ], // exclude ED, because we don't want it showing on the event carts
+    courseCode: [ 'I2', 'ST', 'LD', 'CC' ], // exclude FD and ED, because we don't want it showing on the event carts
     images: {
       full: {
         src: require('./images/design-books.png'),
