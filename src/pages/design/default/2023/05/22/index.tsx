@@ -18,6 +18,7 @@ export const Design20230522: FC = () => (
       successLink="https://www.qcdesignschool.com/welcome-to-the-school/"
       promoCodeDefault="BOGO"
       dynamicCourseMessages={[ () => <BogoDynamicMessage /> ]}
+      dynamicCourseDescriptions="SHOW"
     />
   </>
 );
