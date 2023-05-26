@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
 import { CountDownTimerWrapper } from '../../../../../../components/CountDownTimerWrapper';
@@ -10,7 +10,6 @@ import { dateOverride } from '../../../../../../lib/dateOverride';
 
 const lastChanceDate = new Date(Date.UTC(2023, 4, 25, 4)); // May 25 at 00:00 (04:00 UTC)
 const timerShowDate = new Date(Date.UTC(2023, 4, 25, 4)); // May 25 at 00:00 (04:00 UTC)
-const timerEndDate = new Date(Date.UTC(2023, 4, 29, 4)); // May 29 at 00:00 (04:00 UTC)
 const backgroundColor = '#000';
 
 const getImageData = (desktop: boolean, lastChance: boolean, currencyCode?: string): { image: any; width: number; height: number } => {
@@ -38,6 +37,13 @@ export const PetPromo20230522: FC = () => {
   const desktop = screenWidth >= 571;
 
   const { image, width, height } = getImageData(desktop, date >= lastChanceDate, price?.currency.code);
+
+  const timerEndDate = useMemo(() => {
+    if (date.getTime() >= Date.UTC(2023, 4, 29, 4)) {
+      return new Date(Date.UTC(2023, 5, 1, 4));
+    }
+    return new Date(Date.UTC(2023, 4, 29, 4)); // May 29 at 00:00 (04:00 UTC)
+  }, [ date ]);
 
   const [ promoDiscount, getStarted ] = price?.currency.code === 'GBP'
     ? [ '£300', '£100' ]
