@@ -1,9 +1,21 @@
 import React, { FC } from 'react';
 
+import { DogGroomingKitTag } from '../../../components/DogGroomingKitTag';
 import { Form } from '../../../components/Form';
-import { courseGroups } from '../courseGroups';
+import { CourseGroup } from '../../../state/courses';
 import { Guarantee } from '../Guarantee';
 import { ContinuedEducationPromo } from './Promo';
+
+const courseGroups: CourseGroup[] = [
+  {
+    items: [
+      { code: 'DG', name: 'Dog Grooming', badge: <DogGroomingKitTag /> },
+      { code: 'DT', name: 'Dog Training' },
+      { code: 'DD', name: 'Dog Daycare' },
+      { code: 'DC', name: 'Dog Behavior' },
+    ],
+  },
+];
 
 export const PetContinuedEducation: FC = () => (
   <>

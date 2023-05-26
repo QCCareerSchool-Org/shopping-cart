@@ -11,6 +11,7 @@ const courseGroups: CourseGroup[] = [
       { code: 'DT', name: 'Dog Training' },
       { code: 'DD', name: 'Dog Daycare' },
       { code: 'FA', name: 'First Aid for Groomers' },
+      { code: 'DC', name: 'Dog Behavior' },
     ],
   },
 ];
