@@ -11,6 +11,7 @@ const Design: React.FC = () => <Form
   agreementLink="https://www.qcdesignschool.com/enrollment-agreement.html"
   agreementLinkGB="https://www.qcdesignschool.com/enrollment-agreement-gb.html"
   successLink="https://www.qcdesignschool.com/welcome-to-the-school/"
+  visualPaymentPlans={false}
   internal={true}
   allowOverrides={true}
   showPromoCodeInput={true}
