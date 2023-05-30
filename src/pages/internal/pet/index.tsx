@@ -23,6 +23,7 @@ const Pet: React.FC = () => <Form
   agreementLink="https://www.doggroomingcourse.com/enrollment-agreement.html"
   agreementLinkGB="https://www.doggroomingcourse.com/enrollment-agreement-gb.html"
   successLink="https://www.doggroomingcourse.com/welcome-to-the-school/"
+  visualPaymentPlans={false}
   internal={true}
   allowOverrides={true}
   showPromoCodeInput={true}

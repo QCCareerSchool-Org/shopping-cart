@@ -11,6 +11,7 @@ const Wellness: React.FC = () => <Form
   agreementLink="https://www.qcwellnessstudies.com/enrollment-agreement"
   agreementLinkGB="https://www.qcwellnessstudies.com/enrollment-agreement-gb"
   successLink="https://www.qcwellnessstudies.com/welcome-to-the-school/"
+  visualPaymentPlans={false}
   internal={true}
   allowOverrides={true}
   showPromoCodeInput={true}

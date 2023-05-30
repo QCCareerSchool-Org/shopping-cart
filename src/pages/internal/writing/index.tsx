@@ -11,6 +11,7 @@ const Writing: React.FC = () => <Form
   agreementLink="https://www.winghill.com/enrollment-agreement.html"
   agreementLinkGB="https://www.winghill.com/enrollment-agreement-gb.html"
   successLink="https://www.winghill.com/welcome-to-the-school/"
+  visualPaymentPlans={false}
   internal={true}
   allowOverrides={true}
 />;

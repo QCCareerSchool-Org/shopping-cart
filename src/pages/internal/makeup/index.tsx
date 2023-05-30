@@ -19,6 +19,7 @@ const Makeup: React.FC = () => <Form
   agreementLink="https://www.qcmakeupacademy.com/enrollment-agreement.html"
   agreementLinkGB="https://www.qcmakeupacademy.com/enrollment-agreement-gb.html"
   successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
+  visualPaymentPlans={false}
   internal={true}
   allowOverrides={true}
   showPromoCodeInput={true}
