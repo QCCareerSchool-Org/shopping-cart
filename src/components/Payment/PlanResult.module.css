@@ -2,6 +2,10 @@
   padding: 1px 0.25rem;
 }
 
+.table tr td:nth-of-type(2) {
+  min-width: 105px;
+}
+
 .separator {
   border-color: #999;
 }
