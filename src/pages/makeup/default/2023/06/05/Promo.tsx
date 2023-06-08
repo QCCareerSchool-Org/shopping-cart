@@ -63,7 +63,7 @@ export const MakeupPromo20230605 = (): ReactElement => {
                 <img src={require('./enrollment-pop-up.jpg')} width="650" height="1056" className="img-fluid" />
               </div>
               <ol className={styles.coloredList}>
-                <li>16-piece brush set with leather roll</li>
+                <li>17-piece brush set</li>
                 <li>88-shade eye shadow palette</li>
                 <li>32-shade lip palette</li>
                 <li>28-shade blush palette</li>
