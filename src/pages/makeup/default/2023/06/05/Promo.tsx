@@ -39,7 +39,7 @@ export const MakeupPromo20230605 = (): ReactElement => {
 
   const desktop = screenWidth >= 576;
 
-  const { image, width, height } = getImageData(desktop, date >= lastChanceDate);
+  const { image, width, height } = getImageData(desktop, date >= lastChanceDate, price?.currency.code);
 
   const kitValue = price?.currency.code === 'GBP' ? '£699' : '$899';
 
