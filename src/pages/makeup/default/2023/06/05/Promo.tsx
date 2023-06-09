@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
+import styles from '../../../../../../components/coloredList.module.css';
 import { CountDownTimerWrapper } from '../../../../../../components/CountDownTimerWrapper';
 import { useDateContext } from '../../../../../../hooks/useDateContext';
 
@@ -7,8 +8,6 @@ import { usePopup } from '../../../../../../hooks/usePopup';
 import { useScreenWidthContext } from '../../../../../../hooks/useScreenWidthContext';
 import { useStateContext } from '../../../../../../hooks/useStateContext';
 import { dateOverride } from '../../../../../../lib/dateOverride';
-
-import styles from './promo.module.css';
 
 const lastChanceDate = new Date(Date.UTC(2023, 5, 9, 4)); // June 9 at 00:00 (04:00 UTC)
 const timerShowDate = new Date(Date.UTC(2023, 5, 9, 4)); // June 9 at 00:00 (04:00 UTC)
@@ -60,7 +59,7 @@ export const MakeupPromo20230605 = (): ReactElement => {
             <p>Master Makeup Artistry students receive the Deluxe Collection!<span className="text-primary">*</span></p>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <div>
-                <img src={require('./enrollment-pop-up.jpg')} width="650" height="1056" className="img-fluid" />
+                <img src={require('../../../../../../images/deluxe-kit-numbers-no-description.jpg')} width="650" height="1056" className="img-fluid" />
               </div>
               <ol className={styles.coloredList}>
                 <li>17-piece professional brush set</li>

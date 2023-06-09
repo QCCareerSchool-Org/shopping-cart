@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { CSSProperties } from 'styled-components';
+import styles from '../../../components/coloredList.module.css';
 import { School } from '../../../lib/enrollment';
 import { DetailsPopup } from './DetailsPopup';
 
@@ -153,9 +154,35 @@ export const courseKits: CourseKit[] = [
     fullBullets: [ <strong key={0}>Bonus DELUXE Kit</strong>, <strong key={1}>Bonus 17-piece brush set</strong> ],
     partBullets: [ <strong key={0}>Bonus 17-piece brush set</strong> ],
     details: (
-      <DetailsPopup title="Deluxe Collection" footerText={<><p className="small">Your items will be automatically sent to you after you have submitted Unit A of the course in the Online Student Center. Items in the kit are subject to change.</p><p className="small mb-0">The DELUXE kit is not required for you to complete your assignments and will not determine your success in the course.</p></>}>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <img src={require('./images/mz/comparison.jpg')} className="img-fluid" />
+      <DetailsPopup
+        title="Deluxe Collection" footerText={(
+          <div className="text-start">
+            <p className="small"><span className="text-primary">*</span> Deluxe Collection shipping schedule:</p>
+            <ul className="small">
+              <li><p>Students who choose the Pay-in-Full option will receive the entire Deluxe Collection after submitting Unit A.</p></li>
+              <li><p>Students who choose the Installment Plan will receive the 17-piece brush set after submitting Unit A and will receive the rest of the Deluxe Collection once tuition is paid in full.</p></li>
+            </ul>
+            <p className="small">The Deluxe Collection is not required for you to complete your assignments and will not determine your success in the course.</p>
+            <p className="small mb-0">Items in the Deluxe Collection are subject to change.</p>
+          </div>
+        )}
+      >
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div>
+            <img src={require('../../../images/deluxe-kit-numbers-no-description.jpg')} width="650" height="1056" className="img-fluid" />
+          </div>
+          <ol className={styles.coloredList}>
+            <li>17-piece professional brush set</li>
+            <li>88-shade eye shadow palette</li>
+            <li>32-shade lip palette</li>
+            <li>28-shade blush palette</li>
+            <li>20-shade conceal &amp; correct palette</li>
+            <li>9-shade contour palette</li>
+            <li>4-shade highlight palette</li>
+            <li>5-shade eyebrow palette</li>
+            <li>4 sets of faux lashes</li>
+            <li>Pro palette &amp; spatula</li>
+          </ol>
         </div>
       </DetailsPopup>
     ),
