@@ -168,6 +168,7 @@ export const courseKits: CourseKit[] = [
         )}
       >
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <p>Master Makeup Artistry students receive the Deluxe Collection!<span className="text-primary">*</span></p>
           <div>
             <img src={require('../../../images/deluxe-kit-numbers-no-description.jpg')} width="650" height="1056" className="img-fluid" />
           </div>
