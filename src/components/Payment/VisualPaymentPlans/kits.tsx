@@ -144,7 +144,7 @@ export const courseKits: CourseKit[] = [
         borderColor: '#999',
       },
       part: {
-        src: require('./images/mz/brush-set-384.jpg'),
+        src: require('./images/mz/deluxe-kit-white-384.jpg'),
         backgroundColor: 'white',
         buttonVariant: 'primary',
       },
@@ -152,23 +152,18 @@ export const courseKits: CourseKit[] = [
       buttonOffset: { xs: undefined, sm: undefined, md: 62, lg: 49, xl: 68 },
     },
     fullBullets: [ <strong key={0}>Bonus DELUXE Kit</strong>, <strong key={1}>Bonus 17-piece brush set</strong> ],
-    partBullets: [ <strong key={0}>Bonus 17-piece brush set</strong> ],
+    partBullets: [ <strong key={0}>Bonus DELUXE Kit</strong>, <strong key={1}>Bonus 17-piece brush set</strong> ],
     details: (
       <DetailsPopup
         title="Deluxe Collection" footerText={(
           <div className="text-start">
-            <p className="small"><span className="text-primary">*</span> Deluxe Collection shipping schedule:</p>
-            <ul className="small">
-              <li><p>Students who choose the Pay-in-Full option will receive the entire Deluxe Collection after submitting Unit A.</p></li>
-              <li><p>Students who choose the Installment Plan will receive the 17-piece brush set after submitting Unit A and will receive the rest of the Deluxe Collection once tuition is paid in full.</p></li>
-            </ul>
-            <p className="small">The Deluxe Collection is not required for you to complete your assignments and will not determine your success in the course.</p>
-            <p className="small mb-0">Items in the Deluxe Collection are subject to change.</p>
+            <p className="small">Your items will be automatically sent to you after you have submitted Unit A of the course in the Online Student Center. Items in the kit are subject to change.</p>
+            <p className="small mb-0">The DELUXE Collection is not required for you to complete your assignments and will not determine your success in the course.</p>
           </div>
         )}
       >
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <p>Master Makeup Artistry students receive the Deluxe Collection!<span className="text-primary">*</span></p>
+          <p>Get the entire <strong>DELUXE Kit with 17-piece brush set</strong> when you enroll in <strong>Master Makeup Artistry</strong>.</p>
           <div>
             <img src={require('../../../images/deluxe-kit-numbers-no-description.jpg')} width="650" height="1056" className="img-fluid" />
           </div>
