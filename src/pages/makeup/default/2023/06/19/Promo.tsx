@@ -15,7 +15,7 @@ const timerEndDate = new Date(Date.UTC(2023, 6, 1, 4)); // July 1 at 00:00 (04:0
 const backgroundColor = '#fff';
 
 const getImageData = (desktop: boolean, lastChance: boolean, currencyCode?: string): { image: any; width: number; height: number } => {
-  const [ width, height ] = desktop ? [ 1060, 633 ] : [ 600, 690 ];
+  const [ width, height ] = desktop ? [ 1060, 533 ] : [ 600, 690 ];
 
   if (lastChance) {
     const image = desktop
