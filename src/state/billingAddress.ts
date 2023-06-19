@@ -1,6 +1,8 @@
 export type Title = 'Mrs.' | 'Miss' | 'Ms.' | 'Mr.';
 
-export type AddressState = {
+export type BillingAddressState = {
+  /** whether to reuse the shipping address or not */
+  disabled: boolean;
   title: Title;
   firstName: string;
   lastName: string;
@@ -18,21 +20,23 @@ export type AddressState = {
 
 export type Province = { code: string; name: string };
 
-export type AddressAction =
-  | { type: 'SET_COUNTRY_CODE'; payload: { countryCode: string; provinceCode?: string; manual: boolean } }
-  | { type: 'SET_PROVINCES'; payload: Province[] }
-  | { type: 'SET_PROVINCE_CODE'; payload: { provinceCode: string | null; manual: boolean } }
-  | { type: 'SET_TITLE'; payload: Title }
-  | { type: 'SET_FIRST_NAME'; payload: string }
-  | { type: 'SET_LAST_NAME'; payload: string }
-  | { type: 'SET_EMAIL_ADDRESS'; payload: string }
-  | { type: 'SET_TELEPHONE_NUMBER'; payload: string }
-  | { type: 'SET_CITY'; payload: string }
-  | { type: 'SET_ADDRESS1'; payload: string }
-  | { type: 'SET_ADDRESS2'; payload: string }
-  | { type: 'SET_POSTAL_CODE'; payload: string };
+export type BillingAddressAction =
+  | { type: 'SET_BILLING_DISABLED'; payload: boolean }
+  | { type: 'SET_BILLING_COUNTRY_CODE'; payload: { countryCode: string; provinceCode?: string; manual: boolean } }
+  | { type: 'SET_BILLING_PROVINCES'; payload: Province[] }
+  | { type: 'SET_BILLING_PROVINCE_CODE'; payload: { provinceCode: string | null; manual: boolean } }
+  | { type: 'SET_BILLING_TITLE'; payload: Title }
+  | { type: 'SET_BILLING_FIRST_NAME'; payload: string }
+  | { type: 'SET_BILLING_LAST_NAME'; payload: string }
+  | { type: 'SET_BILLING_EMAIL_ADDRESS'; payload: string }
+  | { type: 'SET_BILLING_TELEPHONE_NUMBER'; payload: string }
+  | { type: 'SET_BILLING_CITY'; payload: string }
+  | { type: 'SET_BILLING_ADDRESS1'; payload: string }
+  | { type: 'SET_BILLING_ADDRESS2'; payload: string }
+  | { type: 'SET_BILLING_POSTAL_CODE'; payload: string };
 
-export const initialAddressState: AddressState = {
+export const initialBillingAddressState: BillingAddressState = {
+  disabled: true,
   title: 'Mrs.',
   firstName: '',
   lastName: '',
@@ -48,63 +52,65 @@ export const initialAddressState: AddressState = {
   provinces: [ { code: 'MD', name: 'Maryland' } ],
 };
 
-export function addressReducer(state: AddressState, action: AddressAction): AddressState {
+export function billingAddressReducer(state: BillingAddressState, action: BillingAddressAction): BillingAddressState {
   switch (action.type) {
-    case 'SET_COUNTRY_CODE':
+    case 'SET_BILLING_DISABLED':
+      return { ...state, disabled: action.payload };
+    case 'SET_BILLING_COUNTRY_CODE':
       return {
         ...state,
         countryCode: action.payload.countryCode,
         provinceCode: action.payload.provinceCode ?? null,
         locationModified: action.payload.manual ? true : state.locationModified,
       };
-    case 'SET_PROVINCES':
+    case 'SET_BILLING_PROVINCES':
       return { ...state, provinces: action.payload };
-    case 'SET_PROVINCE_CODE':
+    case 'SET_BILLING_PROVINCE_CODE':
       return {
         ...state,
         provinceCode: action.payload.provinceCode,
         locationModified: action.payload.manual ? true : state.locationModified,
       };
-    case 'SET_TITLE':
+    case 'SET_BILLING_TITLE':
       return {
         ...state,
         title: action.payload,
       };
-    case 'SET_FIRST_NAME':
+    case 'SET_BILLING_FIRST_NAME':
       return {
         ...state,
         firstName: action.payload,
       };
-    case 'SET_LAST_NAME':
+    case 'SET_BILLING_LAST_NAME':
       return {
         ...state,
         lastName: action.payload,
       };
-    case 'SET_EMAIL_ADDRESS':
+    case 'SET_BILLING_EMAIL_ADDRESS':
       return {
         ...state,
         emailAddress: action.payload,
       };
-    case 'SET_TELEPHONE_NUMBER':
+    case 'SET_BILLING_TELEPHONE_NUMBER':
       return {
         ...state,
         telephoneNumber: action.payload,
       };
-    case 'SET_ADDRESS1':
+    case 'SET_BILLING_ADDRESS1':
       return {
         ...state,
         address1: action.payload,
       };
-    case 'SET_ADDRESS2':
+    case 'SET_BILLING_ADDRESS2':
       return {
         ...state,
         address2: action.payload,
       };
-    case 'SET_CITY':
+    case 'SET_BILLING_CITY':
       return {
         ...state,
         city: action.payload,
-      }; case 'SET_POSTAL_CODE':
+      }; case 'SET_BILLING_POSTAL_CODE':
       return {
         ...state,
         postalCode: action.payload,

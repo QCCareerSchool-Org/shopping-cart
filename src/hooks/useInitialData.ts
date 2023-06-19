@@ -1,6 +1,7 @@
 import qs from 'qs';
 import { useEffect } from 'react';
 
+import { Country } from '../state/countries';
 import { useDispatchContext } from './useDispatchContext';
 
 export const useInitialData = (internal: boolean, paymentOptionsReverse: boolean): void => {
@@ -166,8 +167,20 @@ export const useInitialData = (internal: boolean, paymentOptionsReverse: boolean
       }
     };
 
-    dispatch({ type: 'CLEAR_COURSES', payload: { internal } });
-    loadSessionStorageData();
-    loadQueryStringData();
+    getCountries().then(countries => {
+      dispatch({ type: 'SET_COUNTRIES', payload: countries });
+      dispatch({ type: 'CLEAR_COURSES', payload: { internal } });
+      loadSessionStorageData();
+      loadQueryStringData();
+    }).catch(console.error);
   }, [ dispatch, internal, paymentOptionsReverse ]);
+};
+
+const getCountries = async (): Promise<Country[]> => {
+  const url = 'https://api.qccareerschool.com/geoLocation/countries';
+  const response = await fetch(url);
+  if (response.ok) {
+    return response.json();
+  }
+  return [];
 };

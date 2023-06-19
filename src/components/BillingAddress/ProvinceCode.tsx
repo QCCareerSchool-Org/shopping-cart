@@ -6,11 +6,11 @@ import { useStateContext } from '../../hooks/useStateContext';
 import { ucWords } from '../../lib/ucWords';
 
 export const ProvinceCode: React.FC = () => {
-  const { address: { provinces }, address: { countryCode, provinceCode }, enrollmentErrors } = useStateContext();
+  const { billingAddress: { provinces }, address: { countryCode, provinceCode }, enrollmentErrors } = useStateContext();
   const dispatch = useDispatchContext();
 
   const change = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    dispatch({ type: 'SET_PROVINCE_CODE', payload: { provinceCode: e.target.value || null, manual: true } });
+    dispatch({ type: 'SET_BILLING_PROVINCE_CODE', payload: { provinceCode: e.target.value || null, manual: true } });
   };
 
   return (

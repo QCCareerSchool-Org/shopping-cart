@@ -15,6 +15,7 @@ import { scrollToPosition } from '../lib/scrollToPosition';
 import { CourseGroup } from '../state/courses';
 
 import { Address } from './Address';
+import { BillingAddress } from './BillingAddress';
 import { CourseSelection, DynamicCourseDescriptions } from './CourseSelection';
 import { ErrorModal } from './ErrorModal';
 import { Internal } from './Internal';
@@ -268,6 +269,7 @@ export const Form: React.FC<Props> = props => {
         discountName={props.discountName}
       />}
       <Address school={props.school} />
+      <BillingAddress />
       <Payment
         school={props.school}
         shippingOption={!!props.shippingOption}
