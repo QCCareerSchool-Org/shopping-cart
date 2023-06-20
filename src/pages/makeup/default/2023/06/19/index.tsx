@@ -3,8 +3,8 @@ import { BogoDynamicMessage } from '../../../../../../components/BogoDynamicMess
 
 import { Form } from '../../../../../../components/Form';
 import { courseGroups } from '../../../../courseGroups';
+import { GlobalPlusLuminousDynamicMessage } from '../../../../GlobalPlusLuminousDynamicMessage';
 import { Guarantee } from '../../../../Guarantee';
-import { ProPlusLuminousDynamicMessage } from '../../../../ProPlusLuminousDynamicMessage';
 import { MakeupPromo20230619 } from './Promo';
 
 export const Makeup20230619: FC = () => (
@@ -18,8 +18,8 @@ export const Makeup20230619: FC = () => (
       agreementLinkGB="https://www.qcmakeupacademy.com/enrollment-agreement-gb.html"
       successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
       dynamicCourseDescriptions="REPLACE"
-      promoCodeDefault="FREEPRO"
-      dynamicCourseMessages={[ () => <ProPlusLuminousDynamicMessage />, () => <BogoDynamicMessage /> ]}
+      promoCodeDefault="FREEGLOBAL"
+      dynamicCourseMessages={[ () => <GlobalPlusLuminousDynamicMessage />, () => <BogoDynamicMessage /> ]}
       visualPaymentPlans={true}
     />
   </>
