@@ -53,7 +53,7 @@ export const MakeupPromo20230619 = (): ReactElement => {
         <Modal isOpen={popup} toggle={togglePopup}>
           <ModalHeader toggle={togglePopup}>Limited-Time Offer</ModalHeader>
           <ModalBody>
-            <h5>Free Pro Makeup Workshop</h5>
+            <h5>Free Global Beauty Workshop</h5>
             <p>Enroll in Master Makeup Artistry and get the <strong>Global Beauty Workshop FREE</strong> (value = {courseValue}).</p>
             <h5>Free Deluxe Collection</h5>
             <p>Master Makeup Artistry students receive the Deluxe Collection!</p>
