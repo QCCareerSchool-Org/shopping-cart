@@ -40,7 +40,7 @@ export const MakeupPromo20230619 = (): ReactElement => {
 
   const { image, width, height } = getImageData(desktop, date >= lastChanceDate, price?.currency.code);
 
-  const courseValue = price?.currency.code === 'GBP' ? '£699' : price?.currency.code === 'AUD' ? '$1101' : price?.currency.code === 'NZD' ? '$1299' : '$899';
+  const courseValue = price?.currency.code === 'GBP' ? '£647' : price?.currency.code === 'AUD' ? '$1246' : price?.currency.code === 'NZD' ? '$1347' : '$1046';
 
   return (
     <>
@@ -54,7 +54,7 @@ export const MakeupPromo20230619 = (): ReactElement => {
           <ModalHeader toggle={togglePopup}>Limited-Time Offer</ModalHeader>
           <ModalBody>
             <h5>Free Pro Makeup Workshop</h5>
-            <p>Enroll in Master Makeup Artistry and get the <strong>Pro Makeup Workshop FREE</strong> (value = {courseValue}). This career-building workshop will allow you to push your artistry even further! Plus, you&apos;ll work directly with celebrity makeup artist, Nathan Johnson.</p>
+            <p>Enroll in Master Makeup Artistry and get the <strong>Global Beauty Workshop FREE</strong> (value = {courseValue}).</p>
             <h5>Free Deluxe Collection</h5>
             <p>Master Makeup Artistry students receive the Deluxe Collection!</p>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
