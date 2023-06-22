@@ -77,7 +77,6 @@ export const MakeupPromo20230619 = (): ReactElement => {
           </ModalBody>
           <ModalFooter>
             <p className="small">Your items will be automatically sent to you after you have submitted Unit A of the course in the Online Student Center. Items in the kit are subject to change.</p>
-            <p className="small mb-0">The DELUXE Collection is not required for you to complete your assignments and will not determine your success in the course.</p>
           </ModalFooter>
         </Modal>
       </section>
