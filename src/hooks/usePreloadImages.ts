@@ -2,24 +2,22 @@ import { useEffect } from 'react';
 
 declare global {
   interface Window {
-    usePreloadImagesData?: Record<string, unknown[]>;
+    usePreloadImagesData?: Record<symbol, unknown[]>;
   }
 }
 
-const getRandomString = (): string => Math.random().toString(32).slice(2) + Date.now();
-
 export const usePreloadImages = (imageSrcs: string[]): void => {
   useEffect(() => {
-    const randomStr = getRandomString();
+    const key = Symbol();
     window.usePreloadImagesData = window.usePreloadImagesData ?? {};
-    window.usePreloadImagesData[randomStr] = [];
+    window.usePreloadImagesData[key] = [];
     for (const src of imageSrcs) {
       const img = new Image();
       img.src = src;
-      window.usePreloadImagesData[randomStr].push(img); // keep a reference to the image
+      window.usePreloadImagesData[key].push(img); // keep a reference to the image
     }
     return () => {
-      delete window.usePreloadImagesData?.[randomStr];
+      delete window.usePreloadImagesData?.[key];
     };
   }, [ imageSrcs ]);
 };
