@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import Big from 'big.js';
-import React from 'react';
+import React, { useMemo } from 'react';
 
+import { freeShippingCourses } from '../../freeShippingCourses';
 import { useStateContext } from '../../hooks/useStateContext';
 import { PriceResult } from '../../state/price';
 
-import { CanadaTaxCredits } from './CanadaTaxCredits';
 import styles from './PlanResult.module.css';
 
 type Props = {
@@ -13,7 +13,9 @@ type Props = {
 };
 
 export const PlanResult: React.FC<Props> = ({ shippingOptionReversed }) => {
-  const { payment, price } = useStateContext();
+  const { payment, price, courses } = useStateContext();
+
+  const showFreeShippingMessage = useMemo(() => courses.selected.some(c => freeShippingCourses.includes(c)), [ courses.selected ]);
 
   if (!price) {
     return null;
@@ -35,6 +37,7 @@ export const PlanResult: React.FC<Props> = ({ shippingOptionReversed }) => {
         </tbody>
       </table>
       <p className="text-center text-lg-right">All prices are in {price.currency.name}.</p>
+      {showFreeShippingMessage && <p className="text-center text-lg-right text-primary">This purchase qualifies for free shipping.</p>}
     </>
   );
 };
