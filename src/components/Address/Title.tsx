@@ -19,7 +19,7 @@ export const Title: React.FC = () => {
       <label htmlFor="address-title">Title</label>
       <select
         id="address-title"
-        className={'form-control' + (enrollmentErrors.title ? ' is-invalid' : '')}
+        className={'form-control' + (enrollmentErrors.studentAddress.title ? ' is-invalid' : '')}
         onChange={change}
         value={title}
         autoComplete="honorific-prefix"

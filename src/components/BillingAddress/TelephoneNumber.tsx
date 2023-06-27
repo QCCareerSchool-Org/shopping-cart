@@ -16,7 +16,7 @@ export const TelephoneNumber: React.FC = () => {
       <input
         id="address-telephone"
         type="tel"
-        className={'form-control' + (enrollmentErrors.telephoneNumber ? ' is-invalid' : '')}
+        className={'form-control' + (enrollmentErrors.billingAddress.telephoneNumber ? ' is-invalid' : '')}
         onChange={change}
         value={telephoneNumber}
         autoCapitalize="off"

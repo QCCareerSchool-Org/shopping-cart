@@ -3,7 +3,6 @@ import React, { ChangeEventHandler } from 'react';
 
 import { useDispatchContext } from '../../hooks/useDispatchContext';
 import { useStateContext } from '../../hooks/useStateContext';
-import { NoShippingAlert } from '../NoShippingAlert';
 import { Address1 } from './Address1';
 import { Address2 } from './Address2';
 import { City } from './City';
@@ -26,16 +25,16 @@ export const BillingAddress: React.FC = () => {
 
   return (
     <>
-      <section id="address-section">
+      <section id="billing-section">
         <div className="container">
           <h2 className="h1">Billing Address</h2>
           <div className="text-center">
             <div className="custom-control custom-checkbox">
-              <input type="checkbox" className="custom-control-input" id="billingSame" checked={billingAddress.disabled} onChange={handleDisableClick} />
-              <label className="custom-control-label" htmlFor="billingSame">Use student information for billing address</label>
+              <input type="checkbox" className="custom-control-input" id="billingSame" checked={billingAddress.sameAsShipping} onChange={handleDisableClick} />
+              <label className="custom-control-label" htmlFor="billingSame">Use student address for billing address</label>
             </div>
           </div>
-          {!billingAddress.disabled && (
+          {!billingAddress.sameAsShipping && (
             <div className="row mt-4">
               <div className="col-12 col-md-6 col-lg-4 offset-lg-2">
                 <Title />
@@ -55,9 +54,6 @@ export const BillingAddress: React.FC = () => {
                     : <PostalCode />
                   : needsProvince(billingAddress.countryCode) && <ProvinceCode />
                 }
-              </div>
-              <div className="col-12 col-lg-8 offset-lg-2">
-                <NoShippingAlert />
               </div>
             </div>
           )}

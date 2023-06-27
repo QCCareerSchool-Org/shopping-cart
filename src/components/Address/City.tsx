@@ -16,7 +16,7 @@ export const City: React.FC = () => {
       <input
         id="address-city"
         type="text"
-        className={'form-control' + (enrollmentErrors.city ? ' is-invalid' : '')}
+        className={'form-control' + (enrollmentErrors.studentAddress.city ? ' is-invalid' : '')}
         onChange={change}
         value={city}
         autoCapitalize="off"

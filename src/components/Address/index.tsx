@@ -25,9 +25,25 @@ export const Address: React.FC<Props> = ({ school }) => {
   return (
     <section id="address-section">
       <div className="container">
-        <h2 className="h1">Student Information</h2>
-        <p className="lead text-center">Any materials, if applicable, will be shipped to this address.</p>
         <div className="row">
+          <div className="col-12 col-lg-8 offset-lg-2">
+            {school === 'QC Makeup Academy' || school === 'QC Pet Studies'
+              ? (
+                <>
+                  <h2 className="h1 mb-3">Student Address</h2>
+                  <p className="lead text-center mb-4">If your course includes course materials or bonus items, they will be shipped to this address.</p>
+                </>
+              )
+              : school === 'QC Design School'
+                ? (
+                  <>
+                    <h2 className="h1 mb-3">Student Address</h2>
+                    <p className="lead text-center mb-4">Course materials will be shipped to this address.</p>
+                  </>
+                )
+                : <h2 className="h1">Student Address</h2>
+            }
+          </div>
           <div className="col-12 col-md-6 col-lg-4 offset-lg-2">
             <Title />
             <FirstName />

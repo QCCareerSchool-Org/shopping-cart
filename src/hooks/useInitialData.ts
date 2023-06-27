@@ -108,62 +108,135 @@ export const useInitialData = (internal: boolean, paymentOptionsReverse: boolean
             return;
           }
 
-          const form = JSON.parse(storedData);
+          const form: unknown = JSON.parse(storedData);
+
+          if (typeof form !== 'object' || form === null) {
+            window.sessionStorage.removeItem('form');
+            return;
+          }
+
+          const studentAddress = 'studentAddress' in form && typeof form.studentAddress === 'object' && form.studentAddress !== null
+            ? form.studentAddress // new way
+            : form; // old way of storing data
 
           // country, province
-          if (form.countryCode) {
-            dispatch({ type: 'SET_COUNTRY_CODE', payload: { countryCode: form.countryCode, provinceCode: form.provinceCode, manual: true } });
+          if ('countryCode' in studentAddress && typeof studentAddress.countryCode === 'string') {
+            if ('provinceCode' in studentAddress && typeof studentAddress.provinceCode === 'string') {
+              dispatch({ type: 'SET_COUNTRY_CODE', payload: { countryCode: studentAddress.countryCode, provinceCode: studentAddress.provinceCode, manual: true } });
+            } else {
+              dispatch({ type: 'SET_COUNTRY_CODE', payload: { countryCode: studentAddress.countryCode, provinceCode: undefined, manual: true } });
+            }
           }
 
           // first name
-          if (form.firstName) {
-            dispatch({ type: 'SET_FIRST_NAME', payload: form.firstName });
+          if ('firstName' in studentAddress && typeof studentAddress.firstName === 'string') {
+            dispatch({ type: 'SET_FIRST_NAME', payload: studentAddress.firstName });
           }
 
           // last name
-          if (form.lastName) {
-            dispatch({ type: 'SET_LAST_NAME', payload: form.lastName });
+          if ('lastName' in studentAddress && typeof studentAddress.lastName === 'string') {
+            dispatch({ type: 'SET_LAST_NAME', payload: studentAddress.lastName });
           }
 
           // email address
-          if (form.emailAddress) {
-            dispatch({ type: 'SET_EMAIL_ADDRESS', payload: form.emailAddress });
+          if ('emailAddress' in studentAddress && typeof studentAddress.emailAddress === 'string') {
+            dispatch({ type: 'SET_EMAIL_ADDRESS', payload: studentAddress.emailAddress });
           }
 
           // telephone number
-          if (form.telephoneNumber) {
-            dispatch({ type: 'SET_TELEPHONE_NUMBER', payload: form.telephoneNumber });
+          if ('telephoneNumber' in studentAddress && typeof studentAddress.telephoneNumber === 'string') {
+            dispatch({ type: 'SET_TELEPHONE_NUMBER', payload: studentAddress.telephoneNumber });
           }
 
           // address first line
-          if (form.address1) {
-            dispatch({ type: 'SET_ADDRESS1', payload: form.address1 });
+          if ('address1' in studentAddress && typeof studentAddress.address1 === 'string') {
+            dispatch({ type: 'SET_ADDRESS1', payload: studentAddress.address1 });
           }
 
           // address first line
-          if (form.address2) {
-            dispatch({ type: 'SET_ADDRESS2', payload: form.address2 });
+          if ('address2' in studentAddress && typeof studentAddress.address2 === 'string') {
+            dispatch({ type: 'SET_ADDRESS2', payload: studentAddress.address2 });
           }
 
           // city
-          if (form.city) {
-            dispatch({ type: 'SET_CITY', payload: form.city });
+          if ('city' in studentAddress && typeof studentAddress.city === 'string') {
+            dispatch({ type: 'SET_CITY', payload: studentAddress.city });
           }
 
           // postal code
-          if (form.postalCode) {
-            dispatch({ type: 'SET_POSTAL_CODE', payload: form.postalCode });
+          if ('postalCode' in studentAddress && typeof studentAddress.postalCode === 'string') {
+            dispatch({ type: 'SET_POSTAL_CODE', payload: studentAddress.postalCode });
           }
 
-          if (form.courses && Array.isArray(form.courses)) {
+          if ('courses' in form && Array.isArray(form.courses)) {
             dispatch({ type: 'CLEAR_COURSES', payload: { internal } });
-            form.courses.forEach((c: unknown) => {
+            for (const c of form.courses) {
               if (typeof c === 'string') {
                 dispatch({ type: 'ADD_COURSE', payload: { courseCode: c, internal } });
               }
-            });
+            }
           }
-        } catch (err) { /* */ }
+
+          if ('billingAddress' in form && typeof form.billingAddress === 'object' && form.billingAddress !== null) {
+            const billingAddress = form.billingAddress;
+
+            if ('sameAsShipping' in billingAddress && typeof billingAddress.sameAsShipping === 'boolean') {
+              dispatch({ type: 'SET_BILLING_DISABLED', payload: billingAddress.sameAsShipping });
+            }
+
+            // country, province
+            if ('countryCode' in billingAddress && typeof billingAddress.countryCode === 'string') {
+              if ('provinceCode' in billingAddress && typeof billingAddress.provinceCode === 'string') {
+                dispatch({ type: 'SET_BILLING_COUNTRY_CODE', payload: { countryCode: billingAddress.countryCode, provinceCode: billingAddress.provinceCode, manual: true } });
+              } else {
+                dispatch({ type: 'SET_BILLING_COUNTRY_CODE', payload: { countryCode: billingAddress.countryCode, provinceCode: undefined, manual: true } });
+              }
+            }
+
+            // first name
+            if ('firstName' in billingAddress && typeof billingAddress.firstName === 'string') {
+              dispatch({ type: 'SET_BILLING_FIRST_NAME', payload: billingAddress.firstName });
+            }
+
+            // last name
+            if ('lastName' in billingAddress && typeof billingAddress.lastName === 'string') {
+              dispatch({ type: 'SET_BILLING_LAST_NAME', payload: billingAddress.lastName });
+            }
+
+            // email address
+            if ('emailAddress' in billingAddress && typeof billingAddress.emailAddress === 'string') {
+              dispatch({ type: 'SET_BILLING_EMAIL_ADDRESS', payload: billingAddress.emailAddress });
+            }
+
+            // telephone number
+            if ('telephoneNumber' in billingAddress && typeof billingAddress.telephoneNumber === 'string') {
+              dispatch({ type: 'SET_BILLING_TELEPHONE_NUMBER', payload: billingAddress.telephoneNumber });
+            }
+
+            // address first line
+            if ('address1' in billingAddress && typeof billingAddress.address1 === 'string') {
+              dispatch({ type: 'SET_BILLING_ADDRESS1', payload: billingAddress.address1 });
+            }
+
+            // address first line
+            if ('address2' in billingAddress && typeof billingAddress.address2 === 'string') {
+              dispatch({ type: 'SET_BILLING_ADDRESS2', payload: billingAddress.address2 });
+            }
+
+            // city
+            if ('city' in billingAddress && typeof billingAddress.city === 'string') {
+              dispatch({ type: 'SET_BILLING_CITY', payload: billingAddress.city });
+            }
+
+            // postal code
+            if ('postalCode' in billingAddress && typeof billingAddress.postalCode === 'string') {
+              dispatch({ type: 'SET_BILLING_POSTAL_CODE', payload: billingAddress.postalCode });
+            }
+          }
+
+        } catch (err) {
+          window.sessionStorage.removeItem('form');
+        }
       }
     };
 

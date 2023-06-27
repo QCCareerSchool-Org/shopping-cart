@@ -33,7 +33,7 @@ export const CountryCode: React.FC = () => {
       <label htmlFor="address-country-code">Country</label>
       <select
         id="address-country-code"
-        className={'form-control' + (enrollmentErrors.countryCode ? ' is-invalid' : '')}
+        className={'form-control' + (enrollmentErrors.billingAddress.countryCode ? ' is-invalid' : '')}
         onChange={change}
         value={countryCode}
         autoComplete="country"

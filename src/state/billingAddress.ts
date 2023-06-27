@@ -2,7 +2,7 @@ export type Title = 'Mrs.' | 'Miss' | 'Ms.' | 'Mr.';
 
 export type BillingAddressState = {
   /** whether to reuse the shipping address or not */
-  disabled: boolean;
+  sameAsShipping: boolean;
   title: Title;
   firstName: string;
   lastName: string;
@@ -36,7 +36,7 @@ export type BillingAddressAction =
   | { type: 'SET_BILLING_POSTAL_CODE'; payload: string };
 
 export const initialBillingAddressState: BillingAddressState = {
-  disabled: true,
+  sameAsShipping: true,
   title: 'Mrs.',
   firstName: '',
   lastName: '',
@@ -55,7 +55,7 @@ export const initialBillingAddressState: BillingAddressState = {
 export function billingAddressReducer(state: BillingAddressState, action: BillingAddressAction): BillingAddressState {
   switch (action.type) {
     case 'SET_BILLING_DISABLED':
-      return { ...state, disabled: action.payload };
+      return { ...state, sameAsShipping: action.payload };
     case 'SET_BILLING_COUNTRY_CODE':
       return {
         ...state,

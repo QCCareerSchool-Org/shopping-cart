@@ -16,7 +16,7 @@ export const LastName: React.FC = () => {
       <input
         id="address-last-name"
         type="text"
-        className={'form-control' + (enrollmentErrors.lastName ? ' is-invalid' : '')}
+        className={'form-control' + (enrollmentErrors.billingAddress.lastName ? ' is-invalid' : '')}
         onChange={change}
         value={lastName}
         autoCapitalize="words"

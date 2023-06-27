@@ -16,7 +16,7 @@ export const EmailAddress: React.FC = () => {
       <input
         id="address-email"
         type="email"
-        className={'form-control' + (enrollmentErrors.emailAddress ? ' is-invalid' : '')}
+        className={'form-control' + (enrollmentErrors.billingAddress.emailAddress ? ' is-invalid' : '')}
         onChange={change}
         value={emailAddress}
         autoCapitalize="off"

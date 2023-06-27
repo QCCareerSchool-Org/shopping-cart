@@ -19,7 +19,7 @@ export const PostalCode: React.FC = () => {
       <input
         id="postal-code"
         type="text"
-        className={'form-control' + (enrollmentErrors.postalCode ? ' is-invalid' : '')}
+        className={'form-control' + (enrollmentErrors.billingAddress.postalCode ? ' is-invalid' : '')}
         onChange={change}
         value={postalCode}
         autoCapitalize="characters"
