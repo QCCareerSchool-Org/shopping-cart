@@ -10,17 +10,33 @@ export type School = 'QC Career School' | 'QC Makeup Academy' | 'QC Design Schoo
 
 export type EnrollmentPayload = {
   courses: string[];
-  title: Title;
-  firstName: string;
-  lastName: string;
-  address1: string;
-  address2: string;
-  city: string;
-  provinceCode: string | null;
-  postalCode: string;
-  countryCode: string;
-  emailAddress: string;
-  telephoneNumber: string;
+  studentAddress: {
+    title: Title;
+    firstName: string;
+    lastName: string;
+    address1: string;
+    address2: string;
+    city: string;
+    provinceCode: string | null;
+    postalCode: string;
+    countryCode: string;
+    emailAddress: string;
+    telephoneNumber: string;
+  };
+  billingAddress: {
+    sameAsShipping: boolean;
+    title: Title;
+    firstName: string;
+    lastName: string;
+    address1: string;
+    address2: string;
+    city: string;
+    provinceCode: string | null;
+    postalCode: string;
+    countryCode: string;
+    emailAddress: string;
+    telephoneNumber: string;
+  };
   paymentPlan: PaymentPlan;
   paymentDay: number;
   school: School;
@@ -31,12 +47,12 @@ export type EnrollmentPayload = {
   options?: unknown;
 };
 
-const baseUrl = 'https://api.qccareerschool.com/enrollments';
-
 type AddEnrollmentResponse = { id: number; code: number };
 
 const userErrorStart = 400;
 const serverErrorStart = 500;
+
+const baseUrl = process.env.REACT_APP_ENROLLMENT_ENDPOINT ?? 'https://api.qccareerschool.com/enrollments';
 
 /**
  * Adds an enrollment

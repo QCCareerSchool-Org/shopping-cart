@@ -6,11 +6,11 @@ import { useStateContext } from '../../hooks/useStateContext';
 import { ucWords } from '../../lib/ucWords';
 
 export const PostalCode: React.FC = () => {
-  const { address: { postalCode, countryCode }, enrollmentErrors } = useStateContext();
+  const { billingAddress: { postalCode, countryCode }, enrollmentErrors } = useStateContext();
   const dispatch = useDispatchContext();
 
   const change = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    dispatch({ type: 'SET_POSTAL_CODE', payload: e.target.value });
+    dispatch({ type: 'SET_BILLING_POSTAL_CODE', payload: e.target.value });
   };
 
   return (
@@ -19,7 +19,7 @@ export const PostalCode: React.FC = () => {
       <input
         id="postal-code"
         type="text"
-        className={'form-control' + (enrollmentErrors.studentAddress.postalCode ? ' is-invalid' : '')}
+        className={'form-control' + (enrollmentErrors.billingAddress.postalCode ? ' is-invalid' : '')}
         onChange={change}
         value={postalCode}
         autoCapitalize="characters"

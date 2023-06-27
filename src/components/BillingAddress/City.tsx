@@ -3,11 +3,11 @@ import { useDispatchContext } from '../../hooks/useDispatchContext';
 import { useStateContext } from '../../hooks/useStateContext';
 
 export const City: React.FC = () => {
-  const { address: { city }, enrollmentErrors } = useStateContext();
+  const { billingAddress: { city }, enrollmentErrors } = useStateContext();
   const dispatch = useDispatchContext();
 
   const change = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    dispatch({ type: 'SET_CITY', payload: e.target.value });
+    dispatch({ type: 'SET_BILLING_CITY', payload: e.target.value });
   };
 
   return (
@@ -16,7 +16,7 @@ export const City: React.FC = () => {
       <input
         id="address-city"
         type="text"
-        className={'form-control' + (enrollmentErrors.studentAddress.city ? ' is-invalid' : '')}
+        className={'form-control' + (enrollmentErrors.billingAddress.city ? ' is-invalid' : '')}
         onChange={change}
         value={city}
         autoCapitalize="off"

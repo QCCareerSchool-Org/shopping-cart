@@ -16,7 +16,7 @@ const defaultCountries: Country[] = [
 ];
 
 export const CountryCode: React.FC = () => {
-  const { countries: { countries }, address: { countryCode }, enrollmentErrors } = useStateContext();
+  const { countries: { countries }, billingAddress: { countryCode }, enrollmentErrors } = useStateContext();
 
   const dispatch = useDispatchContext();
 
@@ -24,7 +24,7 @@ export const CountryCode: React.FC = () => {
     // we have to strip the leading "_" on values that are three characters long
     const codeLength = 3;
     const value = e.target.value.length === codeLength ? e.target.value.slice(1) : e.target.value;
-    dispatch({ type: 'SET_COUNTRY_CODE', payload: { countryCode: value, manual: true } });
+    dispatch({ type: 'SET_BILLING_COUNTRY_CODE', payload: { countryCode: value, manual: true } });
   };
 
   // the value attribute of the "default country" options is prefixed with "_" so that we don't end up with the same value more than once
@@ -33,7 +33,7 @@ export const CountryCode: React.FC = () => {
       <label htmlFor="address-country-code">Country</label>
       <select
         id="address-country-code"
-        className={'form-control' + (enrollmentErrors.studentAddress.countryCode ? ' is-invalid' : '')}
+        className={'form-control' + (enrollmentErrors.billingAddress.countryCode ? ' is-invalid' : '')}
         onChange={change}
         value={countryCode}
         autoComplete="country"

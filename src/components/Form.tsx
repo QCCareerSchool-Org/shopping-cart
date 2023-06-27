@@ -15,6 +15,7 @@ import { scrollToPosition } from '../lib/scrollToPosition';
 import { CourseGroup } from '../state/courses';
 
 import { Address } from './Address';
+import { BillingAddress } from './BillingAddress';
 import { CourseSelection, DynamicCourseDescriptions } from './CourseSelection';
 import { ErrorModal } from './ErrorModal';
 import { Internal } from './Internal';
@@ -86,10 +87,12 @@ type Props = {
   discountName?: string;
   /** display the visual payment plans */
   visualPaymentPlans?: boolean;
+  /** enable the billing address section */
+  billingAddress?: boolean;
 };
 
 export const Form: React.FC<Props> = props => {
-  const { courses, address, payment, meta, overrides } = useStateContext();
+  const { courses, address, billingAddress, payment, meta, overrides } = useStateContext();
   const dispatch = useDispatchContext();
 
   useGeoLocation(); // set initial country and province based on ip
@@ -129,17 +132,33 @@ export const Form: React.FC<Props> = props => {
   const createEnrollmentPayload = (): EnrollmentPayload => {
     const payload = {
       courses: courses.selected,
-      title: address.title,
-      firstName: address.firstName,
-      lastName: address.lastName,
-      address1: address.address1,
-      address2: address.address2,
-      city: address.city,
-      provinceCode: address.provinceCode,
-      postalCode: address.postalCode,
-      countryCode: address.countryCode,
-      emailAddress: address.emailAddress,
-      telephoneNumber: address.telephoneNumber,
+      studentAddress: {
+        title: address.title,
+        firstName: address.firstName,
+        lastName: address.lastName,
+        address1: address.address1,
+        address2: address.address2,
+        city: address.city,
+        provinceCode: address.provinceCode,
+        postalCode: address.postalCode,
+        countryCode: address.countryCode,
+        emailAddress: address.emailAddress,
+        telephoneNumber: address.telephoneNumber,
+      },
+      billingAddress: {
+        sameAsShipping: billingAddress.sameAsShipping,
+        title: billingAddress.title,
+        firstName: billingAddress.firstName,
+        lastName: billingAddress.lastName,
+        address1: billingAddress.address1,
+        address2: billingAddress.address2,
+        city: billingAddress.city,
+        provinceCode: billingAddress.provinceCode,
+        postalCode: billingAddress.postalCode,
+        countryCode: billingAddress.countryCode,
+        emailAddress: billingAddress.emailAddress,
+        telephoneNumber: billingAddress.telephoneNumber,
+      },
       paymentPlan: payment.plan,
       paymentDay: payment.day,
       school: props.school,
@@ -175,17 +194,33 @@ export const Form: React.FC<Props> = props => {
     if (window.sessionStorage) {
       window.sessionStorage.setItem('form', JSON.stringify({
         courses: courses.selected,
-        title: address.title,
-        firstName: address.firstName,
-        lastName: address.lastName,
-        emailAddress: address.emailAddress,
-        telephoneNumber: address.telephoneNumber,
-        address1: address.address1,
-        address2: address.address1,
-        city: address.city,
-        provinceCode: address.provinceCode,
-        postalCode: address.postalCode,
-        countryCode: address.countryCode,
+        studentAddress: {
+          title: address.title,
+          firstName: address.firstName,
+          lastName: address.lastName,
+          emailAddress: address.emailAddress,
+          telephoneNumber: address.telephoneNumber,
+          address1: address.address1,
+          address2: address.address1,
+          city: address.city,
+          provinceCode: address.provinceCode,
+          postalCode: address.postalCode,
+          countryCode: address.countryCode,
+        },
+        billingAddress: {
+          sameAsShipping: billingAddress.sameAsShipping,
+          title: billingAddress.title,
+          firstName: billingAddress.firstName,
+          lastName: billingAddress.lastName,
+          emailAddress: billingAddress.emailAddress,
+          telephoneNumber: billingAddress.telephoneNumber,
+          address1: billingAddress.address1,
+          address2: billingAddress.address1,
+          city: billingAddress.city,
+          provinceCode: billingAddress.provinceCode,
+          postalCode: billingAddress.postalCode,
+          countryCode: billingAddress.countryCode,
+        },
         paymentDay: payment.day,
         paymentPlan: payment.plan,
       }));
@@ -213,6 +248,8 @@ export const Form: React.FC<Props> = props => {
           scrollToPosition('plan');
         } else if (err.code === 3) { // address error
           scrollToPosition('shipping');
+        } else if (err.code === 4) { // billing address error
+          scrollToPosition('billing');
         }
         dispatch({ type: 'SET_ENROLLMENT_ERRORS', payload: err.enrollmentErrors });
       }
@@ -268,6 +305,7 @@ export const Form: React.FC<Props> = props => {
         discountName={props.discountName}
       />}
       <Address school={props.school} />
+      {props.billingAddress && <BillingAddress />}
       <Payment
         school={props.school}
         shippingOption={!!props.shippingOption}

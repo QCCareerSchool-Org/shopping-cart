@@ -1,16 +1,31 @@
 export interface EnrollmentErrors {
   courses?: 'missing' | 'empty' | 'invalid';
-  title?: 'missing' | 'empty' | 'invalid';
-  firstName?: 'missing' | 'empty' | 'invalid';
-  lastName?: 'missing' | 'empty' | 'invalid';
-  address1?: 'missing' | 'empty' | 'invalid';
-  address2?: 'missing' | 'invalid';
-  city?: 'missing' | 'empty' | 'invalid';
-  countryCode?: 'missing' | 'empty' | 'invalid';
-  provinceCode?: 'missing' | 'empty' | 'invalid';
-  postalCode?: 'missing' | 'empty' | 'invalid';
-  telephoneNumber?: 'missing' | 'empty';
-  emailAddress?: 'missing' | 'empty' | 'invalid';
+  studentAddress: {
+    title?: 'missing' | 'empty' | 'invalid';
+    firstName?: 'missing' | 'empty' | 'invalid';
+    lastName?: 'missing' | 'empty' | 'invalid';
+    address1?: 'missing' | 'empty' | 'invalid';
+    address2?: 'missing' | 'invalid';
+    city?: 'missing' | 'empty' | 'invalid';
+    countryCode?: 'missing' | 'empty' | 'invalid';
+    provinceCode?: 'missing' | 'empty' | 'invalid';
+    postalCode?: 'missing' | 'empty' | 'invalid';
+    telephoneNumber?: 'missing' | 'empty';
+    emailAddress?: 'missing' | 'empty' | 'invalid';
+  };
+  billingAddress: {
+    title?: 'missing' | 'empty' | 'invalid';
+    firstName?: 'missing' | 'empty' | 'invalid';
+    lastName?: 'missing' | 'empty' | 'invalid';
+    address1?: 'missing' | 'empty' | 'invalid';
+    address2?: 'missing' | 'invalid';
+    city?: 'missing' | 'empty' | 'invalid';
+    countryCode?: 'missing' | 'empty' | 'invalid';
+    provinceCode?: 'missing' | 'empty' | 'invalid';
+    postalCode?: 'missing' | 'empty' | 'invalid';
+    telephoneNumber?: 'missing' | 'empty';
+    emailAddress?: 'missing' | 'empty' | 'invalid';
+  };
   paymentPlan?: 'missing' | 'empty' | 'invalid';
   paymentDay?: 'missing' | 'empty' | 'invalid';
 }
