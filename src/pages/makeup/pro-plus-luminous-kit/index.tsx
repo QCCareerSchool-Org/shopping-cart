@@ -22,6 +22,7 @@ const ProPlusLuminousKit = (): ReactElement => (
       dynamicCourseMessages={[ () => <ProPlusLuminousDynamicMessage /> ]}
       promoCodeDefault="PROLUMINOUS"
       visualPaymentPlans={true}
+      paymentOptionsReverse={true}
     />
   </>
 );
