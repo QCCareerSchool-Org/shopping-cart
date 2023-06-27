@@ -39,7 +39,7 @@ const Event = (): ReactElement => {
   return (
     <>
       <Helmet>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3632503-10"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PZ2L57Z948"></script>
         <script src="/event/gtag.js"></script>
         <title>Enroll Online - QC Event School</title>
         <link rel="canonical" href="https://enroll.qceventplanning.com" />
