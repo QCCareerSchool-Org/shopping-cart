@@ -21,6 +21,7 @@ export const Pet20230619: FC = () => (
       dynamicCourseMessages={[ () => <BOGODynamicMessage /> ]}
       dynamicCourseDescriptions="SHOW"
       promoCodeDefault="PET300OFF"
+      billingAddress={true}
     />
   </>
 );
