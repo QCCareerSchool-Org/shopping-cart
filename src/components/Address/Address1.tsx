@@ -20,7 +20,7 @@ export const Address1: React.FC = () => {
         onChange={change}
         value={address1}
         autoCapitalize="words"
-        autoComplete="address-line1"
+        autoComplete="shipping address-line1"
       />
     </div>
   );

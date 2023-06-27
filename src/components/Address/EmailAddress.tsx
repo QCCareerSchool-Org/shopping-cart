@@ -20,7 +20,7 @@ export const EmailAddress: React.FC = () => {
         onChange={change}
         value={emailAddress}
         autoCapitalize="off"
-        autoComplete="email"
+        autoComplete="shipping email"
       />
     </div>
   );

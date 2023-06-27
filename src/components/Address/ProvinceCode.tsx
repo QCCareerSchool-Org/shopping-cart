@@ -21,7 +21,7 @@ export const ProvinceCode: React.FC = () => {
         className={'form-control' + (enrollmentErrors.studentAddress.provinceCode ? ' is-invalid' : '')}
         onChange={change}
         value={provinceCode ?? ''}
-        autoComplete="address-level1"
+        autoComplete="shipping address-level1"
       >
         <option value="">---</option>
         {provinces.map(p => <option key={p.code} value={p.code}>{p.name}</option>)}

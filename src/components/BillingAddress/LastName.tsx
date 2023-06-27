@@ -20,7 +20,7 @@ export const LastName: React.FC = () => {
         onChange={change}
         value={lastName}
         autoCapitalize="words"
-        autoComplete="family-name"
+        autoComplete="billing family-name"
       />
     </div>
   );

@@ -23,7 +23,7 @@ export const PostalCode: React.FC = () => {
         onChange={change}
         value={postalCode}
         autoCapitalize="characters"
-        autoComplete="postal-code"
+        autoComplete="shipping postal-code"
       />
     </div>
   );
