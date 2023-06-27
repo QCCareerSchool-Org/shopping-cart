@@ -19,7 +19,7 @@ const Writing: FC = () => {
   return (
     <>
       <Helmet>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3632503-7"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-WTB6KD3MKE"></script>
         <script src="/writing/gtag.js"></script>
         <title>Enroll Online - Winghill Writing School</title>
         <link rel="canonical" href="https://enroll.winghill.com" />

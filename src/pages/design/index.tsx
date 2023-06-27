@@ -36,7 +36,7 @@ const Design = memo((): ReactElement => {
   return (
     <>
       <Helmet>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3632503-1"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DV480L9S3Y"></script>
         <script src="/design/gtag.js"></script>
         <title>Enroll Online - QC Design School</title>
         <link rel="canonical" href="https://enroll.qcdesignschool.com" />
