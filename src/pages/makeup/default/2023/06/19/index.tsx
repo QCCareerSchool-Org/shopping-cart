@@ -21,6 +21,7 @@ export const Makeup20230619: FC = () => (
       promoCodeDefault="FREEGLOBAL"
       dynamicCourseMessages={[ () => <GlobalPlusLuminousDynamicMessage />, () => <BogoDynamicMessage /> ]}
       visualPaymentPlans={true}
+      paymentOptionsReverse={true}
     />
   </>
 );
