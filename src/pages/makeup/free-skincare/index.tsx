@@ -22,6 +22,7 @@ const FreeSkincare = (): ReactElement => (
       promoCodeDefault="SKINCARE"
       dynamicCourseMessages={[ () => <FreeSkincareDynamicMessage /> ]}
       visualPaymentPlans={true}
+      paymentOptionsReverse={true}
     />
   </>
 );
