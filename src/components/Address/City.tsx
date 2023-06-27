@@ -20,7 +20,7 @@ export const City: React.FC = () => {
         onChange={change}
         value={city}
         autoCapitalize="off"
-        autoComplete="address-level2"
+        autoComplete="shipping address-level2"
       />
     </div>
   );

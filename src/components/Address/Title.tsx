@@ -22,7 +22,7 @@ export const Title: React.FC = () => {
         className={'form-control' + (enrollmentErrors.studentAddress.title ? ' is-invalid' : '')}
         onChange={change}
         value={title}
-        autoComplete="honorific-prefix"
+        autoComplete="shipping honorific-prefix"
       >
         <option>Mrs.</option>
         <option>Miss</option>

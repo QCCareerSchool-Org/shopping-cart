@@ -20,7 +20,7 @@ export const TelephoneNumber: React.FC = () => {
         onChange={change}
         value={telephoneNumber}
         autoCapitalize="off"
-        autoComplete="tel"
+        autoComplete="billing tel"
       />
     </div>
   );

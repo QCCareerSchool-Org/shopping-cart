@@ -36,7 +36,7 @@ export const CountryCode: React.FC = () => {
         className={'form-control' + (enrollmentErrors.studentAddress.countryCode ? ' is-invalid' : '')}
         onChange={change}
         value={countryCode}
-        autoComplete="country"
+        autoComplete="shipping country"
       >
         {defaultCountries.map(c => <option key={c.code} value={`_${c.code}`}>{c.name}</option>)}
         {countries.length > 0 && (
