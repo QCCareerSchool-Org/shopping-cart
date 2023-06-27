@@ -13,7 +13,7 @@ const Resume = (): ReactElement => {
       return;
     }
 
-    axios.get(`https://api.qccareerschool.com/enrollments/${querystring.id}`, {
+    axios.get(`${process.env.REACT_APP_ENROLLMENT_ENDPOINT}/${querystring.id}`, {
       params: { code: querystring.code },
     }).then(response => {
       window.sessionStorage.setItem('form', JSON.stringify({

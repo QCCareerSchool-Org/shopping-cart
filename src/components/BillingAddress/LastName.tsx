@@ -3,11 +3,11 @@ import { useDispatchContext } from '../../hooks/useDispatchContext';
 import { useStateContext } from '../../hooks/useStateContext';
 
 export const LastName: React.FC = () => {
-  const { address: { lastName }, enrollmentErrors } = useStateContext();
+  const { billingAddress: { lastName }, enrollmentErrors } = useStateContext();
   const dispatch = useDispatchContext();
 
   const change = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    dispatch({ type: 'SET_LAST_NAME', payload: e.target.value });
+    dispatch({ type: 'SET_BILLING_LAST_NAME', payload: e.target.value });
   };
 
   return (
@@ -16,7 +16,7 @@ export const LastName: React.FC = () => {
       <input
         id="address-last-name"
         type="text"
-        className={'form-control' + (enrollmentErrors.studentAddress.lastName ? ' is-invalid' : '')}
+        className={'form-control' + (enrollmentErrors.billingAddress.lastName ? ' is-invalid' : '')}
         onChange={change}
         value={lastName}
         autoCapitalize="words"

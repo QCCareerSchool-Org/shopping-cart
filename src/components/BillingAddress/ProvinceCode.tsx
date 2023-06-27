@@ -6,11 +6,11 @@ import { useStateContext } from '../../hooks/useStateContext';
 import { ucWords } from '../../lib/ucWords';
 
 export const ProvinceCode: React.FC = () => {
-  const { address: { countryCode, provinceCode, provinces }, enrollmentErrors } = useStateContext();
+  const { billingAddress: { countryCode, provinceCode, provinces }, enrollmentErrors } = useStateContext();
   const dispatch = useDispatchContext();
 
   const change = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    dispatch({ type: 'SET_PROVINCE_CODE', payload: { provinceCode: e.target.value || null, manual: true } });
+    dispatch({ type: 'SET_BILLING_PROVINCE_CODE', payload: { provinceCode: e.target.value || null, manual: true } });
   };
 
   return (
@@ -18,7 +18,7 @@ export const ProvinceCode: React.FC = () => {
       <label htmlFor="address-province-code">{ucWords(provinceState(countryCode))}</label>
       <select
         id="address-province-code"
-        className={'form-control' + (enrollmentErrors.studentAddress.provinceCode ? ' is-invalid' : '')}
+        className={'form-control' + (enrollmentErrors.billingAddress.provinceCode ? ' is-invalid' : '')}
         onChange={change}
         value={provinceCode ?? ''}
         autoComplete="address-level1"

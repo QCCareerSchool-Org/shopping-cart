@@ -3,11 +3,11 @@ import { useDispatchContext } from '../../hooks/useDispatchContext';
 import { useStateContext } from '../../hooks/useStateContext';
 
 export const TelephoneNumber: React.FC = () => {
-  const { address: { telephoneNumber }, enrollmentErrors } = useStateContext();
+  const { billingAddress: { telephoneNumber }, enrollmentErrors } = useStateContext();
   const dispatch = useDispatchContext();
 
   const change = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    dispatch({ type: 'SET_TELEPHONE_NUMBER', payload: e.target.value });
+    dispatch({ type: 'SET_BILLING_TELEPHONE_NUMBER', payload: e.target.value });
   };
 
   return (
@@ -16,7 +16,7 @@ export const TelephoneNumber: React.FC = () => {
       <input
         id="address-telephone"
         type="tel"
-        className={'form-control' + (enrollmentErrors.studentAddress.telephoneNumber ? ' is-invalid' : '')}
+        className={'form-control' + (enrollmentErrors.billingAddress.telephoneNumber ? ' is-invalid' : '')}
         onChange={change}
         value={telephoneNumber}
         autoCapitalize="off"

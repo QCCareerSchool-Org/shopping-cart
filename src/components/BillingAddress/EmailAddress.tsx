@@ -3,11 +3,11 @@ import { useDispatchContext } from '../../hooks/useDispatchContext';
 import { useStateContext } from '../../hooks/useStateContext';
 
 export const EmailAddress: React.FC = () => {
-  const { address: { emailAddress }, enrollmentErrors } = useStateContext();
+  const { billingAddress: { emailAddress }, enrollmentErrors } = useStateContext();
   const dispatch = useDispatchContext();
 
   const change = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    dispatch({ type: 'SET_EMAIL_ADDRESS', payload: e.target.value });
+    dispatch({ type: 'SET_BILLING_EMAIL_ADDRESS', payload: e.target.value });
   };
 
   return (
@@ -16,7 +16,7 @@ export const EmailAddress: React.FC = () => {
       <input
         id="address-email"
         type="email"
-        className={'form-control' + (enrollmentErrors.studentAddress.emailAddress ? ' is-invalid' : '')}
+        className={'form-control' + (enrollmentErrors.billingAddress.emailAddress ? ' is-invalid' : '')}
         onChange={change}
         value={emailAddress}
         autoCapitalize="off"
