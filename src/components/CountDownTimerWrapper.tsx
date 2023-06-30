@@ -14,19 +14,28 @@ type Props = {
 export const CountDownTimerWrapper = memo(({ date, showDate, endDate, message, buttonInverse = false, className, style }: Props): ReactElement | null => {
   const [ closed, setClosed ] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const [ scrolledPast, setScrolledPast ] = useState(false);
   const [ fixed, setFixed ] = useState(false);
 
   useEffect(() => {
     const element = wrapperRef.current;
     if (element) {
       const scrollListener = (): void => {
-        setFixed(element.offsetTop <= window.pageYOffset + 1);
+        setScrolledPast(element.offsetTop <= window.scrollY + 1);
       };
       scrollListener();
       window.addEventListener('scroll', scrollListener);
       return () => window.removeEventListener('scroll', scrollListener);
     }
   }, []);
+
+  // delay calling setFixed to avoid iOS Safari visual glitch when scrolling up
+  useEffect(() => {
+    // const id = setTimeout(() => {
+    setFixed(scrolledPast);
+    // }, 0);
+    // return () => clearTimeout(id);
+  }, [ scrolledPast ]);
 
   const showTimer = date >= showDate && date < endDate;
 
