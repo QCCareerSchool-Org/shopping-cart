@@ -10,7 +10,7 @@ type Image = {
   backgroundColor?: CSSProperties['backgroundColor'];
   color?: CSSProperties['color'];
   borderColor?: CSSProperties['borderColor'];
-  buttonVariant?: 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'black';
+  buttonVariant?: 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'black' | 'complementary';
 };
 
 type ScreenSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
@@ -20,6 +20,7 @@ type Images = {
   part: Image;
   height: Record<ScreenSizes, number | undefined>;
   buttonOffset: Record<ScreenSizes, number | undefined>;
+  buttonBelow?: boolean;
 };
 
 export type CourseKit = {
@@ -138,18 +139,20 @@ export const courseKits: CourseKit[] = [
     courseCode: 'MZ',
     images: {
       full: {
-        src: require('./images/mz/deluxe-kit-384.jpg'),
-        backgroundColor: 'black',
-        color: 'white',
-        borderColor: '#999',
+        src: require('./images/mz/deluxe-kit-white-384.jpg'),
+        // backgroundColor: 'black',
+        // color: 'white',
+        // borderColor: '#999',
+        // buttonVariant: 'complementary',
       },
       part: {
         src: require('./images/mz/deluxe-kit-white-384.jpg'),
         backgroundColor: 'white',
-        buttonVariant: 'primary',
+        // buttonVariant: 'complementary',
       },
       height: { xs: undefined, sm: undefined, md: 148, lg: 130, xl: 157 },
       buttonOffset: { xs: undefined, sm: undefined, md: 62, lg: 49, xl: 68 },
+      buttonBelow: true,
     },
     fullBullets: [ <strong key={0}>Bonus DELUXE Kit</strong>, <strong key={1}>Bonus 17-piece brush set</strong> ],
     partBullets: [ <strong key={0}>Bonus DELUXE Kit</strong>, <strong key={1}>Bonus 17-piece brush set</strong> ],
