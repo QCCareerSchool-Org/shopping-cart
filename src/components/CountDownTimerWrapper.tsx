@@ -31,10 +31,10 @@ export const CountDownTimerWrapper = memo(({ date, showDate, endDate, message, b
 
   // delay calling setFixed to avoid iOS Safari visual glitch when scrolling up
   useEffect(() => {
-    // const id = setTimeout(() => {
-    setFixed(scrolledPast);
-    // }, 0);
-    // return () => clearTimeout(id);
+    const id = setTimeout(() => {
+      setFixed(scrolledPast);
+    }, 100);
+    return () => clearTimeout(id);
   }, [ scrolledPast ]);
 
   const showTimer = date >= showDate && date < endDate;
