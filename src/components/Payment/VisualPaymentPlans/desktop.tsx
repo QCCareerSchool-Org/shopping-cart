@@ -100,31 +100,53 @@ export const VisualPaymentPlansDesktop: FC<Props> = ({ school }) => {
               </div>
               {courseKit !== false && courseKit.images
                 ? (
-                  <div style={{ height: courseKit.images.height[screenSize], position: 'relative' }}>
-                    {courseKit.images.full.src
-                      ? <img src={courseKit.images.full.src} style={{ width: '100%' }} alt="kit" />
-                      : <></>
-                    }
-                    <div className="d-flex justify-content-center" style={{ position: 'absolute', left: 0, right: 0, top: courseKit.images.buttonOffset[screenSize], width: '100%' }}>
-                      <button onClick={handleFullClick} className={`btn btn-primary ${styles.rounded}`} style={{ textTransform: 'uppercase', width: 130, pointerEvents: payment.plan === 'full' ? 'none' : 'auto' }}>
-                        {payment.plan === 'full' ? <><FontAwesomeIcon icon={faCheckCircle} />&nbsp;Selected</> : 'Select Plan'}
-                      </button>
-                    </div>
-                  </div>
-                )
-                : schoolKit?.images
-                  ? (
-                    <div style={{ height: schoolKit.images.height[screenSize], position: 'relative' }}>
-                      {schoolKit.images.full.src
-                        ? <img src={schoolKit.images.full.src} style={{ width: '100%' }} alt="kit" />
+                  <>
+                    <div style={{ height: courseKit.images.height[screenSize], position: 'relative' }}>
+                      {courseKit.images.full.src
+                        ? <img src={courseKit.images.full.src} style={{ width: '100%' }} alt="kit" />
                         : <></>
                       }
-                      <div className="d-flex justify-content-center" style={{ position: 'absolute', left: 0, right: 0, top: schoolKit.images.buttonOffset[screenSize], width: '100%' }}>
-                        <button onClick={handleFullClick} className={`btn btn-primary ${styles.rounded}`} style={{ textTransform: 'uppercase', width: 130, pointerEvents: payment.plan === 'full' ? 'none' : 'auto' }}>
+                      {!courseKit.images.buttonBelow && (
+                        <div className="d-flex justify-content-center" style={{ position: 'absolute', left: 0, right: 0, top: courseKit.images.buttonOffset[screenSize], width: '100%' }}>
+                          <button onClick={handleFullClick} className={`btn ${courseKit.images.full.buttonVariant ? `btn-${courseKit.images.full.buttonVariant}` : 'btn-primary'} ${styles.rounded}`} style={{ textTransform: 'uppercase', width: 130, pointerEvents: payment.plan === 'full' ? 'none' : 'auto' }}>
+                            {payment.plan === 'full' ? <><FontAwesomeIcon icon={faCheckCircle} />&nbsp;Selected</> : 'Select Plan'}
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                    {!!courseKit.images.buttonBelow && (
+                      <div className="d-flex justify-content-center" style={{ width: '100%', marginTop: '0.5rem' }}>
+                        <button onClick={handleFullClick} className={`btn ${courseKit.images.full.buttonVariant ? `btn-${courseKit.images.full.buttonVariant}` : 'btn-primary'} ${styles.rounded}`} style={{ textTransform: 'uppercase', width: 130, pointerEvents: payment.plan === 'full' ? 'none' : 'auto' }}>
                           {payment.plan === 'full' ? <><FontAwesomeIcon icon={faCheckCircle} />&nbsp;Selected</> : 'Select Plan'}
                         </button>
                       </div>
-                    </div>
+                    )}
+                  </>
+                )
+                : schoolKit?.images
+                  ? (
+                    <>
+                      <div style={{ height: schoolKit.images.height[screenSize], position: 'relative' }}>
+                        {schoolKit.images.full.src
+                          ? <img src={schoolKit.images.full.src} style={{ width: '100%' }} alt="kit" />
+                          : <></>
+                        }
+                        {!schoolKit.images.buttonBelow && (
+                          <div className="d-flex justify-content-center" style={{ position: 'absolute', left: 0, right: 0, top: schoolKit.images.buttonOffset[screenSize], width: '100%' }}>
+                            <button onClick={handleFullClick} className={`btn ${schoolKit.images.full.buttonVariant ? `btn-${schoolKit.images.full.buttonVariant}` : 'btn-primary'} ${styles.rounded}`} style={{ textTransform: 'uppercase', width: 130, pointerEvents: payment.plan === 'full' ? 'none' : 'auto' }}>
+                              {payment.plan === 'full' ? <><FontAwesomeIcon icon={faCheckCircle} />&nbsp;Selected</> : 'Select Plan'}
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                      {!!schoolKit.images.buttonBelow && (
+                        <div className="d-flex justify-content-center" style={{ width: '100%', marginTop: '0.5rem' }}>
+                          <button onClick={handleFullClick} className={`btn ${schoolKit.images.full.buttonVariant ? `btn-${schoolKit.images.full.buttonVariant}` : 'btn-primary'} ${styles.rounded}`} style={{ textTransform: 'uppercase', width: 130, pointerEvents: payment.plan === 'full' ? 'none' : 'auto' }}>
+                            {payment.plan === 'full' ? <><FontAwesomeIcon icon={faCheckCircle} />&nbsp;Selected</> : 'Select Plan'}
+                          </button>
+                        </div>
+                      )}
+                    </>
                   )
                   : (
                     <div className="d-flex justify-content-center">
@@ -148,31 +170,53 @@ export const VisualPaymentPlansDesktop: FC<Props> = ({ school }) => {
               </div>
               {courseKit !== false && courseKit.images
                 ? (
-                  <div style={{ height: courseKit.images.height[screenSize], position: 'relative' }}>
-                    {courseKit.images.part.src
-                      ? <img src={courseKit.images.part.src} style={{ width: '100%' }} alt="kit" />
-                      : <></>
-                    }
-                    <div className="d-flex justify-content-center" style={{ position: 'absolute', left: 0, right: 0, top: courseKit.images.buttonOffset[screenSize], width: '100%' }}>
-                      <button onClick={handlePartClick} className={`btn ${courseKit.images.part.buttonVariant ? `btn-${courseKit.images.part.buttonVariant}` : 'btn-dark-grey'} ${styles.rounded}`} style={{ textTransform: 'uppercase', width: 130, pointerEvents: payment.plan === 'full' ? 'none' : 'auto' }}>
-                        {payment.plan !== 'full' ? <><FontAwesomeIcon icon={faCheckCircle} />&nbsp;Selected</> : 'Select Plan'}
-                      </button>
-                    </div>
-                  </div>
-                )
-                : schoolKit?.images
-                  ? (
-                    <div style={{ height: schoolKit.images.height[screenSize], position: 'relative' }}>
-                      {schoolKit.images.part.src
-                        ? <img src={schoolKit.images.part.src} style={{ width: '100%' }} alt="kit" />
+                  <>
+                    <div style={{ height: courseKit.images.height[screenSize], position: 'relative' }}>
+                      {courseKit.images.part.src
+                        ? <img src={courseKit.images.part.src} style={{ width: '100%' }} alt="kit" />
                         : <></>
                       }
-                      <div className="d-flex justify-content-center" style={{ position: 'absolute', left: 0, right: 0, top: schoolKit.images.buttonOffset[screenSize], width: '100%' }}>
-                        <button onClick={handlePartClick} className={`btn ${schoolKit.images.part.buttonVariant ? `btn-${schoolKit.images.part.buttonVariant}` : 'btn-dark-grey'} ${styles.rounded}`} style={{ textTransform: 'uppercase', width: 130, pointerEvents: payment.plan === 'full' ? 'none' : 'auto' }}>
+                      {!courseKit.images.buttonBelow && (
+                        <div className="d-flex justify-content-center" style={{ position: 'absolute', left: 0, right: 0, top: courseKit.images.buttonOffset[screenSize], width: '100%' }}>
+                          <button onClick={handlePartClick} className={`btn ${courseKit.images.part.buttonVariant ? `btn-${courseKit.images.part.buttonVariant}` : 'btn-dark-grey'} ${styles.rounded}`} style={{ textTransform: 'uppercase', width: 130, pointerEvents: payment.plan === 'full' ? 'none' : 'auto' }}>
+                            {payment.plan !== 'full' ? <><FontAwesomeIcon icon={faCheckCircle} />&nbsp;Selected</> : 'Select Plan'}
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                    {!!courseKit.images.buttonBelow && (
+                      <div className="d-flex justify-content-center" style={{ width: '100%', marginTop: '0.5rem' }}>
+                        <button onClick={handlePartClick} className={`btn ${courseKit.images.part.buttonVariant ? `btn-${courseKit.images.part.buttonVariant}` : 'btn-dark-grey'} ${styles.rounded}`} style={{ textTransform: 'uppercase', width: 130, pointerEvents: payment.plan === 'full' ? 'none' : 'auto' }}>
                           {payment.plan !== 'full' ? <><FontAwesomeIcon icon={faCheckCircle} />&nbsp;Selected</> : 'Select Plan'}
                         </button>
                       </div>
-                    </div>
+                    )}
+                  </>
+                )
+                : schoolKit?.images
+                  ? (
+                    <>
+                      <div style={{ height: schoolKit.images.height[screenSize], position: 'relative' }}>
+                        {schoolKit.images.part.src
+                          ? <img src={schoolKit.images.part.src} style={{ width: '100%' }} alt="kit" />
+                          : <></>
+                        }
+                        {!schoolKit.images.buttonBelow && (
+                          <div className="d-flex justify-content-center" style={{ position: 'absolute', left: 0, right: 0, top: schoolKit.images.buttonOffset[screenSize], width: '100%' }}>
+                            <button onClick={handlePartClick} className={`btn ${schoolKit.images.part.buttonVariant ? `btn-${schoolKit.images.part.buttonVariant}` : 'btn-dark-grey'} ${styles.rounded}`} style={{ textTransform: 'uppercase', width: 130, pointerEvents: payment.plan === 'full' ? 'none' : 'auto' }}>
+                              {payment.plan !== 'full' ? <><FontAwesomeIcon icon={faCheckCircle} />&nbsp;Selected</> : 'Select Plan'}
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                      {!!schoolKit.images.buttonBelow && (
+                        <div className="d-flex justify-content-center" style={{ width: '100%', marginTop: '0.5rem' }}>
+                          <button onClick={handlePartClick} className={`btn ${schoolKit.images.part.buttonVariant ? `btn-${schoolKit.images.part.buttonVariant}` : 'btn-dark-grey'} ${styles.rounded}`} style={{ textTransform: 'uppercase', width: 130, pointerEvents: payment.plan === 'full' ? 'none' : 'auto' }}>
+                            {payment.plan !== 'full' ? <><FontAwesomeIcon icon={faCheckCircle} />&nbsp;Selected</> : 'Select Plan'}
+                          </button>
+                        </div>
+                      )}
+                    </>
                   )
                   : (
                     <div className="d-flex justify-content-center">
