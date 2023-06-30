@@ -1,4 +1,15 @@
+import { detect } from 'detect-browser';
 import React, { CSSProperties, memo, ReactElement, useEffect, useRef, useState } from 'react';
+
+const browser = detect();
+
+// handle the case where we don't detect the browser
+if (browser) {
+  console.log(browser.name);
+  console.log(browser.version);
+  console.log(browser.os);
+}
+
 import { CountDownTimer } from './CountDownTimer';
 
 type Props = {
@@ -21,7 +32,12 @@ export const CountDownTimerWrapper = memo(({ date, showDate, endDate, message, b
     const element = wrapperRef.current;
     if (element) {
       const scrollListener = (): void => {
-        setScrolledPast(element.offsetTop <= window.scrollY + 1);
+        const show = element.offsetTop <= window.scrollY + 1;
+        if (browser && browser.os === 'iOS' && browser.name === 'safari') {
+          setScrolledPast(show); // set scrolledPast for eventual change
+        } else {
+          setFixed(show); // set immediately
+        }
       };
       scrollListener();
       window.addEventListener('scroll', scrollListener);
