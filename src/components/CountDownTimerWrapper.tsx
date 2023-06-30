@@ -33,7 +33,7 @@ export const CountDownTimerWrapper = memo(({ date, showDate, endDate, message, b
   useEffect(() => {
     const id = setTimeout(() => {
       setFixed(scrolledPast);
-    }, 100);
+    }, 200);
     return () => clearTimeout(id);
   }, [ scrolledPast ]);
 
