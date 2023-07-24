@@ -85,7 +85,7 @@ export const schoolKits: SchoolKits = {
       'Unlimited student support access',
       'VIP deals on continued learning',
       'BONUS business start-up training',
-      'Professional event-planning certifiction',
+      'Professional event-planning certification',
     ],
   },
   'QC Pet Studies': {
@@ -108,7 +108,7 @@ export const schoolKits: SchoolKits = {
       'VIP deals on continued learning',
       'BONUS first-aid training',
       'BONUS business start-up training',
-      'Professional pet-care certifiction',
+      'Professional pet-care certification',
     ],
   },
   'QC Wellness Studies': {
