@@ -85,7 +85,7 @@ export const MakeupPromo20230807 = (): ReactElement => {
         buttonInverse={true}
         className="text-white"
         style={{ backgroundColor: 'black' }}
-        message={<span style={{ textTransform: 'uppercase' }}><strong>Last chance!</strong> Get the Pro Makeup Workshop FREE!</span>}
+        message={<span style={{ textTransform: 'uppercase' }}><strong>LAST CHANCE!</strong> This exclusive offer ends soon!</span>}
       />
     </>
   );
