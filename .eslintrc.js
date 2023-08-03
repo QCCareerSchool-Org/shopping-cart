@@ -188,19 +188,19 @@ module.exports = {
     '@typescript-eslint/space-infix-ops': 'error',
 
     // react rules
-    'react/jsx-closing-bracket-location': [ 'error', { location: 'line-aligned' } ],
-    'react/jsx-curly-spacing': 'error',
-    'react/jsx-equals-spacing': 'error',
-    'react/jsx-first-prop-new-line': [ 'error', 'multiline' ],
-    'react/jsx-fragments': 'error',
-    'react/jsx-handler-names': 'error',
-    'react/jsx-indent': [ 'error', 2, { checkAttributes: true, indentLogicalExpressions: true } ],
-    'react/jsx-indent-props': [ 'error', 2 ],
-    'react/jsx-pascal-case': [ 'error', { allowAllCaps: true, allowNamespace: true } ], // old version of eslint-plugin-react bundled with CRA?
-    'react/jsx-props-no-multi-spaces': 'error',
-    'react/prop-types': 'off',
-    'react/jsx-tag-spacing': [ 'error', { beforeClosing: 'never' } ],
-    'react/no-unescaped-entities': [ 'error', { forbid: [ '>', '"', '\'', '}', '“', '”', '‘', '’' ] } ],
+    // 'react/jsx-closing-bracket-location': [ 'error', { location: 'line-aligned' } ],
+    // 'react/jsx-curly-spacing': 'error',
+    // 'react/jsx-equals-spacing': 'error',
+    // 'react/jsx-first-prop-new-line': [ 'error', 'multiline' ],
+    // 'react/jsx-fragments': 'error',
+    // 'react/jsx-handler-names': 'error',
+    // 'react/jsx-indent': [ 'error', 2, { checkAttributes: true, indentLogicalExpressions: true } ],
+    // 'react/jsx-indent-props': [ 'error', 2 ],
+    // 'react/jsx-pascal-case': [ 'error', { allowAllCaps: true, allowNamespace: true } ], // old version of eslint-plugin-react bundled with CRA?
+    // 'react/jsx-props-no-multi-spaces': 'error',
+    // 'react/prop-types': 'off',
+    // 'react/jsx-tag-spacing': [ 'error', { beforeClosing: 'never' } ],
+    // 'react/no-unescaped-entities': [ 'error', { forbid: [ '>', '"', '\'', '}', '“', '”', '‘', '’' ] } ],
 
     // import rules
     'import/order': [ 'error', { alphabetize: { order: 'asc', caseInsensitive: true } } ],
