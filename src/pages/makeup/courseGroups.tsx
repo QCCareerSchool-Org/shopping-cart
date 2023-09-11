@@ -45,7 +45,7 @@ export const courseGroups: CourseGroup[] = [
         name: 'Pro Makeup Workshop',
         // badge: <img src={specialOffer} style={{ height: 32, marginTop: -4, marginLeft: 6 }} alt="Sepcial Offer" />,
       },
-      { code: 'GB', name: 'Global Beauty' },
+      // { code: 'GB', name: 'Global Beauty' },
       { code: 'PW', name: 'Portfolio Development Workshop' },
     ],
   },
