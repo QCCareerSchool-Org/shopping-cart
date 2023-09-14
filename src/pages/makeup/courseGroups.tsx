@@ -11,7 +11,7 @@ export const courseGroups: CourseGroup[] = [
       {
         code: 'MZ',
         name: 'Master Makeup Artistry',
-        badge: <img src={mostPopular} style={{ height: 32, marginTop: -4, marginLeft: 6 }} alt="Most Popular" />,
+        badge: <img src={mostPopular} style={{ height: 28, marginTop: -4, marginBottom: -5, marginLeft: 6 }} alt="Most Popular" />,
       },
       {
         code: 'SK',
