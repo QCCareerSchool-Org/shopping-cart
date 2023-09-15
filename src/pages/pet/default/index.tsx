@@ -4,15 +4,15 @@ import { useDateContext } from '../../../hooks/useDateContext';
 import { dateOverride } from '../../../lib/dateOverride';
 
 const PetFallback = React.lazy(async () => import('./fallback').then(m => ({ default: m.PetFallback })));
-const Pet20230824 = React.lazy(async () => import('./2023/08/24').then(m => ({ default: m.Pet20230824 })));
+const Pet20230918 = React.lazy(async () => import('./2023/09/18').then(m => ({ default: m.Pet20230918 })));
 
 export const PetDefault: React.FC = () => {
   const serverDate = useDateContext();
   const date = dateOverride() ?? serverDate;
   const time = date.getTime();
 
-  if (time >= Date.UTC(2023, 7, 24, 13, 30) && time < Date.UTC(2023, 8, 9, 4)) { // 2023-08-24T09:30 (13:30 UTC) to 2023-09-09T00:00 (04:00 UTC)
-    return <Suspense fallback={null}><Pet20230824 /></Suspense>;
+  if (time >= Date.UTC(2023, 8, 18, 13, 30) && time < Date.UTC(2023, 8, 30, 4)) { // 2023-09-18T09:30 (13:30 UTC) to 2023-09-30T00:00 (04:00 UTC)
+    return <Suspense fallback={null}><Pet20230918 /></Suspense>;
   }
 
   return <Suspense fallback={null}><PetFallback /></Suspense>;
