@@ -51,7 +51,7 @@ export const MakeupPromo20230918 = (): ReactElement => {
         <Modal isOpen={popup} toggle={togglePopup}>
           <ModalHeader toggle={togglePopup}>Get a Free Makeup Course</ModalHeader>
           <ModalBody>
-            <h5>Free Skincare Course</h5>
+            <h5>Free Course</h5>
             <p>For a limited time, enroll in Master Makeup Artistry and get QC's Pro Makeup Workshop FREE!</p>
             <h5>Free Deluxe Collection</h5>
             <p>Master Makeup Artistry students receive the Deluxe Collection!</p>
