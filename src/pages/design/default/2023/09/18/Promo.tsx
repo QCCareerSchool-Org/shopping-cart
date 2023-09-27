@@ -64,7 +64,7 @@ export const DesignPromo20230918: FC = () => {
         buttonInverse={true}
         className="text-white"
         style={{ backgroundColor: 'black' }}
-        message={<span style={{ textTransform: 'uppercase' }}><strong>LAST CHANCE</strong> to claim your free course! Plus, get {discount} off your tuition!</span>}
+        message={<span style={{ textTransform: 'uppercase' }}><strong>LAST CHANCE</strong> This exclusive offer ends soon!</span>}
       />
     </>
   );
