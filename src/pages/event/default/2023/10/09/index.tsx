@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 
 import { Form } from '../../../../../../components/Form';
 import { courseGroups } from '../../../../courseGroups';
-import { FreeSpecialtyDynamicMessage } from '../../../../FreeSpecialtyDynamicMessage';
 import { Guarantee } from '../../../../Guarantee';
+import { TwoFreeSpecialtyDynamicMessage } from '../../../../TwoFreeSpecialtyDynamicMessage';
 import { EventPromo20231009 } from './Promo';
 
 export const Event20231009: FC = () => (
@@ -17,7 +17,7 @@ export const Event20231009: FC = () => (
       agreementLinkGB="https://www.qceventplanning.com/enrollment-agreement-gb.html"
       successLink="https://www.qceventplanning.com/welcome-to-the-school/"
       promoCodeDefault="2SPECIALTY"
-      dynamicCourseMessages={[ () => <FreeSpecialtyDynamicMessage /> ]}
+      dynamicCourseMessages={[ () => <TwoFreeSpecialtyDynamicMessage /> ]}
     />
   </>
 );
