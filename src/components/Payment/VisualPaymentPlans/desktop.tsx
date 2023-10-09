@@ -12,13 +12,14 @@ import { CanadaTaxCredits } from '../CanadaTaxCredits';
 import { PlanResult } from '../PlanResult';
 import { Checkmark } from './Checkmark';
 import styles from './index.module.css';
-import { courseKits, schoolKits } from './kits';
+import { getCourseKits, getSchoolKits } from './kits';
 
 type Props = {
   school: School;
+  date: Date;
 };
 
-export const VisualPaymentPlansDesktop: FC<Props> = ({ school }) => {
+export const VisualPaymentPlansDesktop: FC<Props> = ({ school, date }) => {
   const screenWidth = useScreenWidthContext();
   const { price, payment, courses } = useStateContext();
   const dispatch = useDispatchContext();
@@ -38,10 +39,10 @@ export const VisualPaymentPlansDesktop: FC<Props> = ({ school }) => {
     dispatch({ type: 'SET_PAYMENT_PLAN', payload: 'part' });
   };
 
-  const schoolKit = schoolKits[school];
+  const schoolKit = getSchoolKits(date)[school];
 
   const courseKit = useMemo(() => {
-    for (const c of courseKits) {
+    for (const c of getCourseKits(date)) {
       if (Array.isArray(c.courseCode) && c.courseCode.some(f => courses.selected.includes(f))) {
         return c;
       }

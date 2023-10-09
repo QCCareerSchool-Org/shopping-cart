@@ -36,7 +36,7 @@ export type SchoolKits = Record<School, {
   bullets: Array<string | JSX.Element>;
 } | undefined>;
 
-export const schoolKits: SchoolKits = {
+export const getSchoolKits = (date: Date): SchoolKits => ({
   'QC Makeup Academy': {
     bullets: [
       'Personalized support',
@@ -132,9 +132,9 @@ export const schoolKits: SchoolKits = {
   'QC Career School': undefined,
   'QC Travel School': undefined,
   'QC Style Academy': undefined,
-};
+});
 
-export const courseKits: CourseKit[] = [
+export const getCourseKits = (date: Date): CourseKit[] => [
   {
     courseCode: 'MZ',
     images: {
@@ -154,18 +154,22 @@ export const courseKits: CourseKit[] = [
       buttonOffset: { xs: undefined, sm: undefined, md: 62, lg: 49, xl: 68 },
       buttonBelow: true,
     },
-    fullBullets: [ <strong key={0}>Bonus DELUXE Kit</strong>, <strong key={1}>Bonus 17-piece brush set</strong> ],
-    partBullets: [ <strong key={0}>Bonus DELUXE Kit</strong>, <strong key={1}>Bonus 17-piece brush set</strong> ],
+    fullBullets: date >= new Date(Date.UTC(2023, 9, 9, 13, 30)) && date < new Date(Date.UTC(2023, 9, 16, 4))
+      ? [ <strong key={0}>Bonus Luminous Kit</strong> ]
+      : [ <strong key={0}>Bonus DELUXE Kit</strong>, <strong key={1}>Bonus 17-piece brush set</strong> ],
+    partBullets: date >= new Date(Date.UTC(2023, 9, 9, 13, 30)) && date < new Date(Date.UTC(2023, 9, 16, 4))
+      ? [ <strong key={0}>Bonus Luminous Kit</strong> ]
+      : [ <strong key={0}>Bonus DELUXE Kit</strong>, <strong key={1}>Bonus 17-piece brush set</strong> ],
     details: (
       <DetailsPopup
-        title="Deluxe Collection" footerText={(
+        title="Luminous Collection" footerText={(
           <div className="text-start">
             <p className="small">Your items will be automatically sent to you after you have submitted Unit A of the course in the Online Student Center. Items in the kit are subject to change.</p>
           </div>
         )}
       >
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <p>Get the entire <strong>DELUXE Kit with 17-piece brush set</strong> when you enroll in <strong>Master Makeup Artistry</strong>.</p>
+          <p>Get the entire <strong>Luminous Collection</strong> when you enroll in <strong>Master Makeup Artistry</strong>.</p>
           <div>
             <img src={require('../../../images/deluxe-kit-numbers-no-description.jpg')} width="650" height="1056" className="img-fluid" />
           </div>
