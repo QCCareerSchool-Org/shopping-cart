@@ -7,12 +7,13 @@ import { VisualPaymentPlansMobile } from './mobile';
 
 type Props = {
   school: School;
+  date: Date;
 };
 
-export const VisualPaymentPlans: FC<Props> = ({ school }) => {
+export const VisualPaymentPlans: FC<Props> = ({ school, date }) => {
   const screenWidth = useScreenWidthContext();
 
   const md = screenWidth >= 768;
 
-  return md ? <VisualPaymentPlansDesktop school={school} /> : <VisualPaymentPlansMobile school={school} />;
+  return md ? <VisualPaymentPlansDesktop school={school} date={date} /> : <VisualPaymentPlansMobile school={school} date={date} />;
 };

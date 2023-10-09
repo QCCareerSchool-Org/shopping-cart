@@ -38,7 +38,7 @@ export const Payment: React.FC<Props> = ({ school, shippingOption, shippingOptio
         {visualPaymentPlans
           ? (
             <>
-              <VisualPaymentPlans school={school} />
+              <VisualPaymentPlans school={school} date={date} />
             </>
           )
           : (

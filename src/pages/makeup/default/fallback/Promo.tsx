@@ -37,9 +37,9 @@ export const MakeupFallbackPromo = (): ReactElement => {
         </button>
       </div>
       <Modal isOpen={popup} toggle={togglePopup}>
-        <ModalHeader toggle={togglePopup}>DELUXE Collection</ModalHeader>
+        <ModalHeader toggle={togglePopup}>Luminous Collection</ModalHeader>
         <ModalBody>
-          <p>Get the entire <strong>DELUXE Kit with 17-piece brush set</strong> when you enroll in <strong>Master Makeup Artistry</strong>.</p>
+          <p>Get the entire <strong>Luminous Collection</strong> when you enroll in <strong>Master Makeup Artistry</strong>.</p>
           <p>Graduate as a Master International Makeup Professional™ (MIMP™) in just a few short months and build your beauty empire!</p>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <div>
@@ -61,7 +61,6 @@ export const MakeupFallbackPromo = (): ReactElement => {
         </ModalBody>
         <ModalFooter>
           <p className="small">Your items will be automatically sent to you after you have submitted Unit A of the course in the Online Student Center. Items in the kit are subject to change.</p>
-          <p className="small mb-0">The DELUXE Collection is not required for you to complete your assignments and will not determine your success in the course.</p>
         </ModalFooter>
       </Modal>
     </section>
