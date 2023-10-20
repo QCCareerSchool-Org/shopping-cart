@@ -55,6 +55,8 @@ const getCertification = (courseCode?: string): string | undefined => {
 
 const decimalDigits = 2;
 
+const bannerCertifications = [ 'MZ', 'AB', 'HS', 'MW', 'SF', 'SK' ];
+
 export const CourseCard: React.FC<Props> = ({ courseCode }) => {
   const { address: { countryCode, provinceCode } } = useStateContext();
   const screenWidth = useScreenWidthContext();
@@ -86,13 +88,28 @@ export const CourseCard: React.FC<Props> = ({ courseCode }) => {
   return (
     <Card>
       <CardBody>
-        <div className="d-flex align-items-center mb-3">
-          <img className="img-fluid mr-3" src={require(`./certifications/${courseCode?.toLocaleLowerCase()}.svg`)} style={{ maxHeight: 110 }} alt="certification" />
-          <div>
-            <h4 className="m-0">{courseCard.name}</h4>
-            {certification && lgOrGreater && <span>{certification}</span>}
-          </div>
-        </div>
+        {courseCode && bannerCertifications.includes(courseCode)
+          ? (
+            <>
+              <div style={{ margin: '-1.25rem -1.25rem 1.25rem -1.25rem' }}>
+                <img style={{ width: '100%', height: 'auto', borderTopLeftRadius: '0.25rem', borderTopRightRadius: '0.25rem' }} src={require(`./bannerCertifications/${courseCode?.toLocaleLowerCase()}.jpg`)} alt="certification" />
+                {/* <div style={{ width: '100%', position: 'absolute', top: 0, textAlign: 'right', padding: '1rem 1rem 0 0' }}>
+                <h2 style={{ textAlign: 'right', color: 'white', textShadow: '1px 1px 1px rgba(0,0,0,0.25)' }}>{courseCard.name}</h2>
+              </div> */}
+              </div>
+              <h2 className="text-left">{courseCard.name}</h2>
+            </>
+          )
+          : (
+            <div className="d-flex align-items-center mb-3">
+              <img className="img-fluid mr-3" src={require(`./certifications/${courseCode?.toLocaleLowerCase()}.svg`)} style={{ maxHeight: 110 }} alt="certification" />
+              <div>
+                <h4 className="m-0">{courseCard.name}</h4>
+                {certification && lgOrGreater && <span>{certification}</span>}
+              </div>
+            </div>
+          )
+        }
         <div dangerouslySetInnerHTML={{ __html: courseCard.description }} />
         {hasImage(courseCode) && <img className="img-fluid" src={require(`./kits/${courseCode?.toLocaleLowerCase()}.jpg`)} alt="kit" />}
         <hr />
