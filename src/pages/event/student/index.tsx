@@ -13,7 +13,7 @@ const Student: React.FC = () => {
 
   return (
     <>
-      <Promo />
+      <Promo date={date} />
       <Form
         courseGroups={courseGroups}
         school="QC Event School"
