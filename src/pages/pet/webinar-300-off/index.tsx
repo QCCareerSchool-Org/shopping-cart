@@ -1,6 +1,3 @@
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons/faCheckCircle';
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { ReactElement } from 'react';
 
 import { Form } from '../../../components/Form';
@@ -26,20 +23,5 @@ const Webinar300Off = (): ReactElement => (
     />
   </>
 );
-
-interface DynamicMessageProps {
-  courses: string[];
-  currencyCode: string;
-}
-
-const DynamicMessage = ({ courses, currencyCode }: DynamicMessageProps): ReactElement | null => {
-  const discount = currencyCode === 'GBP' ? '£300' : '$300';
-  if (courses.length === 0) {
-    return null;
-  } else if (!courses.includes('DT')) {
-    return <p className="mt-4 alert alert-warning"><FontAwesomeIcon icon={faInfoCircle} /> Select the <strong>Dog Training</strong> course to get {discount} off your tuition</p>;
-  }
-  return <p className="mt-4 alert alert-success"><FontAwesomeIcon icon={faCheckCircle} /> Discount applied!</p>;
-};
 
 export default Webinar300Off;
