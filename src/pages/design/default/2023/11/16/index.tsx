@@ -1,14 +1,14 @@
-import React, { memo, ReactElement } from 'react';
+import React, { FC } from 'react';
 
-import { Form } from '../../../components/Form';
-import { BogoDynamicMessage } from '../BogoDynamicMessage';
-import { courseGroups } from '../courseGroups';
-import { Guarantee } from '../Guarantee';
-import { Bogo1Promo } from './Bogo1Promo';
+import { Form } from '../../../../../../components/Form';
+import { BogoDynamicMessage } from '../../../../BogoDynamicMessage';
+import { courseGroups } from '../../../../courseGroups';
+import { Guarantee } from '../../../../Guarantee';
+import { DesignPromo20231116 } from './Promo';
 
-const Bogo1 = memo((): ReactElement => (
+export const Design20231116: FC = () => (
   <>
-    <Bogo1Promo />
+    <DesignPromo20231116 />
     <Form
       courseGroups={courseGroups}
       school="QC Design School"
@@ -16,13 +16,9 @@ const Bogo1 = memo((): ReactElement => (
       agreementLink="https://www.qcdesignschool.com/enrollment-agreement.html"
       agreementLinkGB="https://www.qcdesignschool.com/enrollment-agreement-gb.html"
       successLink="https://www.qcdesignschool.com/welcome-to-the-school/"
+      promoCodeDefault="BOGO"
       dynamicCourseMessages={[ () => <BogoDynamicMessage /> ]}
       dynamicCourseDescriptions="SHOW"
-      promoCodeDefault="BOGO"
     />
   </>
-));
-
-Bogo1.displayName = 'Bogo1';
-
-export default Bogo1;
+);
