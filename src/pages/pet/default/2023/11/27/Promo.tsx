@@ -45,8 +45,9 @@ export const PetPromo20231127: FC = () => {
           </button>
         </div>
         <Modal size="md" isOpen={popup} toggle={togglePopup}>
-          <ModalHeader toggle={togglePopup}>Save on Your Tuition</ModalHeader>
+          <ModalHeader toggle={togglePopup}>Cyber Monday Special Offer</ModalHeader>
           <ModalBody>
+            <p className="lead">Save on Your Tuition</p>
             <p className="lead mb-0">For a limited time, enroll in any pet course and get {promoDiscount} off your tuition!</p>
           </ModalBody>
         </Modal>
@@ -58,7 +59,7 @@ export const PetPromo20231127: FC = () => {
         buttonInverse={true}
         className="text-black"
         style={{ backgroundColor: '#53b8cc' }}
-        message={<><span style={{ textTransform: 'uppercase' }}>Last chance!</span> This exclusive offer ends soon!</>}
+        message={<><span style={{ textTransform: 'uppercase' }}>Last chance!</span> This exclusive Cyber Monday offer ends soon!</>}
       />
     </>
   );
