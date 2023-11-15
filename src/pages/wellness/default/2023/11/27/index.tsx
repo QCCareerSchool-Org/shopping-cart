@@ -17,7 +17,7 @@ export const Wellness20231127: FC = () => (
       agreementLink="https://www.qcwellnessstudies.com/enrollment-agreement"
       agreementLinkGB="https://www.qcwellnessstudies.com/enrollment-agreement-gb"
       successLink="https://www.qcwellnessstudies.com/welcome-to-the-school/"
-      promoCodeDefault="100OFF"
+      promoCodeDefault="150OFF"
     />
   </>
 );
