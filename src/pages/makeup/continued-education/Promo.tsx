@@ -4,6 +4,7 @@ import { CountDownTimerWrapper } from '../../../components/CountDownTimerWrapper
 import { useScreenWidthContext } from '../../../hooks/useScreenWidthContext';
 
 const bfStartDate = new Date(Date.UTC(2023, 10, 16, 14, 30)); // November 16 at 09:30 (15:30 UTC)
+const bfTimerDate = new Date(Date.UTC(2023, 10, 22, 5)); // November 22 at 00:00 (05:00 UTC)
 const switchDate = new Date(Date.UTC(2023, 10, 27, 5)); // November 27 at 00:00 (05:00 UTC)
 const cmEndDate = new Date(Date.UTC(2023, 11, 1, 5)); // December 1 at 00:00 (05:00 UTC)
 
@@ -42,8 +43,8 @@ export const ContinuedEducationPromo: FC<Props> = ({ date }) => {
   const [ image, width, height, backgroundColor ] = getImage(date, desktop);
 
   const [ startDate, endDate, message ] = useMemo(() => {
-    if (date >= bfStartDate && date < switchDate) {
-      return [ bfStartDate, switchDate, 'This exclusive Black Friday offer ends soon!' ];
+    if (date >= bfTimerDate && date < switchDate) {
+      return [ bfTimerDate, switchDate, 'This exclusive Black Friday offer ends soon!' ];
     }
     if (date >= switchDate && date < cmEndDate) {
       return [ switchDate, cmEndDate, 'This exclusive Cyber Monday offer ends soon!' ];
