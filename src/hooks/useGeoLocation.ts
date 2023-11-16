@@ -10,7 +10,7 @@ export type GeoLocation = {
 };
 
 export const useGeoLocation = (): void => {
-  const { address } = useStateContext();
+  const { address, billingAddress } = useStateContext();
   const dispatch = useDispatchContext();
 
   // determine the visitor's geo location by ip address
@@ -21,6 +21,9 @@ export const useGeoLocation = (): void => {
     if (geoLocation !== undefined) {
       if (!address.locationModified) { // don't change the country if it's already been changed by the user
         dispatch({ type: 'SET_COUNTRY_CODE', payload: { countryCode: geoLocation.countryCode, provinceCode: geoLocation.provinceCode ?? undefined, manual: false } });
+      }
+      if (!billingAddress.locationModified) { // don't change the country if it's already been changed by the user
+        dispatch({ type: 'SET_BILLING_COUNTRY_CODE', payload: { countryCode: geoLocation.countryCode, provinceCode: geoLocation.provinceCode ?? undefined, manual: false } });
       }
     }
   }, [ dispatch, geoLocation, address.locationModified ]);
