@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { type FC } from 'react';
 
 import { DogGroomingKitTag } from '../../../components/DogGroomingKitTag';
 import { Form } from '../../../components/Form';
+import { useDateContext } from '../../../hooks/useDateContext';
+import { dateOverride } from '../../../lib/dateOverride';
 import { CourseGroup } from '../../../state/courses';
 import { FirstAidIncluded } from '../FirstAidIncluded';
 import { Guarantee } from '../Guarantee';
@@ -18,20 +20,25 @@ const courseGroups: CourseGroup[] = [
   },
 ];
 
-const Default: React.FC = () => (
-  <>
-    <Promo />
-    <Form
-      courseGroups={courseGroups}
-      school="QC Pet Studies"
-      guarantee={() => <Guarantee />}
-      coursesSubtitle={() => <div className="mb-4" style={{ marginTop: '-0.75rem' }}><FirstAidIncluded /></div>}
-      agreementLink="https://www.qcpetstudies.com/enrollment-agreement"
-      agreementLinkGB="https://www.qcpetstudies.com/enrollment-agreement-gb"
-      successLink="https://www.qcpetstudies.com/welcome-to-the-school"
-      student={true}
-    />
-  </>
-);
+const Student: FC = () => {
+  const serverDate = useDateContext();
+  const date = dateOverride() ?? serverDate;
 
-export default Default;
+  return (
+    <>
+      <Promo date={date} />
+      <Form
+        courseGroups={courseGroups}
+        school="QC Pet Studies"
+        guarantee={() => <Guarantee />}
+        coursesSubtitle={() => <div className="mb-4" style={{ marginTop: '-0.75rem' }}><FirstAidIncluded /></div>}
+        agreementLink="https://www.qcpetstudies.com/enrollment-agreement"
+        agreementLinkGB="https://www.qcpetstudies.com/enrollment-agreement-gb"
+        successLink="https://www.qcpetstudies.com/welcome-to-the-school"
+        student
+      />
+    </>
+  );
+};
+
+export default Student;
