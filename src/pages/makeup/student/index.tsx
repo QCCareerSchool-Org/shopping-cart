@@ -14,7 +14,7 @@ const Student: FC = () => {
   const serverDate = useDateContext();
   const date = dateOverride() ?? serverDate;
 
-  const promoCodedefault = useMemo(() => (date >= startDate && date < endDate ? 'SAVE60' : undefined), [ date ]);
+  const promoCodeDefault = useMemo(() => (date >= startDate && date < endDate ? 'SAVE60' : undefined), [ date ]);
 
   return (
     <>
@@ -28,7 +28,7 @@ const Student: FC = () => {
         agreementLinkGB="https://www.qcmakeupacademy.com/enrollment-agreement-gb.html"
         successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
         dynamicCourseDescriptions="SHOW"
-        promoCodeDefault={promoCodedefault}
+        promoCodeDefault={promoCodeDefault}
       />
     </>
   );
