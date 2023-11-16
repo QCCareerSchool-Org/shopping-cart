@@ -18,7 +18,7 @@ export const EventContinuedEducation: FC = () => {
 
   return (
     <>
-      <ContinuedEducationPromo />
+      <ContinuedEducationPromo date={date} />
       <Form
         courseGroups={courseGroups}
         school="QC Event School"
