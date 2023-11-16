@@ -18,10 +18,10 @@ export const MakeupFallback: FC = () => (
       agreementLink="https://www.qcmakeupacademy.com/enrollment-agreement.html"
       agreementLinkGB="https://www.qcmakeupacademy.com/enrollment-agreement-gb.html"
       successLink="https://www.qcmakeupacademy.com/welcome-to-the-school/"
-      dynamicCourseDescriptions="REPLACE"
+      dynamicCourseDescriptions="SHOW"
       dynamicCourseMessages={[ () => <BogoDynamicMessage /> ]}
-      visualPaymentPlans={true}
-      paymentOptionsReverse={true}
+      visualPaymentPlans
+      paymentOptionsReverse
     />
   </>
 );
