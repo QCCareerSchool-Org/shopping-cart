@@ -1,14 +1,12 @@
-import React, { FC, useMemo } from 'react';
-import { Modal, ModalBody, ModalHeader } from 'reactstrap';
+import React, { FC } from 'react';
 
 import { usePopup } from '../../../../hooks/usePopup';
 import { useScreenWidthContext } from '../../../../hooks/useScreenWidthContext';
-import { useStateContext } from '../../../../hooks/useStateContext';
+import { DesignFallbackModal } from './modal';
 
-const backgroundColor = '#615849';
+const backgroundColor = '#4f4c43';
 
 export const DesignFallbackPromo: FC = () => {
-  const { price } = useStateContext();
   const screenWidth = useScreenWidthContext();
   const [ popup, togglePopup ] = usePopup(false);
 
@@ -21,11 +19,11 @@ export const DesignFallbackPromo: FC = () => {
   if (desktop) {
     image = require('./desktop.jpg');
     width = 1257;
-    height = 542;
+    height = 608;
   } else {
     image = require('./mobile.jpg');
     width = 514;
-    height = 486;
+    height = 556;
   }
 
   return (
@@ -35,12 +33,7 @@ export const DesignFallbackPromo: FC = () => {
           <img src={image} width={width} height={height} className="img-fluid d-block mx-auto" alt="Special Offer" />
         </button>
       </div>
-      <Modal isOpen={popup} toggle={togglePopup}>
-        <ModalHeader toggle={togglePopup}>Printed Textbooks Included</ModalHeader>
-        <ModalBody>
-          <p className="mb-0">The following courses also include printed books: Interior Decorating, Home Staging, Landscape Design, Color Consultant, Floral Design, and Event Decor. Textbooks will automatically be sent to you when you enroll.</p>
-        </ModalBody>
-      </Modal>
+      <DesignFallbackModal isOpen={popup} onToggle={togglePopup} />
     </section>
   );
 };
