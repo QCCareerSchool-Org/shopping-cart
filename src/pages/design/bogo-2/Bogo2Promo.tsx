@@ -13,7 +13,7 @@ const potentialSavings = (currencyCode: string): string => {
       : '$1698';
 };
 
-const backgroundColor = '#f7e1e3';
+const backgroundColor = '#73725e';
 
 export const Bogo2Promo = memo((): ReactElement => {
   const { price } = useStateContext();
@@ -29,11 +29,11 @@ export const Bogo2Promo = memo((): ReactElement => {
   if (desktop) {
     image = require('./desktop.jpg');
     width = 1257;
-    height = 542;
+    height = 608;
   } else {
     image = require('./mobile.jpg');
     width = 514;
-    height = 486;
+    height = 556;
   }
 
   return (
@@ -52,7 +52,7 @@ export const Bogo2Promo = memo((): ReactElement => {
             <p className="mb-1">Get started for {price?.currency.code === 'GBP' ? '£40' : '$75'}, or save up to {price?.currency.code === 'GBP' ? '£350' : '$400'} when you pay your tuition in full.</p>
           </ModalBody>
           <ModalFooter>
-            <small>The following courses also include printed books: Interior Decorating, Home Staging, Landscape Design, Color Consultant, Floral Design, and Event Decor. Textbooks will automatically be sent to you when you enroll.</small>
+            <small>Enroll in any design course to receive free design software as well as our brand new Career Essentials Collection filled with business & social media templates!</small>
           </ModalFooter>
         </Modal>
       </section>
