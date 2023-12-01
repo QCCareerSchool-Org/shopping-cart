@@ -189,19 +189,19 @@ export const getCourseKits = (date: Date): CourseKit[] => [
       </DetailsPopup>
     ),
   },
-  {
-    courseCode: [ 'I2', 'ST', 'LD', 'CC' ], // exclude FD and ED, because we don't want it showing on the event carts
-    images: {
-      full: {
-        src: require('./images/design-books.png'),
-      },
-      part: {
-        src: require('./images/design-books.png'),
-      },
-      height: { xs: undefined, sm: undefined, md: 140, lg: 122, xl: 148 },
-      buttonOffset: { xs: undefined, sm: undefined, md: 51, lg: 45, xl: 55 },
-    },
-    fullBullets: [ <strong key={0}>Printed textbooks included</strong> ],
-    partBullets: [ <strong key={0}>Printed textbooks included</strong> ],
-  },
+  // {
+  //   courseCode: [ 'I2', 'ST', 'LD', 'CC' ], // exclude FD and ED, because we don't want it showing on the event carts
+  //   images: {
+  //     full: {
+  //       src: require('./images/design-books.png'),
+  //     },
+  //     part: {
+  //       src: require('./images/design-books.png'),
+  //     },
+  //     height: { xs: undefined, sm: undefined, md: 140, lg: 122, xl: 148 },
+  //     buttonOffset: { xs: undefined, sm: undefined, md: 51, lg: 45, xl: 55 },
+  //   },
+  //   fullBullets: [ <strong key={0}>Printed textbooks included</strong> ],
+  //   partBullets: [ <strong key={0}>Printed textbooks included</strong> ],
+  // },
 ];
